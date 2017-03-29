@@ -309,6 +309,134 @@
     font-size: 13px;
     padding-left: 23%;
 }
+.content-right .title-header{
+    float: left;
+    width: 100%;
+    padding: 13px 0px;
+}
+.content-right .title-header .title-root{
+    font-size: 22px;
+    float: left;
+    padding: 7px 10px 5px 0px;
+    margin: 0px;
+    font-family: serif;
+}
+.content-right .title-header .title-after{
+    font-size: 22px;
+    float: left;
+    color: #056839;
+    border-left: 4px solid;
+    padding: 7px 10px 5px 10px;
+    margin: 0px;
+    font-family: serif;
+}
+.content-right .title-header .span-date-update{
+    float: left;
+    margin-top: 17px;
+    font-size: 12px;
+    color: #6d6d6d;
+}
+.content-right .p-about-header{
+    border: 1px solid #bbbbbb;
+    background: url(../images/bg-caro.png);
+    float: left;
+    width: 100%;
+    padding: 8px 10px;
+    line-height: 24px;
+    color: #2d2d2d;
+    font-size: 13px;
+}
+.content-right .doi-tac{
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.content-right .doi-tac .cover-title-dau-tu{
+    border-bottom: 1px solid #6f6f6f;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.content-right .doi-tac .cover-title-dau-tu .title-item-dau-tu{
+    background: url(../images/bg-title-about.png) #6f6f6f no-repeat 100% 100%;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 25px 6px 10px;
+    float: left;
+    margin: 0px;
+}
+.content-right .doi-tac .branch-dau-tu{
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.content-right .doi-tac .branch-dau-tu img{
+    float: left;
+    height: 10vw;
+    margin-left: 6%;
+    min-height: 110px;
+}
+.content-right .nhan-su{
+    float: left;
+    width: 101%;
+    margin-bottom: 12px;
+}
+.content-right .nhan-su img{
+    width: 32.1%;
+    margin-right: 1%;
+}
+.content-right .about-up{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+.content-right .about-up .item-about{
+    float: left;
+    width: 48%;
+}
+.content-right .about-up .item-about .cover-title-item-about{
+    border-bottom: 1px solid #6f6f6f;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.content-right .about-up .item-about .title-item-about{
+    background: url(../images/bg-title-about.png) #6f6f6f no-repeat 100% 100%;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 25px 6px 10px;
+    float: left;
+    margin: 0px;
+}
+.content-right .about-up .item-right{
+    float: right;
+    margin-right: 0px;
+}
+.content-right .about-up .item-about p{
+    text-align: justify;
+    line-height: 24px;
+    font-size: 13px;
+    margin: 4px 0px;
+}
+.content-right .about-up .item-about ul{
+    list-style: none;
+    float: left;
+    padding: 0px;
+    margin-top: 10px;
+}
+.content-right .about-up .item-about ul li{
+    float: left;
+    width: 100%;
+    line-height: 33px;
+}
+.content-right .about-up .item-about ul li img{
+    width: 22px;
+    float: left;
+    margin-right: 4px;
+}
+.content-right .about-up .item-about ul li span{
+    font-size: 13px;
+}
 .footer{
     background: #056839;
     float: left;
