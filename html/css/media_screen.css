@@ -15,16 +15,12 @@
     }
     .header-mobile .menu-header-mobile{
         display: block;
-        position: fixed;
         width: 100%;
     }
     .header-mobile .logo-mobile{
         text-align: center;
         padding-top: 5px;
-        width: 100%;
-    }
-    .header-mobile .logo-mobile a{
-
+        width: 95%;
     }
     .header-mobile .logo-mobile a img.logo-hsg{
         width: 100px;
@@ -33,9 +29,6 @@
         float: left;
         margin-top: 23px;
         margin-left: 4px;
-    }
-    .header-mobile .menu-header-mobile .dropdown .icon-menu{
-
     }
     .header-mobile .menu-header-mobile .dropdown .icon-menu img{
         width: 40px;
@@ -50,18 +43,12 @@
         border-radius: 0px;
         min-width: 200px;
     }
-    .header-mobile .menu-header-mobile .dropdown .dropdown-menu .close-menu{
-
-    }
     .header-mobile .menu-header-mobile .dropdown .dropdown-menu #nav-mobile li ul{
         display: none;
     }
     .header-mobile .menu-header-mobile .dropdown .dropdown-menu #nav-mobile{
         padding: 0px;
         list-style: none;
-    }
-    .header-mobile .menu-header-mobile .dropdown .dropdown-menu #nav-mobile li.parent{
-
     }
     .header-mobile .menu-header-mobile .dropdown .dropdown-menu #nav-mobile li.parent a{
         background: url(../images/icon-arrow-right.png) #fffbce no-repeat 95% 50%;
@@ -224,15 +211,13 @@
     }
     .content-right .kien-thuc-tai-chinh-detail .hoi-dap .form-tuyen-dung .item-form .area-desc{
         width: 100%;
+        margin-bottom: 10px;
     }
     .content-right .kien-thuc-tai-chinh-detail .hoi-dap .form-tuyen-dung .item-form .inp-file{
         margin-top: 0px;
     }
     .content-right .kien-thuc-tai-chinh-detail .hoi-dap .form-tuyen-dung .item-form{
         margin: 0px;
-    }
-    .content-right .kien-thuc-tai-chinh-detail .hoi-dap .form-tuyen-dung .item-form .inp-select{
-        margin-top: 10px;
     }
 }
 

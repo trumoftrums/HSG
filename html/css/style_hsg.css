@@ -302,12 +302,11 @@
 .content-right .second-bottom .item-thong-diep .right .p-content-thong-diep{
     background: #f8f3db;
     float: left;
-    padding: 10px;
-    line-height: 24px;
+    padding: 10px 10px 10px 23%;
+    line-height: 22px;
     text-align: justify;
     margin-left: -20%;
     font-size: 13px;
-    padding-left: 23%;
 }
 .content-right .title-header{
     float: left;
@@ -481,6 +480,7 @@
     float: left;
     text-decoration: underline;
     font-size: 20px;
+    line-height: 28px;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul{
     list-style: none;
@@ -663,6 +663,9 @@
     float: left;
     width: 100%;
 }
+.content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul.ul-tuyendung li{
+    width: 100%;
+}
 .content-right .cong-bo-thong-tin .item-congbothongtin .thumb-congbothongtin{
     float: left;
     width: 33%;
@@ -734,7 +737,7 @@
     float: left;
 }
 .list-news-related-right .list-news-right .info-td li p{
-    line-height: 22px;
+    line-height: 20px;
 }
 .list-news-related-right .list-news-right .info-td li p span{
     color: #056839;
