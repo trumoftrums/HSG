@@ -1,6 +1,14 @@
 <?php
 
 return [
+    //add later
+    'invest' => 'Đầu tư vào HSG',
+    'menu_invest_child_1' => 'Danh mục đầu tư',
+    'menu_invest_child_2' => 'Đầu tư',
+    'menu_invest_child_3' => 'Lịch sử nạp rút',
+    'menu_invest_child_4' => 'Hoàn vốn đầu tư',
+    'menu_invest_child_5' => 'Danh mục đầu tư',
+    //end add later
     'home' => 'Home',
     'my_profile' => 'My Profile',
     'active_sessions' => 'Active Sessions',

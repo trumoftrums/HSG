@@ -14,6 +14,61 @@
                     <i class="fa fa-dashboard fa-fw"></i> @lang('app.dashboard')
                 </a>
             </li>
+            <li class="{{ Request::is('/') ? '' : ''  }}">
+                <a href="{{ route('dashboard') }}" class="{{ Request::is('/') ? 'active' : ''  }}">
+                    <i class="fa fa-dashboard fa-fw"></i> @lang('app.invest')
+                        <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                            @lang('app.menu_invest_child_1')
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                            @lang('app.menu_invest_child_2')
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                            @lang('app.menu_invest_child_3')
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                            @lang('app.menu_invest_child_4')
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                            @lang('app.menu_invest_child_5')
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="{{ Request::is('role*') || Request::is('permission*') ? 'active open' : ''  }}">
+                <a href="#">
+                    <i class="fa fa-user fa-fw"></i>
+                    @lang('app.roles_and_permissions')
+                        <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    @permission('roles.manage')
+                    <li>
+                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                            @lang('app.roles')
+                        </a>
+                    </li>
+                    @endpermission
+                    @permission('permissions.manage')
+                    <li>
+                        <a href="{{ route('permission.index') }}"
+                           class="{{ Request::is('permission*') ? 'active' : ''  }}">@lang('app.permissions')</a>
+                    </li>
+                    @endpermission
+                </ul>
+            </li>
             @permission('users.manage')
                 <li class="{{ Request::is('user*') ? 'active open' : ''  }}">
                     <a href="{{ route('user.list') }}" class="{{ Request::is('user*') ? 'active' : ''  }}">

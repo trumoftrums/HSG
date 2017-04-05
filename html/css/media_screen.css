@@ -186,6 +186,9 @@
     .content-right .giai-phap .giai-phap-left {
         width: 99%;
     }
+    .content-right .giai-phap .final-li{
+        margin-left: 25%;
+    }
     .content-right .giai-phap .giai-phap-right {
         float: left;
         width: 99%;
