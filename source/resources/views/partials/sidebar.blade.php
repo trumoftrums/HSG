@@ -14,19 +14,19 @@
                     <i class="fa fa-dashboard fa-fw"></i> @lang('app.dashboard')
                 </a>
             </li>
-            <li class="{{ Request::is('/') ? '' : ''  }}">
-                <a href="{{ route('dashboard') }}" class="{{ Request::is('/') ? 'active' : ''  }}">
+            <li class="{{ Request::is('invest*') ? 'active open' : ''  }}">
+                <a href="#">
                     <i class="fa fa-dashboard fa-fw"></i> @lang('app.invest')
                         <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">
                     <li>
-                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                        <a href="{{ route('invest.create') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
                             @lang('app.menu_invest_child_1')
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                        <a href="{{ route('invest.create') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
                             @lang('app.menu_invest_child_2')
                         </a>
                     </li>

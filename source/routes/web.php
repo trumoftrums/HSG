@@ -208,6 +208,18 @@ Route::group(['middleware' => 'auth'], function () {
     ]);
 
     /**
+     * Invest
+     */
+
+    Route::get('invest/create', [
+        'as' => 'invest.create',
+        'uses' => 'InvestController@create'
+    ]);
+
+
+
+
+    /**
      * Roles & Permissions
      */
 

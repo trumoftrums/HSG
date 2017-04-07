@@ -7,7 +7,12 @@ return [
     'menu_invest_child_2' => 'Đầu tư',
     'menu_invest_child_3' => 'Lịch sử nạp rút',
     'menu_invest_child_4' => 'Hoàn vốn đầu tư',
-    'menu_invest_child_5' => 'Danh mục đầu tư',
+    'menu_invest_child_5' => 'Hợp đồng',
+    'create_new_invest' => "Create New Invest",
+
+
+
+
     //end add later
     'home' => 'Home',
     'my_profile' => 'My Profile',
