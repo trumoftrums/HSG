@@ -483,10 +483,15 @@ input[type="checkbox"] .styled:checked + label::after {
 /* --------------------------------------------------
 :: Sidebar
 -------------------------------------------------- */
-
+#navbar{
+    background: #06743f;
+}
 .navbar-brand {
     width: 221px;
-    border-right: 1px solid #dfdfdf;
+    height: 55px;
+    /* border-right: 1px solid #dfdfdf; */
+    background: url(/assets/img/bg-logo.png) 100% 50%;
+    background-size: 221px;
 }
 
 body.sidebar-collapse .sidebar {
@@ -516,11 +521,12 @@ body.sidebar-collapse #page-wrapper {
 .sidebar .sidebar-avatar {
     padding: 15px;
     text-align: center;
+    background: #068046;
 }
 
 .sidebar .sidebar-avatar .name {
     margin-top: 10px;
-    color: #555555;
+    color: #fff;
     font-size: 16px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -582,13 +588,14 @@ body.sidebar-collapse #page-wrapper {
 }
 
 #sidebar-toggle i {
-    font-size: 16px;
-    color: #888;
+    font-size: 20px;
+    color: #fff;
 }
 
 .navbar-right {
     float: right!important;
     margin-right: -15px;
+    background: #06743f;
 }
 
 .navbar-brand img {
@@ -730,13 +737,21 @@ body.sidebar-collapse #page-wrapper {
 }
 
 .dropdown-toggle.avatar {
-    padding-top: 5px;
+    padding-top: 12px;
     padding-bottom: 3px;
+    color: #fff !important;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #06743f;
 }
 
 .dropdown-toggle.avatar img {
     width: 40px;
     margin-right: 4px;
+}
+.navbar-default {
+    /*background-color: #06743f;*/
+    border-color: #06743f;
 }
 
 /* --------------------------------------------------
@@ -1152,3 +1167,182 @@ a.panel-link:hover {
 .form-group .bootstrap-switch-small {
     margin-top: 5px;
 }
+
+/* --------------------------------------------------
+:: style by me
+-------------------------------------------------- */
+
+.cover-invest{
+
+}
+.cover-invest .cover-line{
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.cover-invest .no-mar-bottom{
+    margin-bottom: 3px;
+}
+.cover-invest .cover-line .p-line{
+    color: #06743f;
+    text-decoration: underline;
+}
+.cover-invest .cover-line .lb-line{
+    float: left;
+    width: 22%;
+    font-weight: normal;
+}
+.cover-invest .cover-line .lb-2{
+    float: left;
+    width: 100%;
+    font-weight: normal;
+    line-height: 23px;
+}
+.cover-invest .cover-line .lb-2 b{
+    color:#06743f;
+}
+.cover-invest .cover-line .inp-sub{
+    background: #de501e;
+    color: #fff;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.cover-invest .cover-line .ele-div{
+    width: 25%;
+    float: left;
+}
+.cover-invest .cover-line .sp-line{
+    float: left;
+    margin-right: 20px;
+}
+.cover-invest .cover-line .ele-div-2{
+    float: left;
+    width: 30%;
+}
+.cover-invest .cover-line .ele-div-2 .rad-lk{
+    margin-top: 5px;
+}
+.cover-invest .cover-line .ele-div-2 .sp-line{
+    float: left;
+    text-transform: uppercase;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+.cover-invest .cover-line .ele-div-2 .inp-text{
+    height: 30px;
+    background: #eeeeee;
+    border: none;
+}
+.cover-invest .cover-line .ele-div .select-inp{
+    width: 80%;
+    height: 30px;
+    background: #eeeeee;
+    border: none;
+}
+.cover-invest .cover-line .ele-div .sp-up{
+    width: 100%;
+    float: left;
+    text-transform: uppercase;
+}
+.cover-invest .cover-line .ele-div .inp-text{
+    width: 80%;
+    height: 30px;
+    background: #eeeeee;
+    border: none;
+}
+.cover-invest .h4-title{
+    float: left;
+    background: #0a6b3d;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    color: #fff;
+}
+.cover-invest .cover-line .cover-line-left{
+
+}
+.cover-invest .cover-line .cover-line-common{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+.cover-invest .cover-line .cover-line-common .h5-title{
+    color: #0a6b3d;
+    text-decoration: underline;
+}
+.cover-invest .cover-line .cover-line-left .sp-add{
+    width: 100%;
+    float: left;
+    font-size: 13px;
+}
+.cover-invest .cover-line .cover-line-left .cover-p{
+    background: #f0f0f0;
+    float: left;
+    width: 95%;
+    margin-top: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.cover-invest .cover-line .cover-line-left .cover-p p{
+    font-size: 14px;
+    margin: 0px;
+    line-height: 23px;
+}
+.cover-invest .cover-line .cover-line-left .inp-sub{
+
+}
+.cover-invest .cover-line .cover-line-right{
+    border-left: 1px solid #ccc;
+}
+.cover-invest .cover-line .cover-line-right .cover-bank{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.cover-invest .cover-line .cover-line-right .cover-bank img{
+    width: 80px;
+    margin-left: 3%;
+}
+.cover-invest .cover-line .cover-line-right .h5-bank{
+    float: left;
+    width: 100%;
+    color: #0a6b3d;
+    margin: 20px 0px;
+}
+.cover-invest .cover-line .cover-line-right .cover-bank-info{
+    width: 70%;
+    border-top: 1px solid #0a6b3d;
+    float: left;
+    padding-top: 10px;
+    margin-left: 17%;
+}
+.cover-invest .cover-line .cover-line-right .cover-bank-info span{
+    color: #0a6b3d;
+}
+.cover-invest .cover-line .cover-line-right .upload-file{
+    float: left;
+    width: 100%;
+    padding-left: 30%;
+    margin-bottom: 10px;
+}
+.cover-invest .cover-line .cover-line-right .cover-p{
+    float: left;
+    width: 96%;
+    background: #f0f0f0;
+    margin-left: 3%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.cover-invest .cover-line .cover-line-right .cover-p p{
+    margin: 0px;
+    line-height: 23px;
+    font-size: 14px;
+}
+.cover-invest .cover-line .cover-line-right .inp-sub{
+
+}
+
+
