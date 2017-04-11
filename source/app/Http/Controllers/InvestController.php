@@ -68,6 +68,21 @@ class InvestController extends Controller
         return view('invest.add-edit', $datas);
     }
 
+    public function contract()
+    {
+        $edit = false;
+
+        return view('invest.contract', compact('edit'));
+    }
+
+    public function refundInvest()
+    {
+        $edit = false;
+
+        return view('invest.refund-invest', compact('edit'));
+    }
+
+
     /**
      * Store newly created role to database.
      *

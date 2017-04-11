@@ -756,6 +756,7 @@ body.sidebar-collapse #page-wrapper {
 .navbar-default {
     /*background-color: #06743f;*/
     border-color: #06743f;
+    position: fixed;
 }
 
 /* --------------------------------------------------
@@ -764,6 +765,7 @@ body.sidebar-collapse #page-wrapper {
 
 .page-header {
     margin: 30px 0 20px;
+    font-size:20px;
 }
 
 .page-header small {
@@ -1213,9 +1215,12 @@ a.panel-link:hover {
     border-radius: 4px;
     text-transform: uppercase;
 }
+.cover-invest .cover-line .inp-sub:hover, .cover-invest .cover-line .ele-div .bt-end-contract:hover{
+    opacity: 0.85;
+}
 .cover-invest .cover-line .ele-div{
-    width: 25%;
     float: left;
+    margin-bottom: 5px;
 }
 .cover-invest .cover-line .sp-line{
     float: left;
@@ -1223,7 +1228,7 @@ a.panel-link:hover {
 }
 .cover-invest .cover-line .ele-div-2{
     float: left;
-    width: 30%;
+    margin-bottom: 5px;
 }
 .cover-invest .cover-line .ele-div-2 .rad-lk{
     margin-top: 5px;
@@ -1240,10 +1245,14 @@ a.panel-link:hover {
     border: none;
 }
 .cover-invest .cover-line .ele-div .select-inp{
+    border: none;
     width: 80%;
     height: 30px;
-    background: #eeeeee;
-    border: none;
+    padding-left: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(/assets/img/icon-selectbox.png) #eeeeee 100% / 30px no-repeat;
 }
 .cover-invest .cover-line .ele-div .sp-up{
     width: 100%;
@@ -1255,6 +1264,26 @@ a.panel-link:hover {
     height: 30px;
     background: #eeeeee;
     border: none;
+}
+.cover-invest .cover-note{
+    float: left;
+    width: 100%;
+    background: #f5f3f3;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.cover-invest .cover-note p{
+    margin: 0px;
+    line-height: 24px;
+}
+.cover-invest .cover-line .ele-div .bt-end-contract{
+    background: #00512a;
+    margin-top: 20px;
+    padding: 6px 20px;
+}
+.cover-invest .cover-line .ele-div .bt-end-contract:hover{
+    opacity:0.85;
 }
 .cover-invest .h4-title{
     float: left;
@@ -1293,9 +1322,6 @@ a.panel-link:hover {
     font-size: 14px;
     margin: 0px;
     line-height: 23px;
-}
-.cover-invest .cover-line .cover-line-left .inp-sub{
-
 }
 .cover-invest .cover-line .cover-line-right{
     border-left: 1px solid #ccc;
@@ -1345,8 +1371,117 @@ a.panel-link:hover {
     line-height: 23px;
     font-size: 14px;
 }
-.cover-invest .cover-line .cover-line-right .inp-sub{
-
+.cover-contract{
+    width: 100%;
+    float: left;
+    margin-bottom: 40px;
 }
-
-
+.cover-contract .cover-line-contract{
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+}
+.cover-contract .cover-line-contract .h5-title-contract{
+    color: #06743f;
+    font-size: 15px;
+    text-decoration: underline;
+}
+.cover-contract .cover-line-contract .h5-title-contract img{
+    width: 18px;
+    margin-top: -10px;
+    margin-right: 5px;
+}
+.cover-contract .cover-line-contract .item-in-contract-div{
+    float: left;
+    margin-right: 30px;
+}
+.cover-contract .cover-line-contract .item-in-contract-div span{
+    color: #06743f;
+    font-weight: bold;
+}
+.cover-contract .cover-line-contract .h4-title-chart{
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
+    color: #06743f;
+    font-size: 15px;
+}
+.cover-contract .cover-line-contract .chart-contract{
+    float: left;
+    width: 100%;
+}
+.cover-contract .cover-line-contract .chart-contract img{
+    width: 100%;
+}
+.cover-contract .transfer-history{
+    float: left;
+    width: 100%;
+    background: #f5f3f3;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.cover-contract .transfer-history .h5-title-contract{
+    width: 100%;
+    text-decoration: underline;
+    color: #06743f;
+    float: left;
+    font-size: 15px;
+}
+.cover-contract .transfer-history .p-history{
+    float: left;
+    width: 100%;
+}
+.cover-contract .cover-line-contract .inp-sub{
+    padding: 7px 30px;
+    margin-right: 20px;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.cover-contract .cover-line-contract .inp-sub:hover{
+    opacity: 0.85;
+}
+.cover-contract .cover-line-contract .bt-first{
+    background: #0c626f;
+}
+.cover-contract .cover-line-contract .bt-second{
+    background: #de501e;
+}
+.cover-contract .cover-line-contract .bt-third{
+    background: #5b4e78;
+}
+@media (max-width: 600px){
+    .cover-invest .cover-line .cover-line-common {
+        width: 100%;
+    }
+    .cover-invest .cover-line .lb-line {
+        width: 100%;
+    }
+    .cover-invest .cover-line .ele-div-2 {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .cover-invest .cover-line .ele-div {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .cover-contract .cover-line-contract .inp-sub{
+        margin-bottom: 5px;
+    }
+    .cover-invest .cover-line .ele-div-2 .inp-text{
+        width: 80%;
+    }
+    .cover-invest .cover-line .ele-div-2 .sp-line{
+        width: 100%;
+    }
+    .cover-contract .cover-line-contract{
+        text-align: center;
+    }
+    .cover-invest .cover-line{
+        margin-bottom: 0px;
+    }
+}

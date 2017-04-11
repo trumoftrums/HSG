@@ -43,16 +43,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            {{--{{ $edit ? $role->name : trans('app.create_new_invest') }}--}}
             ĐẦU TƯ VÀO HSG
-            {{--<small>{{ $edit ? trans('app.edit_role_details') : trans('app.role_details') }}</small>--}}
-            <div class="pull-right">
-                <ol class="breadcrumb">
-                    <li><a href="{{ route('dashboard') }}">@lang('app.home')</a></li>
-                    <li><a href="{{ route('role.index') }}">@lang('app.invest')</a></li>
-                    <li class="active">{{ $edit ? trans('app.edit') : trans('app.create') }}</li>
-                </ol>
-            </div>
         </h1>
     </div>
 </div>
