@@ -460,6 +460,10 @@ input[type="checkbox"] .styled:checked + label::after {
 .nav-tabs > li.active > a:hover {
     border-top: 2px solid #337ab7;
 }
+.nav>li>a:hover{
+    background: #0a6b3d;
+    color:#fff;
+}
 
 /* --------------------------------------------------
 :: Page Wrapper

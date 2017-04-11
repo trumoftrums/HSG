@@ -212,7 +212,15 @@ Route::group(['middleware' => 'auth'], function () {
      */
 
     Route::get('invest/create', [
-        'as' => 'invest.create',
+        'as' => 'invest.tao_moi',
+        'uses' => 'InvestController@create'
+    ]);
+    Route::get('invest/create1', [
+        'as' => 'invest.hop_dong',
+        'uses' => 'InvestController@create'
+    ]);
+    Route::get('invest/create2', [
+        'as' => 'invest.hoan_von',
         'uses' => 'InvestController@create'
     ]);
 

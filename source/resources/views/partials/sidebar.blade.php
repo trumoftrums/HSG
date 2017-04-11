@@ -21,17 +21,17 @@
                 </a>
                 <ul class="nav nav-second-level collapse">
                     <li>
-                        <a href="{{ route('invest.create') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
+                        <a href="{{ route('invest.tao_moi') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
                             Đầu tư
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('invest.create') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
+                        <a href="{{ route('invest.hop_dong') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
                             Hợp đồng đầu tư
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
+                        <a href="{{ route('invest.hoan_von') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
                             Hoàn vốn đầu tư
                         </a>
                     </li>
