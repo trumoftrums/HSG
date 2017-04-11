@@ -2,6 +2,9 @@
 
 return [
     //add later
+    'investtype' => 'Invest Type Management',
+
+    //add later
     'invest' => 'Đầu tư vào HSG',
     'menu_invest_child_1' => 'Danh mục đầu tư',
     'menu_invest_child_2' => 'Đầu tư',

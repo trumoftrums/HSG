@@ -393,3 +393,11 @@ $router->get('install/error', [
     'as' => 'install.error',
     'uses' => 'InstallController@error'
 ]);
+
+/**
+ * User Management
+ */
+Route::get('investtype', [
+    'as' => 'investtype.list',
+    'uses' => 'InvestTypeController@index'
+]);

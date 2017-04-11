@@ -144,6 +144,13 @@
                 </ul>
             </li>
             @endpermission
+            @permission('investtype.manage')
+            <li class="{{ Request::is('investtype*') ? 'active open' : ''  }}">
+                <a href="{{ route('investtype.list') }}" class="{{ Request::is('investtype*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> @lang('app.investtype')
+                </a>
+            </li>
+            @endpermission
         </ul>
     </div>
     <!-- /.sidebar-collapse -->
