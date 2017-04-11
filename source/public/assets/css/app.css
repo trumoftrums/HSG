@@ -537,7 +537,7 @@ body.sidebar-collapse #page-wrapper {
 }
 
 .sidebar li.active.open > a:first-child {
-    background-color: #337ab7;
+    background-color: #06743f;
     border-color: #2e6da4;
     color: #fff;
 }
