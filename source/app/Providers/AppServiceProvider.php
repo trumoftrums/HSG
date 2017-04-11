@@ -7,6 +7,8 @@ use Vanguard\Repositories\Activity\ActivityRepository;
 use Vanguard\Repositories\Activity\EloquentActivity;
 use Vanguard\Repositories\Country\CountryRepository;
 use Vanguard\Repositories\Country\EloquentCountry;
+use Vanguard\Repositories\InvestType\EloquentInvestType;
+use Vanguard\Repositories\InvestType\InvestTypeRepository;
 use Vanguard\Repositories\Permission\EloquentPermission;
 use Vanguard\Repositories\Permission\PermissionRepository;
 use Vanguard\Repositories\Role\EloquentRole;
@@ -43,6 +45,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(PermissionRepository::class, EloquentPermission::class);
         $this->app->singleton(SessionRepository::class, DbSession::class);
         $this->app->singleton(CountryRepository::class, EloquentCountry::class);
+
+        $this->app->singleton(InvestTypeRepository::class, EloquentInvestType::class);
 
         if ($this->app->environment('local')) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);

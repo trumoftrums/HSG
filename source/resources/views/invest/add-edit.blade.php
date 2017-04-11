@@ -21,6 +21,9 @@
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $( function() {
             var handle = $( "#custom-handle" );
@@ -60,7 +63,7 @@
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-up">Ngày bắt đầu</span>
-            <input type="text" id="datepicker" class="inp-text"/>
+            <input type="text" id="datepicker" readonly class="inp-text" name=""/>
         </div>
         <div class="ele-div">
             <span class="sp-up">Loại tiền</span>
@@ -71,11 +74,21 @@
         </div>
         <div class="ele-div">
             <span class="sp-up">Nhập số tiền muốn đầu tư</span>
-            <input class="inp-text"/>
+            <input class="inp-text onlynumber autonumber"/>
         </div>
         <div class="ele-div">
             <span class="sp-up">Chọn kỳ hạn đầu tư</span>
-            <input class="inp-text"/>
+            <select class="inp-text" name="investID">
+                <option value=""></option>
+                <?php
+                    if(!empty($listIVT)){
+
+                        foreach ($listIVT as $ivt){
+                            echo '<option value="'.$ivt->id.'">'.$ivt->typeName.'</option>';
+                        }
+                    }
+                ?>
+            </select>
         </div>
     </div>
     <div class="cover-line">
@@ -159,6 +172,38 @@
         </div>
     </div>
 </div>
+<script type="application/javascript">
+    $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $(".onlynumber").keydown(function(e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        console.log(e.keyCode);
+        if ($.inArray(e.keyCode, [8, 9, 27, 13, 110, 190]) !== -1 ||
+            // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // let it happen, don't do anything
+            return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+    $('input.autonumber').keyup(function(event) {
+
+        // skip for arrow keys
+        if(event.which >= 37 && event.which <= 40) return;
+
+        // format number
+        $(this).val(function(index, value) {
+            return value
+                .replace(/\D/g, "")
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                ;
+        });
+    });
+</script>
 
 @stop
 @section('styles')

@@ -10,8 +10,10 @@ use Vanguard\Http\Requests\Role\CreateRoleRequest;
 use Vanguard\Http\Requests\Role\UpdateRoleRequest;
 use Vanguard\Repositories\Role\RoleRepository;
 use Vanguard\Repositories\User\UserRepository;
+use Vanguard\Repositories\InvestType\InvestTypeRepository;
 use Vanguard\Role;
 use Vanguard\User;
+use Vanguard\InvestType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -34,6 +36,8 @@ class InvestController extends Controller
         $this->middleware('auth');
         $this->middleware('permission:roles.manage');
         $this->roles = $roles;
+
+
     }
 
     /**
@@ -53,11 +57,15 @@ class InvestController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(InvestTypeRepository $investTypes)
     {
         $edit = false;
-
-        return view('invest.add-edit', compact('edit'));
+        $listIVT = $investTypes->getAll();
+        $datas = array(
+            'edit' =>$edit,
+            'listIVT' =>$listIVT
+        );
+        return view('invest.add-edit', $datas);
     }
 
     /**
