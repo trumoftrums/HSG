@@ -22,27 +22,17 @@
                 <ul class="nav nav-second-level collapse">
                     <li>
                         <a href="{{ route('invest.create') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
-                            @lang('app.menu_invest_child_1')
+                            Đầu tư
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('invest.create') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
-                            @lang('app.menu_invest_child_2')
+                            Hợp đồng đầu tư
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
-                            @lang('app.menu_invest_child_3')
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
-                            @lang('app.menu_invest_child_4')
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
-                            @lang('app.menu_invest_child_5')
+                            Hoàn vốn đầu tư
                         </a>
                     </li>
                 </ul>
