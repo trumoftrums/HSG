@@ -16,7 +16,7 @@
             </li>
             <li class="{{ Request::is('invest*') ? 'active open' : ''  }}">
                 <a href="#">
-                    <i class="fa fa-dashboard fa-fw"></i> @lang('app.invest')
+                    <i class="fa fa-dashboard fa-fw"></i> Đầu tư vào HSG
                         <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">

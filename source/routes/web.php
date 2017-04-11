@@ -215,13 +215,13 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'invest.tao_moi',
         'uses' => 'InvestController@create'
     ]);
-    Route::get('invest/create1', [
+    Route::get('invest/contract', [
         'as' => 'invest.hop_dong',
-        'uses' => 'InvestController@create'
+        'uses' => 'InvestController@contract'
     ]);
-    Route::get('invest/create2', [
+    Route::get('invest/refund-invest', [
         'as' => 'invest.hoan_von',
-        'uses' => 'InvestController@create'
+        'uses' => 'InvestController@refundInvest'
     ]);
 
 
