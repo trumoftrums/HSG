@@ -18,4 +18,26 @@ class EloquentInvestType implements InvestTypeRepository
         $datas = InvestType::whereRaw($where)->get();
         return $datas;
     }
+
+    public function getTypebyID($id = null,$toArray =false)
+    {
+        // TODO: Implement getTypebyID() method.
+        $datas = null;
+        if(!empty($id)){
+            $where = "id =$id" ;
+
+            $datas = InvestType::whereRaw($where)->get();
+            if($toArray){
+                $datas = $datas->toArray();
+            }
+            if(!empty($datas)){
+                $datas = $datas[0];
+            }
+
+        }
+
+        return $datas;
+
+    }
+
 }

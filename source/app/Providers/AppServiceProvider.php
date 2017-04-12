@@ -5,6 +5,8 @@ namespace Vanguard\Providers;
 use Carbon\Carbon;
 use Vanguard\Repositories\Activity\ActivityRepository;
 use Vanguard\Repositories\Activity\EloquentActivity;
+use Vanguard\Repositories\BienDong\BienDongRepository;
+use Vanguard\Repositories\BienDong\EloquentBienDong;
 use Vanguard\Repositories\Country\CountryRepository;
 use Vanguard\Repositories\Country\EloquentCountry;
 use Vanguard\Repositories\InvestType\EloquentInvestType;
@@ -47,6 +49,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(CountryRepository::class, EloquentCountry::class);
 
         $this->app->singleton(InvestTypeRepository::class, EloquentInvestType::class);
+        $this->app->singleton(BienDongRepository::class, EloquentBienDong::class);
 
         if ($this->app->environment('local')) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);

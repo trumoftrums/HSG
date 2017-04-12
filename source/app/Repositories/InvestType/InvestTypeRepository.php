@@ -11,4 +11,5 @@ interface InvestTypeRepository
      * @return mixed
      */
     public function getAll($status = null);
+    public function getTypebyID($id = null,$toArray =false);
 }

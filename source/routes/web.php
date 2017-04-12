@@ -409,3 +409,13 @@ Route::get('investtype', [
     'as' => 'investtype.list',
     'uses' => 'InvestTypeController@index'
 ]);
+
+Route::post('getInvestType', [
+    'as' => 'investtype.getInvestType',
+    'uses' => 'InvestTypeController@getInvestType'
+]);
+
+Route::post('getBienDong', [
+    'as' => 'investtype.getBienDong',
+    'uses' => 'InvestTypeController@getBienDong'
+]);
