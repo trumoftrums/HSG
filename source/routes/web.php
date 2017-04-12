@@ -409,9 +409,12 @@ Route::get('investtype', [
     'as' => 'investtype.list',
     'uses' => 'InvestTypeController@index'
 ]);
-Route::get('investtype/create', [
+Route::get('investtype/tao-lai-bien-dong', [
     'as' => 'investtype.tao_lai_bien_dong',
-    'uses' => 'InvestTypeController@create'
+    'uses' => 'InvestTypeController@createLaiBD'
 ]);
-
+Route::get('investtype/tao-goi-lai', [
+    'as' => 'investtype.tao_goi_lai',
+    'uses' => 'InvestTypeController@createGoiLai'
+]);
 

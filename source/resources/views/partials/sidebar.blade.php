@@ -145,6 +145,11 @@
                     <i class="fa fa-users fa-fw"></i> Tạo lãi suất biên động
                 </a>
             </li>
+            <li class="{{ Request::is('investtype*') ? 'active open' : ''  }}">
+                <a href="{{ route('investtype.tao_goi_lai') }}" class="{{ Request::is('investtype*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> Tạo gói lãi
+                </a>
+            </li>
             @endpermission
         </ul>
     </div>

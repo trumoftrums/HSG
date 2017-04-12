@@ -87,11 +87,29 @@ class InvestTypeController extends Controller
      */
     public function create(CountryRepository $countryRepository, RoleRepository $roleRepository)
     {
+        $countries = $this->parseCountries($countryRepository);
+        $roles = $roleRepository->lists();
+        $statuses = UserStatus::lists();
+
+        return view('investtype.add', compact('countries', 'roles', 'statuses'));
+    }
+
+    public function createLaiBD(CountryRepository $countryRepository, RoleRepository $roleRepository)
+    {
         /*$countries = $this->parseCountries($countryRepository);
         $roles = $roleRepository->lists();
         $statuses = UserStatus::lists();*/
 
         return view('investtype.add', compact('countries', 'roles', 'statuses'));
+    }
+
+    public function createGoiLai(CountryRepository $countryRepository, RoleRepository $roleRepository)
+    {
+        /*$countries = $this->parseCountries($countryRepository);
+        $roles = $roleRepository->lists();
+        $statuses = UserStatus::lists();*/
+
+        return view('investtype.add-goi-lai', compact('countries', 'roles', 'statuses'));
     }
 
     /**
