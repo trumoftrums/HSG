@@ -1243,6 +1243,8 @@ a.panel-link:hover {
     height: 30px;
     background: #eeeeee;
     border: none;
+    padding-left: 5px;
+    margin-right: 20px;
 }
 .cover-invest .cover-line .ele-div .select-inp{
     border: none;
@@ -1264,6 +1266,7 @@ a.panel-link:hover {
     height: 30px;
     background: #eeeeee;
     border: none;
+    padding-left: 5px;
 }
 .cover-invest .cover-note{
     float: left;
@@ -1453,6 +1456,151 @@ a.panel-link:hover {
 }
 .cover-contract .cover-line-contract .bt-third{
     background: #5b4e78;
+}
+.page-header .icon-bread{
+    width: 10px;
+    margin-bottom: 4px;
+}
+.page-header .sp-bread{
+    color: #06743f;
+    font-size: 17px;
+}
+.cover-invest-admin{
+    float: left;
+    width: 100%;
+}
+.cover-invest-admin .h5-title{
+    color: #06743f;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    float: left;
+}
+.cover-invest-admin .cover-line{
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.cover-invest-admin .cover-line .ele-div{
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 40px;
+}
+.cover-invest-admin .cover-line .ele-div .sp-up{
+    float: left;
+    text-transform: uppercase;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.cover-invest-admin .cover-line .ele-div .inp-text{
+    height: 30px;
+    background: #eeeeee;
+    border: none;
+    padding-left: 5px;
+}
+.cover-invest-admin .cover-line .inp-sub{
+    background: #de501e;
+    color: #fff;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.cover-invest-admin .cover-line .inp-sub:hover, .cover-invest-admin1 .cover-line .inp-sub:hover{
+    opacity:0.8;
+}
+.cover-invest-admin1{
+    float: left;
+    width: 100%;
+}
+.cover-invest-admin1 .cover-line{
+    width: 100%;
+    margin-bottom: 10px;
+    float: left;
+}
+.cover-invest-admin1 .cover-line .ele-div{
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+.cover-invest-admin1 .cover-line .ele-div .sp-line{
+    float: left;
+    margin-right: 8px;
+    margin-top: 4px;
+}
+.cover-invest-admin1 .cover-line .ele-div .has-width{
+    width:100px;
+}
+.cover-invest-admin1 .cover-line .ele-div .sp-percent{
+    color: #056839;
+    margin-left: 5px;
+    font-weight: bold;
+    margin-top: 5px;
+    float: left;
+}
+.cover-invest-admin1 .cover-line .ele-div .inp-text{
+    float: left;
+    height: 30px;
+    background: #eeeeee;
+    border: none;
+    padding-left: 5px;
+}
+.cover-invest-admin1 .cover-line .ele-div .cover-check{
+    float: left;
+    margin-left: 13px;
+    margin-top: 3px;
+}
+.cover-invest-admin1 .cover-line-new{
+    float: left;
+    width: 100%;
+}
+.cover-invest-admin1 .cover-line-new .h5-phat-hoan-von{
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+    color: #056839;
+}
+.cover-invest-admin1 .cover-line .p-muc-phat{
+    margin: 0px;
+    color: #056839;
+    font-weight: bold;
+}
+.cover-invest-admin1 .cover-line .inp-sub{
+    background: #de501e;
+    color: #fff;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.footer {
+    background: #056839;
+    float: left;
+    width: 103%;
+    font-size: 14px;
+    margin-top: 30px;
+}
+.footer .left {
+    color: #fff;
+    float: left;
+    padding: 10px;
+}
+.footer .left p {
+    margin: 0px;
+}
+.footer .p-right {
+    float: right;
+    color: #fff;
+    margin-top: 20px;
+    padding-right: 10px;
+}
+.footer .p-copyright {
+    float: left;
+    width: 100%;
+    color: #000;
+    margin: 0px;
+    padding: 6px 10px;
+    background: #dcdcdc;
 }
 @media (max-width: 600px){
     .cover-invest .cover-line .cover-line-common {

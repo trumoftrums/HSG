@@ -22,8 +22,6 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $( function() {
             var handle = $( "#custom-handle" );
@@ -47,6 +45,8 @@
     <div class="col-lg-12">
         <h1 class="page-header">
             ĐẦU TƯ VÀO HSG
+            <img class="icon-bread" src="{{ url('assets/img/icon-next.png') }}"/>
+            <span class="sp-bread">ĐẦU TƯ</span>
         </h1>
     </div>
 </div>
