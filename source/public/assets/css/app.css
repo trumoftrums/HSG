@@ -1454,6 +1454,14 @@ a.panel-link:hover {
 .cover-contract .cover-line-contract .bt-third{
     background: #5b4e78;
 }
+.page-header .icon-bread{
+    width: 10px;
+    margin-bottom: 4px;
+}
+.page-header .sp-bread{
+    color: #06743f;
+    font-size: 17px;
+}
 @media (max-width: 600px){
     .cover-invest .cover-line .cover-line-common {
         width: 100%;

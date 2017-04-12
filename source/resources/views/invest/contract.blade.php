@@ -7,6 +7,8 @@
     <div class="col-lg-12">
         <h1 class="page-header">
             ĐẦU TƯ VÀO HSG
+            <img class="icon-bread" src="{{ url('assets/img/icon-next.png') }}"/>
+            <span class="sp-bread">HỢP ĐỒNG ĐẦU TƯ</span>
         </h1>
     </div>
 </div>

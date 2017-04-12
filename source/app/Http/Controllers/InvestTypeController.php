@@ -87,11 +87,11 @@ class InvestTypeController extends Controller
      */
     public function create(CountryRepository $countryRepository, RoleRepository $roleRepository)
     {
-        $countries = $this->parseCountries($countryRepository);
+        /*$countries = $this->parseCountries($countryRepository);
         $roles = $roleRepository->lists();
-        $statuses = UserStatus::lists();
+        $statuses = UserStatus::lists();*/
 
-        return view('user.add', compact('countries', 'roles', 'statuses'));
+        return view('investtype.add', compact('countries', 'roles', 'statuses'));
     }
 
     /**

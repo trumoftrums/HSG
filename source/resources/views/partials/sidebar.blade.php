@@ -137,7 +137,12 @@
             @permission('investtype.manage')
             <li class="{{ Request::is('investtype*') ? 'active open' : ''  }}">
                 <a href="{{ route('investtype.list') }}" class="{{ Request::is('investtype*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> @lang('app.investtype')
+                    <i class="fa fa-users fa-fw"></i> Danh sách gói lãi
+                </a>
+            </li>
+            <li class="{{ Request::is('investtype*') ? 'active open' : ''  }}">
+                <a href="{{ route('investtype.tao_lai_bien_dong') }}" class="{{ Request::is('investtype*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> Tạo lãi suất biên động
                 </a>
             </li>
             @endpermission
