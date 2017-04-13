@@ -135,18 +135,18 @@
             </li>
             @endpermission
             @permission('investtype.manage')
-            <li class="{{ Request::is('investtype*') ? 'active open' : ''  }}">
-                <a href="{{ route('investtype.list') }}" class="{{ Request::is('investtype*') ? 'active' : ''  }}">
+            <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
+                <a href="{{ route('interest.list') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
                     <i class="fa fa-users fa-fw"></i> Danh sách gói lãi
                 </a>
             </li>
-            <li class="{{ Request::is('investtype*') ? 'active open' : ''  }}">
-                <a href="{{ route('investtype.tao_lai_bien_dong') }}" class="{{ Request::is('investtype*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> Tạo lãi suất biên động
+            <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
+                <a href="{{ route('interest.lai_bien_dong.list') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> Danh sách LS biên động
                 </a>
             </li>
-            <li class="{{ Request::is('investtype*') ? 'active open' : ''  }}">
-                <a href="{{ route('investtype.tao_goi_lai') }}" class="{{ Request::is('investtype*') ? 'active' : ''  }}">
+            <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
+                <a href="{{ route('interest.tao_goi_lai') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
                     <i class="fa fa-users fa-fw"></i> Tạo gói lãi
                 </a>
             </li>

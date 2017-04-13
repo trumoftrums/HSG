@@ -10,6 +10,6 @@ class BienDong extends Model
     const STATUS_ACTIVED = "AC";
     const  STATUS_INACTIVED = "IA";
     const  STATUS_DELETED = "DE";
-    public $timestamps = false;
+    public $timestamps = true;
 
 }
