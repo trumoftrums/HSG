@@ -11,4 +11,10 @@ interface BienDongRepository
      * @return mixed
      */
     public function getByDate($date = null);
+
+    public function create(array $data);
+
+    public function update(array $data, $id);
+
+    public function paginate($perPage, $search = null, $status = null);
 }

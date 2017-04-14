@@ -26,4 +26,39 @@ class EloquentBienDong implements BienDongRepository
 
     }
 
+    public function create(array $data)
+    {
+        $bd = new BienDong();
+        $bd->fr = $data['fr'];
+        $bd->to = $data['to'];
+        $bd->interest = $data['interest'];
+
+        $bd->save();
+    }
+
+
+    public function update(array $data, $id)
+    {
+        $bd = BienDong::find($id);
+        $bd->fr = $data['fr'];
+        $bd->to = $data['to'];
+        $bd->interest = $data['interest'];
+
+        $bd->save();
+    }
+
+
+    public function paginate($perPage, $search = null, $status = null)
+    {
+        $query = BienDong::query();
+
+        if ($status && $status != "All") {
+            $query->where('status', $status);
+        }
+        $result = $query->orderBy('created_at', 'desc')
+            ->paginate($perPage);
+
+        return $result;
+    }
+
 }

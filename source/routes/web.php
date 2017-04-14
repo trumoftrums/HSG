@@ -410,17 +410,38 @@ $router->get('install/error', [
 /**
  * User Management
  */
-Route::get('investtype', [
-    'as' => 'investtype.list',
-    'uses' => 'InvestTypeController@index'
+Route::get('interest', [
+    'as' => 'interest.list',
+    'uses' => 'ManageInvestController@index'
 ]);
-Route::get('investtype/tao-lai-bien-dong', [
-    'as' => 'investtype.tao_lai_bien_dong',
-    'uses' => 'InvestTypeController@createLaiBD'
+
+
+Route::get('interest/danh-sach-lai-bien-dong', [
+    'as' => 'interest.lai_bien_dong.list',
+    'uses' => 'ManageInvestController@listLaiBienDong'
 ]);
-Route::get('investtype/tao-goi-lai', [
-    'as' => 'investtype.tao_goi_lai',
-    'uses' => 'InvestTypeController@createGoiLai'
+Route::get('interest/lai-bien-dong/create', [
+    'as' => 'interest.lai_bien_dong.create',
+    'uses' => 'ManageInvestController@createLaiBienDong'
+]);
+Route::post('interest/lai-bien-dong/add', [
+    'as' => 'interest.lai_bien_dong.add',
+    'uses' => 'ManageInvestController@addLaiBienDong'
+]);
+Route::get('interest/lai-bien-dong/{idLaiBD}/edit', [
+    'as' => 'interest.lai_bien_dong.edit',
+    'uses' => 'ManageInvestController@editLaiBienDong'
+]);
+Route::put('interest/lai-bien-dong/{idLaiBD}/update', [
+    'as' => 'interest.lai_bien_dong.update',
+    'uses' => 'ManageInvestController@updateLaiBienDong'
+]);
+
+
+
+Route::get('interest/tao-goi-lai', [
+    'as' => 'interest.tao_goi_lai',
+    'uses' => 'ManageInvestController@createGoiLai'
 ]);
 
 
