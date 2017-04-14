@@ -215,6 +215,11 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'invest.tao_moi',
         'uses' => 'InvestController@create'
     ]);
+    Route::post('invest/create', [
+        'as' => 'invest.store',
+        'uses' => 'InvestController@store'
+    ]);
+
     Route::get('invest/contract', [
         'as' => 'invest.hop_dong',
         'uses' => 'InvestController@contract'

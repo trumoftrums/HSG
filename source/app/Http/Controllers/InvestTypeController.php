@@ -86,8 +86,8 @@ class InvestTypeController extends Controller
         if (Auth::check()) {
             $formData = Request::all();
             if(!empty($formData['date'])){
-                $date = str_replace("-","",$formData['date'])."000000";
-//                var_dump($date);exit();
+//                $date = str_replace("-","",$formData['date'])."000000";
+                $date = $formData['date'];
                 $datas = $bd->getByDate($date);
                 if(!empty($datas)){
 

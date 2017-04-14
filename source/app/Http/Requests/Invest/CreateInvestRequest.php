@@ -1,11 +1,10 @@
 <?php
 
-namespace Vanguard\Http\Requests\User;
+namespace Vanguard\Http\Requests\Invest;
 
 use Vanguard\Http\Requests\Request;
-use Vanguard\User;
 
-class CreateUserRequest extends Request
+class CreateInvestRequest extends Request
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,11 +14,9 @@ class CreateUserRequest extends Request
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:users,email',
-            'username' => 'unique:users,username',
-            'password' => 'required|min:6|confirmed',
-            'birthday' => 'date',
-            'role' => 'required|exists:roles,id'
+            'investTypeID' => 'required|min:1',
+            'money' => 'required|min:7',
+            'estStartDate' =>'required|length:10',
         ];
     }
 }
