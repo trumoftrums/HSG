@@ -14,7 +14,7 @@ class EloquentBienDong implements BienDongRepository
     {
         // TODO: Implement getTypebyID() method.
         if(!empty($date)){
-            $where = " `fr` <='$date' and `to` >= '$date' " ;
+            $where = " `fr` <='$date' and `to` >= '$date' and `status` = '".BienDong::STATUS_ACTIVED."' " ;
 
             $datas = BienDong::whereRaw($where)->orderBy('updated_at', 'desc')->limit(1)->get()->toArray();
             if(!empty($datas)){

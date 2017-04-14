@@ -21,6 +21,7 @@
     <meta name="msapplication-TileImage" content="{{ url('assets/img/icons/mstile-144x144.png') }}" />
 
     {{-- For production, it is recommended to combine following styles into one. --}}
+    {!! HTML::script('assets/js/jquery-2.1.4.min.js') !!}
     {!! HTML::style('assets/css/bootstrap.min.css') !!}
     {!! HTML::style('assets/css/font-awesome.min.css') !!}
     {!! HTML::style('assets/css/metisMenu.css') !!}

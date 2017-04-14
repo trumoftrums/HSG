@@ -19,27 +19,14 @@
             line-height: 1.6em;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    {{--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>--}}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    {{--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--}}
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" >
     <script>
-        $( function() {
-            var handle = $( "#custom-handle" );
-            $( "#slider" ).slider({
-                min: 0,
-                max: 100,
-                value: 0,
-                create: function() {
-                    var pc =$( this ).slider( "value" );
-                    handle.text( pc+" %" );
-//                    $("#compInterestPercent").val(pc);
-                },
-                slide: function( event, ui ) {
-                    handle.text( ui.value );
-                    $("#compInterestPercent").val(ui.value);
-                }
-            });
-        } );
+
+
+
     </script>
 <div class="row">
     <div class="col-lg-12">
@@ -52,7 +39,8 @@
 </div>
 
 @include('partials.messages')
-<form action="" method="post" id="createInvest">
+<form action="" method="post" id="createInvest" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="{{csrf_token()}}" />
 <div class="cover-invest">
     <div class="cover-line">
         <div class="ele-div">
@@ -105,12 +93,13 @@
     <div class="slider">
         <div id="slider">
             <div id="custom-handle" class="ui-slider-handle"></div>
-            <input type="hidden" name="compInterestPercent" value="0" id="compInterestPercent"/>
+
         </div>
+        <input type="hidden" name="compInterestPercent" value="0" id="compInterestPercent"/>
     </div>
     <div class="cover-line">
         <span class="sp-line">HÌNH THỨC NHẬN LÃI:</span>
-        <label class="radio-inline"><input type="radio" value="ONETIME" name="interestMethod">Cuối kỳ</label>
+        <label class="radio-inline"><input type="radio" value="ONETIME" checked name="interestMethod">Cuối kỳ</label>
         <label class="radio-inline"><input type="radio" value="MONTHLY" name="interestMethod">Hàng tháng</label>
     </div>
     <h4 class="h4-title">BẢNG TỒNG KẾT</h4>
@@ -131,7 +120,7 @@
     <h4 class="h4-title">HÌNH THỨC THANH TOÁN VỐN ĐẦU TƯ</h4>
     <div class="cover-line">
         <div class="cover-line-common cover-line-left">
-            <h5 class="h5-title"><input type="checkbox" name="paymentType" value="DIRECT">CHUYỂN TIỀN TRỰC TIẾP TẠI VĂN PHÒNG</h5>
+            <h5 class="h5-title"><input checked type="radio" name="paymentType" value="DIRECT">CHUYỂN TIỀN TRỰC TIẾP TẠI VĂN PHÒNG</h5>
             <span class="sp-add">Địa chỉ: 02, Phạm Văn Đồng, P. Linh Đông, Q. Thủ Đức, Tp.HCM</span>
             <span class="sp-add">Hotline: 0970 7777 929 - Email: cskh@hoangsanggroup.vn</span>
             <div class="cover-p">
@@ -142,7 +131,7 @@
             <input type="submit" class="inp-sub" value="Hoàn thành"/>
         </div>
         <div class="cover-line-common cover-line-right">
-            <h5 class="h5-title"><input name="paymentType" type="checkbox" value="ONLINE">CHUYỂN TIỀN TRỰC TUYẾN</h5>
+            <h5 class="h5-title"><input name="paymentType" type="radio" value="ONLINE">CHUYỂN TIỀN TRỰC TUYẾN</h5>
             <div class="cover-bank">
                 <img src="{{ url('assets/img/img-bank.png') }}"/>
                 <img src="{{ url('assets/img/img-bank.png') }}"/>
@@ -270,9 +259,28 @@
         });
     }
     $( document ).ready(function() {
+        var handle = $( "#custom-handle" );
+        $( "#slider" ).slider({
+            min: 0,
+            max: 100,
+            value: 0,
+            step:10,
+            create: function() {
+                var pc =$( this ).slider( "value" );
+                handle.text( pc+" %" );
+            },
+            slide: function( event, ui ) {
+                 handle.text( ui.value );
+
+            }
+
+        });
+
+
         $( "div .slider" ).css("display","none");
         $( "div #sliderNote" ).css("display","none");
         getBienDong();
+
     });
     $( "#estStartDate" ).change(function() {
 
@@ -329,7 +337,10 @@
             }
         });
     }
-
+    $( "#createInvest" ).submit(function( event ) {
+        $("#compInterestPercent").val($("#slider").attr("value"));
+        $( "#createInvest" ).submit();
+    });
 
 </script>
 
@@ -343,9 +354,5 @@
     {!! HTML::script('assets/js/moment.min.js') !!}
     {!! HTML::script('assets/js/bootstrap-datetimepicker.min.js') !!}
     {!! HTML::script('assets/js/as/profile.js') !!}
-    @if ($edit)
-        {!! JsValidator::formRequest('Vanguard\Http\Requests\Role\UpdateRoleRequest', '#role-form') !!}
-    @else
-        {!! JsValidator::formRequest('Vanguard\Http\Requests\Role\CreateRoleRequest', '#role-form') !!}
-    @endif
+{{--    {!! JsValidator::formRequest('Vanguard\Http\Requests\Invest\CreateInvestRequest', '#createInvest') !!}--}}
 @stop
