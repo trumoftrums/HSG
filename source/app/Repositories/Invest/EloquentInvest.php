@@ -3,6 +3,7 @@
 namespace Vanguard\Repositories\Invest;
 
 use Vanguard\Invest;
+use Vanguard\InvestType;
 
 class EloquentInvest implements InvestRepository
 {
@@ -24,24 +25,40 @@ class EloquentInvest implements InvestRepository
 
     public function updateStatus($status, $id)
     {
-        $bd = Invest::find($id);
-        $bd->status = $status;
+        $hd = Invest::find($id);
+        $investType = InvestType::where('id', $hd->investTypeID)->first();
+        $hd->status = $status;
+        if ($status == Invest::STATUS_ACTIVED) {
+            $hd->actStartDate = date("Y-m-d");
+            $dateEnd = mktime(0, 0, 0, date("m") + $investType->period, date("d"), date("Y"));
+            $hd->actEndDate = date('Y-m-d', $dateEnd);
 
-        $bd->save();
+        }
+
+        $hd->save();
     }
 
     public function paginate($perPage, $search = null, $status = null)
     {
         $query = Invest::join('users', 'users.id', '=', 'invest.userID')
-        ->join('md_invest_type', 'md_invest_type.id', '=', 'invest.investTypeID')
-        ->select(['invest.id','users.username', 'md_invest_type.typeName', 'invest.money', 'invest.interest', 'invest.estStartDate',
-        'invest.estEndDate', 'invest.interestMethod', 'invest.status']);
+            ->join('md_invest_type', 'md_invest_type.id', '=', 'invest.investTypeID')
+            ->select(['invest.id', 'users.username', 'md_invest_type.typeName', 'invest.money', 'invest.interest', 'invest.estStartDate',
+                'invest.actEndDate', 'invest.actStartDate', 'invest.interestMethod', 'invest.status']);
 
         if ($status && $status != "All") {
             $query->where('invest.status', $status);
         }
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('actStartDate', '<=',$search)
+                    ->where('actEndDate', '>=', $search);
+            });
+        }
         $result = $query->orderBy('invest.created_at', 'desc')
             ->paginate($perPage);
+        if ($search) {
+            $result->appends(['search' => $search]);
+        }
 
         return $result;
     }
