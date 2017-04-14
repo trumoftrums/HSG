@@ -1602,6 +1602,9 @@ a.panel-link:hover {
     padding: 6px 10px;
     background: #dcdcdc;
 }
+.form-control{
+    height:33px;
+}
 @media (max-width: 600px){
     .cover-invest .cover-line .cover-line-common {
         width: 100%;

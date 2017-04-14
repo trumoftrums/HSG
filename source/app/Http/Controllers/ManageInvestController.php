@@ -38,7 +38,8 @@ class ManageInvestController extends Controller
     }
     public function createLaiBienDong()
     {
-        return view('manage-interest.add-lai-bien-dong', array());
+        $edit = false;
+        return view('manage-interest.add-lai-bien-dong', compact('edit'));
     }
     public function addLaiBienDong()
     {
@@ -82,7 +83,7 @@ class ManageInvestController extends Controller
     {
         $perPage = 10;
         $statusCurr = Input::get('status');
-        $listHopDong = $this->invest->paginate($perPage, '', Input::get('status'));
+        $listHopDong = $this->invest->paginate($perPage, Input::get('search'), Input::get('status'));
 
         return view('invest.list-hop-dong-dau-tu', compact('listHopDong', 'statusCurr'));
     }
