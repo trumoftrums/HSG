@@ -414,6 +414,14 @@ Route::get('interest/hop-dong-dau-tu', [
     'as' => 'interest.list-hop-dong-dau-tu',
     'uses' => 'ManageInvestController@listHopDongDauTu'
 ]);
+Route::get('interest/hop-dong-dau-tu/{idHD}/update', [
+    'as' => 'interest.hop-dong-dau-tu.update',
+    'uses' => 'ManageInvestController@updateHopDongDauTu'
+]);
+Route::delete('interest/hop-dong-dau-tu/{idHD}/delete', [
+    'as' => 'interest.hop-dong-dau-tu.delete',
+    'uses' => 'ManageInvestController@deleteHopDongDauTu'
+]);
 Route::get('interest/danh-sach-lai-bien-dong', [
     'as' => 'interest.lai_bien_dong.list',
     'uses' => 'ManageInvestController@listLaiBienDong'

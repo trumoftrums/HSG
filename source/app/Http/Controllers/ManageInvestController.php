@@ -3,9 +3,10 @@
 namespace Vanguard\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Vanguard\Http\Requests\User\UpdateUserRequest;
+use Vanguard\Invest;
+use Vanguard\Repositories\Invest\InvestRepository;
 use Vanguard\Repositories\User\UserRepository;
 use Auth;
-use Vanguard\Repositories\InvestType\InvestTypeRepository;
 use Vanguard\Repositories\BienDong\BienDongRepository;
 use Request;
 use Vanguard\BienDong;
@@ -21,9 +22,11 @@ class ManageInvestController extends Controller
 {
 
     private $biendong;
-    public function __construct(BienDongRepository $biendong)
+    private $invest;
+    public function __construct(BienDongRepository $biendong, InvestRepository $invest)
     {
         $this->biendong = $biendong;
+        $this->invest = $invest;
     }
     public function listLaiBienDong()
     {
@@ -79,8 +82,24 @@ class ManageInvestController extends Controller
     {
         $perPage = 10;
         $statusCurr = Input::get('status');
-        $listHopDong = $this->biendong->paginate($perPage, '', Input::get('status'));
+        $listHopDong = $this->invest->paginate($perPage, '', Input::get('status'));
 
-        return view('manage-interest.list-hop-dong-dau-tu', compact('listHopDong', 'statusCurr'));
+        return view('invest.list-hop-dong-dau-tu', compact('listHopDong', 'statusCurr'));
+    }
+
+    public function deleteHopDongDauTu($id)
+    {
+        $this->invest->updateStatus(Invest::STATUS_DELETED,$id);
+
+        return redirect()->route('interest.list-hop-dong-dau-tu')
+            ->withSuccess('Xóa hợp đồng thành công!');
+    }
+
+    public function updateHopDongDauTu($id)
+    {
+        $this->invest->updateStatus(Invest::STATUS_ACTIVED,$id);
+
+        return redirect()->route('interest.list-hop-dong-dau-tu')
+            ->withSuccess('Kích hoạt hợp đồng thành công!');
     }
 }

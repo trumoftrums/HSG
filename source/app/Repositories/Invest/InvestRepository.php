@@ -11,4 +11,6 @@ interface InvestRepository
      * @return mixed
      */
     public function create(array $data);
+    public function paginate($perPage, $search = null, $status = null);
+    public function updateStatus($status, $id);
 }
