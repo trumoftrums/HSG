@@ -4,14 +4,13 @@ namespace Vanguard;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Invest extends Model
+class InvestResult extends Model
 {
-    protected $table = 'invest';
+    protected $table = 'invest_result';
     const STATUS_NEW= "NE";
     const STATUS_ACTIVED = "AC";
     const  STATUS_INACTIVED = "IA";
     const  STATUS_DELETED = "DE";
     public $timestamps = true;
-    const  INTEREST_METHOD_ONETIME =  'Cuối kỳ';
-    const  INTEREST_METHOD_MONTHLY =  'Hàng tháng';
+
 }

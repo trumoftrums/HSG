@@ -99,8 +99,8 @@
     </div>
     <div class="cover-line">
         <span class="sp-line">HÌNH THỨC NHẬN LÃI:</span>
-        <label class="radio-inline"><input type="radio" value="ONETIME" checked name="interestMethod">Cuối kỳ</label>
-        <label class="radio-inline"><input type="radio" value="MONTHLY" name="interestMethod">Hàng tháng</label>
+        <label class="radio-inline"><input type="radio" value="Cuối kỳ" checked name="interestMethod">Cuối kỳ</label>
+        <label class="radio-inline"><input type="radio" value="Hàng tháng" name="interestMethod">Hàng tháng</label>
     </div>
     <h4 class="h4-title">BẢNG TỒNG KẾT</h4>
     <div class="cover-line no-mar-bottom">
