@@ -16,5 +16,7 @@ interface BienDongRepository
 
     public function update(array $data, $id);
 
+    public function delete($id);
+
     public function paginate($perPage, $search = null, $status = null);
 }

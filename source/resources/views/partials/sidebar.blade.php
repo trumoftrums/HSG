@@ -136,8 +136,8 @@
             @endpermission
             @permission('investtype.manage')
             <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
-                <a href="{{ route('interest.list') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> Danh sách gói lãi
+                <a href="{{ route('interest.list-hop-dong-dau-tu') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> Quản lý HĐ đầu tư
                 </a>
             </li>
             <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">

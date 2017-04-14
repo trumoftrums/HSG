@@ -61,4 +61,26 @@ class ManageInvestController extends Controller
         return redirect()->route('interest.lai_bien_dong.edit',$id)
             ->withSuccess(trans('Cập nhật lãi biến động thành công!'));
     }
+
+    public function deleteLaiBienDong($id)
+    {
+        $this->biendong->delete($id);
+
+        return redirect()->route('interest.lai_bien_dong.list')
+            ->withSuccess('Xóa lãi suất biến động thành công!');
+    }
+
+    public function createGoiLai()
+    {
+        return view('manage-interest.add-goi-lai', array());
+    }
+
+    public function listHopDongDauTu()
+    {
+        $perPage = 10;
+        $statusCurr = Input::get('status');
+        $listHopDong = $this->biendong->paginate($perPage, '', Input::get('status'));
+
+        return view('manage-interest.list-hop-dong-dau-tu', compact('listHopDong', 'statusCurr'));
+    }
 }

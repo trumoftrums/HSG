@@ -403,14 +403,12 @@ $router->get('install/error', [
 ]);
 
 /**
- * User Management
+ * Interest Management
  */
-Route::get('interest', [
-    'as' => 'interest.list',
-    'uses' => 'ManageInvestController@index'
+Route::get('interest/hop-dong-dau-tu', [
+    'as' => 'interest.list-hop-dong-dau-tu',
+    'uses' => 'ManageInvestController@listHopDongDauTu'
 ]);
-
-
 Route::get('interest/danh-sach-lai-bien-dong', [
     'as' => 'interest.lai_bien_dong.list',
     'uses' => 'ManageInvestController@listLaiBienDong'
@@ -430,6 +428,10 @@ Route::get('interest/lai-bien-dong/{idLaiBD}/edit', [
 Route::put('interest/lai-bien-dong/{idLaiBD}/update', [
     'as' => 'interest.lai_bien_dong.update',
     'uses' => 'ManageInvestController@updateLaiBienDong'
+]);
+Route::delete('interest/{idLaiBD}/delete', [
+    'as' => 'interest.lai_bien_dong.delete',
+    'uses' => 'ManageInvestController@deleteLaiBienDong'
 ]);
 
 

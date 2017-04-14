@@ -37,7 +37,7 @@
             <select id="status" class="form-control" name="status">
                 <option value="All" @if($statusCurr == 'All') selected @endif>Tất cả</option>
                 <option value="AC" @if($statusCurr == 'AC') selected @endif >Active</option>
-                <option value="IA" @if($statusCurr == 'IA') selected @endif>Inactive</option>
+                {{--<option value="IA" @if($statusCurr == 'IA') selected @endif>Inactive</option>--}}
                 <option value="DE" @if($statusCurr == 'DE') selected @endif>Deleted</option>
             </select>
         </div>
@@ -66,23 +66,15 @@
                             @elseif($bd->status == 'DE') <button type="button" class="btn btn-danger btnOwn">Delete</button> @endif
                         </td>
                         <td class="text-center">
-                            <a href="{{ route('user.sessions', $bd->id) }}" class="btn btn-warning btn-circle"
-                               title="Inactive" data-toggle="tooltip" data-placement="top">
-                                <i class="fa glyphicon-minus"></i>
-                            </a>
-                            <a href="{{ route('user.show', $bd->id) }}" class="btn btn-success btn-circle"
-                               title="Active" data-toggle="tooltip" data-placement="top">
-                                <i class="glyphicon glyphicon-ok-sign"></i>
-                            </a>
                             <a href="{{ route('interest.lai_bien_dong.edit', $bd->id) }}" class="btn btn-primary btn-circle edit" title="Edit"
                                     data-toggle="tooltip" data-placement="top">
                                 <i class="glyphicon glyphicon-edit"></i>
                             </a>
-                            <a href="{{ route('user.delete', $bd->id) }}" class="btn btn-danger btn-circle" title="Delete"
+                            <a href="{{ route('interest.lai_bien_dong.delete', $bd->id) }}" class="btn btn-danger btn-circle" title="Delete"
                                     data-toggle="tooltip"
                                     data-placement="top"
                                     data-method="DELETE"
-                                    data-confirm-title="Form xác nhận"
+                                    data-confirm-title="Xác nhận"
                                     data-confirm-text="Bạn có muốn xóa?"
                                     data-confirm-delete="Xác nhận">
                                 <i class="glyphicon glyphicon-trash"></i>

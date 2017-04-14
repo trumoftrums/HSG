@@ -48,6 +48,14 @@ class EloquentBienDong implements BienDongRepository
     }
 
 
+    public function delete($id)
+    {
+        $bd = BienDong::find($id);
+        $bd->status = BienDong::STATUS_DELETED;
+
+        $bd->save();
+    }
+
     public function paginate($perPage, $search = null, $status = null)
     {
         $query = BienDong::query();
