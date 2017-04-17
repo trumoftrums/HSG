@@ -19,7 +19,7 @@
         <div class="cover-line">
             <div class="ele-div">
                 <span class="sp-up">Yêu cầu kết thúc hợp đồng</span>
-                <select class="select-inp" name="investID">
+                <select class="select-inp" name="investID" id="investID">
                     <option value="">Chọn hợp đồng đầu tư</option>
                     <?php
                         if(!empty($datas)){
@@ -38,16 +38,16 @@
         </div>
         <h4 class="h4-title">BẢNG THỐNG KÊ</h4>
         <div class="cover-line no-mar-bottom">
-            <label class="lb-line">Ngày đầu tư: 01/01/2016</label>
-            <label class="lb-line">Ngày nhận lãi: 01/01/2016</label>
-            <label class="lb-line">Ngày đáo hạn: 01/01/2016</label>
-            <label class="lb-line">Tái đầu tư: không</label>
+            <label class="lb-line" id="actStartDate">Ngày đầu tư: 01/01/2016</label>
+            <label class="lb-line" id="ngayNhanLai">Ngày nhận lãi: 01/01/2016</label>
+            <label class="lb-line" id="ngayDaoHan">Ngày đáo hạn: 01/01/2016</label>
+            <label class="lb-line" id="taiDauTu">Tái đầu tư: không</label>
         </div>
         <div class="cover-line no-mar-bottom">
-            <label class="lb-2">Số tiền đầu tư: <b>1.000.000.000 VND</b></label>
-            <label class="lb-2">Số tiền lãi thời điểm hiện tại: <b>10.000.000 VND</b></label>
-            <label class="lb-2">Số tiền phạt hoàn vốn trước kỳ hạn: <b>% theo số tiền đầu tư</b></label>
-            <label class="lb-2">Tổng tiền khi hoàn vốn (Tiền gốc + Lãi suất - Tiền phạt): <b>1.140.000.000 VND</b></label>
+            <label class="lb-2">Số tiền đầu tư: <b id="money">1.000.000.000 VND</b></label>
+            <label class="lb-2">Số tiền lãi thời điểm hiện tại: <b id="tongLai">10.000.000 VND</b></label>
+            <label class="lb-2">Số tiền phạt hoàn vốn trước kỳ hạn: <b id="tienPhat">% theo số tiền đầu tư</b></label>
+            <label class="lb-2">Tổng tiền khi hoàn vốn (Tiền gốc + Lãi suất - Tiền phạt): <b id="tongTien">1.140.000.000 VND</b></label>
         </div>
         <div class="cover-note">
             <p>* Sau khi nhận được yêu cầu hoàn vốn Công Ty sẽ có nhân viên xác nhận yêu cầu trực tiếp qua điện thoại và email cá nhân của Quý Khách.</p>
@@ -63,20 +63,64 @@
         <?php
 
             foreach ($datas as $v){
-                echo 'var dataArr['.$v->id.'] = []';
-                echo 'var dataArr['.$v->id.'][0] ='.$v->actStartDate;
-                echo 'var dataArr['.$v->id.'][1] ='.$v->ngayNhanLai;
-                echo 'var dataArr['.$v->id.'][2] ='.date("Y-m-d");
-                echo 'var dataArr['.$v->id.'][3] ='.$v->taiDauTu;
-                echo 'var dataArr['.$v->id.'][4] ='.$v->money;
-                echo 'var dataArr['.$v->id.'][5] ='.($v->Trade[0]['tongTien'] - $v->money);
+                echo 'dataArr['.$v->id.'] = [];';
+                echo 'dataArr['.$v->id.'][0] ="'.$v->actStartDate.'";';
+                echo 'dataArr['.$v->id.'][1] ="'.$v->ngayNhanLai.'";';
+                echo 'dataArr['.$v->id.'][2] ="'.date("Y-m-d").'";';
+                if($v->taiDauTu ==1){
+                    echo 'dataArr['.$v->id.'][3] ="Có";';
+                }else{
+                    echo 'dataArr['.$v->id.'][3] ="Không";';
+                }
+
+                echo 'dataArr['.$v->id.'][4] ='.$v->money.';';
+                $percentPhat = 0;
+                $tongTien = 0;
+                if(!empty($v->trade)){
+                    $tongTien = $v->trade[0]['tongTien'];
+                    echo 'dataArr['.$v->id.'][5] ='.($v->trade[0]['tongTien'] - $v->money).';';
+
+                    $tienPhat = json_decode($v->tienPhat,true);
+                    $tday = date("Y-m-d");
+
+                    foreach ($tienPhat as $tp){
+                        $frDate = date("Y-m-d",strtotime($v->actStartDate.' +'.$tp['fr'].' months' ));
+                        $toDate = date("Y-m-d",strtotime($v->actStartDate.' +'.$tp['to'].' months' ));
+//var_dump($frDate);var_dump($toDate);var_dump($tday);
+                        if($tday>=$frDate && $tday <= $toDate){
+                            $percentPhat = $tp['vl'];
+//                            var_dump($frDate);var_dump($toDate);var_dump($tday);exit();
+                            break;
+                        }
+
+                    }
+                }else{
+                    echo 'dataArr['.$v->id.'][5] ='.$v->money.';';
+                }
 
 
-                echo 'var dataArr['.$v->id.'][6] ='.$v->actStartDate;
-                echo 'var dataArr['.$v->id.'][7] ='.$v->actStartDate;
+                $tongTienPhat = $percentPhat * $v->money/100;
+                echo 'dataArr['.$v->id.'][6] ='.$tongTienPhat.';';
+                echo 'dataArr['.$v->id.'][7] ='.($tongTien -$tongTienPhat ).';';
+                echo 'dataArr['.$v->id.'][8] ="'.$v->currency.'";';
+                echo 'dataArr['.$v->id.'][9] ='.$percentPhat.';';
             }
         ?>
+        $( "#investID" ).change(function() {
+            var id = $( "#investID" ).val();
+            if(id!=""){
+                var dt = dataArr[id];
+                $("#actStartDate").html("Ngày đầu tư: "+dt[0]);
+                $("#ngayNhanLai").html("Ngày nhận lãi: "+dt[1]);
+                $("#ngayDaoHan").html("Ngày đáo hạn: "+dt[2]);
+                $("#taiDauTu").html("Tái đầu tư: "+dt[3]);
+                $("#money").html((dt[4]+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' '+dt[8]);
+                $("#tongLai").html((dt[5]+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' '+dt[8]);
+                $("#tienPhat").html((dt[6]+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' '+dt[8] + " ("+dt[9]+"% vốn đầu tư)");
+                $("#tongTien").html((dt[7]+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' '+dt[8]);
 
+            }
+        });
     </script>
 
 @stop
