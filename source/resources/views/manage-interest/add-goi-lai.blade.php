@@ -3,9 +3,6 @@
 @section('page-title', trans('app.add_user'))
 
 @section('content')
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
@@ -17,29 +14,38 @@
 </div>
 
 @include('partials.messages')
+    @if ($edit)
+        {!! Form::open(['route' => ['interest.goi_lai.update', $goiLai->id], 'method' => 'PUT', 'id' => 'goi-lai-form']) !!}
+    @else
+        {!! Form::open(['route' => 'interest.goi_lai.add', 'id' => 'goi-lai-form']) !!}
+    @endif
 <div class="cover-invest-admin1">
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-line">NHẬP KỲ HẠN</span>
-            <input type="text" class="inp-text"/>
+            <input type="text" class="inp-text" name="ki_han" value="{{ $edit ? $goiLai->period : '' }}"/>
             <div class="cover-check">
-                <label class="rad-lk radio-inline"><input type="radio" name="radio-laikep">Tháng</label>
-                <label class="rad-lk radio-inline"><input type="radio" name="radio-laikep">Năm</label>
+                <label class="rad-lk radio-inline">
+                    <input type="radio" value="m" @if($edit) {@if($goiLai->unit == "m")  checked @endif} @else checked @endif name="radio-kihan">Tháng</label>
+                <label class="rad-lk radio-inline">
+                    <input type="radio" value="Y" @if($edit) {@if($goiLai->unit == "Y")  checked @endif} @endif name="radio-kihan">Năm</label>
             </div>
         </div>
     </div>
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-line">LÃI SUẤT ÁP DỤNG CHO KỲ HẠN</span>
-            <input type="text" class="inp-text"/> <span class="sp-percent"> %</span>
+            <input type="text" class="inp-text" name="lai_suat" value="{{ $edit ? $goiLai->interest : '' }}"/> <span class="sp-percent"> %</span>
         </div>
     </div>
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-line">CHO PHÉP LÃI KÉP: </span>
             <div class="cover-check">
-                <label class="rad-lk radio-inline"><input type="radio" name="radio-laikep">Có</label>
-                <label class="rad-lk radio-inline"><input type="radio" name="radio-laikep">Không</label>
+                <label class="rad-lk radio-inline">
+                    <input type="radio" value="1" @if($edit) {@if($goiLai->allowCompInterest == "1")  checked @endif} @else checked @endif checked name="radio-laikep">Có</label>
+                <label class="rad-lk radio-inline">
+                    <input type="radio" value="0" @if($edit) {@if($goiLai->allowCompInterest == "0")  checked @endif} @endif name="radio-laikep">Không</label>
             </div>
         </div>
     </div>
@@ -52,15 +58,15 @@
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-line has-width">Từ tháng: </span>
-            <input type="text" class="inp-text"/>
+            <input type="text" class="inp-text" name="month-fr-01" value="{{ $edit ? $goiLai->finalInvest[0]['fr'] : '' }}"/>
         </div>
         <div class="ele-div">
             <span class="sp-line has-width">Đến tháng: </span>
-            <input type="text" class="inp-text"/>
+            <input type="text" class="inp-text" name="month-to-01" value="{{ $edit ? $goiLai->finalInvest[0]['to'] : '' }}"/>
         </div>
         <div class="ele-div">
-            <span class="sp-line has-width">% Mức phạt: </span>
-            <input type="text" class="inp-text"/>
+            <span class="sp-line has-width">Mức phạt: </span>
+            <input type="text" class="inp-text" name="percent-01" value="{{ $edit ? $goiLai->finalInvest[0]['vl'] : '' }}"/><span class="sp-percent"> %</span>
         </div>
     </div>
     <div class="cover-line">
@@ -69,15 +75,15 @@
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-line has-width">Từ tháng: </span>
-            <input type="text" class="inp-text"/>
+            <input type="text" class="inp-text" name="month-fr-02" value="{{ $edit ? $goiLai->finalInvest[1]['fr'] : '' }}"/>
         </div>
         <div class="ele-div">
             <span class="sp-line has-width">Đến tháng: </span>
-            <input type="text" class="inp-text"/>
+            <input type="text" class="inp-text" name="month-to-02" value="{{ $edit ? $goiLai->finalInvest[1]['to'] : '' }}"/>
         </div>
         <div class="ele-div">
-            <span class="sp-line has-width">% Mức phạt: </span>
-            <input type="text" class="inp-text"/>
+            <span class="sp-line has-width">Mức phạt: </span>
+            <input type="text" class="inp-text" name="percent-02" value="{{ $edit ? $goiLai->finalInvest[1]['vl'] : '' }}"/><span class="sp-percent"> %</span>
         </div>
     </div>
     <div class="cover-line">
@@ -86,25 +92,22 @@
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-line has-width">Từ tháng: </span>
-            <input type="text" class="inp-text"/>
+            <input type="text" class="inp-text" name="month-fr-03" value="{{ $edit ? $goiLai->finalInvest[2]['fr'] : '' }}"/>
         </div>
         <div class="ele-div">
             <span class="sp-line has-width">Đến tháng: </span>
-            <input type="text" class="inp-text"/>
+            <input type="text" class="inp-text" name="month-to-03" value="{{ $edit ? $goiLai->finalInvest[2]['to'] : '' }}"/>
         </div>
         <div class="ele-div">
-            <span class="sp-line has-width">% Mức phạt: </span>
-            <input type="text" class="inp-text"/>
+            <span class="sp-line has-width">Mức phạt: </span>
+            <input type="text" class="inp-text" name="percent-03" value="{{ $edit ? $goiLai->finalInvest[2]['vl'] : '' }}"/><span class="sp-percent"> %</span>
         </div>
     </div>
     <div class="cover-line">
         <input type="submit" class="inp-sub" value="Lưu gói mới"/>
     </div>
 </div>
-<script>
-    $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
-    $( "#datepicker2" ).datepicker({ dateFormat: 'yy-mm-dd' });
-</script>
+    {!! Form::close() !!}
 @stop
 
 @section('styles')
@@ -115,5 +118,5 @@
     {!! HTML::script('assets/js/moment.min.js') !!}
     {!! HTML::script('assets/js/bootstrap-datetimepicker.min.js') !!}
     {!! HTML::script('assets/js/as/profile.js') !!}
-    {!! JsValidator::formRequest('Vanguard\Http\Requests\User\CreateUserRequest', '#user-form') !!}
+    {!! JsValidator::formRequest('Vanguard\Http\Requests\Invest\InvestTypeRequest', '#goi-lai-form') !!}
 @stop

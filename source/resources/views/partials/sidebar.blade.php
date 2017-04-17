@@ -146,8 +146,8 @@
                 </a>
             </li>
             <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
-                <a href="{{ route('interest.tao_goi_lai') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> Tạo gói lãi
+                <a href="{{ route('interest.goi_lai.list') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> Danh sách gói lãi
                 </a>
             </li>
             @endpermission
