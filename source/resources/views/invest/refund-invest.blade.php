@@ -19,9 +19,17 @@
         <div class="cover-line">
             <div class="ele-div">
                 <span class="sp-up">Yêu cầu kết thúc hợp đồng</span>
-                <select class="select-inp">
-                    <option>Hợp đồng 1</option>
-                    <option>Hợp đồng 2</option>
+                <select class="select-inp" name="investID">
+                    <option value="">Chọn hợp đồng đầu tư</option>
+                    <?php
+                        if(!empty($datas)){
+                            $i =1;
+                            foreach ($datas as $v){
+                                echo '<option value="'.$v->id.'">Hợp đồng '.$i.' ['.$v->actStartDate.' : '.number_format($v->money,0,".",",").$v->currency.']</option>';
+                                $i++;
+                            }
+                        }
+                    ?>
                 </select>
             </div>
             <div class="ele-div">
@@ -50,6 +58,26 @@
             <input type="submit" class="inp-sub" value="Gửi yêu cầu"/>
         </div>
     </div>
+    <script type="application/javascript">
+        var dataArr = [];
+        <?php
+
+            foreach ($datas as $v){
+                echo 'var dataArr['.$v->id.'] = []';
+                echo 'var dataArr['.$v->id.'][0] ='.$v->actStartDate;
+                echo 'var dataArr['.$v->id.'][1] ='.$v->ngayNhanLai;
+                echo 'var dataArr['.$v->id.'][2] ='.date("Y-m-d");
+                echo 'var dataArr['.$v->id.'][3] ='.$v->taiDauTu;
+                echo 'var dataArr['.$v->id.'][4] ='.$v->money;
+                echo 'var dataArr['.$v->id.'][5] ='.($v->Trade[0]['tongTien'] - $v->money);
+
+
+                echo 'var dataArr['.$v->id.'][6] ='.$v->actStartDate;
+                echo 'var dataArr['.$v->id.'][7] ='.$v->actStartDate;
+            }
+        ?>
+
+    </script>
 
 @stop
 @section('styles')
