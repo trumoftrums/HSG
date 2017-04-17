@@ -17,6 +17,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use  Request;
 use DB;
 use Vanguard\InvestResult;
+use Vanguard\InvestTrade;
 
 /**
  * Class InvestController
@@ -83,13 +84,17 @@ class InvestController extends Controller
             if(!empty($datas)){
                 foreach ($datas as $k =>$v){
                     $v->ketQuaChiTiet = json_decode($v->ketQuaChiTiet,true);
-                    //var_dump($v->ketQuaChiTiet);exit();
+
+                    $v->trade = $this->getInvestTrade($v->id);
+//                    var_dump($v);exit();
                     $datas[$k] = $v;
+
                 }
             }
 
 
         }
+
         $result = array(
             'edit'=>false,
             'datas'=>$datas
@@ -98,12 +103,40 @@ class InvestController extends Controller
 
         return view('invest.contract', $result);
     }
-
+    private function getInvestTrade($id){
+        $datas = InvestTrade::where("investID",$id)->orderBy("ngayGD","desc")->get()->toArray();
+        return $datas;
+    }
     public function refundInvest()
     {
-        $edit = false;
+        $datas =array();
+        if (Auth::check()) {
+            $user = Auth::user();
+            $where = " (`invest`.`status`='".Invest::STATUS_ACTIVED."' OR `invest`.`status`='".Invest::STATUS_NEW."') AND `invest`.`userID` = ".$user->id." ";
+            $datas = DB::table('invest')
+                ->join('invest_result', 'invest.id', '=', 'invest_result.investID')
+                ->select('invest.*', 'invest_result.*')
+                ->whereRaw($where)->get()->toArray();
+            if(!empty($datas)){
+                foreach ($datas as $k =>$v){
+                    $v->ketQuaChiTiet = json_decode($v->ketQuaChiTiet,true);
 
-        return view('invest.refund-invest', compact('edit'));
+                    $v->trade = $this->getInvestTrade($v->id);
+//                    var_dump($v);exit();
+                    $datas[$k] = $v;
+
+                }
+            }
+
+
+        }
+
+        $result = array(
+            'edit'=>false,
+            'datas'=>$datas
+        );
+
+        return view('invest.refund-invest', $result);
     }
 
 

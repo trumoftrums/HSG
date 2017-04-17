@@ -73,9 +73,6 @@
 if(!empty($datas)){
     $i =1;
     foreach ($datas as $v){
-
-
-
 ?>
 
 <div class="cover-contract">
@@ -103,14 +100,10 @@ if(!empty($datas)){
                     $k = 0;
                     foreach ($v->ketQuaChiTiet as $th){
                         $k++;
-                        echo 'labelsArr.push("'.date("y-m-d",strtotime($ngaybatDau. " + $k month")).'");';
-//                        echo "labelsArr.push('$k');";
+                        echo 'labelsArr.push("'.date("Y-m-d",strtotime($ngaybatDau. " + $k month")).'");';
                         echo 'dataArr.push('.round($th['tienlai']/1000000,2).');';
                     }
-                    echo '';
                 ?>
-
-            console.log(labelsArr);console.log(dataArr);
             createChart("myChart{{$i}}",labelsArr,dataArr);
             </script>
 
@@ -118,10 +111,16 @@ if(!empty($datas)){
     </div>
     <div class="transfer-history">
         <h5 class="h5-title-contract">LỊCH SỬ GIAO DỊCH</h5>
-        <p class="p-history">* Ngày 01/02/2017: Nhận lãi lần đầu là 8.3000.000VND. Quý khách không rút. Số tiền hiện có 1.008.300.000VND</p>
-        <p class="p-history">* Ngày 01/03/2017: Nhận lãi lần đầu là 8.3000.000VND. Quý khách không rút. Số tiền hiện có 1.008.300.000VND</p>
-        <p class="p-history">* Ngày 01/04/2017: Nhận lãi lần đầu là 8.3000.000VND. Quý khách không rút. Số tiền hiện có 1.008.300.000VND</p>
-        <p class="p-history">* Ngày 01/05/2017: Nhận lãi lần đầu là 8.3000.000VND. Quý khách không rút. Số tiền hiện có 1.008.300.000VND</p>
+        <?php if(!empty($v->trade)){ foreach ($v->trade as $trade){
+            if(empty($trade['soTienLai'])) {
+
+
+        ?>
+        <p class="p-history">* Ngày {{$trade['ngayGD']}}: {{$trade['noiDungGD']}} {{number_format($trade['tongTien'],0,".",",")}} {{$trade['loaiTien']}}. Tổng số tiền đầu tư {{number_format($trade['tongDauTu'],0,".",",")}} {{$trade['loaiTien']}}.  Tổng số tiền hiện có {{number_format($trade['tongTien'],0,".",",")}} {{$trade['loaiTien']}}</p>
+
+        <?php }else{?>
+        <p class="p-history">* Ngày {{$trade['ngayGD']}}: {{$trade['noiDungGD']}} {{number_format($trade['soTienLai'],0,".",",")}} {{$trade['loaiTien']}}. Tái đầu tư {{number_format($trade['soTienLai'],0,".",",")}} {{$trade['loaiTien']}}. Tổng số tiền đầu tư {{number_format($trade['tongDauTu'],0,".",",")}} {{$trade['loaiTien']}}. Tổng số tiền hiện có {{number_format($trade['tongTien'],0,".",",")}} {{$trade['loaiTien']}}</p>
+        <?php }}}?>
     </div>
     <div class="cover-line-contract">
         <input class="inp-sub bt-first" value="XEM LỊCH SỬ GIAO DỊCH">
