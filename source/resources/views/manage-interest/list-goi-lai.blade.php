@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            ĐẦU TƯ VÀO HSG
+            QUẢN LÝ ĐẦU TƯ
             <img class="icon-bread" src="{{ url('assets/img/icon-next.png') }}"/>
             <span class="sp-bread">GÓI LÃI SUẤT</span>
         </h1>

@@ -136,19 +136,27 @@
             @endpermission
             @permission('investtype.manage')
             <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
-                <a href="{{ route('interest.list-hop-dong-dau-tu') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> Quản lý HĐ đầu tư
+                <a href="#">
+                    <i class="fa fa-dashboard fa-fw"></i> Quản lý đầu tư
+                    <span class="fa arrow"></span>
                 </a>
-            </li>
-            <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
-                <a href="{{ route('interest.lai_bien_dong.list') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> Danh sách LS biên động
-                </a>
-            </li>
-            <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
-                <a href="{{ route('interest.goi_lai.list') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> Danh sách gói lãi
-                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="{{ route('interest.list-hop-dong-dau-tu') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
+                            Quản lý HĐ đầu tư
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('interest.lai_bien_dong.list') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
+                            Lãi suất biên động
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('interest.goi_lai.list') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
+                            Danh sách gói lãi
+                        </a>
+                    </li>
+                </ul>
             </li>
             @endpermission
         </ul>
