@@ -1605,6 +1605,9 @@ a.panel-link:hover {
 .form-control{
     height:33px;
 }
+.error-help-block{
+    color:#ff0000;
+}
 @media (max-width: 600px){
     .cover-invest .cover-line .cover-line-common {
         width: 100%;

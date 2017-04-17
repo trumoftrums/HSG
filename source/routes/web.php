@@ -442,24 +442,44 @@ Route::put('interest/lai-bien-dong/{idLaiBD}/update', [
     'as' => 'interest.lai_bien_dong.update',
     'uses' => 'ManageInvestController@updateLaiBienDong'
 ]);
-Route::delete('interest/{idLaiBD}/delete', [
+Route::delete('interest/lai-bien-dong/{idLaiBD}/delete', [
     'as' => 'interest.lai_bien_dong.delete',
     'uses' => 'ManageInvestController@deleteLaiBienDong'
 ]);
 
 
 
-Route::get('interest/tao-goi-lai', [
-    'as' => 'interest.tao_goi_lai',
+Route::get('interest/danh-sach-goi-lai', [
+    'as' => 'interest.goi_lai.list',
+    'uses' => 'ManageInvestController@listGoiLai'
+]);
+Route::get('interest/goi-lai/create', [
+    'as' => 'interest.goi_lai.create',
     'uses' => 'ManageInvestController@createGoiLai'
 ]);
+Route::post('interest/goi-lai/add', [
+    'as' => 'interest.goi_lai.add',
+    'uses' => 'ManageInvestController@addGoiLai'
+]);
+Route::get('interest/goi-lai/{idGoiLai}/edit', [
+    'as' => 'interest.goi_lai.edit',
+    'uses' => 'ManageInvestController@editGoiLai'
+]);
+Route::put('interest/goi-lai/{idGoiLai}/update', [
+    'as' => 'interest.goi_lai.update',
+    'uses' => 'ManageInvestController@updateGoiLai'
+]);
+Route::delete('interest/goi-lai/{idGoiLai}/delete', [
+    'as' => 'interest.goi_lai.delete',
+    'uses' => 'ManageInvestController@deleteGoiLai'
+]);
+
 
 
 Route::post('getInvestType', [
     'as' => 'investtype.getInvestType',
     'uses' => 'InvestTypeController@getInvestType'
 ]);
-
 Route::post('getBienDong', [
     'as' => 'investtype.getBienDong',
     'uses' => 'InvestTypeController@getBienDong'

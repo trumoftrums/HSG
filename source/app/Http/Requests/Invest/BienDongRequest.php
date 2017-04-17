@@ -17,7 +17,7 @@ class BienDongRequest extends Request
         return [
             'fr' => 'required|date',
             'to' => 'required|date',
-            'interest' => 'required|numeric|integer',
+            'interest' => 'required|numeric',
         ];
     }
 }

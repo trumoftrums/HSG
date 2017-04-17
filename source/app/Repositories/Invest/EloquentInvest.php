@@ -44,14 +44,16 @@ class EloquentInvest implements InvestRepository
             ->join('md_invest_type', 'md_invest_type.id', '=', 'invest.investTypeID')
             ->select(['invest.id', 'users.username', 'md_invest_type.typeName', 'invest.money', 'invest.interest', 'invest.estStartDate',
                 'invest.actEndDate', 'invest.actStartDate', 'invest.interestMethod', 'invest.status']);
-
         if ($status && $status != "All") {
             $query->where('invest.status', $status);
         }
         if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->where('actStartDate', '<=',$search)
-                    ->where('actEndDate', '>=', $search);
+            $timestamp = strtotime($search);
+            $dateSearch = date("d", $timestamp);
+            $query->where(function ($q) use ($search, $dateSearch) {
+                $q->where('actStartDate', '<=', $search)
+                    ->where('actEndDate', '>=', $search)
+                    ->whereRaw("DAY(actStartDate) = ?", $dateSearch);
             });
         }
         $result = $query->orderBy('invest.created_at', 'desc')
