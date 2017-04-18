@@ -30,4 +30,16 @@ class Invest extends Model
         }
         return false;
     }
+
+    public static function getNewByID($id){
+
+        if(!empty($id)){
+            $datas = Invest::where('status',Invest::STATUS_NEW)->get()->toArray();
+            if(!empty($datas)){
+                $datas = $datas[0];
+                return $datas;
+            }
+        }
+        return null;
+    }
 }

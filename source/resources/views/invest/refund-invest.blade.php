@@ -39,16 +39,16 @@
         </div>
         <h4 class="h4-title">BẢNG THỐNG KÊ</h4>
         <div class="cover-line no-mar-bottom">
-            <label class="lb-line" id="actStartDate">Ngày đầu tư: 01/01/2016</label>
-            <label class="lb-line" id="ngayNhanLai">Ngày nhận lãi: 01/01/2016</label>
-            <label class="lb-line" id="ngayDaoHan">Ngày đáo hạn: 01/01/2016</label>
+            <label class="lb-line" id="actStartDate">Ngày đầu tư:</label>
+            <label class="lb-line" id="ngayNhanLai">Ngày nhận lãi:</label>
+            <label class="lb-line" id="ngayDaoHan">Ngày đáo hạn:</label>
             <label class="lb-line" id="taiDauTu">Tái đầu tư: không</label>
         </div>
         <div class="cover-line no-mar-bottom">
-            <label class="lb-2">Số tiền đầu tư: <b id="money">1.000.000.000 VND</b></label>
-            <label class="lb-2">Số tiền lãi thời điểm hiện tại: <b id="tongLai">10.000.000 VND</b></label>
-            <label class="lb-2">Số tiền phạt hoàn vốn trước kỳ hạn: <b id="tienPhat">% theo số tiền đầu tư</b></label>
-            <label class="lb-2">Tổng tiền khi hoàn vốn (Tiền gốc + Lãi suất - Tiền phạt): <b id="tongTien">1.140.000.000 VND</b></label>
+            <label class="lb-2">Số tiền đầu tư: <b id="money"></b></label>
+            <label class="lb-2">Số tiền lãi thời điểm hiện tại: <b id="tongLai"></b></label>
+            <label class="lb-2">Số tiền phạt hoàn vốn trước kỳ hạn: <b id="tienPhat"></b></label>
+            <label class="lb-2">Tổng tiền khi hoàn vốn (Tiền gốc + Lãi suất - Tiền phạt): <b id="tongTien"></b></label>
         </div>
         <div class="cover-note">
             <p>* Sau khi nhận được yêu cầu hoàn vốn Công Ty sẽ có nhân viên xác nhận yêu cầu trực tiếp qua điện thoại và email cá nhân của Quý Khách.</p>

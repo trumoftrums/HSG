@@ -168,4 +168,28 @@ class ManageInvestController extends Controller
         return redirect()->route('interest.list-hop-dong-dau-tu')
             ->withSuccess('Kích hoạt hợp đồng thành công!');
     }
+    public function editInvest($id,InvestTypeRepository $investTypes)
+    {
+        if(!empty($id) && is_numeric($id)){
+            $edit = true;
+            $listIVT = $investTypes->getAll();
+            $dataInvest = Invest::getNewByID($id);
+            if(!empty($dataInvest)){
+                $datas = array(
+                    'edit' => $edit,
+                    'listIVT' => $listIVT,
+                    'investID' =>$id,
+                    'dataInvest'=>$dataInvest
+                );
+                return view('invest.add-edit', $datas);
+            }else{
+                return redirect()->route('interest.list-hop-dong-dau-tu')
+                    ->withErrors('Không thể chỉnh sửa hợp đồng đầu tư này');
+            }
+
+        }
+        return redirect()->route('interest.list-hop-dong-dau-tu')
+            ->withErrors('Không tìm thấy hợp đồng đầu tư');
+
+    }
 }

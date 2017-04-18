@@ -41,16 +41,11 @@
 @include('partials.messages')
 <form action="" method="post" id="createInvest" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{csrf_token()}}" />
-    <?php
-        if(isset($investID) && !empty($investID)){
-            echo '<input type="hidden" name="id" value="'.$investID.'" />';
-        }
-    ?>
 <div class="cover-invest">
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-up">Ngày bắt đầu</span>
-            <input type="text" id="estStartDate" name="estStartDate" readonly class="datepicker inp-text" value="<?php if(isset($dataInvest)) echo $dataInvest['estStartDate']; else echo date("Y-m-d");?>"/>
+            <input type="text" id="estStartDate" name="estStartDate" readonly class="datepicker inp-text" value="<?php echo date("Y-m-d");?>"/>
         </div>
         <div class="ele-div">
             <span class="sp-up">Loại tiền</span>
@@ -60,7 +55,7 @@
         </div>
         <div class="ele-div">
             <span class="sp-up">Nhập số tiền muốn đầu tư</span>
-            <input name="money" maxlength="15" class="inp-text onlynumber autonumber" value="<?php if(isset($dataInvest)) echo number_format($dataInvest['money'],0,".",",");?>"/>
+            <input name="money" maxlength="15" class="inp-text onlynumber autonumber"/>
         </div>
         <div class="ele-div">
             <span class="sp-up">Chọn kỳ hạn đầu tư</span>
@@ -70,12 +65,7 @@
                     if(!empty($listIVT)){
 
                         foreach ($listIVT as $ivt){
-                            $selected = "";
-                            if(isset($dataInvest) && $ivt->id  == $dataInvest['investTypeID']){
-                                $selected = ' selected ="selected" ';
-                            }
-                                echo $dataInvest['money'];
-                            echo '<option '.$selected.' value="'.$ivt->id.'">'.$ivt->typeName.'</option>';
+                            echo '<option value="'.$ivt->id.'">'.$ivt->typeName.'</option>';
                         }
                     }
                 ?>
@@ -85,16 +75,16 @@
     <div class="cover-line">
         <div class="ele-div-2">
             <span class="sp-line">Lãi suất</span>
-            <input name="interest" readonly class="inp-text" value="<?php if(isset($dataInvest)) echo $dataInvest['interest']."%"; ?>"/>
+            <input name="interest" readonly class="inp-text"/>
         </div>
         <div class="ele-div-2">
             <span class="sp-line">Lãi suất biên động</span>
-            <input name="further" readonly class="inp-text"  value="<?php if(isset($dataInvest)) echo $dataInvest['further']."%"; ?>"/>
+            <input name="further" readonly class="inp-text"/>
         </div>
         <div class="ele-div-2">
             <span class="sp-line">Áp dụng lãi kép:</span>
-            <label class="rad-lk radio-inline"><input disabled type="radio" value="1" name="isCompInterest"  <?php if(isset($dataInvest) && $dataInvest['isCompInterest']==1) echo "checked"; ?>>Có</label>
-            <label class="rad-lk radio-inline"><input disabled <?php if(isset($dataInvest) && $dataInvest['isCompInterest']==0) echo "checked"; ?> type="radio" value="0" name="isCompInterest">Không</label>
+            <label class="rad-lk radio-inline"><input disabled type="radio" value="1" name="isCompInterest">Có</label>
+            <label class="rad-lk radio-inline"><input disabled checked type="radio" value="0" name="isCompInterest">Không</label>
         </div>
     </div>
     <div class="cover-line" id = "sliderNote" >
@@ -105,12 +95,12 @@
             <div id="custom-handle" class="ui-slider-handle"></div>
 
         </div>
-        <input type="hidden" name="compInterestPercent" value="<?php if(isset($dataInvest)) echo $dataInvest['compInterestPercent']; ?>" id="compInterestPercent"/>
+        <input type="hidden" name="compInterestPercent" value="0" id="compInterestPercent"/>
     </div>
     <div class="cover-line">
         <span class="sp-line">HÌNH THỨC NHẬN LÃI:</span>
-        <label class="radio-inline"><input type="radio" value="Cuối kỳ" <?php if(isset($dataInvest) && $dataInvest['interestMethod']=='Cuối kỳ') echo "checked"; ?> name="interestMethod">Cuối kỳ</label>
-        <label class="radio-inline"><input type="radio" value="Hàng tháng"  <?php if(isset($dataInvest) && $dataInvest['interestMethod']=='Hàng tháng') echo "checked"; ?>  name="interestMethod">Hàng tháng</label>
+        <label class="radio-inline"><input type="radio" value="Cuối kỳ" checked name="interestMethod">Cuối kỳ</label>
+        <label class="radio-inline"><input type="radio" value="Hàng tháng" name="interestMethod">Hàng tháng</label>
     </div>
     <h4 class="h4-title">BẢNG TỒNG KẾT</h4>
     <div class="cover-line no-mar-bottom">
@@ -130,7 +120,7 @@
     <h4 class="h4-title">HÌNH THỨC THANH TOÁN VỐN ĐẦU TƯ</h4>
     <div class="cover-line">
         <div class="cover-line-common cover-line-left">
-            <h5 class="h5-title"><input <?php if(!isset($dataInvest) || (isset($dataInvest) && $dataInvest['paymentType']=='DIRECT')) echo "checked"; ?> type="radio" name="paymentType" value="DIRECT">CHUYỂN TIỀN TRỰC TIẾP TẠI VĂN PHÒNG</h5>
+            <h5 class="h5-title"><input checked type="radio" name="paymentType" value="DIRECT">CHUYỂN TIỀN TRỰC TIẾP TẠI VĂN PHÒNG</h5>
             <span class="sp-add">Địa chỉ: 02, Phạm Văn Đồng, P. Linh Đông, Q. Thủ Đức, Tp.HCM</span>
             <span class="sp-add">Hotline: 0970 7777 929 - Email: cskh@hoangsanggroup.vn</span>
             <div class="cover-p">
@@ -141,7 +131,7 @@
             <input type="submit" class="inp-sub" value="Hoàn thành"/>
         </div>
         <div class="cover-line-common cover-line-right">
-            <h5 class="h5-title"><input  <?php if((isset($dataInvest) && $dataInvest['paymentType']=='ONLINE')) echo "checked"; ?> name="paymentType" type="radio" value="ONLINE">CHUYỂN TIỀN TRỰC TUYẾN</h5>
+            <h5 class="h5-title"><input name="paymentType" type="radio" value="ONLINE">CHUYỂN TIỀN TRỰC TUYẾN</h5>
             <div class="cover-bank">
                 <img src="{{ url('assets/img/img-bank.png') }}"/>
                 <img src="{{ url('assets/img/img-bank.png') }}"/>
