@@ -15,7 +15,22 @@
                 </a>
             </li>
             @permission('invest.manage')
-            <li class="{{ Request::is('invest*') ? 'active open' : ''  }}">
+            <li class="{{ Request::is('dau-tu*') ? 'active open' : ''  }}">
+                <a href="{{ route('invest.tao_moi') }}" class="{{ Request::is('tao-moi*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> Đầu tư
+                </a>
+            </li>
+            <li class="{{ Request::is('hop-dong*') ? 'active open' : ''  }}">
+                <a href="{{ route('invest.hop_dong') }}" class="{{ Request::is('hop-dong*') ? 'active' : ''  }}">
+                    <i class="fa fa-list-alt fa-fw"></i> Hợp đồng đầu tư
+                </a>
+            </li>
+            <li class="{{ Request::is('hoan-von*') ? 'active open' : ''  }}">
+                <a href="{{ route('invest.hoan_von') }}" class="{{ Request::is('hoan-von*') ? 'active' : ''  }}">
+                    <i class="fa fa-gear fa-fw"></i> Hoàn vốn đầu tư
+                </a>
+            </li>
+            {{--<li class="{{ Request::is('invest*') ? 'active open' : ''  }}">
                 <a href="#">
                     <i class="fa fa-dashboard fa-fw"></i> Đầu tư vào HSG
                         <span class="fa arrow"></span>
@@ -37,30 +52,8 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-            @endpermission
-            {{--<li class="{{ Request::is('role*') || Request::is('permission*') ? 'active open' : ''  }}">
-                <a href="#">
-                    <i class="fa fa-user fa-fw"></i>
-                    @lang('app.roles_and_permissions')
-                        <span class="fa arrow"></span>
-                </a>
-                <ul class="nav nav-second-level collapse">
-                    @permission('roles.manage')
-                    <li>
-                        <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
-                            @lang('app.roles')
-                        </a>
-                    </li>
-                    @endpermission
-                    @permission('permissions.manage')
-                    <li>
-                        <a href="{{ route('permission.index') }}"
-                           class="{{ Request::is('permission*') ? 'active' : ''  }}">@lang('app.permissions')</a>
-                    </li>
-                    @endpermission
-                </ul>
             </li>--}}
+            @endpermission
             @permission('users.manage')
                 <li class="{{ Request::is('user*') ? 'active open' : ''  }}">
                     <a href="{{ route('user.list') }}" class="{{ Request::is('user*') ? 'active' : ''  }}">
