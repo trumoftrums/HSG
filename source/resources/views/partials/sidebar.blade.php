@@ -14,6 +14,7 @@
                     <i class="fa fa-dashboard fa-fw"></i> @lang('app.dashboard')
                 </a>
             </li>
+            @permission('invest.manage')
             <li class="{{ Request::is('invest*') ? 'active open' : ''  }}">
                 <a href="#">
                     <i class="fa fa-dashboard fa-fw"></i> Đầu tư vào HSG
@@ -37,7 +38,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="{{ Request::is('role*') || Request::is('permission*') ? 'active open' : ''  }}">
+            @endpermission
+            {{--<li class="{{ Request::is('role*') || Request::is('permission*') ? 'active open' : ''  }}">
                 <a href="#">
                     <i class="fa fa-user fa-fw"></i>
                     @lang('app.roles_and_permissions')
@@ -58,7 +60,7 @@
                     </li>
                     @endpermission
                 </ul>
-            </li>
+            </li>--}}
             @permission('users.manage')
                 <li class="{{ Request::is('user*') ? 'active open' : ''  }}">
                     <a href="{{ route('user.list') }}" class="{{ Request::is('user*') ? 'active' : ''  }}">
@@ -134,7 +136,7 @@
                 </ul>
             </li>
             @endpermission
-            @permission('investtype.manage')
+            @permission('investAdmin.manage')
             <li class="{{ Request::is('interest*') ? 'active open' : ''  }}">
                 <a href="#">
                     <i class="fa fa-dashboard fa-fw"></i> Quản lý đầu tư

@@ -29,7 +29,7 @@ class ManageInvestController extends Controller
     public function __construct(BienDongRepository $biendong, InvestRepository $invest, InvestTypeRepository $investType)
     {
         $this->middleware('auth');
-        $this->middleware('permission:invest.manage');
+        $this->middleware('permission:investAdmin.manage');
         $this->biendong = $biendong;
         $this->invest = $invest;
         $this->investType = $investType;
