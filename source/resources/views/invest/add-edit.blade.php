@@ -74,7 +74,7 @@
                             if(isset($dataInvest) && $ivt->id  == $dataInvest['investTypeID']){
                                 $selected = ' selected ="selected" ';
                             }
-                                echo $dataInvest['money'];
+
                             echo '<option '.$selected.' value="'.$ivt->id.'">'.$ivt->typeName.'</option>';
                         }
                     }
