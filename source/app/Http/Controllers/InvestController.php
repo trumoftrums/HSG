@@ -112,7 +112,7 @@ class InvestController extends Controller
         $datas =array();
         if (Auth::check()) {
             $user = Auth::user();
-            $where = " (`invest`.`status`='".Invest::STATUS_ACTIVED."' OR `invest`.`status`='".Invest::STATUS_NEW."') AND `invest`.`userID` = ".$user->id." ";
+            $where = " `invest`.`status`='".Invest::STATUS_ACTIVED."' AND `invest`.`userID` = ".$user->id." ";
             $datas = DB::table('invest')
                 ->join('invest_result', 'invest.id', '=', 'invest_result.investID')
                 ->select('invest.*', 'invest_result.*')
@@ -130,13 +130,56 @@ class InvestController extends Controller
 
 
         }
+        $result = array(
+            'edit'=>false,
+            'datas'=>$datas,
+            'investID'=>0
+        );
+        if(isset($_REQUEST['investID']) && !empty($_REQUEST['investID']) && is_numeric($_REQUEST['investID'])){
+            $result['investID'] = $_REQUEST['investID'];
+        }
+
+
+        return view('invest.refund-invest', $result);
+    }
+    public function submitRefundInvest()
+    {
+        $datas =array();
+        $result = false;
+        if (Auth::check()) {
+            $user = Auth::user();
+            $formData = Request::all();
+            if(!empty($formData['investID'])){
+                $investID = $formData['investID'];
+                $r = Invest::yeuCauHoanVon($investID,$user->id);
+                if($r){
+                    $result =true;
+                    $mess = "Yêu cầu hoàn vốn thành công!";
+                }else{
+                    $mess = "Yêu cầu hoàn vốn gói đầu tư không hợp lệ!";
+                }
+            }else{
+                $mess = "Vui lòng chọn gói đầu tư để yêu cầu hoàn vốn!";
+            }
+
+
+
+        }else{
+            $mess = "Vui lòng chọn gói đầu tư để yêu cầu hoàn vốn!";
+        }
 
         $result = array(
             'edit'=>false,
             'datas'=>$datas
         );
+        if($result){
+            return redirect()->route('invest.hoan_von')
+                ->withSuccess($mess);
+        }else{
+            return redirect()->route('invest.hoan_von')
+                ->withErrors($mess);
+        }
 
-        return view('invest.refund-invest', $result);
     }
 
 
@@ -166,6 +209,7 @@ class InvestController extends Controller
                 if (!empty($ivType)) {
                     $formData['status'] = Invest::STATUS_NEW;
                     $formData['userID'] = $user->id;
+
                     $formData['interest'] = $ivType['interest'];
                     $formData['further'] = $bd->getByDate($formData['estStartDate']);
                     $formData['onetimeBonus'] = $ivType['onetimeBonus'];
@@ -187,9 +231,11 @@ class InvestController extends Controller
                     $id = DB::table('invest')->insertGetId($formData,'id');
                     if (!empty($id) && $id > 0) {
                         //calculate result
+                        $updateCode['investCode'] = str_pad($ivType['id'],2,'0',STR_PAD_RIGHT).str_pad($id,4,'0',STR_PAD_LEFT);
+                        $rCode = DB::table('invest')->where('id',$id)->update($updateCode);
                         $resultDT = $this->calculateInterest($id, $formData, $ivType['period']);
                         $r = DB::table('invest_result')->insert([$resultDT]);
-                        if ($r) {
+                        if ($rCode && $r) {
                             DB::commit();
                             $result = true;
                             $mess = "Tạo gói đầu tư thành công!";

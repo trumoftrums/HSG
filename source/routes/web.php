@@ -229,7 +229,10 @@ Route::group(['middleware' => 'auth'], function () {
         'uses' => 'InvestController@refundInvest'
     ]);
 
-
+    Route::post('invest/refund-invest', [
+        'as' => 'invest.yeuCauHoanVon',
+        'uses' => 'InvestController@submitRefundInvest'
+    ]);
 
 
     /**
