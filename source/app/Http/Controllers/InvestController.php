@@ -37,7 +37,7 @@ class InvestController extends Controller
     public function __construct(RoleRepository $roles)
     {
         $this->middleware('auth');
-        $this->middleware('permission:roles.manage');
+        $this->middleware('permission:invest.manage');
         $this->roles = $roles;
 
 
