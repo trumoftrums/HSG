@@ -128,7 +128,7 @@
                 <p>* Quý khách sẽ nhận được bảng thống kê đảm bảo lợi nhuận.</p>
                 <p>(Mọi thông tin chi tiết sẽ được Chuyên viên của HSG hỗ trợ tư vấn cho Quý khách)</p>
             </div>
-            <input type="submit" class="inp-sub" value="Hoàn thành"/>
+            {{--<input type="submit" class="inp-sub" value="Hoàn thành"/>--}}
         </div>
         <div class="cover-line-common cover-line-right">
             <h5 class="h5-title"><input name="paymentType" type="radio" value="ONLINE">CHUYỂN TIỀN TRỰC TUYẾN</h5>
@@ -151,8 +151,10 @@
                 <p>* Quý khách sẽ nhận Hợp Đồng niêm phong sau 5 ngày từ ngày Quý khách đầu tư.</p>
                 <p>* Nhân viên của HSG sẽ gọi điện trực tiếp đến Quý Khách để xác nhận.</p>
             </div>
-            <input type="submit" class="inp-sub" value="Hoàn thành"/>
         </div>
+    </div>
+    <div class="cover-inp">
+        <input type="submit" class="inp-sub-comp" value="Hoàn thành"/>
     </div>
 </div>
 </form>

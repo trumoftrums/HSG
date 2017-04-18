@@ -211,25 +211,25 @@ Route::group(['middleware' => 'auth'], function () {
      * Invest
      */
 
-    Route::get('invest/create', [
+    Route::get('dau-tu/create', [
         'as' => 'invest.tao_moi',
         'uses' => 'InvestController@create'
     ]);
-    Route::post('invest/create', [
+    Route::post('dau-tu/create', [
         'as' => 'invest.store',
         'uses' => 'InvestController@store'
     ]);
 
-    Route::get('invest/contract', [
+    Route::get('hop-dong/contract', [
         'as' => 'invest.hop_dong',
         'uses' => 'InvestController@contract'
     ]);
-    Route::get('invest/refund-invest', [
+    Route::get('hoan-von/refund-invest', [
         'as' => 'invest.hoan_von',
         'uses' => 'InvestController@refundInvest'
     ]);
 
-    Route::post('invest/refund-invest', [
+    Route::post('hoan-von/refund-invest', [
         'as' => 'invest.yeuCauHoanVon',
         'uses' => 'InvestController@submitRefundInvest'
     ]);

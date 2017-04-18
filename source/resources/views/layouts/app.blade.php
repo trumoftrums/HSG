@@ -12,13 +12,13 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
 
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url('assets/img/icons/apple-touch-icon-144x144.png') }}" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ url('assets/img/icons/apple-touch-icon-152x152.png') }}" />
-    <link rel="icon" type="image/png" href="{{ url('assets/img/icons/favicon-32x32.png') }}" sizes="32x32" />
-    <link rel="icon" type="image/png" href="{{ url('assets/img/icons/favicon-16x16.png') }}" sizes="16x16" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ url('assets/img/icons/logo-not.png') }}" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ url('assets/img/icons/logo-not.png') }}" />
+    <link rel="icon" type="image/png" href="{{ url('assets/img/icons/logo-not.png') }}" sizes="32x32" />
+    <link rel="icon" type="image/png" href="{{ url('assets/img/icons/logo-not.png') }}" sizes="16x16" />
     <meta name="application-name" content="{{ settings('app_name') }}"/>
     <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="{{ url('assets/img/icons/mstile-144x144.png') }}" />
+    <meta name="msapplication-TileImage" content="{{ url('assets/img/icons/logo-not.png') }}" />
 
     {{-- For production, it is recommended to combine following styles into one. --}}
     {!! HTML::script('assets/js/jquery-2.1.4.min.js') !!}

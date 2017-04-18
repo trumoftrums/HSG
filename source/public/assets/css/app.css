@@ -1608,6 +1608,19 @@ a.panel-link:hover {
 .error-help-block{
     color:#ff0000;
 }
+.cover-inp{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.cover-inp .inp-sub-comp{
+    background: #de501e;
+    color: #fff;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
 @media (max-width: 600px){
     .cover-invest .cover-line .cover-line-common {
         width: 100%;
