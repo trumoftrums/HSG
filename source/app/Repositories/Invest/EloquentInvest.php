@@ -38,14 +38,20 @@ class EloquentInvest implements InvestRepository
         $hd->save();
     }
 
-    public function paginate($perPage, $search = null, $status = null)
+    public function paginate($perPage, $search = null, $nhadautu = null, $goidautu = null, $status = null)
     {
         $query = Invest::join('users', 'users.id', '=', 'invest.userID')
             ->join('md_invest_type', 'md_invest_type.id', '=', 'invest.investTypeID')
-            ->select(['invest.id', 'users.username', 'md_invest_type.typeName', 'invest.money', 'invest.interest', 'invest.estStartDate',
+            ->select(['invest.id','invest.userID','invest.investTypeID', 'users.username', 'md_invest_type.typeName', 'invest.money', 'invest.interest', 'invest.estStartDate',
                 'invest.actEndDate', 'invest.actStartDate', 'invest.interestMethod', 'invest.status']);
         if ($status && $status != "All") {
             $query->where('invest.status', $status);
+        }
+        if ($nhadautu && $nhadautu != "All") {
+            $query->where('invest.userID', $nhadautu);
+        }
+        if ($goidautu && $goidautu != "All") {
+            $query->where('invest.investTypeID', $goidautu);
         }
         if ($search) {
             $timestamp = strtotime($search);

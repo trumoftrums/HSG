@@ -1,4 +1,5 @@
 <?php
+
 namespace Vanguard\Repositories\Invest;
 
 interface InvestRepository
@@ -11,6 +12,8 @@ interface InvestRepository
      * @return mixed
      */
     public function create(array $data);
-    public function paginate($perPage, $search = null, $status = null);
+
+    public function paginate($perPage, $search = null, $nhadautu = null, $goidautu = null, $status = null);
+
     public function updateStatus($status, $id);
 }

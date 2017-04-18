@@ -27,7 +27,8 @@
 
 <div class="row tab-search">
     <form method="GET" action="" accept-charset="UTF-8" id="users-form">
-    <div class="col-md-4">
+    <div class="col-md-3">
+        <b style="color:#056839">Search Theo Ngày</b>
         <div class="input-group custom-search-form">
             <input type="text" class="form-control datepicker" name="search" value="{{ Input::get('search') }}" placeholder="Chọn ngày...">
             <span class="input-group-btn">
@@ -35,9 +36,9 @@
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
                 @if (Input::has('search') && Input::get('search') != '')
-                    <a href="{{ route('interest.list-hop-dong-dau-tu') }}" class="btn btn-success" type="button" >
+                    {{--<a href="{{ route('interest.list-hop-dong-dau-tu') }}" class="btn btn-success" type="button" >
                         <span class="glyphicon glyphicon-cloud-download"> Download</span>
-                    </a>
+                    </a>--}}
                     <a href="{{ route('interest.list-hop-dong-dau-tu') }}" class="btn btn-danger" type="button" >
                         <span class="glyphicon glyphicon-remove"></span>
                     </a>
@@ -45,14 +46,34 @@
                 </span>
         </div>
     </div>
-    <div class="col-md-3"></div>
-    <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
     <div class="col-md-2">
+        <b style="color:#056839">Gói Đầu Tư</b>
+        <select id="goi-dau-tu" class="form-control" name="goi_dau_tu">
+            <option value="All" @if($idGoiDauTuCurr == 'All') selected @endif>-- Tất cả --</option>
+            @foreach($listTypeInvest as $item)
+                <option value="{{$item->id}}" @if($idGoiDauTuCurr == $item->id) selected @endif >{{$item->typeName}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="col-md-2">
+        <b style="color:#056839">Nhà Đầu Tư</b>
+        <select id="nha-dau-tu" class="form-control" name="nha_dau_tu">
+            <option value="All" @if($idUserCurr == 'All') selected @endif>-- Tất cả --</option>
+            @foreach($listUser as $item)
+                <option value="{{$item->id}}" @if($idUserCurr == $item->id) selected @endif >{{$item->username}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="col-md-2">
+        <b style="color:#056839">Trạng Thái</b>
         <select id="status" class="form-control" name="status">
-            <option value="All" @if($statusCurr == 'All') selected @endif>Tất cả trạng thái</option>
+            <option value="All" @if($statusCurr == 'All') selected @endif>-- Tất cả --</option>
             <option value="NE" @if($statusCurr == 'NE') selected @endif >New</option>
             <option value="AC" @if($statusCurr == 'AC') selected @endif >Active</option>
             <option value="IA" @if($statusCurr == 'IA') selected @endif>Inactive</option>
+            <option value="AC" @if($statusCurr == 'RF') selected @endif >Y/C hoàn vốn</option>
+            <option value="IA" @if($statusCurr == 'CO') selected @endif>Đã hoàn vốn</option>
             <option value="DE" @if($statusCurr == 'DE') selected @endif>Deleted</option>
         </select>
     </div>
@@ -89,6 +110,8 @@
                             @if($hd->status == 'AC') <button type="button" class="btn btn-success btnOwn">Active</button>
                             @elseif($hd->status == 'NE') <button type="button" class="btn btn-info btnOwn">New</button>
                             @elseif($hd->status == 'IA') <button type="button" class="btn btn-warning btnOwn">Inactive</button>
+                            @elseif($hd->status == 'RF') <button type="button" class="btn btn-warning btnOwn">Yêu cầu hoàn vốn</button>
+                            @elseif($hd->status == 'CO') <button type="button" class="btn btn-warning btnOwn">Đã hoàn vốn</button>
                             @elseif($hd->status == 'DE') <button type="button" class="btn btn-danger btnOwn">Delete</button> @endif
                         </td>
                         <td class="text-center">
@@ -130,6 +153,12 @@
 @section('scripts')
     <script>
         $("#status").change(function () {
+            $("#users-form").submit();
+        });
+        $("#goi-dau-tu").change(function () {
+            $("#users-form").submit();
+        });
+        $("#nha-dau-tu").change(function () {
             $("#users-form").submit();
         });
     </script>

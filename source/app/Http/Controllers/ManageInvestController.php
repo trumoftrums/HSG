@@ -14,6 +14,7 @@ use Request;
 use Vanguard\BienDong;
 use Vanguard\Http\Requests\Invest\BienDongRequest;
 use Vanguard\Support\Enum\UserStatus;
+use Vanguard\User;
 
 
 /**
@@ -88,7 +89,9 @@ class ManageInvestController extends Controller
             $item->finalInvest = json_decode($item->finalInvest, true);
         }
 
-        return view('manage-interest.list-goi-lai', compact('listGoiLai', 'statusCurr'));
+        return view('manage-interest.list-goi-lai',
+            compact('listGoiLai', 'statusCurr')
+        );
     }
     public function createGoiLai()
     {
@@ -137,9 +140,15 @@ class ManageInvestController extends Controller
     {
         $perPage = 10;
         $statusCurr = Input::get('status');
-        $listHopDong = $this->invest->paginate($perPage, Input::get('search'), Input::get('status'));
+        $idGoiDauTuCurr = Input::get('goi_dau_tu');
+        $idUserCurr = Input::get('nha_dau_tu');
+        $listHopDong = $this->invest->paginate($perPage, Input::get('search'), Input::get('nha_dau_tu'),Input::get('goi_dau_tu'), Input::get('status'));
+        $listUser = User::where('status', "Active")->get();
+        $listTypeInvest = InvestType::where('status', InvestType::STATUS_ACTIVED)->get();
 
-        return view('invest.list-hop-dong-dau-tu', compact('listHopDong', 'statusCurr'));
+        return view('invest.list-hop-dong-dau-tu',
+            compact('listHopDong', 'statusCurr', 'idGoiDauTuCurr', 'idUserCurr', 'listUser', 'listTypeInvest')
+        );
     }
 
     public function deleteHopDongDauTu($id)
