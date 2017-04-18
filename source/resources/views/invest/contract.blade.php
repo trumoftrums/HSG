@@ -77,7 +77,7 @@ if(!empty($datas)){
 
 <div class="cover-contract">
     <div class="cover-line-contract">
-        <h5 class="h5-title-contract"><img src="{{ url('assets/img/icon-contract.png') }}"/>HỢP ĐỒNG {{$i}}:</h5>
+        <h5 class="h5-title-contract"><img src="{{ url('assets/img/icon-contract.png') }}"/>HỢP ĐỒNG {{$v->investCode}}:</h5>
     </div>
     <div class="cover-line-contract">
         <p class="item-in-contract-div">NGÀY BẮT ĐẦU: <span><?php if(!empty($v->actStartDate)) echo $v->actStartDate; else echo $v->estStartDate;?></span></p>
@@ -125,11 +125,15 @@ if(!empty($datas)){
     <div class="cover-line-contract">
         <input class="inp-sub bt-first" value="XEM LỊCH SỬ GIAO DỊCH">
         <input class="inp-sub bt-second" value="XEM HỢP ĐỒNG">
-        <input class="inp-sub bt-third" value="HOÀN VỐN ĐẦU TƯ">
+        <input class="inp-sub bt-third " value="HOÀN VỐN ĐẦU TƯ" onclick="hoanvon({{$v->id}});">
     </div>
 </div>
 <?php $i++;}}?>
-
+<script type="application/javascript">
+    function hoanvon(id){
+        window.location = "/invest/refund-invest/?investID="+id;
+    }
+</script>
 
 @stop
 @section('styles')

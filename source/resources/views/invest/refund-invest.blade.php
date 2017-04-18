@@ -14,7 +14,8 @@
     </div>
 
     @include('partials.messages')
-
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="{{csrf_token()}}" />
     <div class="cover-invest">
         <div class="cover-line">
             <div class="ele-div">
@@ -25,16 +26,16 @@
                         if(!empty($datas)){
                             $i =1;
                             foreach ($datas as $v){
-                                echo '<option value="'.$v->id.'">Hợp đồng '.$i.' ['.$v->actStartDate.' : '.number_format($v->money,0,".",",").$v->currency.']</option>';
+                                echo '<option value="'.$v->id.'">Hợp đồng '.$v->investCode.' ['.$v->actStartDate.' : '.number_format($v->money,0,".",",").$v->currency.']</option>';
                                 $i++;
                             }
                         }
                     ?>
                 </select>
             </div>
-            <div class="ele-div">
-                <input type="submit" class="inp-sub bt-end-contract" value="Tính thống kê kết thúc HĐ"/>
-            </div>
+            {{--<div class="ele-div">--}}
+                {{--<input type="submit" class="inp-sub bt-end-contract" value="Tính thống kê kết thúc HĐ"/>--}}
+            {{--</div>--}}
         </div>
         <h4 class="h4-title">BẢNG THỐNG KÊ</h4>
         <div class="cover-line no-mar-bottom">
@@ -58,6 +59,7 @@
             <input type="submit" class="inp-sub" value="Gửi yêu cầu"/>
         </div>
     </div>
+</form>
     <script type="application/javascript">
         var dataArr = [];
         <?php
@@ -108,6 +110,9 @@
         ?>
         $( "#investID" ).change(function() {
             var id = $( "#investID" ).val();
+            calculateInvest(id);
+        });
+        function calculateInvest(id){
             if(id!=""){
                 var dt = dataArr[id];
                 $("#actStartDate").html("Ngày đầu tư: "+dt[0]);
@@ -119,7 +124,24 @@
                 $("#tienPhat").html((dt[6]+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' '+dt[8] + " ("+dt[9]+"% vốn đầu tư)");
                 $("#tongTien").html((dt[7]+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+' '+dt[8]);
 
+            }else{
+                $("#actStartDate").html("Ngày đầu tư: ");
+                $("#ngayNhanLai").html("Ngày nhận lãi: ");
+                $("#ngayDaoHan").html("Ngày đáo hạn: ");
+                $("#taiDauTu").html("Tái đầu tư: ");
+                $("#money").html("");
+                $("#tongLai").html("");
+                $("#tienPhat").html("");
+                $("#tongTien").html("");
             }
+        }
+        $( document ).ready(function() {
+            <?php
+                if(!empty($investID)){
+                    echo '$("#investID").val('.$investID.');';
+                    echo 'calculateInvest('.$investID.');';
+                }
+            ?>
         });
     </script>
 
