@@ -209,7 +209,7 @@ class InvestController extends Controller
                 if (!empty($ivType)) {
                     $formData['status'] = Invest::STATUS_NEW;
                     $formData['userID'] = $user->id;
-
+                    $formData['tienPhat'] = $ivType['finalInvest'];
                     $formData['interest'] = $ivType['interest'];
                     $formData['further'] = $bd->getByDate($formData['estStartDate']);
                     $formData['onetimeBonus'] = $ivType['onetimeBonus'];
@@ -233,6 +233,9 @@ class InvestController extends Controller
                         //calculate result
                         $updateCode['investCode'] = str_pad($ivType['id'],2,'0',STR_PAD_RIGHT).str_pad($id,4,'0',STR_PAD_LEFT);
                         $rCode = DB::table('invest')->where('id',$id)->update($updateCode);
+
+
+
                         $resultDT = $this->calculateInterest($id, $formData, $ivType['period']);
                         $r = DB::table('invest_result')->insert([$resultDT]);
                         if ($rCode && $r) {

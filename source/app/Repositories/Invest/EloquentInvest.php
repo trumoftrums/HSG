@@ -3,7 +3,9 @@
 namespace Vanguard\Repositories\Invest;
 
 use Vanguard\Invest;
+use Vanguard\InvestTrade;
 use Vanguard\InvestType;
+use DB;
 
 class EloquentInvest implements InvestRepository
 {
@@ -25,17 +27,42 @@ class EloquentInvest implements InvestRepository
 
     public function updateStatus($status, $id)
     {
+        DB::beginTransaction();
         $hd = Invest::find($id);
         $investType = InvestType::where('id', $hd->investTypeID)->first();
         $hd->status = $status;
+        $r2 =true;
         if ($status == Invest::STATUS_ACTIVED) {
             $hd->actStartDate = date("Y-m-d");
             $dateEnd = mktime(0, 0, 0, date("m") + $investType->period, date("d"), date("Y"));
             $hd->actEndDate = date('Y-m-d', $dateEnd);
-
+            $createTrade = array(
+                'investID'=>$id,
+                'ngayGD' => $hd->actStartDate,
+                'noidungGD'=>InvestTrade::TRADE_DAUTU,
+                'nguoitaoGD' =>0,
+                'tongTien' =>$hd->money,
+                'tongDauTu' =>$hd->money,
+                'soTienLai' =>0,
+                'soTienTaiDauTu' =>0,
+                'loaiTien' =>$hd->currency,
+                'tienLaiDaTra' =>0,
+            );
+            $r2 = DB::table("invest_trade")->insert($createTrade);
         }
 
-        $hd->save();
+        $r1 = $hd->save();
+
+
+        if($r1 && $r2){
+            DB::commit();
+            return true;
+        }else{
+            DB::rollBack();
+
+        }
+        return false;
+
     }
 
     public function paginate($perPage, $search = null, $nhadautu = null, $goidautu = null, $status = null)
