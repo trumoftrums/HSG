@@ -16,6 +16,7 @@ use Vanguard\BienDong;
 use Vanguard\Http\Requests\Invest\BienDongRequest;
 use Vanguard\Support\Enum\UserStatus;
 use Vanguard\User;
+use DB;
 
 
 /**
@@ -197,12 +198,12 @@ class ManageInvestController extends Controller
         if(is_numeric($id)){
             $where = " `invest`.`status`='" . Invest::STATUS_NEW ."' ";
             $datas = DB::table('invest')
-                ->join('invest_result', 'invest.id', '=', 'invest_result.investID')
+                ->leftJoin('invest_result', 'invest.id', '=', 'invest_result.investID')
                 ->select('invest.*', 'invest_result.*')
                 ->whereRaw($where)->get()->toArray();
             if(!empty($datas)){
                 $rd = InvestResult::where("investID",$id)->delete();
-                if($rd !== false) return true;
+                return true;
             }
         }
         return false;
@@ -282,6 +283,71 @@ class ManageInvestController extends Controller
         return redirect()->route('interest.list-hop-dong-dau-tu')
             ->withErrors($mess);
 
+
+    }
+    private function calculateInterest($id, $formDT, $period)
+    {
+
+        $money = $formDT['money'];
+        $laiSuat = $formDT['interest'];
+        $laiSuatBienDong = $formDT['further'];
+        $thuongNhanLai1Lan = $formDT['onetimeBonus'];
+
+        $saveDT = array(
+            'investID' => $id,
+            'ngayBatDau' => $formDT['estStartDate'],
+            'loaiTien' => $formDT['currency'],
+            'soTienDauTu' => $money,
+            'investTypeID' => $formDT['investTypeID'],
+            'laiSuat' => $formDT['interest'],
+            'laiSuatBienDong' => $formDT['further'],
+            'laiKep' => $formDT['isCompInterest'],
+            'phanTramLaiKep' => $formDT['compInterestPercent'],
+            'hinhThucNhanLai' => $formDT['interestMethod'],
+            'ngayDaoHan' => $formDT['estEndDate'],
+            'thuongNhanLai1Lan' => $formDT['onetimeBonus'],
+            'taiDauTu' => $formDT['isCompInterest'],
+
+        );
+
+        $ngayNhanLai = $saveDT['ngayDaoHan'];
+        if ($saveDT['hinhThucNhanLai'] == Invest::INTEREST_METHOD_MONTHLY) {
+            $ngayNhanLai = "Ngày " . date("d", strtotime($saveDT['ngayBatDau'])) . " hàng tháng";
+
+        }
+        $saveDT['ngayNhanLai'] = $ngayNhanLai;
+        $laiHangThang = round($money * $laiSuat / 1200, 2);
+        $quyTrinhTraLai = array();
+        $tongTienDT = $money;
+        $tongLai = 0;
+        for ($i = 0; $i < $period; $i++) {
+            if ($saveDT['laiKep'] == 1 && $saveDT['phanTramLaiKep'] > 0) {
+                $laiHangThang = $tongTienDT * $laiSuat / 1200;
+                $laiGop = $laiHangThang * $saveDT['phanTramLaiKep'] / 100;
+                $tongTienDT += $laiGop;
+                $tongLai += $laiHangThang - $laiGop;
+
+            } else {
+                $laiGop = 0;
+                $tongLai += $laiHangThang;
+            }
+            $quyTrinhTraLai[] = array(
+                'tienlai' => $laiHangThang,
+                'gop' => $laiGop,
+                'conlai' => $laiHangThang - $laiGop,
+                'tongTienDauTu' => $tongTienDT
+            );
+
+        }
+
+        $tongTien = $quyTrinhTraLai[$period - 1]['tongTienDauTu'] + $tongLai + $laiSuatBienDong * $money / 100;
+        if ($saveDT['hinhThucNhanLai'] == Invest::INTEREST_METHOD_ONETIME) {
+            $tongTien += $money * $thuongNhanLai1Lan / 100;
+        }
+        $saveDT['tongTien'] = $tongTien;
+        $saveDT['ketQuaChiTiet'] = json_encode($quyTrinhTraLai);
+
+        return $saveDT;
 
     }
 }

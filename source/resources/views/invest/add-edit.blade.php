@@ -239,7 +239,7 @@
                         var ciTaiDauTu = parseFloat(laiThang*compInterestPercent/100);
                         ciTongDauTu += ciTaiDauTu;
                         ciTongLai += laiThang - ciTaiDauTu;
-                        console.log("Lai Thang: "+laiThang);console.log("tai Dau Tu: "+ciTaiDauTu);console.log("Tong Dau Tu: "+ciTongDauTu);
+//                        console.log("Lai Thang: "+laiThang);console.log("tai Dau Tu: "+ciTaiDauTu);console.log("Tong Dau Tu: "+ciTongDauTu);
 
                     }
                     finalMoney = ciTongDauTu+ciTongLai+ money*bd/100;

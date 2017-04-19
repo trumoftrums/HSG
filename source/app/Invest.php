@@ -34,7 +34,7 @@ class Invest extends Model
     public static function getNewByID($id){
 
         if(!empty($id)){
-            $datas = Invest::where('status',Invest::STATUS_NEW)->get()->toArray();
+            $datas = Invest::where('status',Invest::STATUS_NEW)->where('id',$id)->get()->toArray();
             if(!empty($datas)){
                 $datas = $datas[0];
                 return $datas;
