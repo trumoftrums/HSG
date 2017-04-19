@@ -431,7 +431,10 @@ Route::get('interest/hop-dong-dau-tu/{idHD}/edit', [
     'as' => 'interest.hop-dong-dau-tu.edit',
     'uses' => 'ManageInvestController@editInvest'
 ]);
-
+Route::post('interest/hop-dong-dau-tu/{idHD}/edit', [
+    'as' => 'interest.hop-dong-dau-tu.submitedit',
+    'uses' => 'ManageInvestController@submitEditInvest'
+]);
 Route::delete('interest/hop-dong-dau-tu/{idHD}/delete', [
     'as' => 'interest.hop-dong-dau-tu.delete',
     'uses' => 'ManageInvestController@deleteHopDongDauTu'
@@ -479,6 +482,7 @@ Route::get('interest/goi-lai/{idGoiLai}/edit', [
     'as' => 'interest.goi_lai.edit',
     'uses' => 'ManageInvestController@editGoiLai'
 ]);
+
 Route::put('interest/goi-lai/{idGoiLai}/update', [
     'as' => 'interest.goi_lai.update',
     'uses' => 'ManageInvestController@updateGoiLai'
