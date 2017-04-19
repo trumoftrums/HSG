@@ -114,14 +114,14 @@
     </div>
     <h4 class="h4-title">BẢNG TỒNG KẾT</h4>
     <div class="cover-line no-mar-bottom">
-        <label class="lb-line" id="tk_estStartDate">Ngày đầu tư: <?php echo date("Y-m-d");?></label>
+        <label class="lb-line" id="tk_estStartDate">Ngày đầu tư:</label>
         <label class="lb-line" id="tk_nextPayment">Ngày nhận lãi: </label>
         <label class="lb-line" id="tk_estEndDate">Ngày đáo hạn: </label>
         <label class="lb-line" id="tk_isCompInterest">Tái đầu tư: Không</label>
     </div>
     <div class="cover-line">
         <label class="lb-2">Số tiền đầu tư:<b id="tk_money"></b></label>
-        <label class="lb-2">Số tiền lãi hàng tháng :<b id="tk_interest"></b></label>
+        <label class="lb-2"  id="tk_interest"></label>
         <label class="lb-2">Tổng tiền khi đáo hạn (Tiền gốc + Lãi suất + Lãi biến động): <b id="tk_finalMoney"></b></label>
     </div>
     <div class="cover-line">
@@ -219,19 +219,60 @@
                 var currency = $( "select[name='currency']" ).val();
                 $( "#tk_money" ).html(money+" "+currency);
                 money = parseFloat(money.replace(/\D/g,""));
-//                console.log(money);
-                var interest = parseFloat(Math.round(money*currentInvestType.interest/1200));
+                var interest = parseFloat(money*currentInvestType.interest/(currentInvestType.period*100));
 
-                $( "#tk_interest" ).html((interest+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency);
+
+
                 var bd = $( "input[name='further']" ).val();
                 bd = parseFloat(bd.replace(" %",""));
-//                console.log(interest*parseInt(currentInvestType.period));
-//                console.log(money*bd/100);
-                var finalMoney = parseFloat(Math.round(money + interest*parseInt(currentInvestType.period) + money*bd/100));
-                $( "#tk_finalMoney" ).html((finalMoney+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency);
+                var finalMoney = 0;
+
+                var isCompInterest = $('input[name=isCompInterest]:checked', '#createInvest').val();
+                var compInterestPercent = $('#slider').data('slider').getValue();
+                if(isCompInterest==1){
+                    $( "#tk_interest" ).html("Số tiền lãi tháng đầu tiên:<b>"+(Math.round(interest,0)+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency+"</b>");
+                    var ciTongDauTu = money;
+
+                    var ciTongLai = 0;
+                    for(var i=0;i<currentInvestType.period;i++){
+                        var laiThang = parseFloat(ciTongDauTu*currentInvestType.interest/(currentInvestType.period*100));
+                        var ciTaiDauTu = parseFloat(laiThang*compInterestPercent/100);
+                        ciTongDauTu += ciTaiDauTu;
+                        ciTongLai += laiThang - ciTaiDauTu;
+                        console.log("Lai Thang: "+laiThang);console.log("tai Dau Tu: "+ciTaiDauTu);console.log("Tong Dau Tu: "+ciTongDauTu);
+
+                    }
+                    finalMoney = ciTongDauTu+ciTongLai+ money*bd/100;
+                }else{
+                    $( "#tk_interest" ).html("Số tiền lãi hàng tháng :<b>"+(Math.round(interest,0)+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency+"</b>");
+                    finalMoney = parseFloat(money + interest*parseInt(currentInvestType.period) + money*bd/100);
+
+                }
+                $( "#tk_finalMoney" ).html((Math.round(finalMoney,0)+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency);
+
+                var interestMethod = $('input[name=interestMethod]:checked', '#createInvest').val();
+                var estStartDate = $("#estStartDate").val();
+                var arrStartDate = estStartDate.split("-");
+                var StartDate = new Date(arrStartDate[0],arrStartDate[1],arrStartDate[2]);
+                var EndDate = StartDate;
+                EndDate.setMonth(EndDate.getMonth()+currentInvestType.period);
+                var estEndDate = EndDate.getFullYear()+"-"+('0' + EndDate.getMonth()).slice(-2)+"-"+ ('0' + EndDate.getDate()).slice(-2);
+                if(interestMethod=="Cuối kỳ"){
+
+                    $("#tk_nextPayment").html("Ngày nhận lãi: "+estEndDate);
+
+                }else{
+                    $("#tk_nextPayment").html("Ngày nhận lãi: "+arrStartDate[2]+ " hàng tháng");
+                }
+                $("#tk_estEndDate").html("Ngày đáo hạn: "+estEndDate);
+                $("#tk_estStartDate").html("Ngày đầu tư: "+estStartDate);
+
 
             }else{
-//                $( "input[name='money']" ).val((currentInvestType.minMoney+"").replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+
+                $("#tk_nextPayment").html("Ngày nhận lãi: ");
+                $("#tk_estStartDate").html("Ngày đầu tư: ");
+                $("#tk_estEndDate").html("Ngày đáo hạn: ");
                 $( "#tk_money" ).html("");
                 $( "#tk_interest" ).html("");
                 $( "#tk_finalMoney" ).html("");
@@ -244,8 +285,19 @@
             $( "#tk_finalMoney" ).html("");
         }
     }
+    Date.prototype.addDays = function(days) {
+        var dat = new Date(this.valueOf());
+        dat.setDate(dat.getDate() + days);
+        return dat;
+    }
+
+
     function  getInvestType() {
+        var date = $( "#estStartDate" ).val();
+        $("#tk_estStartDate").html("Ngày đầu tư: "+date);
+
         var cvl = $( "#investTypeID" ).val();
+
         $.ajax({
             url: '/getInvestType',
             dataType: "json",
@@ -271,12 +323,15 @@
         });
     }
     $( document ).ready(function() {
+
         var handle = $( "#custom-handle" );
+
         $( "#slider" ).slider({
             min: 0,
             max: 100,
-            value: 0,
+            value: <?php if(isset($edit) && $edit) echo $dataInvest['compInterestPercent'] ; else echo '0';?>,
             step:10,
+            animate: false,
             create: function() {
                 var pc =$( this ).slider( "value" );
                 handle.text( pc+" %" );
@@ -284,14 +339,34 @@
             slide: function( event, ui ) {
                  handle.text( ui.value );
 
+            },
+            change: function(e, ui) {
+                console.log(ui.value);
+            },
+            stop: function( event, ui ) {
+                console.log(ui.value);
             }
-
+        });
+        $('#slider').slider().on('slideStop', function(ev){
+            var newVal = $('#slider').data('slider').getValue();
+            $("#compInterestPercent").val(newVal);
+            calInterest();
         });
 
 
-        $( "div .slider" ).css("display","none");
-        $( "div #sliderNote" ).css("display","none");
-        getBienDong();
+        <?php if(!isset($dataInvest) || $dataInvest['isCompInterest']==0) {
+            echo '$( "div .slider" ).css("display","none");$( "div #sliderNote" ).css("display","none");';
+        }
+        ?>
+
+
+        <?php if(isset($edit) && $edit){
+            echo 'getInvestType();';
+
+        }else{
+            echo 'getBienDong();';
+        }?>
+
 
     });
     $( "#estStartDate" ).change(function() {
@@ -311,21 +386,33 @@
             $( "div #sliderNote" ).css("display","none");
             $("#tk_isCompInterest").html("Tái đầu tư: Không");
         }
+        calInterest();
     });
 
     $('input[type=radio][name=interestMethod]').change(function() {
-        var vl = $('input[name=interestMethod]:checked', '#createInvest').val();
-        if(vl=="ONETIME"){
-
-        }else{
-
-        }
+        getNgayTraLai();
 
 
     });
+    function getNgayTraLai(){
+        var interestMethod = $('input[name=interestMethod]:checked', '#createInvest').val()
+        var estStartDate = $("#estStartDate").val();
+        var arrStartDate = estStartDate.split("-");
+        var StartDate = new Date(arrStartDate[0],arrStartDate[1],arrStartDate[2]);
+        var EndDate = StartDate;
+        EndDate.setMonth(EndDate.getMonth()+currentInvestType.period);
+        var estEndDate = EndDate.getFullYear()+"-"+('0' + EndDate.getMonth()).slice(-2)+"-"+ ('0' + EndDate.getDate()).slice(-2);
+        if(interestMethod=="Cuối kỳ"){
+
+            $("#tk_nextPayment").html("Ngày nhận lãi: "+estEndDate);
+
+        }else{
+            $("#tk_nextPayment").html("Ngày nhận lãi: "+arrStartDate[2]+ " hàng tháng");
+        }
+    }
     function getBienDong(){
         var date = $( "#estStartDate" ).val();
-        $("#tk_estStartDate").html("Ngày đầu tư: "+date);
+//        $("#tk_estStartDate").html("Ngày đầu tư: "+date);
         $.ajax({
             url: '/getBienDong',
             dataType: "json",
@@ -342,6 +429,7 @@
                 if(data.result){
                     var vl = data.data + " %";
                     $("input[name='further']").val(vl);
+                    calInterest();
                 }
             },
             error: function () {
@@ -349,10 +437,10 @@
             }
         });
     }
-    $( "#createInvest" ).submit(function( event ) {
-        $("#compInterestPercent").val($("#slider").attr("value"));
-        $( "#createInvest" ).submit();
-    });
+//    $( "#createInvest" ).submit(function( event ) {
+//        $("#compInterestPercent").val($("#slider").attr("value"));
+//        $( "#createInvest" ).submit();
+//    });
 
 </script>
 
