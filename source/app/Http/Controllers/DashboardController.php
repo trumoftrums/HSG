@@ -97,7 +97,7 @@ class DashboardController extends Controller
             $arrDate[] = $day;
         }
         sort($arrDate);
-        $strDate = implode('|',$arrDate);
+        $strDate = implode(',',$arrDate);
 
         return view('dashboard.default', compact('activities','totalHD', 'totalMoney', 'listHD','strDate'));
     }
