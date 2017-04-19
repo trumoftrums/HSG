@@ -841,6 +841,7 @@ a.panel-link:hover {
     text-align: center;
     font-size: 18px;
     margin-bottom: 10px;
+    color: #06743f;
 }
 
 .dashboard-panel:hover {
@@ -1623,6 +1624,16 @@ a.panel-link:hover {
 }
 .cover-inp .inp-sub-comp:hover{
     opacity: 0.8;
+}
+.panel-body .fa{
+    color: #06743f;
+}
+.p-title-dash{
+    color: #06743f;
+    padding: 0px;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0px;
 }
 @media (max-width: 600px){
     .cover-invest .cover-line .cover-line-common {

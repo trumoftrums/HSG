@@ -2,6 +2,8 @@
 
 namespace Vanguard\Http\Controllers;
 
+use Intervention\Image\Gd\Commands\InvertCommand;
+use Vanguard\Invest;
 use Vanguard\Repositories\Activity\ActivityRepository;
 use Vanguard\Repositories\User\UserRepository;
 use Vanguard\Support\Enum\UserStatus;
@@ -81,8 +83,23 @@ class DashboardController extends Controller
             Carbon::now()->subWeeks(2),
             Carbon::now()
         )->toArray();
+        $userID = Auth::user()->id;
+        $query = Invest::whereIn("status", [Invest::STATUS_ACTIVED, Invest::STATUS_NEW])
+            ->where('userID', $userID);
 
-        return view('dashboard.default', compact('activities'));
+        $totalHD = $query->count();
+        $totalMoney = $query->sum('money');
+        $listHD = $query->get();
+        $arrDate = [];
+        foreach ($listHD as $key => $item) {
+            $timestamp = strtotime($item->actStartDate);
+            $day = date('d', $timestamp);
+            $arrDate[] = $day;
+        }
+        sort($arrDate);
+        $strDate = implode('|',$arrDate);
+
+        return view('dashboard.default', compact('activities','totalHD', 'totalMoney', 'listHD','strDate'));
     }
 
 

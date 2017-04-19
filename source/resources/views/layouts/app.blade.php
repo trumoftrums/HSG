@@ -19,7 +19,12 @@
     <meta name="application-name" content="{{ settings('app_name') }}"/>
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="{{ url('assets/img/icons/logo-not.png') }}" />
-
+    <script>
+        window.intercomSettings = {
+            app_id: "sulvmxck"
+        };
+    </script>
+    <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/sulvmxck';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
     {{-- For production, it is recommended to combine following styles into one. --}}
     {!! HTML::script('assets/js/jquery-2.1.4.min.js') !!}
     {!! HTML::style('assets/css/bootstrap.min.css') !!}
