@@ -6,6 +6,7 @@ use Cache;
 use Vanguard\Http\Requests\Role\CreateRoleRequest;
 use Vanguard\Http\Requests\Role\UpdateRoleRequest;
 use Vanguard\Invest;
+use Vanguard\InvestType;
 use Vanguard\Repositories\BienDong\BienDongRepository;
 use Vanguard\Repositories\Role\RoleRepository;
 use Vanguard\Repositories\User\UserRepository;
@@ -63,7 +64,7 @@ class InvestController extends Controller
     public function create(InvestTypeRepository $investTypes)
     {
         $edit = false;
-        $listIVT = $investTypes->getAll();
+        $listIVT = $investTypes->getAll(InvestType::STATUS_ACTIVED);
         $datas = array(
             'edit' => $edit,
             'listIVT' => $listIVT
@@ -73,17 +74,17 @@ class InvestController extends Controller
 
     public function contract()
     {
-        $datas =array();
+        $datas = array();
         if (Auth::check()) {
             $user = Auth::user();
-            $where = " (`invest`.`status`='".Invest::STATUS_ACTIVED."' OR `invest`.`status`='".Invest::STATUS_NEW."') AND `invest`.`userID` = ".$user->id." ";
+            $where = " (`invest`.`status`='" . Invest::STATUS_ACTIVED . "' OR `invest`.`status`='" . Invest::STATUS_NEW . "') AND `invest`.`userID` = " . $user->id . " ";
             $datas = DB::table('invest')
                 ->join('invest_result', 'invest.id', '=', 'invest_result.investID')
                 ->select('invest.*', 'invest_result.*')
                 ->whereRaw($where)->get()->toArray();
-            if(!empty($datas)){
-                foreach ($datas as $k =>$v){
-                    $v->ketQuaChiTiet = json_decode($v->ketQuaChiTiet,true);
+            if (!empty($datas)) {
+                foreach ($datas as $k => $v) {
+                    $v->ketQuaChiTiet = json_decode($v->ketQuaChiTiet, true);
 
                     $v->trade = $this->getInvestTrade($v->id);
 //                    var_dump($v);exit();
@@ -96,30 +97,33 @@ class InvestController extends Controller
         }
 
         $result = array(
-            'edit'=>false,
-            'datas'=>$datas
+            'edit' => false,
+            'datas' => $datas
         );
 
 
         return view('invest.contract', $result);
     }
-    private function getInvestTrade($id){
-        $datas = InvestTrade::where("investID",$id)->orderBy("ngayGD","desc")->get()->toArray();
+
+    private function getInvestTrade($id)
+    {
+        $datas = InvestTrade::where("investID", $id)->orderBy("ngayGD", "desc")->get()->toArray();
         return $datas;
     }
+
     public function refundInvest()
     {
-        $datas =array();
+        $datas = array();
         if (Auth::check()) {
             $user = Auth::user();
-            $where = " `invest`.`status`='".Invest::STATUS_ACTIVED."' AND `invest`.`userID` = ".$user->id." ";
+            $where = " `invest`.`status`='" . Invest::STATUS_ACTIVED . "' AND `invest`.`userID` = " . $user->id . " ";
             $datas = DB::table('invest')
                 ->join('invest_result', 'invest.id', '=', 'invest_result.investID')
                 ->select('invest.*', 'invest_result.*')
                 ->whereRaw($where)->get()->toArray();
-            if(!empty($datas)){
-                foreach ($datas as $k =>$v){
-                    $v->ketQuaChiTiet = json_decode($v->ketQuaChiTiet,true);
+            if (!empty($datas)) {
+                foreach ($datas as $k => $v) {
+                    $v->ketQuaChiTiet = json_decode($v->ketQuaChiTiet, true);
 
                     $v->trade = $this->getInvestTrade($v->id);
 //                    var_dump($v);exit();
@@ -131,51 +135,51 @@ class InvestController extends Controller
 
         }
         $result = array(
-            'edit'=>false,
-            'datas'=>$datas,
-            'investID'=>0
+            'edit' => false,
+            'datas' => $datas,
+            'investID' => 0
         );
-        if(isset($_REQUEST['investID']) && !empty($_REQUEST['investID']) && is_numeric($_REQUEST['investID'])){
+        if (isset($_REQUEST['investID']) && !empty($_REQUEST['investID']) && is_numeric($_REQUEST['investID'])) {
             $result['investID'] = $_REQUEST['investID'];
         }
 
 
         return view('invest.refund-invest', $result);
     }
+
     public function submitRefundInvest()
     {
-        $datas =array();
+        $datas = array();
         $result = false;
         if (Auth::check()) {
             $user = Auth::user();
             $formData = Request::all();
-            if(!empty($formData['investID'])){
+            if (!empty($formData['investID'])) {
                 $investID = $formData['investID'];
-                $r = Invest::yeuCauHoanVon($investID,$user->id);
-                if($r){
-                    $result =true;
+                $r = Invest::yeuCauHoanVon($investID, $user->id);
+                if ($r) {
+                    $result = true;
                     $mess = "Yêu cầu hoàn vốn thành công!";
-                }else{
+                } else {
                     $mess = "Yêu cầu hoàn vốn gói đầu tư không hợp lệ!";
                 }
-            }else{
+            } else {
                 $mess = "Vui lòng chọn gói đầu tư để yêu cầu hoàn vốn!";
             }
 
 
-
-        }else{
+        } else {
             $mess = "Vui lòng chọn gói đầu tư để yêu cầu hoàn vốn!";
         }
 
         $result = array(
-            'edit'=>false,
-            'datas'=>$datas
+            'edit' => false,
+            'datas' => $datas
         );
-        if($result){
+        if ($result) {
             return redirect()->route('invest.hoan_von')
                 ->withSuccess($mess);
-        }else{
+        } else {
             return redirect()->route('invest.hoan_von')
                 ->withErrors($mess);
         }
@@ -228,12 +232,11 @@ class InvestController extends Controller
                     }
 
                     DB::beginTransaction();
-                    $id = DB::table('invest')->insertGetId($formData,'id');
+                    $id = DB::table('invest')->insertGetId($formData, 'id');
                     if (!empty($id) && $id > 0) {
                         //calculate result
-                        $updateCode['investCode'] = str_pad($ivType['id'],2,'0',STR_PAD_RIGHT).str_pad($id,4,'0',STR_PAD_LEFT);
-                        $rCode = DB::table('invest')->where('id',$id)->update($updateCode);
-
+                        $updateCode['investCode'] = str_pad($ivType['id'], 2, '0', STR_PAD_RIGHT) . str_pad($id, 4, '0', STR_PAD_LEFT);
+                        $rCode = DB::table('invest')->where('id', $id)->update($updateCode);
 
 
                         $resultDT = $this->calculateInterest($id, $formData, $ivType['period']);
@@ -318,8 +321,8 @@ class InvestController extends Controller
         if ($saveDT['hinhThucNhanLai'] == Invest::INTEREST_METHOD_ONETIME) {
             $tongTien += $money * $thuongNhanLai1Lan / 100;
         }
-        $saveDT['tongTien'] =$tongTien;
-        $saveDT['ketQuaChiTiet'] =json_encode($quyTrinhTraLai);
+        $saveDT['tongTien'] = $tongTien;
+        $saveDT['ketQuaChiTiet'] = json_encode($quyTrinhTraLai);
 
         return $saveDT;
 

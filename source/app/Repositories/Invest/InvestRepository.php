@@ -16,4 +16,6 @@ interface InvestRepository
     public function paginate($perPage, $search = null, $nhadautu = null, $goidautu = null, $status = null);
 
     public function updateStatus($status, $id);
+
+
 }

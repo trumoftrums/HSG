@@ -131,7 +131,7 @@ if(!empty($datas)){
 <?php $i++;}}?>
 <script type="application/javascript">
     function hoanvon(id){
-        window.location = "/invest/refund-invest/?investID="+id;
+        window.location = "/hoan-von/refund-invest/?investID="+id;
     }
 </script>
 

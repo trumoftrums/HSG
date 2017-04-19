@@ -4,6 +4,7 @@ namespace Vanguard\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Vanguard\Http\Requests\User\UpdateUserRequest;
 use Vanguard\Invest;
+use Vanguard\InvestResult;
 use Vanguard\InvestType;
 use Vanguard\Repositories\Invest\InvestRepository;
 use Vanguard\Repositories\InvestType\InvestTypeRepository;
@@ -167,5 +168,120 @@ class ManageInvestController extends Controller
 
         return redirect()->route('interest.list-hop-dong-dau-tu')
             ->withSuccess('Kích hoạt hợp đồng thành công!');
+    }
+    public function editInvest($id,InvestTypeRepository $investTypes)
+    {
+        if(!empty($id) && is_numeric($id)){
+            $edit = true;
+            $listIVT = $investTypes->getAll();
+            $dataInvest = Invest::getNewByID($id);
+            if(!empty($dataInvest)){
+                $datas = array(
+                    'edit' => $edit,
+                    'listIVT' => $listIVT,
+                    'investID' =>$id,
+                    'dataInvest'=>$dataInvest
+                );
+                return view('invest.add-edit', $datas);
+            }else{
+                return redirect()->route('interest.list-hop-dong-dau-tu')
+                    ->withErrors('Không thể chỉnh sửa hợp đồng đầu tư này');
+            }
+
+        }
+        return redirect()->route('interest.list-hop-dong-dau-tu')
+            ->withErrors('Không tìm thấy hợp đồng đầu tư');
+
+    }
+    private function initEditInvest($id){
+        if(is_numeric($id)){
+            $where = " `invest`.`status`='" . Invest::STATUS_NEW ."' ";
+            $datas = DB::table('invest')
+                ->join('invest_result', 'invest.id', '=', 'invest_result.investID')
+                ->select('invest.*', 'invest_result.*')
+                ->whereRaw($where)->get()->toArray();
+            if(!empty($datas)){
+                $rd = InvestResult::where("investID",$id)->delete();
+                if($rd !== false) return true;
+            }
+        }
+        return false;
+    }
+    public function submitEditInvest(InvestTypeRepository $investTypes, InvestRepository $invest, BienDongRepository $bd)
+    {
+        $result =false;
+        $mess = "";
+        if (Auth::check()) {
+            $user = Auth::user();
+            $formData = Request::all();
+
+            if (!empty($formData['id']) && !empty($formData['estStartDate']) && !empty($formData['money']) && !empty($formData['investTypeID'])) {
+
+                $id = $formData['id'];
+                if($this->initEditInvest($id)){
+                    $estStartDate = $formData['estStartDate'];
+                    $money = str_replace(",", "", $formData['money']);
+                    $formData['money'] = $money;
+                    $ivType = $investTypes->getTypebyID($formData['investTypeID'], true);
+                    if (!empty($formData['paymentReceipt']) && !empty($_FILES['paymentReceipt'])) {
+                        $formData['paymentReceipt'] = $this->uploadReceipt($user->id, $_FILES['paymentReceipt']);
+                    }
+                    if (!empty($ivType)) {
+                        $formData['tienPhat'] = $ivType['finalInvest'];
+                        $formData['interest'] = $ivType['interest'];
+                        $formData['further'] = $bd->getByDate($formData['estStartDate']);
+                        $formData['onetimeBonus'] = $ivType['onetimeBonus'];
+
+                        $formData['estEndDate'] = date("Y-m-d", strtotime($formData['estStartDate'] . " + " . $ivType['period'] . " month"));
+
+                        if (!empty($formData['interestMethod']) && $formData['interestMethod'] == Invest::INTEREST_METHOD_MONTHLY) {
+                            $formData['nextPayment'] = date("Y-m-d", strtotime($formData['estStartDate'] . " + 1 month"));
+
+                        } else {
+                            $formData['nextPayment'] = $formData['estEndDate'];
+
+                        }
+                        if (isset($formData['_token'])) {
+                            unset($formData['_token']);
+                        }
+
+                        DB::beginTransaction();
+                        $rup = DB::table('invest')->where('id',$id)->update($formData);
+                        if ($rup) {
+                            //calculate result
+                            $resultDT = $this->calculateInterest($id, $formData, $ivType['period']);
+                            $r = DB::table('invest_result')->insert([$resultDT]);
+                            if ($r) {
+                                DB::commit();
+                                $result = true;
+                                $mess = "Chỉnh sửa gói đầu tư thành công!";
+                            } else {
+                                DB::rollBack();
+                            }
+
+                        } else {
+                            DB::rollBack();
+                        }
+
+                    }
+                }else{
+                    $mess = "Chỉnh sửa hợp đồng đầu tư không hợp lệ!";
+                }
+
+
+            }else{
+                $mess = "Vui lòng điền đầy đủ thông tin bắt buộc!";
+                return view('invest.add-edit')
+                    ->withSuccess($mess);
+            }
+        }
+        if($result){
+            return redirect()->route('interest.list-hop-dong-dau-tu')
+                ->withSuccess($mess);
+        }
+        return redirect()->route('interest.list-hop-dong-dau-tu')
+            ->withErrors($mess);
+
+
     }
 }

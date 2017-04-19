@@ -41,16 +41,11 @@
 @include('partials.messages')
 <form action="" method="post" id="createInvest" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{csrf_token()}}" />
-    <?php
-        if(isset($investID) && !empty($investID)){
-            echo '<input type="hidden" name="id" value="'.$investID.'" />';
-        }
-    ?>
 <div class="cover-invest">
     <div class="cover-line">
         <div class="ele-div">
             <span class="sp-up">Ngày bắt đầu</span>
-            <input type="text" id="estStartDate" name="estStartDate" readonly class="datepicker inp-text" value="<?php if(isset($dataInvest)) echo $dataInvest['estStartDate']; else echo date("Y-m-d");?>"/>
+            <input type="text" id="estStartDate" name="estStartDate" readonly class="datepicker inp-text" value="<?php echo date("Y-m-d");?>"/>
         </div>
         <div class="ele-div">
             <span class="sp-up">Loại tiền</span>
@@ -60,7 +55,7 @@
         </div>
         <div class="ele-div">
             <span class="sp-up">Nhập số tiền muốn đầu tư</span>
-            <input name="money" maxlength="15" class="inp-text onlynumber autonumber" value="<?php if(isset($dataInvest)) echo number_format($dataInvest['money'],0,".",",");?>"/>
+            <input name="money" maxlength="15" class="inp-text onlynumber autonumber"/>
         </div>
         <div class="ele-div">
             <span class="sp-up">Chọn kỳ hạn đầu tư</span>
@@ -70,12 +65,7 @@
                     if(!empty($listIVT)){
 
                         foreach ($listIVT as $ivt){
-                            $selected = "";
-                            if(isset($dataInvest) && $ivt->id  == $dataInvest['investTypeID']){
-                                $selected = ' selected ="selected" ';
-                            }
-
-                            echo '<option '.$selected.' value="'.$ivt->id.'">'.$ivt->typeName.'</option>';
+                            echo '<option value="'.$ivt->id.'">'.$ivt->typeName.'</option>';
                         }
                     }
                 ?>
@@ -85,16 +75,16 @@
     <div class="cover-line">
         <div class="ele-div-2">
             <span class="sp-line">Lãi suất</span>
-            <input name="interest" readonly class="inp-text" value="<?php if(isset($dataInvest)) echo $dataInvest['interest']."%"; ?>"/>
+            <input name="interest" readonly class="inp-text"/>
         </div>
         <div class="ele-div-2">
             <span class="sp-line">Lãi suất biên động</span>
-            <input name="further" readonly class="inp-text"  value="<?php if(isset($dataInvest)) echo $dataInvest['further']."%"; ?>"/>
+            <input name="further" readonly class="inp-text"/>
         </div>
         <div class="ele-div-2">
             <span class="sp-line">Áp dụng lãi kép:</span>
-            <label class="rad-lk radio-inline"><input disabled type="radio" value="1" name="isCompInterest"  <?php if(isset($dataInvest) && $dataInvest['isCompInterest']==1) echo "checked"; ?>>Có</label>
-            <label class="rad-lk radio-inline"><input disabled <?php if(isset($dataInvest) && $dataInvest['isCompInterest']==0) echo "checked"; ?> type="radio" value="0" name="isCompInterest">Không</label>
+            <label class="rad-lk radio-inline"><input disabled type="radio" value="1" name="isCompInterest">Có</label>
+            <label class="rad-lk radio-inline"><input disabled checked type="radio" value="0" name="isCompInterest">Không</label>
         </div>
     </div>
     <div class="cover-line" id = "sliderNote" >
@@ -105,23 +95,23 @@
             <div id="custom-handle" class="ui-slider-handle"></div>
 
         </div>
-        <input type="hidden" name="compInterestPercent" value="<?php if(isset($dataInvest)) echo $dataInvest['compInterestPercent']; ?>" id="compInterestPercent"/>
+        <input type="hidden" name="compInterestPercent" value="0" id="compInterestPercent"/>
     </div>
     <div class="cover-line">
         <span class="sp-line">HÌNH THỨC NHẬN LÃI:</span>
-        <label class="radio-inline"><input type="radio" value="Cuối kỳ" <?php if(isset($dataInvest) && $dataInvest['interestMethod']=='Cuối kỳ') echo "checked"; ?> name="interestMethod">Cuối kỳ</label>
-        <label class="radio-inline"><input type="radio" value="Hàng tháng"  <?php if(isset($dataInvest) && $dataInvest['interestMethod']=='Hàng tháng') echo "checked"; ?>  name="interestMethod">Hàng tháng</label>
+        <label class="radio-inline"><input type="radio" value="Cuối kỳ" checked name="interestMethod">Cuối kỳ</label>
+        <label class="radio-inline"><input type="radio" value="Hàng tháng" name="interestMethod">Hàng tháng</label>
     </div>
     <h4 class="h4-title">BẢNG TỒNG KẾT</h4>
     <div class="cover-line no-mar-bottom">
-        <label class="lb-line" id="tk_estStartDate">Ngày đầu tư:</label>
+        <label class="lb-line" id="tk_estStartDate">Ngày đầu tư: <?php echo date("Y-m-d");?></label>
         <label class="lb-line" id="tk_nextPayment">Ngày nhận lãi: </label>
         <label class="lb-line" id="tk_estEndDate">Ngày đáo hạn: </label>
         <label class="lb-line" id="tk_isCompInterest">Tái đầu tư: Không</label>
     </div>
     <div class="cover-line">
         <label class="lb-2">Số tiền đầu tư:<b id="tk_money"></b></label>
-        <label class="lb-2"  id="tk_interest"></label>
+        <label class="lb-2">Số tiền lãi hàng tháng :<b id="tk_interest"></b></label>
         <label class="lb-2">Tổng tiền khi đáo hạn (Tiền gốc + Lãi suất + Lãi biến động): <b id="tk_finalMoney"></b></label>
     </div>
     <div class="cover-line">
@@ -130,7 +120,7 @@
     <h4 class="h4-title">HÌNH THỨC THANH TOÁN VỐN ĐẦU TƯ</h4>
     <div class="cover-line">
         <div class="cover-line-common cover-line-left">
-            <h5 class="h5-title"><input <?php if(!isset($dataInvest) || (isset($dataInvest) && $dataInvest['paymentType']=='DIRECT')) echo "checked"; ?> type="radio" name="paymentType" value="DIRECT">CHUYỂN TIỀN TRỰC TIẾP TẠI VĂN PHÒNG</h5>
+            <h5 class="h5-title"><input checked type="radio" name="paymentType" value="DIRECT">CHUYỂN TIỀN TRỰC TIẾP TẠI VĂN PHÒNG</h5>
             <span class="sp-add">Địa chỉ: 02, Phạm Văn Đồng, P. Linh Đông, Q. Thủ Đức, Tp.HCM</span>
             <span class="sp-add">Hotline: 0970 7777 929 - Email: cskh@hoangsanggroup.vn</span>
             <div class="cover-p">
@@ -138,10 +128,10 @@
                 <p>* Quý khách sẽ nhận được bảng thống kê đảm bảo lợi nhuận.</p>
                 <p>(Mọi thông tin chi tiết sẽ được Chuyên viên của HSG hỗ trợ tư vấn cho Quý khách)</p>
             </div>
-            {{--<input type="submit" class="inp-sub" value="Hoàn thành"/>--}}
+            <input type="submit" class="inp-sub" value="Hoàn thành"/>
         </div>
         <div class="cover-line-common cover-line-right">
-            <h5 class="h5-title"><input  <?php if((isset($dataInvest) && $dataInvest['paymentType']=='ONLINE')) echo "checked"; ?> name="paymentType" type="radio" value="ONLINE">CHUYỂN TIỀN TRỰC TUYẾN</h5>
+            <h5 class="h5-title"><input name="paymentType" type="radio" value="ONLINE">CHUYỂN TIỀN TRỰC TUYẾN</h5>
             <div class="cover-bank">
                 <img src="{{ url('assets/img/img-bank.png') }}"/>
                 <img src="{{ url('assets/img/img-bank.png') }}"/>
@@ -161,10 +151,8 @@
                 <p>* Quý khách sẽ nhận Hợp Đồng niêm phong sau 5 ngày từ ngày Quý khách đầu tư.</p>
                 <p>* Nhân viên của HSG sẽ gọi điện trực tiếp đến Quý Khách để xác nhận.</p>
             </div>
+            <input type="submit" class="inp-sub" value="Hoàn thành"/>
         </div>
-    </div>
-    <div class="cover-inp">
-        <input type="submit" class="inp-sub-comp" value="Hoàn thành"/>
     </div>
 </div>
 </form>
@@ -219,60 +207,19 @@
                 var currency = $( "select[name='currency']" ).val();
                 $( "#tk_money" ).html(money+" "+currency);
                 money = parseFloat(money.replace(/\D/g,""));
-                var interest = parseFloat(money*currentInvestType.interest/(currentInvestType.period*100));
+//                console.log(money);
+                var interest = parseFloat(Math.round(money*currentInvestType.interest/1200));
 
-
-
+                $( "#tk_interest" ).html((interest+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency);
                 var bd = $( "input[name='further']" ).val();
                 bd = parseFloat(bd.replace(" %",""));
-                var finalMoney = 0;
-
-                var isCompInterest = $('input[name=isCompInterest]:checked', '#createInvest').val();
-                var compInterestPercent = $('#slider').data('slider').getValue();
-                if(isCompInterest==1){
-                    $( "#tk_interest" ).html("Số tiền lãi tháng đầu tiên:<b>"+(Math.round(interest,0)+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency+"</b>");
-                    var ciTongDauTu = money;
-
-                    var ciTongLai = 0;
-                    for(var i=0;i<currentInvestType.period;i++){
-                        var laiThang = parseFloat(ciTongDauTu*currentInvestType.interest/(currentInvestType.period*100));
-                        var ciTaiDauTu = parseFloat(laiThang*compInterestPercent/100);
-                        ciTongDauTu += ciTaiDauTu;
-                        ciTongLai += laiThang - ciTaiDauTu;
-                        console.log("Lai Thang: "+laiThang);console.log("tai Dau Tu: "+ciTaiDauTu);console.log("Tong Dau Tu: "+ciTongDauTu);
-
-                    }
-                    finalMoney = ciTongDauTu+ciTongLai+ money*bd/100;
-                }else{
-                    $( "#tk_interest" ).html("Số tiền lãi hàng tháng :<b>"+(Math.round(interest,0)+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency+"</b>");
-                    finalMoney = parseFloat(money + interest*parseInt(currentInvestType.period) + money*bd/100);
-
-                }
-                $( "#tk_finalMoney" ).html((Math.round(finalMoney,0)+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency);
-
-                var interestMethod = $('input[name=interestMethod]:checked', '#createInvest').val();
-                var estStartDate = $("#estStartDate").val();
-                var arrStartDate = estStartDate.split("-");
-                var StartDate = new Date(arrStartDate[0],arrStartDate[1],arrStartDate[2]);
-                var EndDate = StartDate;
-                EndDate.setMonth(EndDate.getMonth()+currentInvestType.period);
-                var estEndDate = EndDate.getFullYear()+"-"+('0' + EndDate.getMonth()).slice(-2)+"-"+ ('0' + EndDate.getDate()).slice(-2);
-                if(interestMethod=="Cuối kỳ"){
-
-                    $("#tk_nextPayment").html("Ngày nhận lãi: "+estEndDate);
-
-                }else{
-                    $("#tk_nextPayment").html("Ngày nhận lãi: "+arrStartDate[2]+ " hàng tháng");
-                }
-                $("#tk_estEndDate").html("Ngày đáo hạn: "+estEndDate);
-                $("#tk_estStartDate").html("Ngày đầu tư: "+estStartDate);
-
+//                console.log(interest*parseInt(currentInvestType.period));
+//                console.log(money*bd/100);
+                var finalMoney = parseFloat(Math.round(money + interest*parseInt(currentInvestType.period) + money*bd/100));
+                $( "#tk_finalMoney" ).html((finalMoney+"").replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" "+currency);
 
             }else{
-
-                $("#tk_nextPayment").html("Ngày nhận lãi: ");
-                $("#tk_estStartDate").html("Ngày đầu tư: ");
-                $("#tk_estEndDate").html("Ngày đáo hạn: ");
+//                $( "input[name='money']" ).val((currentInvestType.minMoney+"").replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                 $( "#tk_money" ).html("");
                 $( "#tk_interest" ).html("");
                 $( "#tk_finalMoney" ).html("");
@@ -285,19 +232,8 @@
             $( "#tk_finalMoney" ).html("");
         }
     }
-    Date.prototype.addDays = function(days) {
-        var dat = new Date(this.valueOf());
-        dat.setDate(dat.getDate() + days);
-        return dat;
-    }
-
-
     function  getInvestType() {
-        var date = $( "#estStartDate" ).val();
-        $("#tk_estStartDate").html("Ngày đầu tư: "+date);
-
         var cvl = $( "#investTypeID" ).val();
-
         $.ajax({
             url: '/getInvestType',
             dataType: "json",
@@ -323,15 +259,12 @@
         });
     }
     $( document ).ready(function() {
-
         var handle = $( "#custom-handle" );
-
         $( "#slider" ).slider({
             min: 0,
             max: 100,
-            value: <?php if(isset($edit) && $edit) echo $dataInvest['compInterestPercent'] ; else echo '0';?>,
+            value: 0,
             step:10,
-            animate: false,
             create: function() {
                 var pc =$( this ).slider( "value" );
                 handle.text( pc+" %" );
@@ -339,34 +272,14 @@
             slide: function( event, ui ) {
                  handle.text( ui.value );
 
-            },
-            change: function(e, ui) {
-                console.log(ui.value);
-            },
-            stop: function( event, ui ) {
-                console.log(ui.value);
             }
-        });
-        $('#slider').slider().on('slideStop', function(ev){
-            var newVal = $('#slider').data('slider').getValue();
-            $("#compInterestPercent").val(newVal);
-            calInterest();
+
         });
 
 
-        <?php if(!isset($dataInvest) || $dataInvest['isCompInterest']==0) {
-            echo '$( "div .slider" ).css("display","none");$( "div #sliderNote" ).css("display","none");';
-        }
-        ?>
-
-
-        <?php if(isset($edit) && $edit){
-            echo 'getInvestType();';
-
-        }else{
-            echo 'getBienDong();';
-        }?>
-
+        $( "div .slider" ).css("display","none");
+        $( "div #sliderNote" ).css("display","none");
+        getBienDong();
 
     });
     $( "#estStartDate" ).change(function() {
@@ -386,33 +299,21 @@
             $( "div #sliderNote" ).css("display","none");
             $("#tk_isCompInterest").html("Tái đầu tư: Không");
         }
-        calInterest();
     });
 
     $('input[type=radio][name=interestMethod]').change(function() {
-        getNgayTraLai();
+        var vl = $('input[name=interestMethod]:checked', '#createInvest').val();
+        if(vl=="ONETIME"){
+
+        }else{
+
+        }
 
 
     });
-    function getNgayTraLai(){
-        var interestMethod = $('input[name=interestMethod]:checked', '#createInvest').val()
-        var estStartDate = $("#estStartDate").val();
-        var arrStartDate = estStartDate.split("-");
-        var StartDate = new Date(arrStartDate[0],arrStartDate[1],arrStartDate[2]);
-        var EndDate = StartDate;
-        EndDate.setMonth(EndDate.getMonth()+currentInvestType.period);
-        var estEndDate = EndDate.getFullYear()+"-"+('0' + EndDate.getMonth()).slice(-2)+"-"+ ('0' + EndDate.getDate()).slice(-2);
-        if(interestMethod=="Cuối kỳ"){
-
-            $("#tk_nextPayment").html("Ngày nhận lãi: "+estEndDate);
-
-        }else{
-            $("#tk_nextPayment").html("Ngày nhận lãi: "+arrStartDate[2]+ " hàng tháng");
-        }
-    }
     function getBienDong(){
         var date = $( "#estStartDate" ).val();
-//        $("#tk_estStartDate").html("Ngày đầu tư: "+date);
+        $("#tk_estStartDate").html("Ngày đầu tư: "+date);
         $.ajax({
             url: '/getBienDong',
             dataType: "json",
@@ -429,7 +330,6 @@
                 if(data.result){
                     var vl = data.data + " %";
                     $("input[name='further']").val(vl);
-                    calInterest();
                 }
             },
             error: function () {
@@ -437,10 +337,10 @@
             }
         });
     }
-//    $( "#createInvest" ).submit(function( event ) {
-//        $("#compInterestPercent").val($("#slider").attr("value"));
-//        $( "#createInvest" ).submit();
-//    });
+    $( "#createInvest" ).submit(function( event ) {
+        $("#compInterestPercent").val($("#slider").attr("value"));
+        $( "#createInvest" ).submit();
+    });
 
 </script>
 

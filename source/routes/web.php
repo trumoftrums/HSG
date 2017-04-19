@@ -427,6 +427,11 @@ Route::get('interest/hop-dong-dau-tu/{idHD}/update', [
     'as' => 'interest.hop-dong-dau-tu.update',
     'uses' => 'ManageInvestController@updateHopDongDauTu'
 ]);
+Route::get('interest/hop-dong-dau-tu/{idHD}/edit', [
+    'as' => 'interest.hop-dong-dau-tu.edit',
+    'uses' => 'ManageInvestController@editInvest'
+]);
+
 Route::delete('interest/hop-dong-dau-tu/{idHD}/delete', [
     'as' => 'interest.hop-dong-dau-tu.delete',
     'uses' => 'ManageInvestController@deleteHopDongDauTu'

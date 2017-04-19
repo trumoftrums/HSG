@@ -119,7 +119,7 @@
                                data-toggle="tooltip" data-placement="top">
                                 <i class="glyphicon glyphicon-ok-sign"></i>
                             </a>
-                            <a href="{{ route('interest.lai_bien_dong.edit', $hd->id) }}" class="btn btn-primary btn-circle edit" title="Edit"
+                            <a href="{{ route('interest.hop-dong-dau-tu.edit', $hd->id) }}" class="btn btn-primary btn-circle edit" title="Edit"
                                     data-toggle="tooltip" data-placement="top">
                                 <i class="glyphicon glyphicon-edit"></i>
                             </a>
