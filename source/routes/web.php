@@ -409,7 +409,13 @@ $router->get('install/error', [
     'as' => 'install.error',
     'uses' => 'InstallController@error'
 ]);
-
+/**
+ * News Management
+ */
+Route::get('tin-tuc', [
+    'as' => 'news.danh-sach',
+    'uses' => 'ManageNewsController@listTinTuc'
+]);
 /**
  * Interest Management
  */
@@ -486,6 +492,33 @@ Route::delete('interest/goi-lai/{idGoiLai}/delete', [
     'uses' => 'ManageInvestController@deleteGoiLai'
 ]);
 
+/**
+ * Manage news
+ */
+Route::get('quan-ly-tin-tuc', [
+    'as' => 'newsadmin.list',
+    'uses' => 'ManageNewsController@listNews'
+]);
+Route::get('quan-ly-tin-tuc/create', [
+    'as' => 'newsadmin.create',
+    'uses' => 'ManageNewsController@createNews'
+]);
+Route::post('quan-ly-tin-tuc/add', [
+    'as' => 'newsadmin.add',
+    'uses' => 'ManageNewsController@addNews'
+]);
+Route::get('quan-ly-tin-tuc/{idNews}/edit', [
+    'as' => 'newsadmin.edit',
+    'uses' => 'ManageNewsController@editNews'
+]);
+Route::put('quan-ly-tin-tuc/{idNews}/update', [
+    'as' => 'newsadmin.update',
+    'uses' => 'ManageNewsController@updateNews'
+]);
+Route::delete('quan-ly-tin-tuc/{idNews}/delete', [
+    'as' => 'newsadmin.delete',
+    'uses' => 'ManageNewsController@deleteNews'
+]);
 
 
 Route::post('getInvestType', [

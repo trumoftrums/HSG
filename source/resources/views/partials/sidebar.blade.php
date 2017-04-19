@@ -11,12 +11,12 @@
             </li>
             <li class="{{ Request::is('/') ? 'active open' : ''  }}">
                 <a href="{{ route('dashboard') }}" class="{{ Request::is('/') ? 'active' : ''  }}">
-                    <i class="fa fa-dashboard fa-fw"></i> @lang('app.dashboard')
+                    <i class="fa fa-dashboard fa-fw"></i> Trang tổng quan
                 </a>
             </li>
             @permission('invest.manage')
             <li class="{{ Request::is('dau-tu*') ? 'active open' : ''  }}">
-                <a href="{{ route('invest.tao_moi') }}" class="{{ Request::is('tao-moi*') ? 'active' : ''  }}">
+                <a href="{{ route('invest.tao_moi') }}" class="{{ Request::is('dau-tu*') ? 'active' : ''  }}">
                     <i class="fa fa-users fa-fw"></i> Đầu tư
                 </a>
             </li>
@@ -27,33 +27,15 @@
             </li>
             <li class="{{ Request::is('hoan-von*') ? 'active open' : ''  }}">
                 <a href="{{ route('invest.hoan_von') }}" class="{{ Request::is('hoan-von*') ? 'active' : ''  }}">
-                    <i class="fa fa-gear fa-fw"></i> Hoàn vốn đầu tư
+                    <i class="fa fa-exchange fa-fw"></i> Hoàn vốn đầu tư
                 </a>
             </li>
-            {{--<li class="{{ Request::is('invest*') ? 'active open' : ''  }}">
-                <a href="#">
-                    <i class="fa fa-dashboard fa-fw"></i> Đầu tư vào HSG
-                        <span class="fa arrow"></span>
-                </a>
-                <ul class="nav nav-second-level collapse">
-                    <li>
-                        <a href="{{ route('invest.tao_moi') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
-                            Đầu tư
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('invest.hop_dong') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
-                            Hợp đồng đầu tư
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('invest.hoan_von') }}" class="{{ Request::is('invest*') ? 'active' : ''  }}">
-                            Hoàn vốn đầu tư
-                        </a>
-                    </li>
-                </ul>
-            </li>--}}
             @endpermission
+            <li class="{{ Request::is('tin-tuc*') ? 'active open' : ''  }}">
+                <a href="{{ route('news.danh-sach') }}" class="{{ Request::is('tin-tuc*') ? 'active' : ''  }}">
+                    <i class="fa fa-newspaper-o"></i> Tin tức
+                </a>
+            </li>
             @permission('users.manage')
                 <li class="{{ Request::is('user*') ? 'active open' : ''  }}">
                     <a href="{{ route('user.list') }}" class="{{ Request::is('user*') ? 'active' : ''  }}">
@@ -152,6 +134,13 @@
                         </a>
                     </li>
                 </ul>
+            </li>
+            @endpermission
+            @permission('users.manage')
+            <li class="{{ Request::is('quan-ly-tin-tuc*') ? 'active open' : ''  }}">
+                <a href="{{ route('newsadmin.list') }}" class="{{ Request::is('quan-ly-tin-tuc*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> Quản lý tin tức
+                </a>
             </li>
             @endpermission
         </ul>
