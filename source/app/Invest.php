@@ -42,4 +42,15 @@ class Invest extends Model
         }
         return null;
     }
+    public static function getByID($id){
+
+        if(!empty($id)){
+            $datas = Invest::where('id',$id)->get()->toArray();
+            if(!empty($datas)){
+                $datas = $datas[0];
+                return $datas;
+            }
+        }
+        return null;
+    }
 }
