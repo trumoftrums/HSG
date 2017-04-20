@@ -293,13 +293,13 @@ class InvestController extends Controller
 
         }
         $saveDT['ngayNhanLai'] = $ngayNhanLai;
-        $laiHangThang = round($money * $laiSuat / 1200, 2);
+        $laiHangThang = $money * $laiSuat / (100*$period);
         $quyTrinhTraLai = array();
         $tongTienDT = $money;
         $tongLai = 0;
         for ($i = 0; $i < $period; $i++) {
             if ($saveDT['laiKep'] == 1 && $saveDT['phanTramLaiKep'] > 0) {
-                $laiHangThang = $tongTienDT * $laiSuat / 1200;
+                $laiHangThang = $tongTienDT * $laiSuat / (100*$period);
                 $laiGop = $laiHangThang * $saveDT['phanTramLaiKep'] / 100;
                 $tongTienDT += $laiGop;
                 $tongLai += $laiHangThang - $laiGop;

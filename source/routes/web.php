@@ -439,6 +439,12 @@ Route::delete('interest/hop-dong-dau-tu/{idHD}/delete', [
     'as' => 'interest.hop-dong-dau-tu.delete',
     'uses' => 'ManageInvestController@deleteHopDongDauTu'
 ]);
+Route::get('interest/hop-dong-dau-tu/{idHD}/attachments', [
+    'as' => 'interest.hop-dong-dau-tu.attachments',
+    'uses' => 'ManageInvestController@listAttachments'
+]);
+
+
 Route::get('interest/danh-sach-lai-bien-dong', [
     'as' => 'interest.lai_bien_dong.list',
     'uses' => 'ManageInvestController@listLaiBienDong'
