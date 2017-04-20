@@ -13,6 +13,8 @@ use Vanguard\Repositories\InvestType\EloquentInvestType;
 use Vanguard\Repositories\InvestType\InvestTypeRepository;
 use Vanguard\Repositories\Invest\InvestRepository;
 use Vanguard\Repositories\Invest\EloquentInvest;
+use Vanguard\Repositories\News\EloquentNews;
+use Vanguard\Repositories\News\NewsRepository;
 use Vanguard\Repositories\Permission\EloquentPermission;
 use Vanguard\Repositories\Permission\PermissionRepository;
 use Vanguard\Repositories\Role\EloquentRole;
@@ -53,7 +55,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(InvestTypeRepository::class, EloquentInvestType::class);
         $this->app->singleton(BienDongRepository::class, EloquentBienDong::class);
         $this->app->singleton(InvestRepository::class, EloquentInvest::class);
-
+        $this->app->singleton(NewsRepository::class, EloquentNews::class);
         if ($this->app->environment('local')) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
             $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);

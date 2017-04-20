@@ -20,16 +20,16 @@
         @endif
 
         <div class="form-group input-icon">
-            <label for="username" class="sr-only">@lang('app.email_or_username')</label>
+            <label for="username" class="sr-only">Email hoặc Tên đăng nhập</label>
             <i class="fa fa-user"></i>
-            <input type="email" name="username" id="username" class="form-control" placeholder="@lang('app.email_or_username')">
+            <input type="email" name="username" id="username" class="form-control" placeholder="Email hoặc Tên đăng nhập">
         </div>
         <div class="form-group password-field input-icon">
-            <label for="password" class="sr-only">@lang('app.password')</label>
+            <label for="password" class="sr-only">Mật khẩu</label>
             <i class="fa fa-lock"></i>
-            <input type="password" name="password" id="password" class="form-control" placeholder="@lang('app.password')">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Mật khẩu">
             @if (settings('forgot_password'))
-                <a href="<?= url('password/remind') ?>" class="forgot">@lang('app.i_forgot_my_password')</a>
+                <a href="<?= url('password/remind') ?>" class="forgot">Quên mật khẩu</a>
             @endif
         </div>
         <div class="checkbox">
@@ -40,18 +40,18 @@
             @endif
 
             @if (settings('reg_enabled'))
-                <a href="<?= url("register") ?>" style="float: right;">@lang('app.dont_have_an_account')</a>
+                <a href="<?= url("register") ?>" style="float: right;">Đăng ký tài khoản mới</a>
             @endif
         </div>
         <div class="form-group">
              <button type="submit" class="btn btn-custom btn-lg btn-block" id="btn-login">
-                @lang('app.log_in')
+                Đăng Nhập
             </button>
         </div>
        
     </form>
 
-    @include('auth.social.buttons')
+    {{--@include('auth.social.buttons')--}}
 
 </div>
 

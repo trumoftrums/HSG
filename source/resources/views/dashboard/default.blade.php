@@ -7,17 +7,68 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">
-            Xin chào <?= Auth::user()->username ?: Auth::user()->first_name ?>!
-            <div class="pull-right">
+            Xin chào <?= Auth::user()->username ?: Auth::user()->first_name ?>
+            {{--<div class="pull-right">
                 <ol class="breadcrumb">
                     <li><a href="{{ route('dashboard') }}">@lang('app.home')</a></li>
                     <li class="active">@lang('app.dashboard')</li>
                 </ol>
-            </div>
+            </div>--}}
         </h1>
     </div>
 </div>
-
+<div class="row">
+    <div class="col-md-3">
+        <a href="{{ route('invest.hop_dong') }}" class="panel-link">
+            <div class="panel panel-default dashboard-panel">
+                <div class="panel-body">
+                    <div class="icon">
+                        <p class="p-title-dash">{{$totalHD}}</p>
+                    </div>
+                    <p class="lead">Hợp đồng đầu tư</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{ route('invest.hop_dong') }}" class="panel-link">
+            <div class="panel panel-default dashboard-panel">
+                <div class="panel-body">
+                    <div class="icon">
+                        <p class="p-title-dash">
+                            {{$strDate}}
+                        </p>
+                    </div>
+                    <p class="lead">Ngày nhận lãi</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{ route('invest.hop_dong') }}" class="panel-link">
+            <div class="panel panel-default dashboard-panel">
+                <div class="panel-body">
+                    <div class="icon">
+                        <p class="p-title-dash p-title-dash-money">{{number_format($totalMoney)}}</p>
+                    </div>
+                    <p class="lead">Tổng tiền đầu tư</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a href="{{ route('invest.hop_dong') }}" class="panel-link">
+            <div class="panel panel-default dashboard-panel">
+                <div class="panel-body">
+                    <div class="icon">
+                        <i class="fa fa-users fa-fw"></i>
+                    </div>
+                    <p class="lead">Ban lãnh đạo HSG</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-3">
         <a href="{{ route('profile') }}" class="panel-link">
@@ -70,55 +121,142 @@
         </a>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-3">
-        <a href="{{ route('invest.hop_dong') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
-                <div class="panel-body">
-                    <div class="icon">
-                        <p class="p-title-dash">{{$totalHD}}</p>
-                    </div>
-                    <p class="lead">Hợp đồng đầu tư</p>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3">
-        <a href="{{ route('invest.hop_dong') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
-                <div class="panel-body">
-                    <div class="icon">
-                        <p class="p-title-dash">
-                            {{$strDate}}
-                        </p>
-                    </div>
-                    <p class="lead">Ngày nhận lãi</p>
-                </div>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3">
-        <a href="{{ route('invest.hop_dong') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
-                <div class="panel-body">
-                    <div class="icon">
-                        <p class="p-title-dash p-title-dash-money">{{number_format($totalMoney)}}</p>
-                    </div>
-                    <p class="lead">Tổng tiền đầu tư</p>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
+
 
 <div class="row">
     <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading">Biểu đồ</div>
             <div class="panel-body">
-                <div>
-                    <canvas id="myChart" height="400"></canvas>
-                </div>
+                <!-- TradingView Widget BEGIN -->
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
+                    {
+                        "showChart": true,
+                        "locale": "en",
+                        "width": "100%",
+                        "height": "700",
+                        "plotLineColorGrowing": "rgba(60, 188, 152, 1)",
+                        "plotLineColorFalling": "rgba(255, 74, 104, 1)",
+                        "gridLineColor": "rgba(233, 233, 234, 1)",
+                        "scaleFontColor": "rgba(218, 221, 224, 1)",
+                        "belowLineFillColorGrowing": "rgba(60, 188, 152, 0.05)",
+                        "belowLineFillColorFalling": "rgba(255, 74, 104, 0.05)",
+                        "symbolActiveColor": "rgba(242, 250, 254, 1)",
+                        "tabs": [
+                        {
+                            "title": "Equities",
+                            "symbols": [
+                                {
+                                    "s": "INDEX:SPX",
+                                    "d": "The Standard&Poor's Index"
+                                },
+                                {
+                                    "s": "INDEX:IUXX",
+                                    "d": "NQ100"
+                                },
+                                {
+                                    "s": "INDEX:DOWI",
+                                    "d": "Dow30"
+                                },
+                                {
+                                    "s": "INDEX:NKY",
+                                    "d": "Nikkei 225 Index"
+                                },
+                                {
+                                    "s": "NASDAQ:AAPL",
+                                    "d": "APPLE INC"
+                                },
+                                {
+                                    "s": "NASDAQ:GOOG",
+                                    "d": "Google"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Commodities",
+                            "symbols": [
+                                {
+                                    "s": "CME_MINI:ES1!",
+                                    "d": "Emini"
+                                },
+                                {
+                                    "s": "CME:E61!",
+                                    "d": "Euro"
+                                },
+                                {
+                                    "s": "COMEX:GC1!",
+                                    "d": "Gold"
+                                },
+                                {
+                                    "s": "NYMEX:CL1!",
+                                    "d": "Light Crude Oil Futures"
+                                },
+                                {
+                                    "s": "NYMEX:NG1!",
+                                    "d": "Natural Gas Futures"
+                                },
+                                {
+                                    "s": "CBOT:ZC1!",
+                                    "d": "Corn Futures"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Bonds",
+                            "symbols": [
+                                {
+                                    "s": "CME:GE1!",
+                                    "d": "Eurodollar"
+                                },
+                                {
+                                    "s": "CBOT:ZB1!",
+                                    "d": "T-Bond"
+                                },
+                                {
+                                    "s": "CBOT:UD1!",
+                                    "d": "Ultra T-Bond"
+                                },
+                                {
+                                    "s": "EUREX:GG1!",
+                                    "d": "Euro Bund"
+                                },
+                                {
+                                    "s": "EUREX:II1!",
+                                    "d": "Euro BTP"
+                                },
+                                {
+                                    "s": "EUREX:HR1!",
+                                    "d": "Euro BOBL"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Forex",
+                            "symbols": [
+                                {
+                                    "s": "FX:EURUSD"
+                                },
+                                {
+                                    "s": "FX:GBPUSD"
+                                },
+                                {
+                                    "s": "FX:USDJPY"
+                                },
+                                {
+                                    "s": "FX:USDCHF"
+                                },
+                                {
+                                    "s": "FX:AUDUSD"
+                                },
+                                {
+                                    "s": "FX:USDCAD"
+                                }
+                            ]
+                        }
+                    ]
+                    }
+                </script>
+                <!-- TradingView Widget END -->
             </div>
         </div>
     </div>

@@ -1631,9 +1631,28 @@ a.panel-link:hover {
 .p-title-dash{
     color: #06743f;
     padding: 0px;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
     margin: 0px;
+}
+.bt-hsg{
+    background: #de501e;
+    color: #fff;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.panel {
+    background-color: #fafafa;
+}
+.bt-hsg:hover{
+    opacity: 0.8;
+}
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: #06743f;
+    border-color: #ddd;
 }
 @media (max-width: 600px){
     .cover-invest .cover-line .cover-line-common {
