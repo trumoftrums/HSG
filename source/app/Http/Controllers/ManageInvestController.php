@@ -4,6 +4,7 @@ namespace Vanguard\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use Vanguard\Http\Requests\User\UpdateUserRequest;
 use Vanguard\Invest;
+use Vanguard\InvestDocs;
 use Vanguard\InvestResult;
 use Vanguard\InvestType;
 use Vanguard\Repositories\Invest\InvestRepository;
@@ -225,7 +226,13 @@ class ManageInvestController extends Controller
                     $formData['money'] = $money;
                     $ivType = $investTypes->getTypebyID($formData['investTypeID'], true);
                     if (!empty($formData['paymentReceipt']) && !empty($_FILES['paymentReceipt'])) {
-                        $formData['paymentReceipt'] = $this->uploadReceipt($user->id, $_FILES['paymentReceipt']);
+                        $resultUpload = $this->uploadReceipt($user->id, $_FILES['paymentReceipt']);
+                        if(!empty($resultUpload) && $resultUpload['result']){
+                            $formData['paymentReceipt'] = $resultUpload['path'];
+                        }
+
+
+
                     }
                     if (!empty($ivType)) {
                         $formData['tienPhat'] = $ivType['finalInvest'];
@@ -248,6 +255,14 @@ class ManageInvestController extends Controller
 
                         DB::beginTransaction();
                         $rup = DB::table('invest')->where('id',$id)->update($formData);
+                        if(!empty( $formData['paymentReceipt'])){
+                            $dtDocs = array(
+                                'investID' =>$id,
+                                'type' =>InvestDocs::TYPE_NOPTIEN,
+                                ''
+                            );
+                            $rupload = DB::table("invest_document")->insert();
+                        }
                         if ($rup) {
                             //calculate result
                             $resultDT = $this->calculateInterest($id, $formData, $ivType['period']);
@@ -285,6 +300,45 @@ class ManageInvestController extends Controller
 
 
     }
+    private function uploadReceipt($userID = null, $fdt = array())
+    {
+        $result =array(
+            'name' =>'',
+            'path' =>'',
+            'result'=>false
+        );
+        if (!empty($userID) && !empty($fdt)) {
+            $uploads_dir = 'upload/invests/' . $userID;
+            if (!file_exists($uploads_dir)) {
+                mkdir($uploads_dir, 0777);
+            }
+            $tmp_name = $fdt['tmp_name'];
+//            $name = basename($fdt["originalName"]);
+            $orginName = explode(".", $fdt['name']);
+            $ext = "";
+            if (count($orginName) > 1) {
+                $ext = "." . $orginName[count($orginName) - 1];
+            }
+//            $nfname = md5_file($tmp_name) . $ext;
+            $nfname = $fdt['name'];
+
+
+            if (file_exists("$uploads_dir/$nfname")) {
+                $nfname = time()."-".$nfname;
+            }
+            $nPath = "$uploads_dir/$nfname";
+            if (!file_exists($nPath)) {
+                if (move_uploaded_file($tmp_name, $nPath)) {
+                    $result['result'] =true;
+                    $result['name'] =$nfname;
+                    $result['path'] =$nPath;
+                }
+            }
+
+        }
+        return $result;
+
+    }
     private function calculateInterest($id, $formDT, $period)
     {
 
@@ -316,13 +370,13 @@ class ManageInvestController extends Controller
 
         }
         $saveDT['ngayNhanLai'] = $ngayNhanLai;
-        $laiHangThang = round($money * $laiSuat / 1200, 2);
+        $laiHangThang = round($money * $laiSuat / (100*$period), 2);
         $quyTrinhTraLai = array();
         $tongTienDT = $money;
         $tongLai = 0;
         for ($i = 0; $i < $period; $i++) {
             if ($saveDT['laiKep'] == 1 && $saveDT['phanTramLaiKep'] > 0) {
-                $laiHangThang = $tongTienDT * $laiSuat / 1200;
+                $laiHangThang = $tongTienDT * $laiSuat / (100*$period);
                 $laiGop = $laiHangThang * $saveDT['phanTramLaiKep'] / 100;
                 $tongTienDT += $laiGop;
                 $tongLai += $laiHangThang - $laiGop;
@@ -348,6 +402,20 @@ class ManageInvestController extends Controller
         $saveDT['ketQuaChiTiet'] = json_encode($quyTrinhTraLai);
 
         return $saveDT;
+
+    }
+    public function listAttachments($id){
+
+        $datas = InvestDocs::getByInvestID($id);
+        $invest = Invest::getByID($id);
+        $result = array(
+            'listDocs' =>$datas,
+            'invest'=>$invest
+        );
+        return view('manage-interest.list-attachments',$result);
+
+    }
+    public function createDocs(){
 
     }
 }

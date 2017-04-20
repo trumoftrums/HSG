@@ -214,7 +214,7 @@
             }else{
                 $( "input[name='isCompInterest']" ).attr("disabled","disabled");
             }
-            $( "input[name='interest']" ).val(currentInvestType.interest+" % / năm");
+            $( "input[name='interest']" ).val(currentInvestType.interest+" %");
             if(money !== null && money != "" && money != "undefined"){
                 var currency = $( "select[name='currency']" ).val();
                 $( "#tk_money" ).html(money+" "+currency);

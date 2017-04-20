@@ -123,6 +123,11 @@
                                     data-toggle="tooltip" data-placement="top">
                                 <i class="glyphicon glyphicon-edit"></i>
                             </a>
+                            <a href="{{ route('interest.hop-dong-dau-tu.attachments', $hd->id) }}" class="btn btn-success btn-circle edit" title="Attachments"
+                               data-toggle="tooltip" data-placement="top">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+
                             <a href="{{ route('interest.hop-dong-dau-tu.delete', $hd->id) }}" class="btn btn-danger btn-circle" title="Delete"
                                     data-toggle="tooltip"
                                     data-placement="top"
