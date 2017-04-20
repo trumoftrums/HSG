@@ -415,4 +415,7 @@ class ManageInvestController extends Controller
         return view('manage-interest.list-attachments',$result);
 
     }
+    public function createDocs(){
+
+    }
 }

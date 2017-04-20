@@ -443,7 +443,10 @@ Route::get('interest/hop-dong-dau-tu/{idHD}/attachments', [
     'as' => 'interest.hop-dong-dau-tu.attachments',
     'uses' => 'ManageInvestController@listAttachments'
 ]);
-
+Route::get('interest/hop-dong-dau-tu/createDocs', [
+    'as' => 'manage-interest.createDocs',
+    'uses' => 'ManageInvestController@createDocs'
+]);
 
 Route::get('interest/danh-sach-lai-bien-dong', [
     'as' => 'interest.lai_bien_dong.list',
