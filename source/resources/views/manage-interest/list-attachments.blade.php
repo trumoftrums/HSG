@@ -32,7 +32,7 @@
 @include('partials.messages')
 <div class="row tab-search">
     <div class="col-md-2">
-        <a href="{{ route('manage-interest.createDocs') }}" class="btn btn-success" id="add-docs">
+        <a href="{{ route('manage-interest.documents.createDocs',$invest['id']) }}" class="btn btn-success" id="add-docs">
             <i class="glyphicon glyphicon-plus"></i>Thêm tài liệu
         </a>
     </div>
@@ -50,27 +50,26 @@
         <th class="text-center">ACTION</th>
         </thead>
         <tbody>
-        @if (count($listDocs))
-            $i = 1;
-            @foreach ($listDocs as $doc)
+        <?php if (count($listDocs)){
+            $i = 0;
+            foreach ($listDocs as $doc){?>
+
                 <tr>
-                    <td>{{ $i}}</td>
-                    <td>{{ $doc['filename']}}</td>
+                    <td>{{ ++$i}}</td>
+                    <td><a href="/{{ $doc['filepath'] }}" target="_blank" title="Click to view"> {{ $doc['filename']}} </a></td>
                     <td>{{ $doc['type']}}</td>
-                    <td>{{ $doc['uploadBy'] }} %</td>
+                    <td>{{ $doc['uploadBy'] }}</td>
                     <td>{{ $doc['updated_at']}}</td>
                     <td>
-                        @if($hd->status == 'AC') <button type="button" class="btn btn-success btnOwn">Active</button>
-                        @elseif($hd->status == 'UP') <button type="button" class="btn btn-warning btnOwn">Đã chỉnh sửa</button>
-                        @elseif($hd->status == 'DE') <button type="button" class="btn btn-danger btnOwn">Đã xóa</button> @endif
+                        @if($doc['status'] == 'AC') <button type="button" class="btn btn-success btnOwn">Active</button>
+                        @elseif($doc['status'] == 'UP') <button type="button" class="btn btn-warning btnOwn">Đã chỉnh sửa</button>
+                        @elseif($doc['status'] == 'DE') <button type="button" class="btn btn-danger btnOwn">Đã xóa</button> @endif
                     </td>
                     <td class="text-center">
-                        <a href="{{ route('interest.hop-dong-dau-tu.edit', $hd->id) }}" class="btn btn-primary btn-circle edit" title="Edit"
-                           data-toggle="tooltip" data-placement="top">
-                            <i class="glyphicon glyphicon-edit"></i>
-                        </a>
-
-                        <a href="{{ route('interest.hop-dong-dau-tu.delete', $hd->id) }}" class="btn btn-danger btn-circle" title="Delete"
+                        @if($doc['status'] == 'DE')
+                            &nbsp;
+                        @else
+                        <a href="{{ route('manage-interest.documents.delete', $doc['id']) }}" class="btn btn-danger btn-circle" title="Delete"
                            data-toggle="tooltip"
                            data-placement="top"
                            data-method="DELETE"
@@ -79,21 +78,23 @@
                            data-confirm-delete="Xác nhận">
                             <i class="glyphicon glyphicon-trash"></i>
                         </a>
-                    </td>
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="6"><em>Chưa có dữ liệu.</em></td>
-            </tr>
-        @endif
-        </tbody>
-    </table>
+                        @endif
+
+</td>
+</tr>
+<?php }}else{?>
+<tr>
+<td colspan="6"><em>Chưa có dữ liệu.</em></td>
+</tr>
+
+<?php }?>
+</tbody>
+</table>
 </div>
 @stop
 
 @section('scripts')
-    <script type="application/javascript">
+<script type="application/javascript">
 
-    </script>
+</script>
 @stop

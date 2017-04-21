@@ -94,7 +94,7 @@
         <div class="ele-div-2">
             <span class="sp-line">Áp dụng lãi kép:</span>
             <label class="rad-lk radio-inline"><input disabled type="radio" value="1" name="isCompInterest"  <?php if(isset($dataInvest) && $dataInvest['isCompInterest']==1) echo "checked"; ?>>Có</label>
-            <label class="rad-lk radio-inline"><input disabled <?php if(isset($dataInvest) && $dataInvest['isCompInterest']==0) echo "checked"; ?> type="radio" value="0" name="isCompInterest">Không</label>
+            <label class="rad-lk radio-inline"><input disabled <?php if(!isset($dataInvest) || (isset($dataInvest) && $dataInvest['isCompInterest']==0)) echo "checked"; ?> type="radio" value="0" name="isCompInterest">Không</label>
         </div>
     </div>
     <div class="cover-line" id = "sliderNote" >
@@ -109,7 +109,7 @@
     </div>
     <div class="cover-line">
         <span class="sp-line">HÌNH THỨC NHẬN LÃI:</span>
-        <label class="radio-inline"><input type="radio" value="Cuối kỳ" <?php if(isset($dataInvest) && $dataInvest['interestMethod']=='Cuối kỳ') echo "checked"; ?> name="interestMethod">Cuối kỳ</label>
+        <label class="radio-inline"><input type="radio" value="Cuối kỳ" <?php if(!isset($dataInvest) || (isset($dataInvest) && $dataInvest['interestMethod']=='Cuối kỳ')) echo "checked"; ?> name="interestMethod">Cuối kỳ</label>
         <label class="radio-inline"><input type="radio" value="Hàng tháng"  <?php if(isset($dataInvest) && $dataInvest['interestMethod']=='Hàng tháng') echo "checked"; ?>  name="interestMethod">Hàng tháng</label>
     </div>
     <h4 class="h4-title">BẢNG TỒNG KẾT</h4>
@@ -122,11 +122,11 @@
     <div class="cover-line">
         <label class="lb-2">Số tiền đầu tư:<b id="tk_money"></b></label>
         <label class="lb-2"  id="tk_interest"></label>
-        <label class="lb-2">Tổng tiền khi đáo hạn (Tiền gốc + Lãi suất + Lãi biến động): <b id="tk_finalMoney"></b></label>
+        <label class="lb-2">Tổng tiền thực lãnh (Tiền gốc + Lãi suất + Lãi biến động): <b id="tk_finalMoney"></b></label>
     </div>
-    <div class="cover-line">
-        <input type="submit" class="inp-sub" value="Xem hợp đồng"/>
-    </div>
+    {{--<div class="cover-line">--}}
+        {{--<input type="submit" class="inp-sub" value="Xem hợp đồng"/>--}}
+    {{--</div>--}}
     <h4 class="h4-title">HÌNH THỨC THANH TOÁN VỐN ĐẦU TƯ</h4>
     <div class="cover-line">
         <div class="cover-line-common cover-line-left">
