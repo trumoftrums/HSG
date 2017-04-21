@@ -123,8 +123,8 @@ if(!empty($datas)){
         <?php }}}?>
     </div>
     <div class="cover-line-contract">
-        <input class="inp-sub bt-first" value="XEM LỊCH SỬ GIAO DỊCH">
-        <input class="inp-sub bt-second" onclick="xemHD({{$v->id}});" value="XEM HỢP ĐỒNG">
+        {{--<input class="inp-sub bt-first" value="XEM LỊCH SỬ GIAO DỊCH">--}}
+        <input class="inp-sub bt-second" onclick="xemHD({{$v->id}});" value="XEM TÀI LIỆU">
         <input class="inp-sub bt-third " value="HOÀN VỐN ĐẦU TƯ" onclick="hoanvon({{$v->id}});">
     </div>
 </div>
