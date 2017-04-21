@@ -19,6 +19,7 @@ use  Request;
 use DB;
 use Vanguard\InvestResult;
 use Vanguard\InvestTrade;
+use Vanguard\InvestDocs;
 
 /**
  * Class InvestController
@@ -195,6 +196,8 @@ class InvestController extends Controller
      */
     public function store(InvestTypeRepository $investTypes, InvestRepository $invest, BienDongRepository $bd)
     {
+        $result =false;
+        $mess = "";
         if (Auth::check()) {
             $user = Auth::user();
             $formData = Request::all();
@@ -205,10 +208,19 @@ class InvestController extends Controller
                 $money = str_replace(",", "", $formData['money']);
                 $formData['money'] = $money;
                 $ivType = $investTypes->getTypebyID($formData['investTypeID'], true);
+//                if (!empty($formData['paymentReceipt']) && !empty($_FILES['paymentReceipt'])) {
+//                    $formData['paymentReceipt'] = $this->uploadReceipt($user->id, $_FILES['paymentReceipt']);
+//                }
+                $resultUpload =array();
                 if (!empty($formData['paymentReceipt']) && !empty($_FILES['paymentReceipt'])) {
-                    $formData['paymentReceipt'] = $this->uploadReceipt($user->id, $_FILES['paymentReceipt']);
+                    $resultUpload = $this->uploadReceipt($user->id, $_FILES['paymentReceipt']);
+                    if(!empty($resultUpload) && $resultUpload['result']){
+                        $formData['paymentReceipt'] = $resultUpload['path'];
+                    }
+
+
+
                 }
-//                var_dump($formData);exit();
 
                 if (!empty($ivType)) {
                     $formData['status'] = Invest::STATUS_NEW;
@@ -241,25 +253,52 @@ class InvestController extends Controller
 
                         $resultDT = $this->calculateInterest($id, $formData, $ivType['period']);
                         $r = DB::table('invest_result')->insert([$resultDT]);
-                        if ($rCode && $r) {
+
+                        $rupload =true;
+                        if(!empty($resultUpload)){
+
+                            $dtDocs = array(
+                                'investID' =>$id,
+                                'type' =>InvestDocs::TYPE_NOPTIEN,
+                                'filename' =>$resultUpload['name'],
+                                'filepath' =>$resultUpload['path'],
+                                'status' =>'AC',
+                                'uploadBy' =>$user->id,
+                                'created_at' =>date("Y-m-d H:i:s"),
+                                'updated_at' =>date("Y-m-d H:i:s")
+                            );
+                            $rupload = DB::table("invest_document")->insert($dtDocs);
+
+                        }
+
+                        if ($rCode && $r && $rupload) {
                             DB::commit();
                             $result = true;
                             $mess = "Tạo gói đầu tư thành công!";
                         } else {
                             DB::rollBack();
+                            $mess = "Tạo gói đầu tư thất bại!";
                         }
 
                     } else {
                         DB::rollBack();
+                        $mess = "Tạo gói đầu tư thất bại!";
                     }
 
                 }
 
+            }else{
+                $mess = "Vui lòng nhập đầy đủ các thông tin bắt buộc";
             }
+        }else{
+            $mess = "Vui lòng đăng nhập để được sử dụng chức năng này";
         }
-
-        return redirect()->route('invest.hop_dong')
-            ->withSuccess($mess);
+        if($result){
+            return redirect()->route('invest.hop_dong')
+                ->withSuccess($mess);
+        }
+        return redirect()->route('invest.tao_moi')
+            ->withErrors($mess);
     }
 
     private function calculateInterest($id, $formDT, $period)
@@ -330,6 +369,11 @@ class InvestController extends Controller
 
     private function uploadReceipt($userID = null, $fdt = array())
     {
+        $result =array(
+            'name' =>'',
+            'path' =>'',
+            'result'=>false
+        );
         if (!empty($userID) && !empty($fdt)) {
             $uploads_dir = 'upload/invests/' . $userID;
             if (!file_exists($uploads_dir)) {
@@ -342,73 +386,38 @@ class InvestController extends Controller
             if (count($orginName) > 1) {
                 $ext = "." . $orginName[count($orginName) - 1];
             }
-            $nfname = md5_file($tmp_name) . $ext;
+//            $nfname = md5_file($tmp_name) . $ext;
+            $nfname = $fdt['name'];
 
+
+            if (file_exists("$uploads_dir/$nfname")) {
+                $nfname = time()."-".$nfname;
+            }
             $nPath = "$uploads_dir/$nfname";
-
             if (!file_exists($nPath)) {
                 if (move_uploaded_file($tmp_name, $nPath)) {
-                    return $nPath;
+                    $result['result'] =true;
+                    $result['name'] =$nfname;
+                    $result['path'] =$nPath;
                 }
-            } else {
-                return $nPath;
             }
 
         }
-        return null;
+        return $result;
+
+    }
+    public function documents($id){
+
+        $datas = InvestDocs::getByInvestID($id,InvestDocs::STATUS_ACTIVED);
+        $invest = Invest::getByID($id);
+        $result = array(
+            'listDocs' =>$datas,
+            'invest'=>$invest
+        );
+
+        return view('invest.documents',$result);
 
     }
 
-    /**
-     * Display for for editing specified role.
-     *
-     * @param Role $role
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function edit(Role $role)
-    {
-        $edit = true;
 
-        return view('role.add-edit', compact('edit', 'role'));
-    }
-
-    /**
-     * Update specified role with provided data.
-     *
-     * @param Role $role
-     * @param UpdateRoleRequest $request
-     * @return mixed
-     */
-    public function update(Role $role, UpdateRoleRequest $request)
-    {
-        $this->roles->update($role->id, $request->all());
-
-        return redirect()->route('role.index')
-            ->withSuccess(trans('app.role_updated'));
-    }
-
-    /**
-     * Remove specified role from system.
-     *
-     * @param Role $role
-     * @param UserRepository $userRepository
-     * @return mixed
-     */
-    public function delete(Role $role, UserRepository $userRepository)
-    {
-        if (!$role->removable) {
-            throw new NotFoundHttpException;
-        }
-
-        $userRole = $this->roles->findByName('User');
-
-        $userRepository->switchRolesForUsers($role->id, $userRole->id);
-
-        $this->roles->delete($role->id);
-
-        Cache::flush();
-
-        return redirect()->route('role.index')
-            ->withSuccess(trans('app.role_deleted'));
-    }
 }

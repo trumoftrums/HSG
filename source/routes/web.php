@@ -259,6 +259,12 @@ Route::group(['middleware' => 'auth'], function () {
         'as' => 'invest.hop_dong',
         'uses' => 'InvestController@contract'
     ]);
+
+    Route::get('hop-dong/documents/{investID}', [
+        'as' => 'invest.documents',
+        'uses' => 'InvestController@documents'
+    ]);
+
     Route::get('hoan-von/refund-invest', [
         'as' => 'invest.hoan_von',
         'uses' => 'InvestController@refundInvest'
@@ -474,13 +480,23 @@ Route::delete('interest/hop-dong-dau-tu/{idHD}/delete', [
     'as' => 'interest.hop-dong-dau-tu.delete',
     'uses' => 'ManageInvestController@deleteHopDongDauTu'
 ]);
-Route::get('interest/hop-dong-dau-tu/{idHD}/attachments', [
-    'as' => 'interest.hop-dong-dau-tu.attachments',
+Route::get('manage-interest/documents/{idHD}/list', [
+    'as' => 'manage-interest.documents.list',
     'uses' => 'ManageInvestController@listAttachments'
 ]);
-Route::get('interest/hop-dong-dau-tu/createDocs', [
-    'as' => 'manage-interest.createDocs',
+Route::get('interest/documents/{idHD}/createDocs', [
+    'as' => 'manage-interest.documents.createDocs',
     'uses' => 'ManageInvestController@createDocs'
+]);
+
+Route::post('interest/documents/{idHD}/createDocs', [
+    'as' => 'manage-interest.documents.submitCreateDocs',
+    'uses' => 'ManageInvestController@submitCreateDocs'
+]);
+
+Route::delete('interest/documents/{idDoc}/delete', [
+    'as' => 'manage-interest.documents.delete',
+    'uses' => 'ManageInvestController@deleteDoc'
 ]);
 
 Route::get('interest/danh-sach-lai-bien-dong', [

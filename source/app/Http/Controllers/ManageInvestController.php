@@ -225,6 +225,7 @@ class ManageInvestController extends Controller
                     $money = str_replace(",", "", $formData['money']);
                     $formData['money'] = $money;
                     $ivType = $investTypes->getTypebyID($formData['investTypeID'], true);
+                    $resultUpload =array();
                     if (!empty($formData['paymentReceipt']) && !empty($_FILES['paymentReceipt'])) {
                         $resultUpload = $this->uploadReceipt($user->id, $_FILES['paymentReceipt']);
                         if(!empty($resultUpload) && $resultUpload['result']){
@@ -255,15 +256,31 @@ class ManageInvestController extends Controller
 
                         DB::beginTransaction();
                         $rup = DB::table('invest')->where('id',$id)->update($formData);
-                        if(!empty( $formData['paymentReceipt'])){
-                            $dtDocs = array(
-                                'investID' =>$id,
-                                'type' =>InvestDocs::TYPE_NOPTIEN,
-                                ''
-                            );
-                            $rupload = DB::table("invest_document")->insert();
+                        $rupload =true;
+                        if(!empty($resultUpload)){
+                            $ck = InvestDocs::getDocs($id,InvestDocs::TYPE_NOPTIEN);
+                            $delete =true;
+                            if(!empty($ck)){
+                                $update = array("status"=>InvestDocs::STATUS_DELETED);
+                                $delete = InvestDocs::where("investID",$id)->where("status",InvestDocs::STATUS_ACTIVED)->where("type",InvestDocs::TYPE_NOPTIEN)->update($update);
+                            }
+                            if($delete){
+                                $dtDocs = array(
+                                    'investID' =>$id,
+                                    'type' =>InvestDocs::TYPE_NOPTIEN,
+                                    'filename' =>$resultUpload['name'],
+                                    'filepath' =>$resultUpload['path'],
+                                    'status' =>'AC',
+                                    'uploadBy' =>$user->id,
+                                    'created_at' =>date("Y-m-d H:i:s"),
+                                    'updated_at' =>date("Y-m-d H:i:s")
+                                );
+                                $rupload = DB::table("invest_document")->insert($dtDocs);
+                            }else{
+                                $rupload =false;
+                            }
                         }
-                        if ($rup) {
+                        if ($rup && $rupload) {
                             //calculate result
                             $resultDT = $this->calculateInterest($id, $formData, $ivType['period']);
                             $r = DB::table('invest_result')->insert([$resultDT]);
@@ -415,7 +432,101 @@ class ManageInvestController extends Controller
         return view('manage-interest.list-attachments',$result);
 
     }
-    public function createDocs(){
+    public function createDocs($id){
+        $invest = Invest::getByID($id);
+        $result = array(
+            'invest'=>$invest
+        );
+        return view('manage-interest.create-doc',$result);
+    }
+    public function submitCreateDocs($id){
+        $result = false;
+        $mess = "";
+        $formData = Request::all();
+//        var_dump($formData);exit();
+        $user = Auth::user();
+        if(!empty($formData['type']) && !empty($_FILES['investDoc']['name'])){
+            $uploadResult = $this->uploadDocs($formData['investID'],$_FILES['investDoc']);
+            if(!empty($uploadResult)){
+                $savedt =array();
+                $savedt['investID'] = $formData['investID'];
+                $savedt['type'] = $formData['type'];
+                $savedt['filename'] = $uploadResult['name'];
+                $savedt['filepath'] = $uploadResult['path'];
+                $savedt['status'] = InvestDocs::STATUS_ACTIVED;
+                $savedt['uploadBy'] = $user->id;
+                $dt  = date("Y-m-d H:i:s");
+                $savedt['created_at'] = $dt;
+                $savedt['updated_at'] = $dt;
+                $r = DB::table("invest_document")->insert($savedt);
+                if($r){
+                    $result = true;
+                    $mess = "Upload tài liệu thành công!";
+                }else{
+                    $mess = "Upload tài liệu thất bại, vui lòng thử lại!";
+                }
+            }else{
+                $mess = "Upload tài liệu thất bại, vui lòng thử lại!";
+            }
+
+        }else{
+            $mess = "Upload tài liệu thất bại, Không tìm thấy file!";
+        }
+        if($result){
+            return redirect()->route('manage-interest.documents.createDocs',$id)->withSuccess($mess);
+        }
+        return redirect()->route('manage-interest.documents.createDocs',$id)->withErrors($mess);
+
+
+    }
+    private function uploadDocs($investID = null, $fdt = array())
+    {
+        $result =array(
+            'name' =>'',
+            'path' =>'',
+            'result'=>false
+        );
+        if (!empty($investID) && !empty($fdt['name'])) {
+            $uploads_dir = 'upload/invests/docs/' . $investID;
+            if (!file_exists($uploads_dir)) {
+                mkdir($uploads_dir, 0777,true);
+            }
+            $tmp_name = $fdt['tmp_name'];
+            $nfname = $fdt['name'];
+
+
+            if (file_exists("$uploads_dir/$nfname")) {
+                $nfname = time()."-".$nfname;
+            }
+            $nPath = "$uploads_dir/$nfname";
+            if (!file_exists($nPath)) {
+                if (move_uploaded_file($tmp_name, $nPath)) {
+                    $result['result'] =true;
+                    $result['name'] =$nfname;
+                    $result['path'] =$nPath;
+                }
+            }
+
+        }
+        return $result;
+
+    }
+    public function deleteDoc($docID){
+        $investID = 0;
+        if(!empty($docID)){
+            $ck = InvestDocs::getDocsbyID($docID);
+            if(!empty($ck)){
+                $investID = $ck['investID'];
+                InvestDocs::deleteDoc($docID);
+            }
+
+        }
+        if(!empty($investID)){
+            return redirect()->route('manage-interest.documents.list',$investID)
+                ->withSuccess('Xóa tài liệu thành công!');
+        }
+        return redirect()->route('manage-interest.documents.list',$investID)
+            ->withErrors('Xóa tài liệu thất bại, vui lòng thử lại!');
 
     }
 }

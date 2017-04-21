@@ -123,7 +123,7 @@
                                     data-toggle="tooltip" data-placement="top">
                                 <i class="glyphicon glyphicon-edit"></i>
                             </a>
-                            <a href="{{ route('interest.hop-dong-dau-tu.attachments', $hd->id) }}" class="btn btn-success btn-circle edit" title="Attachments"
+                            <a href="{{ route('manage-interest.documents.list', $hd->id) }}" class="btn btn-success btn-circle edit" title="Attachments"
                                data-toggle="tooltip" data-placement="top">
                                 <i class="glyphicon glyphicon-edit"></i>
                             </a>
