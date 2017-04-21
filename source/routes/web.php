@@ -4,39 +4,39 @@
  * Authentication
  */
 
-Route::group(array('domain' => 'local.hoangsanggroup.com'), function()
-{
-    Route::get('/', [
-        'as' => 'frontend.home',
-        'uses' => 'FrontEndController@index'
-    ]);
-    Route::get('/tuyen-dung', [
-        'as' => 'frontend.tuyendung',
-        'uses' => 'FrontEndController@tuyendung'
-    ]);
-    Route::get('/lien-he', [
-        'as' => 'frontend.lienhe',
-        'uses' => 'FrontEndController@lienhe'
-    ]);
-    Route::get('/giai-phap-dau-tu', [
-        'as' => 'frontend.giaiphapdautu',
-        'uses' => 'FrontEndController@giaiphapdautu'
-    ]);
-    Route::get('/gioi-thieu/ho-so-cong-ty', [
-        'as' => 'frontend.hosocongty',
-        'uses' => 'FrontEndController@hosocongty'
-    ]);
-    Route::get('/gioi-thieu/nhan-su', [
-        'as' => 'frontend.nhansu',
-        'uses' => 'FrontEndController@nhansu'
-    ]);
-    Route::get('/gioi-thieu/doi-tac-cua-hsg', [
-        'as' => 'frontend.doitac',
-        'uses' => 'FrontEndController@doitac'
-    ]);
-
-});
-
+//Route::group(array('domain' => 'local.hoangsanggroup.com'), function()
+//{
+//    Route::get('/', [
+//        'as' => 'frontend.home',
+//        'uses' => 'FrontEndController@index'
+//    ]);
+//    Route::get('/tuyen-dung', [
+//        'as' => 'frontend.tuyendung',
+//        'uses' => 'FrontEndController@tuyendung'
+//    ]);
+//    Route::get('/lien-he', [
+//        'as' => 'frontend.lienhe',
+//        'uses' => 'FrontEndController@lienhe'
+//    ]);
+//    Route::get('/giai-phap-dau-tu', [
+//        'as' => 'frontend.giaiphapdautu',
+//        'uses' => 'FrontEndController@giaiphapdautu'
+//    ]);
+//    Route::get('/gioi-thieu/ho-so-cong-ty', [
+//        'as' => 'frontend.hosocongty',
+//        'uses' => 'FrontEndController@hosocongty'
+//    ]);
+//    Route::get('/gioi-thieu/nhan-su', [
+//        'as' => 'frontend.nhansu',
+//        'uses' => 'FrontEndController@nhansu'
+//    ]);
+//    Route::get('/gioi-thieu/doi-tac-cua-hsg', [
+//        'as' => 'frontend.doitac',
+//        'uses' => 'FrontEndController@doitac'
+//    ]);
+//
+//});
+//
 
 
 Route::get('login', 'Auth\AuthController@getLogin');
