@@ -545,6 +545,18 @@ Route::delete('quan-ly-tin-tuc/{idNews}/delete', [
     'uses' => 'ManageNewsController@deleteNews'
 ]);
 
+/**
+ * News for user
+ */
+Route::get('tin-tuc-noi-bo', [
+    'as' => 'newsuser.list',
+    'uses' => 'NewsController@listNews'
+]);
+Route::get('tin-tuc-noi-bo/{idNews}/{name}', [
+    'as' => 'newsuser.detail',
+    'uses' => 'NewsController@detailNews'
+]);
+
 
 Route::post('getInvestType', [
     'as' => 'investtype.getInvestType',

@@ -24,15 +24,15 @@
             </div>
             <div class="form-group input-icon">
                 <i class="fa fa-user"></i>
-                <input type="text" name="username" id="username" class="form-control" placeholder="@lang('app.username')"  value="{{ old('username') }}">
+                <input type="text" name="username" id="username" class="form-control" placeholder="Tên đăng nhập"  value="{{ old('username') }}">
             </div>
             <div class="form-group input-icon">
                 <i class="fa fa-lock"></i>
-                <input type="password" name="password" id="password" class="form-control" placeholder="@lang('app.password')">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Mật khẩu">
             </div>
              <div class="form-group input-icon">
                 <i class="fa fa-lock"></i>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="@lang('app.confirm_password')">
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Nhập lại mật khẩu">
             </div>
 
             @if (settings('tos'))
@@ -55,12 +55,12 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-custom btn-lg btn-block" id="btn-login">
-                    Register
+                    Đăng Ký
                 </button>
             </div>
         </form>
 
-        @include('auth.social.buttons')
+        {{--@include('auth.social.buttons')--}}
 
     </div>
 
