@@ -20,7 +20,7 @@
 <div class="row">
     <div class="col-md-3">
         <a href="{{ route('invest.hop_dong') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
+            <div class="panel panel-default dashboard-panel panel-user">
                 <div class="panel-body">
                     <div class="icon">
                         <p class="p-title-dash">{{$totalHD}}</p>
@@ -32,7 +32,7 @@
     </div>
     <div class="col-md-3">
         <a href="{{ route('invest.hop_dong') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
+            <div class="panel panel-default dashboard-panel panel-user">
                 <div class="panel-body">
                     <div class="icon">
                         <p class="p-title-dash">
@@ -46,7 +46,7 @@
     </div>
     <div class="col-md-3">
         <a href="{{ route('invest.hop_dong') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
+            <div class="panel panel-default dashboard-panel panel-user">
                 <div class="panel-body">
                     <div class="icon">
                         <p class="p-title-dash p-title-dash-money">{{number_format($totalMoney)}}</p>
@@ -58,7 +58,7 @@
     </div>
     <div class="col-md-3">
         <a href="{{ route('invest.hop_dong') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
+            <div class="panel panel-default dashboard-panel panel-user">
                 <div class="panel-body">
                     <div class="icon">
                         <i class="fa fa-users fa-fw"></i>
@@ -72,7 +72,7 @@
 <div class="row">
     <div class="col-md-3">
         <a href="{{ route('profile') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
+            <div class="panel panel-default dashboard-panel panel-user">
                 <div class="panel-body">
                     <div class="icon">
                         <i class="fa fa-user"></i>
@@ -85,7 +85,7 @@
     @if (config('session.driver') == 'database')
         <div class="col-md-3">
             <a href="{{ route('profile.sessions') }}" class="panel-link">
-                <div class="panel panel-default dashboard-panel">
+                <div class="panel panel-default dashboard-panel panel-user">
                     <div class="panel-body">
                         <div class="icon">
                             <i class="fa fa-list"></i>
@@ -98,7 +98,7 @@
     @endif
     <div class="col-md-3">
         <a href="{{ route('profile.activity') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
+            <div class="panel panel-default dashboard-panel panel-user">
                 <div class="panel-body">
                     <div class="icon">
                         <i class="fa fa-list-alt"></i>
@@ -110,7 +110,7 @@
     </div>
     <div class="col-md-3">
         <a href="{{ route('auth.logout') }}" class="panel-link">
-            <div class="panel panel-default dashboard-panel">
+            <div class="panel panel-default dashboard-panel panel-user">
                 <div class="panel-body">
                     <div class="icon">
                         <i class="fa fa-sign-out"></i>
@@ -264,22 +264,16 @@
         <div class="panel panel-default">
             <div class="panel-heading">Tin tức mới nhất</div>
             <div class="panel-body">
-                {{--@if (count($latestRegistrations))
-                    <div class="list-group">
-                        @foreach ($latestRegistrations as $user)
-                            <a href="{{ route('user.show', $user->id) }}" class="list-group-item">
-                                <img class="img-circle" src="{{ $user->present()->avatar }}">
-                                &nbsp; <strong>{{ $user->present()->nameOrEmail }}</strong>
-                                <span class="list-time text-muted small">
-                                    <em>{{ $user->created_at->diffForHumans() }}</em>
-                                </span>
-                            </a>
-                        @endforeach
+                @foreach($listNewsHome as $item)
+                    <div class="cover-item-news-home">
+                        <a class="a-cover-img-news" href="{{ route('newsuser.detail', [$item->id, str_slug($item->title, '-')]) }}">
+                            <img src="{{$item->thumb}}"/>
+                        </a>
+                        <a class="a-title-news" href="{{ route('newsuser.detail', [$item->id, str_slug($item->title, '-')]) }}">{{$item->title}}</a>
+                        <p class="summary-news">{{$item->summary}}</p>
+                        <span class="date-news">{{date_format(date_create($item->created_at),"d/m/Y")}}</span>
                     </div>
-                    <a href="{{ route('user.list') }}" class="btn btn-default btn-block">@lang('app.view_all_users')</a>
-                @else
-                    <p class="text-muted">@lang('app.no_records_found')</p>
-                @endif--}}
+                @endforeach
             </div>
         </div>
     </div>

@@ -31,8 +31,8 @@
                 </a>
             </li>
             @endpermission
-            <li class="{{ Request::is('tin-tuc*') ? 'active open' : ''  }}">
-                <a href="{{ route('news.danh-sach') }}" class="{{ Request::is('tin-tuc*') ? 'active' : ''  }}">
+            <li class="{{ Request::is('tin-tuc-noi-bo*') ? 'active open' : ''  }}">
+                <a href="{{ route('newsuser.list') }}" class="{{ Request::is('tin-tuc-noi-bo*') ? 'active' : ''  }}">
                     <i class="fa fa-newspaper-o"></i> Tin tức
                 </a>
             </li>

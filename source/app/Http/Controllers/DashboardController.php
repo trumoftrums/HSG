@@ -4,6 +4,7 @@ namespace Vanguard\Http\Controllers;
 
 use Intervention\Image\Gd\Commands\InvertCommand;
 use Vanguard\Invest;
+use Vanguard\News;
 use Vanguard\Repositories\Activity\ActivityRepository;
 use Vanguard\Repositories\User\UserRepository;
 use Vanguard\Support\Enum\UserStatus;
@@ -97,9 +98,13 @@ class DashboardController extends Controller
             $arrDate[] = $day;
         }
         sort($arrDate);
-        $strDate = implode(',',$arrDate);
+        $strDate = implode('|', $arrDate);
+        $listNewsHome = News::where('status', News::STATUS_ACTIVED)
+            ->orderBy('id', 'desc')
+            ->limit(5)
+            ->get();
 
-        return view('dashboard.default', compact('activities','totalHD', 'totalMoney', 'listHD','strDate'));
+        return view('dashboard.default', compact('activities','totalHD', 'totalMoney', 'listHD','strDate', 'listNewsHome'));
     }
 
 
