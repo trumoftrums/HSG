@@ -33,12 +33,12 @@ class NewsController extends Controller
     {
         $listNews = News::where('status', News::STATUS_ACTIVED)->orderBy('id', 'desc')->get();
 
-        return view('News.list-news', compact('listNews'));
+        return view('news.list-news', compact('listNews'));
     }
     public function detailNews($id)
     {
         $news = News::find($id);
 
-        return view('News.detail-news', compact('news'));
+        return view('news.detail-news', compact('news'));
     }
 }
