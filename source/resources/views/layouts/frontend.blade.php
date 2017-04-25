@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="{{ url('assets/frontend/images/logo-not.png')}}" sizes="32x32" />
-    {!! HTML::script('assets/frontend/js/bootstrap.min.js') !!}
     {!! HTML::script('assets/frontend/js/jquery.min.js') !!}
+    {!! HTML::script('assets/frontend/js/bootstrap.min.js') !!}
     {!! HTML::style('assets/frontend/css/bootstrap.min.css') !!}
     {!! HTML::style('assets/frontend/css/style_hsg.css') !!}
     {!! HTML::style('assets/frontend/css/media_screen.css') !!}
@@ -35,11 +35,11 @@
                     $(this).next('li').children('ul').toggle('fast');
                     if (!$(this).children('a').hasClass('act')) {
                         $(this).children('a').addClass('act');
-                        $(this).children('a').css("background", "url(./images/icon-arrow-down.png) #fffbce no-repeat 95% 50%")
+                        $(this).children('a').css("background", "url({{ url('assets/frontend/images/icon-arrow-down.png')}}) #fffbce no-repeat 95% 50%")
                     } else {
                         $(this).next('li').children('ul').hide();
                         $(this).children('a').removeClass('act');
-                        $(this).children('a').css("background", "url(./images/icon-arrow-right.png) #fffbce no-repeat 95% 50%")
+                        $(this).children('a').css("background", "url({{ url('assets/frontend/images/icon-arrow-right.png')}}) #fffbce no-repeat 95% 50%")
                     }
 
                     return false;
@@ -49,10 +49,10 @@
                     $(this).next('li').children('div').toggle('fast');
                     if (!$(this).children('p').hasClass('act')) {
                         $(this).children('p').addClass('act');
-                        $(this).children('p').css("background", "url(./images/icon-arrow-down.png) no-repeat 98% 50%")
+                        $(this).children('p').css("background", "url({{ url('assets/frontend/images/icon-arrow-down.png')}}) no-repeat 98% 50%")
                     } else {
                         $(this).children('p').removeClass('act');
-                        $(this).children('p').css("background", "url(./images/icon-arrow-right.png) no-repeat 98% 50%")
+                        $(this).children('p').css("background", "url({{ url('assets/frontend/images/icon-arrow-right.png')}}) no-repeat 98% 50%")
                     }
 
                     return false;
@@ -67,11 +67,11 @@
                     $(this).next('li').children('ul').toggle('fast');
                     if (!$(this).children('a').hasClass('act')) {
                         $(this).children('a').addClass('act');
-                        $(this).children('a').css("background", "url(./images/icon-arrow-down.png) #fffbce no-repeat 95% 50%")
+                        $(this).children('a').css("background", "url({{ url('assets/frontend/images/icon-arrow-down.png')}}) #fffbce no-repeat 95% 50%")
                     } else {
                         $(this).next('li').children('ul').hide();
                         $(this).children('a').removeClass('act');
-                        $(this).children('a').css("background", "url(./images/icon-arrow-right.png) #fffbce no-repeat 95% 50%")
+                        $(this).children('a').css("background", "url({{ url('assets/frontend/images/icon-arrow-right.png')}}) #fffbce no-repeat 95% 50%")
                     }
 
                     return false;

@@ -52,6 +52,10 @@ class FrontEndController extends Controller
     {
         return view('frontend.lien-he', array());
     }
+    public function giaiphapdautu()
+    {
+        return view('frontend.giai-phap-dau-tu', array());
+    }
     public function hosocongty()
     {
         return view('frontend.ho-so-cong-ty', array());
@@ -63,6 +67,26 @@ class FrontEndController extends Controller
     public function doitac()
     {
         return view('frontend.doi-tac', array());
+    }
+    public function baocaotaichinh()
+    {
+        return view('frontend.bao-cao-tai-chinh', array());
+    }
+    public function hoidap()
+    {
+        return view('frontend.hoi-dap', array());
+    }
+    public function tintuc()
+    {
+        return view('frontend.tin-tuc', array());
+    }
+    public function dautu()
+    {
+        return view('frontend.dau-tu', array());
+    }
+    public function quanlytaichinhcanhan()
+    {
+        return view('frontend.dau-tu', array());
     }
 
 }

@@ -34,7 +34,26 @@ Route::group(array('domain' => 'local.hoangsanggroup.com'), function()
         'as' => 'frontend.doitac',
         'uses' => 'FrontEndController@doitac'
     ]);
-
+    Route::get('/kien-thuc-tai-chinh/dau-tu', [
+        'as' => 'frontend.dautu',
+        'uses' => 'FrontEndController@dautu'
+    ]);
+    Route::get('/kien-thuc-tai-chinh/quan-ly-tai-chinh-ca-nhan', [
+        'as' => 'frontend.quanlytaichinhcanhan',
+        'uses' => 'FrontEndController@quanlytaichinhcanhan'
+    ]);
+    Route::get('/quan-he-nha-dau-tu/bao-cao-tai-chinh', [
+        'as' => 'frontend.baocaotaichinh',
+        'uses' => 'FrontEndController@baocaotaichinh'
+    ]);
+    Route::get('/quan-he-nha-dau-tu/hoi-dap', [
+        'as' => 'frontend.hoidap',
+        'uses' => 'FrontEndController@hoidap'
+    ]);
+    Route::get('/quan-he-nha-dau-tu/tin-tuc', [
+        'as' => 'frontend.tintuc',
+        'uses' => 'FrontEndController@tintuc'
+    ]);
 });
 
 
