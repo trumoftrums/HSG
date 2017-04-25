@@ -12,6 +12,7 @@ use Request;
 use Vanguard\BienDong;
 use Vanguard\Http\Requests\Invest\BienDongRequest;
 use Vanguard\Support\Enum\UserStatus;
+use Vanguard\TypeNews;
 use Vanguard\User;
 
 
@@ -40,7 +41,9 @@ class ManageNewsController extends Controller
     public function createNews()
     {
         $edit = false;
-        return view('manage-news.add-news', compact('edit'));
+        $listTypeNews = TypeNews::where('status', TypeNews::STATUS_ACTIVED)->get();
+
+        return view('manage-news.add-news', compact('edit', 'listTypeNews'));
     }
     public function addNews()
     {
@@ -57,8 +60,9 @@ class ManageNewsController extends Controller
     {
         $edit = true;
         $news = News::find($id);
+        $listTypeNews = TypeNews::where('status', TypeNews::STATUS_ACTIVED)->get();
 
-        return view('manage-news.add-news', compact('edit', 'news'));
+        return view('manage-news.add-news', compact('edit', 'news', 'listTypeNews'));
     }
     public function updateNews($id)
     {

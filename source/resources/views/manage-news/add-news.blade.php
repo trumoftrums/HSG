@@ -31,6 +31,14 @@
                         <input type="text" class="form-control" name="title" placeholder="Tiêu đề" value="{{ $edit ? $news->title : '' }}">
                     </div>
                     <div class="form-group">
+                        <label for="name">Loại tin đăng</label>
+                        <select class="form-control" name="typeNews">
+                            @foreach($listTypeNews as $item)
+                                <option value="{{$item->id}}" @if($edit) {@if($news->type == $item->id)  selected @endif} @endif>{{$item->nameType}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="display_name">Hình ảnh</label>
                         <input type="file" id="file" name="fileimg">
                     </div>

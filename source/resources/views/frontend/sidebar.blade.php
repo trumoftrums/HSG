@@ -28,7 +28,7 @@
                     <li class="child"><a href="{{ route('frontend.baocaotaichinh') }}">Báo cáo tài chính</a></li>
                     {{--<li class="child"><a href="quan-he-nha-dau-tu-cong-bo-thong-tin.html">Công bố thông tin</a></li>--}}
                     <li class="child"><a href="{{ route('frontend.hoidap') }}">Hỏi đáp</a></li>
-                    <li class="child"><a href="{{ route('frontend.tintuc') }}">Tin tức</a></li>
+                    {{--<li class="child"><a href="{{ route('frontend.tintuc') }}">Tin tức</a></li>--}}
                 </ul>
             </li>
             <li class="parent"><a href="{{ route('frontend.tuyendung') }}">Tuyển dụng</a></li>
