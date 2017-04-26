@@ -4,7 +4,7 @@
  * Authentication
  */
 
-Route::group(array('domain' => 'hoangsanggroup.com'), function()
+Route::group(array('domain' => 'local.hoangsanggroup.com'), function()
 {
     Route::get('/', [
         'as' => 'frontend.home',
@@ -46,7 +46,6 @@ Route::group(array('domain' => 'hoangsanggroup.com'), function()
         'as' => 'frontend.quanlytaichinhcanhan',
         'uses' => 'FrontEndController@quanlytaichinhcanhan'
     ]);
-
     Route::get('/quan-he-nha-dau-tu/bao-cao-tai-chinh', [
         'as' => 'frontend.baocaotaichinh',
         'uses' => 'FrontEndController@baocaotaichinh'
@@ -54,10 +53,6 @@ Route::group(array('domain' => 'hoangsanggroup.com'), function()
     Route::get('/quan-he-nha-dau-tu/hoi-dap', [
         'as' => 'frontend.hoidap',
         'uses' => 'FrontEndController@hoidap'
-    ]);
-    Route::get('/quan-he-nha-dau-tu/tin-tuc', [
-        'as' => 'frontend.tintuc',
-        'uses' => 'FrontEndController@tintuc'
     ]);
 });
 

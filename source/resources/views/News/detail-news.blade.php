@@ -16,7 +16,7 @@
     <div class="kien-thuc-tai-chinh">
         <h1 class="h1-title-news-user">{{$news->title}}</h1>
         <span class="date-news">Đăng bởi Trung Tran - {{date_format(date_create($news->created_at),"d/m/Y")}}</span>
-        {{$news->description}}
+        <?php echo $news->description; ?>
     </div>
 </div>
 @stop

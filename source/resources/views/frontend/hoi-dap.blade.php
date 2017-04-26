@@ -15,169 +15,34 @@
             </p>
             <div class="kien-thuc-tai-chinh hoi-dap">
                 <ul>
-                    <li class="li-question"><p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>Theo suy nghĩ của tôi, đầu tư thì quá rủi ro. Tôi có thể bị mất hết tiền không?</p></li>
+                    @foreach($listQA as $item)
+                    <li class="li-question">
+                        <p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>
+                            {{$item->question}}
+                        </p></li>
                     <li>
                         <div class="div-answer">
-                            <h5>Việc đầu tư thông qua quỹ Mở của HSG, khả năng Bạn bị mất hết tiền là rất thấp và khó có thể xảy ra vì các lý do sau:</h5>
-                            <p>- Quỹ đầu tư vào một danh mục gồm nhiều loại tài sản và nhiều loại chứng khoán, được đa dạng hóa một cách linh hoạt và khoa học nhằm phân tán rủi ro và tối ưu hóa lợi nhuận chung của quỹ. Khi thị trường chứng khoán (TTCK) biến động, tài sản của quỹ sẽ được trú ẩn trong các tài sản khác (như trái phiếu, tiền gửi ngân hàng), khi lãi suất ngân hàng thấp, TTCK thuận lợi, quỹ sẽ giải ngân trên TTCK để tìm kiếm lợi nhuận cao hơn, hoặc cổ phiếu ngành ngân hàng có thể mất giá thời điểm này nhưng cổ phiếu ngành hàng tiêu dùng lại cho lợi nhuận tốt và ổn định;</p>
-                            <p>- Quỹ được quản lý chuyên nghiệp bởi đội ngũ chuyên viên làm việc toàn thời gian, có kinh nghiệm thị trường và chuyên ngành.</p>
-                            <p>- Theo dõi diễn biến thị trường và quản trị rủi ro là nhiệm vụ thường xuyên và rất quan trọng.</p>
+                            <?php echo $item->answer; ?>
                         </div>
                     </li>
-                    <li class="li-question"><p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>Theo suy nghĩ của tôi, đầu tư thì quá rủi ro. Tôi có thể bị mất hết tiền không?</p></li>
-                    <li>
-                        <div class="div-answer">
-                            <h5>Việc đầu tư thông qua quỹ Mở của HSG, khả năng Bạn bị mất hết tiền là rất thấp và khó có thể xảy ra vì các lý do sau:</h5>
-                            <p>- Quỹ đầu tư vào một danh mục gồm nhiều loại tài sản và nhiều loại chứng khoán, được đa dạng hóa một cách linh hoạt và khoa học nhằm phân tán rủi ro và tối ưu hóa lợi nhuận chung của quỹ. Khi thị trường chứng khoán (TTCK) biến động, tài sản của quỹ sẽ được trú ẩn trong các tài sản khác (như trái phiếu, tiền gửi ngân hàng), khi lãi suất ngân hàng thấp, TTCK thuận lợi, quỹ sẽ giải ngân trên TTCK để tìm kiếm lợi nhuận cao hơn, hoặc cổ phiếu ngành ngân hàng có thể mất giá thời điểm này nhưng cổ phiếu ngành hàng tiêu dùng lại cho lợi nhuận tốt và ổn định;</p>
-                            <p>- Quỹ được quản lý chuyên nghiệp bởi đội ngũ chuyên viên làm việc toàn thời gian, có kinh nghiệm thị trường và chuyên ngành.</p>
-                            <p>- Theo dõi diễn biến thị trường và quản trị rủi ro là nhiệm vụ thường xuyên và rất quan trọng.</p>
-                        </div>
-                    </li>
-                    <li class="li-question"><p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>Theo suy nghĩ của tôi, đầu tư thì quá rủi ro. Tôi có thể bị mất hết tiền không?</p></li>
-                    <li>
-                        <div class="div-answer">
-                            <h5>Việc đầu tư thông qua quỹ Mở của HSG, khả năng Bạn bị mất hết tiền là rất thấp và khó có thể xảy ra vì các lý do sau:</h5>
-                            <p>- Quỹ đầu tư vào một danh mục gồm nhiều loại tài sản và nhiều loại chứng khoán, được đa dạng hóa một cách linh hoạt và khoa học nhằm phân tán rủi ro và tối ưu hóa lợi nhuận chung của quỹ. Khi thị trường chứng khoán (TTCK) biến động, tài sản của quỹ sẽ được trú ẩn trong các tài sản khác (như trái phiếu, tiền gửi ngân hàng), khi lãi suất ngân hàng thấp, TTCK thuận lợi, quỹ sẽ giải ngân trên TTCK để tìm kiếm lợi nhuận cao hơn, hoặc cổ phiếu ngành ngân hàng có thể mất giá thời điểm này nhưng cổ phiếu ngành hàng tiêu dùng lại cho lợi nhuận tốt và ổn định;</p>
-                            <p>- Quỹ được quản lý chuyên nghiệp bởi đội ngũ chuyên viên làm việc toàn thời gian, có kinh nghiệm thị trường và chuyên ngành.</p>
-                            <p>- Theo dõi diễn biến thị trường và quản trị rủi ro là nhiệm vụ thường xuyên và rất quan trọng.</p>
-                        </div>
-                    </li>
-                    <li class="li-question"><p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>Theo suy nghĩ của tôi, đầu tư thì quá rủi ro. Tôi có thể bị mất hết tiền không?</p></li>
-                    <li>
-                        <div class="div-answer">
-                            <h5>Việc đầu tư thông qua quỹ Mở của HSG, khả năng Bạn bị mất hết tiền là rất thấp và khó có thể xảy ra vì các lý do sau:</h5>
-                            <p>- Quỹ đầu tư vào một danh mục gồm nhiều loại tài sản và nhiều loại chứng khoán, được đa dạng hóa một cách linh hoạt và khoa học nhằm phân tán rủi ro và tối ưu hóa lợi nhuận chung của quỹ. Khi thị trường chứng khoán (TTCK) biến động, tài sản của quỹ sẽ được trú ẩn trong các tài sản khác (như trái phiếu, tiền gửi ngân hàng), khi lãi suất ngân hàng thấp, TTCK thuận lợi, quỹ sẽ giải ngân trên TTCK để tìm kiếm lợi nhuận cao hơn, hoặc cổ phiếu ngành ngân hàng có thể mất giá thời điểm này nhưng cổ phiếu ngành hàng tiêu dùng lại cho lợi nhuận tốt và ổn định;</p>
-                            <p>- Quỹ được quản lý chuyên nghiệp bởi đội ngũ chuyên viên làm việc toàn thời gian, có kinh nghiệm thị trường và chuyên ngành.</p>
-                            <p>- Theo dõi diễn biến thị trường và quản trị rủi ro là nhiệm vụ thường xuyên và rất quan trọng.</p>
-                        </div>
-                    </li>
-                    <li class="li-question"><p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>Theo suy nghĩ của tôi, đầu tư thì quá rủi ro. Tôi có thể bị mất hết tiền không?</p></li>
-                    <li>
-                        <div class="div-answer">
-                            <h5>Việc đầu tư thông qua quỹ Mở của HSG, khả năng Bạn bị mất hết tiền là rất thấp và khó có thể xảy ra vì các lý do sau:</h5>
-                            <p>- Quỹ đầu tư vào một danh mục gồm nhiều loại tài sản và nhiều loại chứng khoán, được đa dạng hóa một cách linh hoạt và khoa học nhằm phân tán rủi ro và tối ưu hóa lợi nhuận chung của quỹ. Khi thị trường chứng khoán (TTCK) biến động, tài sản của quỹ sẽ được trú ẩn trong các tài sản khác (như trái phiếu, tiền gửi ngân hàng), khi lãi suất ngân hàng thấp, TTCK thuận lợi, quỹ sẽ giải ngân trên TTCK để tìm kiếm lợi nhuận cao hơn, hoặc cổ phiếu ngành ngân hàng có thể mất giá thời điểm này nhưng cổ phiếu ngành hàng tiêu dùng lại cho lợi nhuận tốt và ổn định;</p>
-                            <p>- Quỹ được quản lý chuyên nghiệp bởi đội ngũ chuyên viên làm việc toàn thời gian, có kinh nghiệm thị trường và chuyên ngành.</p>
-                            <p>- Theo dõi diễn biến thị trường và quản trị rủi ro là nhiệm vụ thường xuyên và rất quan trọng.</p>
-                        </div>
-                    </li>
-                    <li class="li-question"><p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>Theo suy nghĩ của tôi, đầu tư thì quá rủi ro. Tôi có thể bị mất hết tiền không?</p></li>
-                    <li>
-                        <div class="div-answer">
-                            <h5>Việc đầu tư thông qua quỹ Mở của HSG, khả năng Bạn bị mất hết tiền là rất thấp và khó có thể xảy ra vì các lý do sau:</h5>
-                            <p>- Quỹ đầu tư vào một danh mục gồm nhiều loại tài sản và nhiều loại chứng khoán, được đa dạng hóa một cách linh hoạt và khoa học nhằm phân tán rủi ro và tối ưu hóa lợi nhuận chung của quỹ. Khi thị trường chứng khoán (TTCK) biến động, tài sản của quỹ sẽ được trú ẩn trong các tài sản khác (như trái phiếu, tiền gửi ngân hàng), khi lãi suất ngân hàng thấp, TTCK thuận lợi, quỹ sẽ giải ngân trên TTCK để tìm kiếm lợi nhuận cao hơn, hoặc cổ phiếu ngành ngân hàng có thể mất giá thời điểm này nhưng cổ phiếu ngành hàng tiêu dùng lại cho lợi nhuận tốt và ổn định;</p>
-                            <p>- Quỹ được quản lý chuyên nghiệp bởi đội ngũ chuyên viên làm việc toàn thời gian, có kinh nghiệm thị trường và chuyên ngành.</p>
-                            <p>- Theo dõi diễn biến thị trường và quản trị rủi ro là nhiệm vụ thường xuyên và rất quan trọng.</p>
-                        </div>
-                    </li>
-                    <li class="li-question"><p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>Theo suy nghĩ của tôi, đầu tư thì quá rủi ro. Tôi có thể bị mất hết tiền không?</p></li>
-                    <li>
-                        <div class="div-answer">
-                            <h5>Việc đầu tư thông qua quỹ Mở của HSG, khả năng Bạn bị mất hết tiền là rất thấp và khó có thể xảy ra vì các lý do sau:</h5>
-                            <p>- Quỹ đầu tư vào một danh mục gồm nhiều loại tài sản và nhiều loại chứng khoán, được đa dạng hóa một cách linh hoạt và khoa học nhằm phân tán rủi ro và tối ưu hóa lợi nhuận chung của quỹ. Khi thị trường chứng khoán (TTCK) biến động, tài sản của quỹ sẽ được trú ẩn trong các tài sản khác (như trái phiếu, tiền gửi ngân hàng), khi lãi suất ngân hàng thấp, TTCK thuận lợi, quỹ sẽ giải ngân trên TTCK để tìm kiếm lợi nhuận cao hơn, hoặc cổ phiếu ngành ngân hàng có thể mất giá thời điểm này nhưng cổ phiếu ngành hàng tiêu dùng lại cho lợi nhuận tốt và ổn định;</p>
-                            <p>- Quỹ được quản lý chuyên nghiệp bởi đội ngũ chuyên viên làm việc toàn thời gian, có kinh nghiệm thị trường và chuyên ngành.</p>
-                            <p>- Theo dõi diễn biến thị trường và quản trị rủi ro là nhiệm vụ thường xuyên và rất quan trọng.</p>
-                        </div>
-                    </li>
-                    <li class="li-question"><p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>Theo suy nghĩ của tôi, đầu tư thì quá rủi ro. Tôi có thể bị mất hết tiền không?</p></li>
-                    <li>
-                        <div class="div-answer">
-                            <h5>Việc đầu tư thông qua quỹ Mở của HSG, khả năng Bạn bị mất hết tiền là rất thấp và khó có thể xảy ra vì các lý do sau:</h5>
-                            <p>- Quỹ đầu tư vào một danh mục gồm nhiều loại tài sản và nhiều loại chứng khoán, được đa dạng hóa một cách linh hoạt và khoa học nhằm phân tán rủi ro và tối ưu hóa lợi nhuận chung của quỹ. Khi thị trường chứng khoán (TTCK) biến động, tài sản của quỹ sẽ được trú ẩn trong các tài sản khác (như trái phiếu, tiền gửi ngân hàng), khi lãi suất ngân hàng thấp, TTCK thuận lợi, quỹ sẽ giải ngân trên TTCK để tìm kiếm lợi nhuận cao hơn, hoặc cổ phiếu ngành ngân hàng có thể mất giá thời điểm này nhưng cổ phiếu ngành hàng tiêu dùng lại cho lợi nhuận tốt và ổn định;</p>
-                            <p>- Quỹ được quản lý chuyên nghiệp bởi đội ngũ chuyên viên làm việc toàn thời gian, có kinh nghiệm thị trường và chuyên ngành.</p>
-                            <p>- Theo dõi diễn biến thị trường và quản trị rủi ro là nhiệm vụ thường xuyên và rất quan trọng.</p>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
         <div class="list-news-related-right">
             <div class="cover-p-title-list-news">
-                <p class="p-title-list-news">TIN TỨC NÓNG NHẤT</p>
+                <p class="p-title-list-news">TIN TỨC MỚI NHẤT</p>
             </div>
             <div class="list-news-right">
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
+                @foreach($listNewsRelated as $item)
+                    <div class="item-list-news">
+                        <img class="avatar-list-news" src="{{ url($item->thumb)}}"/>
+                        <div class="item-list-right">
+                            <a href="{{ route('frontend.kienthuctaichinh.detail', [$item->id, str_slug($item->title, '-')]) }}" class="a-title-item-right">{{$item->title}}</a>
+                            <span>Đăng bởi Trung Tran - {{date_format(date_create($item->created_at),"d/m/Y")}}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-            </div>
-            <div class="cover-p-title-list-news">
-                <p class="p-title-list-news">MỤC LIÊN QUAN</p>
-            </div>
-            <div class="list-news-right">
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-                <div class="item-list-news">
-                    <img class="avatar-list-news" src="{{ url('assets/frontend/images/avatar-stevejob.png')}}"/>
-                    <div class="item-list-right">
-                        <a href="#" class="a-title-item-right">10 lời khuyên đầu tư tài chính từ Steve Jobs</a>
-                        <span>Đăng bởi Trung Tran - 20/03/2017</span>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </div>

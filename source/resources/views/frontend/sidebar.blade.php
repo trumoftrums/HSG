@@ -33,7 +33,7 @@
             <li class="parent"><a href="{{ route('frontend.lienhe') }}">Liên hệ</a></li>
         </ul>
         <a href="http://private.hoangsanggroup.com" target="_blank" class="private-page">
-            <img src=".{{ url('assets/frontend/images/icon-user-page.png')}}"> Văn phòng cá nhân
+            <img src="{{ url('assets/frontend/images/icon-user-page.png')}}"> Văn phòng cá nhân
         </a>
     </div>
 </div>

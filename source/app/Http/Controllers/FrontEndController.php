@@ -5,6 +5,7 @@ namespace Vanguard\Http\Controllers;
 use Intervention\Image\Gd\Commands\InvertCommand;
 use Vanguard\Invest;
 use Vanguard\News;
+use Vanguard\QA;
 use Vanguard\Repositories\Activity\ActivityRepository;
 use Vanguard\Repositories\User\UserRepository;
 use Vanguard\Support\Enum\UserStatus;
@@ -75,11 +76,13 @@ class FrontEndController extends Controller
     }
     public function hoidap()
     {
-        return view('frontend.hoi-dap', array());
-    }
-    public function tintuc()
-    {
-        return view('frontend.tin-tuc', array());
+        $listQA = QA::where('status', QA::STATUS_ACTIVED)->get();
+        $listNewsRelated = News::where('status', News::STATUS_ACTIVED)
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
+
+        return view('frontend.hoi-dap', compact('listNewsRelated', 'listQA'));
     }
     public function dautu()
     {
