@@ -258,6 +258,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Tin tức mới nhất</div>
             <div class="panel-body">
+                @if(count($listNewsHome)> 0)
                 @foreach($listNewsHome as $item)
                     <div class="cover-item-news-home">
                         <a class="a-cover-img-news" href="{{ route('newsuser.detail', [$item->id, str_slug($item->title, '-')]) }}">
@@ -268,6 +269,9 @@
                         <span class="date-news">{{date_format(date_create($item->created_at),"d/m/Y")}}</span>
                     </div>
                 @endforeach
+                    @else
+                    <p>Đang cập nhật thông tin...</p>
+                @endif
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
 @section('content')
     <div class="title-header">
         <p class="title-root">KIẾN THỨC TÀI CHÍNH</p>
-        <p class="title-after">ĐẦU TƯ</p>
+        <p class="title-after">{{$title}}</p>
         <span class="span-date-update">Được cập nhật mới nhất: 15/03/2017</span>
     </div>
     <p class="p-about-header">
@@ -17,8 +17,8 @@
         <div class="item-news">
             <div class="hover-item">
                 <div class="cover-zoom">
-                    <a href="kien-thuc-tai-chinh-dau-tu-detail.html"><img src="{{ url('assets/frontend/images/icon-zoom.png')}}"></a>
-                    <a class="detail" href="kien-thuc-tai-chinh-dau-tu-detail.html">Xem Chi Tiết</a>
+                    <a href="{{ route('frontend.kienthuctaichinh.detail', [$item->id, str_slug($item->title, '-')]) }}"><img src="{{ url('assets/frontend/images/icon-zoom.png')}}"></a>
+                    <a class="detail" href="{{ route('frontend.kienthuctaichinh.detail', [$item->id, str_slug($item->title, '-')]) }}">Xem Chi Tiết</a>
                 </div>
             </div>
             <img class="thumb-item-news" src="{{ url($item->thumb)}}"/>

@@ -13,6 +13,7 @@
 
 <div class="row">
     <div class="kien-thuc-tai-chinh">
+        @if(count($listNews) > 0)
         @foreach($listNews as $item)
         <div class="item-news">
             <div class="hover-item">
@@ -33,6 +34,9 @@
             </div>
         </div>
         @endforeach
+            @else
+            <p>Đang cập nhật thông tin...</p>
+        @endif
     </div>
 </div>
     <script type="text/javascript">

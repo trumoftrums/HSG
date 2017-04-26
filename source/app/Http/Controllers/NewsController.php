@@ -31,7 +31,10 @@ class NewsController extends Controller
     }
     public function listNews()
     {
-        $listNews = News::where('status', News::STATUS_ACTIVED)->orderBy('id', 'desc')->get();
+        $listNews = News::where('status', News::STATUS_ACTIVED)
+            ->where('type', News::TYPE_NOIBO)
+            ->orderBy('id', 'desc')
+            ->get();
 
         return view('news.list-news', compact('listNews'));
     }

@@ -75,5 +75,5 @@
     {!! HTML::script('assets/js/ckeditor/ckeditor.js') !!}
     {!! HTML::script('assets/js/bootstrap-datetimepicker.min.js') !!}
     {!! HTML::script('assets/js/as/profile.js') !!}
-    {!! JsValidator::formRequest('Vanguard\Http\Requests\Invest\BienDongRequest', '#news-form') !!}
+    {!! JsValidator::formRequest('Vanguard\Http\Requests\Invest\NewsRequest', '#news-form') !!}
 @stop

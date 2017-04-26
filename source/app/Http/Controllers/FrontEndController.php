@@ -83,21 +83,35 @@ class FrontEndController extends Controller
     }
     public function dautu()
     {
+        $title = "ĐẦU TƯ";
         $listNews = News::where('status', News::STATUS_ACTIVED)
             ->where('type', News::TYPE_DAUTU)
             ->orderBy('created_at', 'desc')
             ->paginate(self::perpage);
 
-        return view('frontend.dau-tu', compact('listNews'));
+        return view('frontend.dau-tu', compact('listNews', 'title'));
     }
     public function quanlytaichinhcanhan()
     {
+        $title = "TÀI CHÍNH CÁ NHÂN";
         $listNews = News::where('status', News::STATUS_ACTIVED)
             ->where('type', News::TYPE_TCCN)
             ->orderBy('created_at', 'desc')
             ->paginate(self::perpage);
 
-        return view('frontend.dau-tu', compact('listNews'));
+        return view('frontend.dau-tu', compact('listNews', 'title'));
+    }
+    public function dautuDetail($id)
+    {
+        $news = News::find($id);
+        $listNewsRelated = News::where('status', News::STATUS_ACTIVED)
+            ->where('type', $news->type)
+            ->orderBy('created_at', 'desc')
+            ->whereNotIn('id', [$news->id])
+            ->limit(5)
+            ->get();
+
+        return view('frontend.dau-tu-detail', compact('news', 'listNewsRelated'));
     }
 
 }

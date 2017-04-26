@@ -463,6 +463,7 @@
 .content-right .kien-thuc-tai-chinh-detail .detail-news-left .header-news-detail .img-header-detail{
     float: left;
     width: 100%;
+    height:180px;
 }
 .content-right .kien-thuc-tai-chinh-detail .detail-news-left p{
     text-align: justify;
@@ -804,17 +805,18 @@
 }
 .content-right .kien-thuc-tai-chinh-detail .list-news-related-right .list-news-right .item-list-news .avatar-list-news{
     float: left;
-    width: 25%;
+    width: 100%;
 }
 .content-right .kien-thuc-tai-chinh-detail .list-news-related-right .list-news-right .item-list-news .item-list-right{
     float: right;
-    width: 73%;
-    padding-top: 15px;
+    width: 100%;
+    padding: 10px;
 }
 .content-right .kien-thuc-tai-chinh-detail .list-news-related-right .list-news-right .item-list-news .item-list-right .a-title-item-right{
     width: 100%;
     float: left;
-    color: #3e3e3e;
+    color: #056839;
+    text-transform: uppercase;
 }
 .content-right .kien-thuc-tai-chinh-detail .list-news-related-right .list-news-right .item-list-news .item-list-right span{
     color: #868686;
