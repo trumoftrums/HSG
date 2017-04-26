@@ -100,6 +100,7 @@ class DashboardController extends Controller
         sort($arrDate);
         $strDate = implode('|', $arrDate);
         $listNewsHome = News::where('status', News::STATUS_ACTIVED)
+            ->where('type', News::TYPE_NOIBO)
             ->orderBy('id', 'desc')
             ->limit(5)
             ->get();

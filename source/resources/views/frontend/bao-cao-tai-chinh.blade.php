@@ -152,7 +152,7 @@
                     </div>
                 </div>
                 <div class="item-congbothongtin-download">
-                    <img src="./images/icon-file-tai-chinh.png"/>
+                    <img src="{{ url('assets/frontend/images/icon-file-tai-chinh.png')}}"/>
                     <div class="cover-congbothongtin-right">
                         <a href="#">Bao cao tai chinh ban nien duoc kiem toan 2016</a>
                         <span>15/08/2016</span>
@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <div class="item-congbothongtin-download">
-                    <img src="./images/icon-file-tai-chinh.png"/>
+                    <img src="{{ url('assets/frontend/images/icon-file-tai-chinh.png')}}"/>
                     <div class="cover-congbothongtin-right">
                         <a href="#">Bao cao tai chinh ban nien duoc kiem toan 2016</a>
                         <span>15/08/2016</span>
@@ -274,7 +274,7 @@
                     </div>
                 </div>
                 <div class="item-congbothongtin-download">
-                    <img src="./images/icon-file-tai-chinh.png"/>
+                    <img src="{{ url('assets/frontend/images/icon-file-tai-chinh.png')}}"/>
                     <div class="cover-congbothongtin-right">
                         <a href="#">Bao cao tai chinh ban nien duoc kiem toan 2016</a>
                         <span>15/08/2016</span>

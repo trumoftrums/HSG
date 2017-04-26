@@ -22,6 +22,7 @@ class FrontEndController extends Controller
      */
     private $activities;
 
+    const perpage = 10;
     /**
      * DashboardController constructor.
      * @param UserRepository $users
@@ -82,11 +83,21 @@ class FrontEndController extends Controller
     }
     public function dautu()
     {
-        return view('frontend.dau-tu', array());
+        $listNews = News::where('status', News::STATUS_ACTIVED)
+            ->where('type', News::TYPE_DAUTU)
+            ->orderBy('created_at', 'desc')
+            ->paginate(self::perpage);
+
+        return view('frontend.dau-tu', compact('listNews'));
     }
     public function quanlytaichinhcanhan()
     {
-        return view('frontend.dau-tu', array());
+        $listNews = News::where('status', News::STATUS_ACTIVED)
+            ->where('type', News::TYPE_TCCN)
+            ->orderBy('created_at', 'desc')
+            ->paginate(self::perpage);
+
+        return view('frontend.dau-tu', compact('listNews'));
     }
 
 }

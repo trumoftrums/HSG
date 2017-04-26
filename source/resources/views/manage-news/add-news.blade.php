@@ -34,7 +34,7 @@
                         <label for="name">Loại tin đăng</label>
                         <select class="form-control" name="typeNews">
                             @foreach($listTypeNews as $item)
-                                <option value="{{$item->id}}" @if($edit) {@if($news->type == $item->id)  selected @endif} @endif>{{$item->nameType}}</option>
+                                <option value="{{$item->idType}}" @if($edit) @if($news->type == $item->idType)  selected @endif @endif>{{$item->nameType}}</option>
                             @endforeach
                         </select>
                     </div>

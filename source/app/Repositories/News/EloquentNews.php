@@ -17,6 +17,7 @@ class EloquentNews implements NewsRepository
         $bd->summary = $data['summary'];
         $bd->description = $data['description'];
         $bd->thumb = $data['thumb'];
+        $bd->type = $data['typeNews'];
         $bd->status = News::STATUS_ACTIVED;
 
         $bd->save();
@@ -29,6 +30,7 @@ class EloquentNews implements NewsRepository
         $bd->title = $data['title'];
         $bd->summary = $data['summary'];
         $bd->description = $data['description'];
+        $bd->type = $data['typeNews'];
         if($data['thumb'] != null){
             $bd->thumb = $data['thumb'];
         }else{
@@ -49,12 +51,12 @@ class EloquentNews implements NewsRepository
 
     public function paginate($perPage, $search = null, $status = null)
     {
-        $query = News::query();
+        $query = News::join('type_news', 'type_news.idType', '=', 'news.type');
 
         if ($status && $status != "All") {
-            $query->where('status', $status);
+            $query->where('news.status', $status);
         }
-        $result = $query->orderBy('created_at', 'desc')
+        $result = $query->orderBy('news.created_at', 'desc')
             ->paginate($perPage);
 
         return $result;

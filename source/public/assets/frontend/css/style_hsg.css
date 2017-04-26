@@ -400,7 +400,13 @@
 .content-right .kien-thuc-tai-chinh .item-news .content-item-news .title-item-news h4{
     color: #056839;
     margin: 0px;
-    font-size: 20px;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 .content-right .kien-thuc-tai-chinh .item-news .content-item-news .title-item-news span{
     color: #6d6d6d;

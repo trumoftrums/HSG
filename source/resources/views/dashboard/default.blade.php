@@ -8,12 +8,6 @@
     <div class="col-lg-12">
         <h1 class="page-header">
             Xin chào <?= Auth::user()->username ?: Auth::user()->first_name ?>
-            {{--<div class="pull-right">
-                <ol class="breadcrumb">
-                    <li><a href="{{ route('dashboard') }}">@lang('app.home')</a></li>
-                    <li class="active">@lang('app.dashboard')</li>
-                </ol>
-            </div>--}}
         </h1>
     </div>
 </div>

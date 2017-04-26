@@ -48,6 +48,7 @@
     <table class="table">
         <thead>
             <th>TIÊU ĐỀ</th>
+            <th>LOẠi TIN</th>
             <th>NGÀY ĐĂNG</th>
             <th>HÌNH ẢNH</th>
             <th>TRẠNG THÁI</th>
@@ -58,7 +59,8 @@
                 @foreach ($listNews as $bd)
                     <tr>
                         <td>{{ $bd->title }}</td>
-                        <td>{{ $bd->created_at}}</td>
+                        <td>{{$bd->nameType}}</td>
+                        <td>{{date_format(date_create($bd->created_at),"d/m/Y")}}</td>
                         <td><img style="height: 60px" src="{{ url($bd->thumb)}}"/></td>
                         <td>
                             @if($bd->status == 'AC') <button type="button" class="btn btn-success btnOwn">Active</button>
@@ -89,7 +91,6 @@
             @endif
         </tbody>
     </table>
-
     {!! $listNews->render() !!}
 </div>
 

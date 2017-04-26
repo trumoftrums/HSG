@@ -31,11 +31,13 @@
                 </a>
             </li>
             @endpermission
+            @permission('news.user')
             <li class="{{ Request::is('tin-tuc-noi-bo*') ? 'active open' : ''  }}">
                 <a href="{{ route('newsuser.list') }}" class="{{ Request::is('tin-tuc-noi-bo*') ? 'active' : ''  }}">
                     <i class="fa fa-newspaper-o"></i> Tin tức
                 </a>
             </li>
+            @endpermission
             @permission('users.manage')
                 <li class="{{ Request::is('user*') ? 'active open' : ''  }}">
                     <a href="{{ route('user.list') }}" class="{{ Request::is('user*') ? 'active' : ''  }}">
