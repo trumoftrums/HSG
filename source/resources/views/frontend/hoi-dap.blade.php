@@ -17,9 +17,11 @@
                 <ul>
                     @foreach($listQA as $item)
                     <li class="li-question">
-                        <p class="p-question"><img src="{{ url('assets/frontend/images/icon-question.png')}}"/>
+                        <img src="{{ url('assets/frontend/images/icon-question.png')}}"/>
+                        <p class="p-question">
                             {{$item->question}}
-                        </p></li>
+                        </p>
+                    </li>
                     <li>
                         <div class="div-answer">
                             <?php echo $item->answer; ?>

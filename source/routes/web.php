@@ -600,6 +600,34 @@ Route::delete('quan-ly-tin-tuc/{idNews}/delete', [
 ]);
 
 /**
+ * Manage QA
+ */
+Route::get('quan-ly-hoi-dap', [
+    'as' => 'qaadmin.list',
+    'uses' => 'ManageQAController@listQA'
+]);
+Route::get('quan-ly-hoi-dap/create', [
+    'as' => 'qaadmin.create',
+    'uses' => 'ManageQAController@createQA'
+]);
+Route::post('quan-ly-hoi-dap/add', [
+    'as' => 'qaadmin.add',
+    'uses' => 'ManageQAController@addQA'
+]);
+Route::get('quan-ly-hoi-dap/{idQA}/edit', [
+    'as' => 'qaadmin.edit',
+    'uses' => 'ManageQAController@editQA'
+]);
+Route::put('quan-ly-hoi-dap/{idQA}/update', [
+    'as' => 'qaadmin.update',
+    'uses' => 'ManageQAController@updateQA'
+]);
+Route::delete('quan-ly-hoi-dap/{idQA}/delete', [
+    'as' => 'qaadmin.delete',
+    'uses' => 'ManageQAController@deleteQA'
+]);
+
+/**
  * News for user
  */
 Route::get('tin-tuc-noi-bo', [
@@ -609,6 +637,10 @@ Route::get('tin-tuc-noi-bo', [
 Route::get('tin-tuc-noi-bo/{idNews}/{name}', [
     'as' => 'newsuser.detail',
     'uses' => 'NewsController@detailNews'
+]);
+Route::get('ban-lanh-dao-hsg', [
+    'as' => 'leadergroup',
+    'uses' => 'NewsController@leaderHSG'
 ]);
 
 

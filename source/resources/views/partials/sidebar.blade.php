@@ -145,6 +145,20 @@
                 </a>
             </li>
             @endpermission
+            @permission('users.manage')
+            <li class="{{ Request::is('quan-ly-hoi-dap*') ? 'active open' : ''  }}">
+                <a href="{{ route('qaadmin.list') }}" class="{{ Request::is('quan-ly-hoi-dap*') ? 'active' : ''  }}">
+                    <i class="fa fa-users fa-fw"></i> Quản lý hỏi đáp
+                </a>
+            </li>
+            @endpermission
+            @permission('leaderHSG.users')
+            <li class="{{ Request::is('ban-lanh-dao-hsg*') ? 'active open' : ''  }}">
+                <a href="{{ route('leadergroup') }}" class="{{ Request::is('ban-lanh-dao-hsg*') ? 'active' : ''  }}">
+                    <i class="fa fa-cogs fa-fw"></i> Ban lãnh đạo HSG
+                </a>
+            </li>
+            @endpermission
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

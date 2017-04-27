@@ -51,11 +51,11 @@
         </a>
     </div>
     <div class="col-md-3">
-        <a href="{{ route('invest.hop_dong') }}" class="panel-link">
+        <a href="{{ route('leadergroup') }}" class="panel-link">
             <div class="panel panel-default dashboard-panel panel-user">
                 <div class="panel-body">
                     <div class="icon">
-                        <i class="fa fa-users fa-fw"></i>
+                        <i class="fa fa-cogs fa-fw"></i>
                     </div>
                     <p class="lead">Ban lãnh đạo HSG</p>
                 </div>

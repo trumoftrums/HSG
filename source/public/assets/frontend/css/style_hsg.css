@@ -500,22 +500,30 @@
     margin: 2px 0px;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li.li-question{
-    width:100%;
+    width: 100%;
+    background: #056839;
+    align-items: center;
+    display: flex;
+}
+.content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li.li-question img{
+    float: left;
+    width: 60px;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li .b-pos{
     color: #056839;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li .p-question{
     margin: 0px;
-    background: url(../images/icon-arrow-right.png) no-repeat 98% 50%;
+    background: url(../images/icon-arrow-right.png) no-repeat 98% 50% #fff;
     float: left;
     width: 100%;
     border: 1px solid #056839;
     cursor: pointer;
-}
-.content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li .p-question img{
-    margin-right: 10px;
-    width: 50px;
+    padding-right: 50px;
+    align-items: center;
+    display: flex;
+    min-height: 40px;
+    padding-left: 5px;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li .div-answer{
     display: none;

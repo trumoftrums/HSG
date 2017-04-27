@@ -91,6 +91,8 @@ class FrontEndController extends Controller
             ->where('type', News::TYPE_DAUTU)
             ->orderBy('created_at', 'desc')
             ->paginate(self::perpage);
+        /*echo "<pre>";
+        print_r($listNews);die;*/
 
         return view('frontend.dau-tu', compact('listNews', 'title'));
     }

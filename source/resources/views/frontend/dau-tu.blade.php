@@ -25,9 +25,9 @@
             <div class="content-item-news">
                 <div class="title-item-news">
                     <h4>{{$item->title}}</h4>
-                    <span>Đăng bởi Trung Tran - {{date_format(date_create($item->created_at),"d/m/Y")}}</span>
+                    <span>Ngày đăng: {{date_format(date_create($item->created_at),"d/m/Y")}}</span>
                 </div>
-                <p class="summary-item-news">{{$item->summary}}...</p>
+                <p class="summary-item-news"><?php echo implode(' ', array_slice(explode(' ', $item->summary), 0, 31)) ?>...</p>
             </div>
         </div>
         @endforeach

@@ -5,7 +5,7 @@ namespace Vanguard\Http\Requests\Invest;
 use Vanguard\Http\Requests\Request;
 use Vanguard\User;
 
-class NewsRequest extends Request
+class QARequest extends Request
 {
     /**
      * Get the validation rules that apply to the request.
@@ -15,10 +15,8 @@ class NewsRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
-            'fileimg' => 'required',
-            'summary' => 'required',
-            'description' => 'required'
+            'question' => 'required',
+            'answer' => 'required'
         ];
     }
 }
