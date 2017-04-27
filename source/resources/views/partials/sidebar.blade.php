@@ -141,7 +141,7 @@
             @permission('users.manage')
             <li class="{{ Request::is('quan-ly-tin-tuc*') ? 'active open' : ''  }}">
                 <a href="{{ route('newsadmin.list') }}" class="{{ Request::is('quan-ly-tin-tuc*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> Quản lý tin tức
+                    <i class="fa fa-newspaper-o fa-fw"></i> Quản lý tin tức
                 </a>
             </li>
             @endpermission
