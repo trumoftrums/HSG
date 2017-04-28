@@ -652,3 +652,42 @@ Route::post('getBienDong', [
     'as' => 'investtype.getBienDong',
     'uses' => 'InvestTypeController@getBienDong'
 ]);
+Route::get('interest/quan-ly-tra-lai/', [
+    'as' => 'interest.list-tra-lai',
+    'uses' => 'ManageInvestController@listTraLai'
+]);
+Route::get('interest/xemhoadon-quan-ly-tra-lai/{idTrade}', [
+    'as' => 'interest.quan-ly-tra-lai.xemhoadon',
+    'uses' => 'ManageInvestController@qltl_xemhoadon'
+]);
+Route::get('interest/thanhtoan-quan-ly-tra-lai/{idTrade}', [
+    'as' => 'interest.quan-ly-tra-lai.thanhtoan',
+    'uses' => 'ManageInvestController@qltl_thanhtoan'
+]);
+Route::post('interest/thanhtoan-quan-ly-tra-lai/{idTrade}', [
+    'as' => 'interest.quan-ly-tra-lai.thanhtoan',
+    'uses' => 'ManageInvestController@qltl_thanhtoan_submit'
+]);
+
+Route::delete('interest/huy-quan-ly-tra-lai/{idTrade}', [
+    'as' => 'interest.quan-ly-tra-lai.huy',
+    'uses' => 'ManageInvestController@qltl_huy'
+]);
+Route::delete('interest/khoa-quan-ly-tra-lai/{idTrade}', [
+    'as' => 'interest.quan-ly-tra-lai.khoa',
+    'uses' => 'ManageInvestController@qltl_khoa'
+]);
+
+
+Route::get('docs/list-tai-lieu/', [
+    'as' => 'docs.tai-lieu.list',
+    'uses' => 'DocsController@listDocs'
+]);
+Route::get('docs/list-du-an/', [
+    'as' => 'docs.du-an.list',
+    'uses' => 'DocsController@listDuAn'
+]);
+Route::get('docs/list-chi-nhanh/', [
+    'as' => 'docs.chi-nhanh.list',
+    'uses' => 'DocsController@listChiNhanh'
+]);

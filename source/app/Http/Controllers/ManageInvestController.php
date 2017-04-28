@@ -6,6 +6,7 @@ use Vanguard\Http\Requests\User\UpdateUserRequest;
 use Vanguard\Invest;
 use Vanguard\InvestDocs;
 use Vanguard\InvestResult;
+use Vanguard\InvestTrade;
 use Vanguard\InvestType;
 use Vanguard\Repositories\Invest\InvestRepository;
 use Vanguard\Repositories\InvestType\InvestTypeRepository;
@@ -527,6 +528,175 @@ class ManageInvestController extends Controller
         }
         return redirect()->route('manage-interest.documents.list',$investID)
             ->withErrors('Xóa tài liệu thất bại, vui lòng thử lại!');
+
+    }
+
+    public function listTraLai(){
+        $statusCurr = Input::get('status');
+        $idGoiDauTuCurr = Input::get('goi_dau_tu');
+        $fromDate = Input::get('fromDate');
+        $toDate = Input::get('toDate');
+        if(empty($statusCurr)){
+            $statusCurr = "all";
+        }
+
+        if(empty($idGoiDauTuCurr)){
+            $idGoiDauTuCurr = "";
+        }
+        if(empty($fromDate)){
+            $fromDate = date("Y-m-d");
+        }
+        if(empty($toDate)){
+            $toDate = date("Y-m-d");
+        }
+
+        $listTypeInvest = InvestType::where('status', InvestType::STATUS_ACTIVED)->get();
+        $result = array(
+            'data' =>array(),
+            'listTypeInvest'=>$listTypeInvest,
+            'statusCurr'=>$statusCurr,
+            'idGoiDauTuCurr'=>$idGoiDauTuCurr,
+            'fromDate'=>$fromDate,
+            'toDate'=>$toDate
+        );
+        if(!empty($fromDate) && strlen($fromDate) == 10 && !empty($toDate) && strlen($toDate) == 10){
+
+            $condition =array(
+                "a.noidungGD = '".InvestTrade::TRADE_TRALAI."'"
+            );
+            if(!empty($statusCurr) && $statusCurr !="all"){
+                $condition[] = "`a`.`status` ='$statusCurr'";
+            }
+            if(!empty($idGoiDauTuCurr) && $idGoiDauTuCurr !="all"){
+                $condition[] = "`b`.`investTypeID` =$idGoiDauTuCurr";
+            }
+
+            $result['data'] = InvestTrade::getTrades($fromDate,$toDate,$condition);
+//            var_dump($result['data']);exit();
+
+        }
+
+        return view('manage-interest.list-tra-lai',$result);
+
+    }
+    public function qltl_xemhoadon($idTrade){
+        $result['data'] = InvestTrade::getTradebyID($idTrade);
+        $result['investCode'] = "";
+        if(!empty($result['data'])){
+            $result['investCode'] = $result['data']['investCode'];
+        }
+
+        return view('manage-interest.xemhoadon-tra-lai',$result);
+    }
+    public function qltl_thanhtoan($idTrade){
+        $result['data'] = InvestTrade::getTradebyID($idTrade);
+//        var_dump($result['data']);exit();
+        $result['investCode'] = "";
+        if(!empty($result['data'])){
+            $result['investCode'] = $result['data']['investCode'];
+        }
+        return view('manage-interest.thanhtoan-tra-lai',$result);
+    }
+    public function qltl_thanhtoan_submit($idTrade){
+        $formDT = Request::all();
+        $user = Auth::user();
+        $result = false;
+        $mess = "";
+        $redirect = true;
+        if(!empty($formDT) && isset($_FILES['hoaDon']) && !empty($_FILES['hoaDon']['name'])){
+//            var_dump($_FILES);
+            $ck = InvestTrade::checkCanActive($idTrade);
+//            var_dump($ck);exit();
+            if($ck){
+                $investTrade = InvestTrade::getInvestID($idTrade);
+                if(!empty($investTrade)){
+                    $dt = date("Y-m-d H:i:s");
+                    $upload = $this->uploadDocs($investTrade['investID'],$_FILES['hoaDon']);
+                    if($upload['result']){
+                        $createDoc = array(
+                            'filename'=>$upload['name'],
+                            'filepath'=>$upload['path'],
+                            'investID'=>$investTrade['investID'],
+                            'type'=>InvestTrade::TRADE_TRALAI,
+                            'status'=>InvestTrade::STATUS_ACTIVED,
+                            'uploadBy'=>$user->id,
+                            'investSeq' =>$investTrade['investSeq'],
+                            'created_at' =>$dt,
+                            'updated_at'=>$dt
+                        );
+                        DB::beginTransaction();
+                        $r1 = DB::table("invest_document")->insert($createDoc);
+                        $update =array(
+                            'status' =>InvestTrade::STATUS_ACTIVED,
+                            'nguoiConfirmGD'=>$user->id,
+                            'confirmDT'=>$dt
+
+                        );
+                        $r2 = DB::table("invest_trade")->where("id",$idTrade)->update($update);
+                        if($r1 && $r2){
+                            DB::commit();
+                            $result = true;
+                            $mess = "Thanh toán lãi suất thành công!";
+                        }else{
+                            DB::rollBack();
+                            $mess = "Thanh toán lãi suất thất bại, vui lòng thử lại sau!";
+                            $redirect =false;
+                        }
+                    }else{
+                        $mess = "Upload hóa đơn thất bại, vui lòng thử lại sau!";
+                        $redirect =false;
+                    }
+                }else{
+                    $mess = "Thanh toán không hợp lệ, Không tìm thấy hợp đồng đầu tư!";
+                }
+
+            }else{
+                $mess = "Thanh toán không hợp lệ, Hiện tại hợp đồng này không được thanh toán lãi suất!";
+            }
+        }else{
+            $mess = "Vui lòng upload hóa đơn thanh toán lãi suất!";
+            $redirect =false;
+        }
+        if($result){
+            return redirect()->route('interest.list-tra-lai')
+                ->withSuccess($mess);
+        }else{
+            if($redirect){
+                return redirect()->route('interest.list-tra-lai')
+                    ->withErrors($mess);
+            }else{
+                return redirect()->route('interest.quan-ly-tra-lai.thanhtoan',$idTrade)
+                    ->withErrors($mess);
+            }
+
+        }
+
+    }
+    public function qltl_huy($idTrade){
+        $user = Auth::user();
+        $result = false;
+        $mess = "";
+        $dt =date("Y-m-d H:i:s");
+        $update =array(
+            'status' =>InvestTrade::STATUS_CANCELED,
+            'nguoiHuyGD'=>$user->id,
+            'huyGDDT'=>$dt
+        );
+        $result = InvestTrade::where('id',$idTrade)->update($update);
+        if($result){
+            $mess = "Hủy giao dịch thành công!";
+        }else{
+            $mess = "Hủy giao dịch thất bại, vui lòng thử lại sau!";
+        }
+        if($result){
+            return redirect()->route('interest.list-tra-lai')
+                ->withSuccess($mess);
+        }
+        return redirect()->route('interest.list-tra-lai')
+            ->withErrors($mess);
+
+    }
+    public function qltl_khoa($idTrade){
 
     }
 }

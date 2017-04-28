@@ -21,7 +21,9 @@
         "intervention/image": "^2.3",
         "zizaco/entrust": "^1.5",
         "anlutro/l4-settings": "^0.4.6",
-        "anhskohbo/no-captcha": "2.*"
+        "anhskohbo/no-captcha": "2.*",
+        "phpoffice/phpexcel": "^1.8"
+
     },
     "require-dev": {
         "symfony/css-selector": "~3.0",

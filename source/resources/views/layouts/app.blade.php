@@ -100,7 +100,7 @@
     </div>
 
     {{-- For production, it is recommended to combine following scripts into one. --}}
-    {!! HTML::script('assets/js/jquery-2.1.4.min.js') !!}
+    {{--{!! HTML::script('assets/js/jquery-2.1.4.min.js') !!}--}}
     {!! HTML::script('assets/js/bootstrap.min.js') !!}
     {!! HTML::script('assets/js/metisMenu.min.js') !!}
     {!! HTML::script('assets/js/sweetalert.min.js') !!}

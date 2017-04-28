@@ -121,6 +121,11 @@
                 </a>
                 <ul class="nav nav-second-level collapse">
                     <li>
+                        <a href="{{ route('interest.list-tra-lai') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
+                            Quản lý trả lãi
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ route('interest.list-hop-dong-dau-tu') }}" class="{{ Request::is('interest*') ? 'active' : ''  }}">
                             Quản lý HĐ đầu tư
                         </a>
@@ -135,6 +140,31 @@
                             Danh sách gói lãi
                         </a>
                     </li>
+                </ul>
+            </li>
+            @endpermission
+            @permission('docs.manage')
+            <li class="{{ Request::is('docs*') ? 'active open' : ''  }}">
+                <a href="#">
+                    <i class="fa fa-dashboard fa-fw"></i> Quản lý tài liệu
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse">
+                    <li>
+                        <a href="{{ route('docs.tai-lieu.list') }}" class="{{ Request::is('docs*') ? 'active' : ''  }}">
+                            Quản lý tài liệu
+                        </a>
+                    </li>
+                    {{--<li>--}}
+                        {{--<a href="{{ route('docs.du-an.list') }}" class="{{ Request::is('docs*') ? 'active' : ''  }}">--}}
+                            {{--Quản lý dự án--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="{{ route('docs.chi-nhanh.list') }}" class="{{ Request::is('docs*') ? 'active' : ''  }}">--}}
+                            {{--Quản lý chi nhánh--}}
+                        {{--</a>--}}
+                    {{--</li>--}}
                 </ul>
             </li>
             @endpermission
