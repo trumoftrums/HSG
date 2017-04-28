@@ -15,6 +15,18 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
 @include('partials.messages')
+<style>
+    #tien-trinh-dau-tu {
+        overflow: auto;
+    }
+
+    #tien-trinh-dau-tu table td, th {
+        text-align: right;
+        border: 1px solid #d1d1d1;
+        padding-right: 3px;
+    }
+
+</style>
 <script type="application/javascript">
     var option = {
         scales: {
@@ -77,7 +89,14 @@ if(!empty($datas)){
 
 <div class="cover-contract">
     <div class="cover-line-contract">
-        <h5 class="h5-title-contract"><img src="{{ url('assets/img/icon-contract.png') }}"/>HỢP ĐỒNG {{$v->investCode}}:</h5>
+        <h5 class="h5-title-contract"><img src="{{ url('assets/img/icon-contract.png') }}"/>HỢP ĐỒNG {{$v->investCode}} <?php
+            switch ($v->status){
+                case "NE": echo "<b style='color: red;'>( Đang chờ duyệt )</b>"; break;
+                case "AC": echo "<b style='color: green;'>( Đã duyệt )</b>"; break;
+                case "RF": echo "<b style='color: orange;'>( Đang yêu cầu hoàn vốn )</b>"; break;
+                default : echo "<b style='color: grey;'>( Không hoạt động )</b>"; break;
+            }
+        ?>:</h5>
     </div>
     <div class="cover-line-contract">
         <p class="item-in-contract-div">NGÀY BẮT ĐẦU: <span><?php if(!empty($v->actStartDate)) echo $v->actStartDate; else echo $v->estStartDate;?></span></p>
@@ -98,16 +117,43 @@ if(!empty($datas)){
                     $ngaybatDau = $v->actStartDate;
                     if(empty($ngaybatDau)) $ngaybatDau =  $v->estStartDate;
                     $k = 0;
+                    $contentHTML = '<table cellpadding="5" cellspacing="5" style="width: 100%" ><thead><th></th>';
+                    $bodyHTML = array();
+                    $bodyHTML[0] = "<tr><td><b>Tổng đầu tư</b></td>";
+                    $bodyHTML[1] = "<tr><td><b>Tiền lãi</b></td>";
+                    $bodyHTML[2] = "<tr><td><b>Tiền lãi tái đầu tư</b></td>";
+                    $bodyHTML[3] = "<tr><td><b>Tiền lãi được trả</b></td>";
+                    $bodyHTML[4] = "<tr><td><b>Đã thanh toán lãi</b></td>";
                     foreach ($v->ketQuaChiTiet as $th){
                         $k++;
                         echo 'labelsArr.push("'.date("Y-m-d",strtotime($ngaybatDau. " + $k month")).'");';
                         echo 'dataArr.push('.round($th['tienlai']/1000000,2).');';
+                        $contentHTML .= '<th>Tháng thứ ' . $k . '</th>';
+                        $bodyHTML[0] .= '<td>' . number_format($th['tongTienDauTu'],0,".",",") . '</td>';
+                        $bodyHTML[1] .= '<td>' . number_format($th['tienlai'],0,".",",") . '</td>';
+                        $bodyHTML[2] .= '<td>' . number_format($th['gop'],0,".",",") . '</td>';
+                        $bodyHTML[3] .= '<td>' . number_format($th['conlai'],0,".",",") . '</td>';
+
+                        $bodyHTML[4] .= '<td><img src="'.url('assets/img/button_ok.png').'" height="20" width="20" alt="ok" title="Đã thanh toán" /></td>';
                     }
+                    $contentHTML .= '</thead>';
+                    $contentHTML .= '<tbody>';
+                    for ($j = 0; $j < count($bodyHTML); $j++) {
+                        $contentHTML .= $bodyHTML[$j];
+                    }
+                    $contentHTML .= '</tbody></table>';
                 ?>
             createChart("myChart{{$i}}",labelsArr,dataArr);
             </script>
 
         </div>
+    </div>
+    <div class="transfer-history" id="tien-trinh-dau-tu">
+        <h5 class="h5-title-contract">TIẾN TRÌNH ĐẦU TƯ</h5>
+
+        <?php echo $contentHTML;?>
+
+
     </div>
     <div class="transfer-history">
         <h5 class="h5-title-contract">LỊCH SỬ GIAO DỊCH</h5>
@@ -122,6 +168,7 @@ if(!empty($datas)){
         <p class="p-history">* Ngày {{$trade['ngayGD']}}: {{$trade['noiDungGD']}} {{number_format($trade['soTienLai'],0,".",",")}} {{$trade['loaiTien']}}. Tái đầu tư {{number_format($trade['soTienLai'],0,".",",")}} {{$trade['loaiTien']}}. Tổng số tiền đầu tư {{number_format($trade['tongDauTu'],0,".",",")}} {{$trade['loaiTien']}}. Tổng số tiền hiện có {{number_format($trade['tongTien'],0,".",",")}} {{$trade['loaiTien']}}</p>
         <?php }}}?>
     </div>
+
     <div class="cover-line-contract">
         {{--<input class="inp-sub bt-first" value="XEM LỊCH SỬ GIAO DỊCH">--}}
         <input class="inp-sub bt-second" onclick="xemHD({{$v->id}});" value="XEM TÀI LIỆU">
