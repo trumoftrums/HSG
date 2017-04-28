@@ -1770,6 +1770,35 @@ a.panel-link:hover {
     width: 100%;
     float: left;
 }
+.leader-left{
+    width: 65%;
+    float: left;
+}
+.leader-left img{
+    width: 98%;
+}
+.leader-right{
+    width: 35%;
+    float: right;
+}
+.leader-right img{
+    width: 95%;
+    float: right;
+}
+.leader-right h3.h3-first{
+    margin-top: 0px;
+}
+.leader-right h3{
+    background: #f85200;
+    float: right;
+    width: 95%;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
 @media (max-width: 600px){
     .cover-invest .cover-line .cover-line-common {
         width: 100%;
@@ -1799,5 +1828,11 @@ a.panel-link:hover {
     }
     .cover-invest .cover-line{
         margin-bottom: 0px;
+    }
+    .leader-left, .leader-right{
+        width: 100%;
+    }
+    .leader-right .h3-first{
+        margin-top: 20px !important;
     }
 }
