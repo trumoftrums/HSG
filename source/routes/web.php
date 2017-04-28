@@ -683,6 +683,32 @@ Route::get('docs/list-tai-lieu/', [
     'as' => 'docs.tai-lieu.list',
     'uses' => 'DocsController@listDocs'
 ]);
+Route::get('docs/add-tai-lieu/', [
+    'as' => 'docs.tai-lieu.add',
+    'uses' => 'DocsController@addDoc'
+]);
+Route::get('docs/tai-lieu/{idDoc}/edit', [
+    'as' => 'docs.tai-lieu.edit',
+    'uses' => 'DocsController@editDoc'
+]);
+
+Route::get('docs/del-tai-lieu/{idDoc}', [
+    'as' => 'docs.tai-lieu.delete',
+    'uses' => 'DocsController@delDoc'
+]);
+
+Route::post('docs/add-tai-lieu/', [
+    'as' => 'docs.tai-lieu.add',
+    'uses' => 'DocsController@submitAddDoc'
+]);
+
+
+Route::post('docs/get-project/', [
+    'as' => 'docs.get-project',
+    'uses' => 'DocsController@getProject'
+]);
+
+
 Route::get('docs/list-du-an/', [
     'as' => 'docs.du-an.list',
     'uses' => 'DocsController@listDuAn'
