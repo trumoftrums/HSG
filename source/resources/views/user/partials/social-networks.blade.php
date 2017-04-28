@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading">@lang('app.social_networks')</div>
+    <div class="panel-heading">Thông tin mạng xã hội</div>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-6">
@@ -63,7 +63,7 @@
         </div>
         <button type="submit" class="btn btn-primary">
             <i class="fa fa-refresh"></i>
-            @lang('app.update_social_networks')
+            Cập nhật
         </button>
     </div>
 </div>

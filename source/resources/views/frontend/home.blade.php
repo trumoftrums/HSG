@@ -14,14 +14,16 @@
             <div class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <a target="_blank" href="#">
-                            <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
-                        </a>
+                        <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
                     </div>
                     <div class="item">
-                        <a target="_blank" href="#">
-                            <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
-                        </a>
+                        <img src="{{ url('assets/frontend/images/slides/img2.png') }}"/>
+                    </div>
+                    <div class="item">
+                        <img src="{{ url('assets/frontend/images/slides/img3.png') }}"/>
+                    </div>
+                    <div class="item">
+                        <img src="{{ url('assets/frontend/images/slides/img4.png') }}"/>
                     </div>
                 </div>
             </div>
@@ -32,7 +34,7 @@
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/giai-phap-dau-tu.png')}}"/>
                 <div class="cover-title">
-                    <a href="giai-phap-dau-tu.html"><img class="img-title-01" src="{{ url('assets/frontend/images/title-service-01.png')}}"/></a>
+                    <a href="{{ route('frontend.giaiphapdautu') }}"><img class="img-title-01" src="{{ url('assets/frontend/images/title-service-01.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
@@ -61,7 +63,7 @@
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/nha-dau-tu.png')}}"/>
                 <div class="cover-title">
-                    <a href="quan-he-nha-dau-tu-bao-cao-tai-chinh.html"><img class="img-title-02" src="{{ url('assets/frontend/images/title-service-02.png')}}"/></a>
+                    <a href="{{ route('frontend.baocaotaichinh') }}"><img class="img-title-02" src="{{ url('assets/frontend/images/title-service-02.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
@@ -82,7 +84,7 @@
                             <input type="checkbox" checked/><span>Báo cáo tài chính</span>
                         </li>
                     </ul>
-                    <a class="view-more" href="quan-he-nha-dau-tu-bao-cao-tai-chinh.html">Tìm hiểu thêm</a>
+                    <a class="view-more" href="{{ route('frontend.baocaotaichinh') }}">Tìm hiểu thêm</a>
                 </div>
             </div>
         </div>
@@ -90,25 +92,25 @@
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/kien-thuc-tai-chinh.png')}}"/>
                 <div class="cover-title">
-                    <a href="kien-thuc-tai-chinh-dau-tu.html"><img class="img-title-03" src="{{ url('assets/frontend/images/title-service-03.png')}}"/></a>
+                    <a href="{{ route('frontend.dautu') }}"><img class="img-title-03" src="{{ url('assets/frontend/images/title-service-03.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
                     <h4><img src="{{ url('assets/frontend/images/icon-mo-khoa-kien-thuc.png')}}"/>CÙNG HSG MỞ KHÓA KIẾN THỨC QLTC</h4>
                     <p class="p-service">Chúng ta thảo luận rất nhiều về kinh tế nhưng đôi khi lại bỏ qua những điều cơ bản. Những gì <b>HOÀNG SANG GROUP</b> chia sẻ hy vọng sẽ giúp bạn cấu trúc lại kiến thức kinh tế của mình.</p>
-                    <a class="view-more" href="kien-thuc-tai-chinh-dau-tu.html">Tìm hiểu thêm</a>
+                    <a class="view-more" href="{{ route('frontend.dautu') }}">Tìm hiểu thêm</a>
                 </div>
             </div>
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/tuyen-dung.png')}}"/>
                 <div class="cover-title">
-                    <a href="tuyen-dung.html"><img class="img-title-04" src="{{ url('assets/frontend/images/title-service-04.png')}}"/></a>
+                    <a href="{ route('frontend.tuyendung') }}"><img class="img-title-04" src="{{ url('assets/frontend/images/title-service-04.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
                     <h4><img src="{{ url('assets/frontend/images/icon-khoi-nghiep-dam-me.png')}}"/>CÙNG HSG KHỞI NGHIỆP ĐAM MÊ</h4>
                     <p class="p-service">Hiện tại HOÀNG SANG GROUP đang tìm kiếm những ứng viên có niềm đam mê với lĩnh vực tài chính. Chúng tôi sẽ rất hạnh phúc khi có được sự hợp tác của các bạn.</p>
-                    <a class="view-more" href="tuyen-dung.html">Tìm hiểu thêm</a>
+                    <a class="view-more" href="{ route('frontend.tuyendung') }}">Tìm hiểu thêm</a>
                 </div>
             </div>
         </div>
@@ -118,74 +120,74 @@
     <img class="img-slogan" src="{{ url('assets/frontend/images/bg-title.png')}}"/>
     <div class="item-thong-diep">
         <div class="left">
-            <img src="{{ url('assets/frontend/images/img-ceo.png')}}">
-            <p>Ô.LÊ HOÀNG THÁI SANG</p>
-            <span>(CEO HoangSangGroup)</span>
+            <img src="{{ url('assets/frontend/images/td01.jpg')}}">
         </div>
         <div class="right">
             <div class="cover-p-thong-diep">
                 <img class="phay-left" src="{{ url('assets/frontend/images/phay-left.png')}}"/>
-                <p>ĐẢM BẢO LỢI NHUẬN CHO KHÁCH HÀNG LÀ ƯU TIÊN HÀNG ĐẦU CỦA HSG</p>
+                <p>TẦM NHÌN CỦA HSG</p>
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
             <p class="p-content-thong-diep">
-                Với sự liên kết với Ngân hàng Eximbank và Công ty bảo hiểm Prudential đảm bảo. Chúng tôi cam đoan Khách hàng sẽ luôn được đảm bảo lợi nhuận mà không cần lo lắng vốn đầu tư sẽ hao hụt.
-                Mục tiêu của Hoàng Sang Group sẽ trở thành công ty đầu tư tài chính UY TÍN - CHẤT LƯƠNG hàng đầu VN.
+                Hội tụ niềm đam mê và nuôi dưỡng khát vọng, tài năng để tìm kiếm sự đột phá nhằm nâng cao lợi ích, sự trường tồn cho khách hàng..
+                <br>
+                Chính vì vậy, khách hàng sẽ tưởng thưởng chúng ta bằng doanh số, lợi nhuận dẫn đầu và sự tăng trưởng bền vững
             </p>
         </div>
     </div>
     <div class="item-thong-diep">
         <div class="left">
-            <img src="{{ url('assets/frontend/images/img-ceo.png')}}">
-            <p>Ô.LÊ HOÀNG THÁI SANG</p>
-            <span>(CEO HoangSangGroup)</span>
+            <img src="{{ url('assets/frontend/images/td02.jpg')}}">
         </div>
         <div class="right">
             <div class="cover-p-thong-diep">
                 <img class="phay-left" src="{{ url('assets/frontend/images/phay-left.png')}}"/>
-                <p>ĐẢM BẢO LỢI NHUẬN CHO KHÁCH HÀNG LÀ ƯU TIÊN HÀNG ĐẦU CỦA HSG</p>
+                <p>SỨ MỆNH CỦA HSG</p>
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
             <p class="p-content-thong-diep">
-                Với sự liên kết với Ngân hàng Eximbank và Công ty bảo hiểm Prudential đảm bảo. Chúng tôi cam đoan Khách hàng sẽ luôn được đảm bảo lợi nhuận mà không cần lo lắng vốn đầu tư sẽ hao hụt.
-                Mục tiêu của Hoàng Sang Group sẽ trở thành công ty đầu tư tài chính UY TÍN - CHẤT LƯƠNG hàng đầu VN.
+                HSG là một hệ thống tích hợp và đồng bộ gồm các công ty hoạt động trong các lĩnh vực bất động sản, thương mại điện tử, sản xuất kinh doanh và tài chính nhằm tạo dựng một cuộc sống tốt đẹp hơn cho mọi người đồng thời không ngừng gia tăng giá trị cho cổ đông.
             </p>
         </div>
     </div>
     <div class="item-thong-diep">
         <div class="left">
-            <img src="{{ url('assets/frontend/images/img-ceo.png')}}">
-            <p>Ô.LÊ HOÀNG THÁI SANG</p>
-            <span>(CEO HoangSangGroup)</span>
+            <img src="{{ url('assets/frontend/images/td03.jpg')}}">
         </div>
         <div class="right">
             <div class="cover-p-thong-diep">
                 <img class="phay-left" src="{{ url('assets/frontend/images/phay-left.png')}}"/>
-                <p>ĐẢM BẢO LỢI NHUẬN CHO KHÁCH HÀNG LÀ ƯU TIÊN HÀNG ĐẦU CỦA HSG</p>
+                <p>GIÁ TRỊ CỐT LÕI</p>
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
             <p class="p-content-thong-diep">
-                Với sự liên kết với Ngân hàng Eximbank và Công ty bảo hiểm Prudential đảm bảo. Chúng tôi cam đoan Khách hàng sẽ luôn được đảm bảo lợi nhuận mà không cần lo lắng vốn đầu tư sẽ hao hụt.
-                Mục tiêu của Hoàng Sang Group sẽ trở thành công ty đầu tư tài chính UY TÍN - CHẤT LƯƠNG hàng đầu VN.
+                “Đoàn kết và Hợp tác”<br>
+                “Tận tâm và Uy tín”<br>
+                “Sáng tạo và Đổi mới”<br>
+                “Lợi nhuận và hiệu quả”<br>
+                “Chuyên nghiệp và tiêu chuẩn hoá”<br>
+                Là những giá trị cốt lỗi làm nền tảng góp phần đưa HSG trở thành một tập đoàn đa quốc gia.
+
             </p>
         </div>
     </div>
     <div class="item-thong-diep">
         <div class="left">
-            <img src="{{ url('assets/frontend/images/img-ceo.png')}}">
-            <p>Ô.LÊ HOÀNG THÁI SANG</p>
-            <span>(CEO HoangSangGroup)</span>
+            <img src="{{ url('assets/frontend/images/td04.jpg')}}">
         </div>
         <div class="right">
             <div class="cover-p-thong-diep">
                 <img class="phay-left" src="{{ url('assets/frontend/images/phay-left.png')}}"/>
-                <p>ĐẢM BẢO LỢI NHUẬN CHO KHÁCH HÀNG LÀ ƯU TIÊN HÀNG ĐẦU CỦA HSG</p>
+                <p>ĐỊNH HƯỚNG CHIẾN LƯỢC</p>
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
-            <div class="p-content-thong-diep">
-                Với sự liên kết với Ngân hàng Eximbank và Công ty bảo hiểm Prudential đảm bảo. Chúng tôi cam đoan Khách hàng sẽ luôn được đảm bảo lợi nhuận mà không cần lo lắng vốn đầu tư sẽ hao hụt.
-                Mục tiêu của Hoàng Sang Group sẽ trở thành công ty đầu tư tài chính UY TÍN - CHẤT LƯƠNG hàng đầu VN.
-            </div>
+            <p class="p-content-thong-diep">
+                Trở thành Tập đoàn đa ngành, lớn mạnh ổn định bền vững<br>
+                “Lấy đầu tư để tăng tốc phát triển ”<br>
+                “Lấy nhân tố con người làm hạt nhân“<br>
+                “Lấy công nghệ thông tin là công cụ quan trọng”<br>
+                “Lấy lợi ích của khách hàng là cốt lõi”<br>
+            </p>
         </div>
     </div>
 </div>

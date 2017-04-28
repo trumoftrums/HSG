@@ -12,7 +12,7 @@
             <div class="header-news-detail">
                 <img class="img-header-detail" src="{{ url($news->thumb)}}"/>
                 <h4>{{$news->title}}</h4>
-                <span>Đăng bởi Trung Tran - {{date_format(date_create($news->created_at),"d/m/Y")}}</span>
+                <span>Ngày đăng: {{date_format(date_create($news->created_at),"d/m/Y")}}</span>
             </div>
             <?php echo $news->description; ?>
         </div>

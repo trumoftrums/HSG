@@ -49,7 +49,7 @@
             @permission('users.activity')
                 <li class="{{ Request::is('activity*') ? 'active open' : ''  }}">
                     <a href="{{ route('activity.index') }}" class="{{ Request::is('activity*') ? 'active' : ''  }}">
-                        <i class="fa fa-list-alt fa-fw"></i> @lang('app.activity_log')
+                        <i class="fa fa-list-alt fa-fw"></i> Lịch sử
                     </a>
                 </li>
             @endpermission
@@ -58,21 +58,21 @@
                 <li class="{{ Request::is('role*') || Request::is('permission*') ? 'active open' : ''  }}">
                     <a href="#">
                         <i class="fa fa-user fa-fw"></i>
-                        @lang('app.roles_and_permissions')
+                        Vai trò và Quyền
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level collapse">
                         @permission('roles.manage')
                             <li>
                                 <a href="{{ route('role.index') }}" class="{{ Request::is('role*') ? 'active' : ''  }}">
-                                    @lang('app.roles')
+                                    Vai trò
                                 </a>
                             </li>
                         @endpermission
                         @permission('permissions.manage')
                             <li>
                                 <a href="{{ route('permission.index') }}"
-                                   class="{{ Request::is('permission*') ? 'active' : ''  }}">@lang('app.permissions')</a>
+                                   class="{{ Request::is('permission*') ? 'active' : ''  }}">Quyền</a>
                             </li>
                         @endpermission
                     </ul>
@@ -82,7 +82,7 @@
             @permission(['settings.general', 'settings.auth', 'settings.notifications'])
             <li class="{{ Request::is('settings*') ? 'active open' : ''  }}">
                 <a href="#">
-                    <i class="fa fa-gear fa-fw"></i> @lang('app.settings')
+                    <i class="fa fa-gear fa-fw"></i> Cài đặt
                     <span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse">
@@ -90,7 +90,7 @@
                         <li>
                             <a href="{{ route('settings.general') }}"
                                class="{{ Request::is('settings') ? 'active' : ''  }}">
-                                @lang('app.general')
+                                Tổng quát
                             </a>
                         </li>
                     @endpermission
@@ -98,7 +98,7 @@
                         <li>
                             <a href="{{ route('settings.auth') }}"
                                class="{{ Request::is('settings/auth*') ? 'active' : ''  }}">
-                                @lang('app.auth_and_registration')
+                                Xác thực & Đăng ký
                             </a>
                         </li>
                     @endpermission
@@ -106,7 +106,7 @@
                         <li>
                             <a href="{{ route('settings.notifications') }}"
                                class="{{ Request::is('settings/notifications*') ? 'active' : ''  }}">
-                                @lang('app.notifications')
+                                Thông báo
                             </a>
                         </li>
                     @endpermission
@@ -171,7 +171,21 @@
             @permission('users.manage')
             <li class="{{ Request::is('quan-ly-tin-tuc*') ? 'active open' : ''  }}">
                 <a href="{{ route('newsadmin.list') }}" class="{{ Request::is('quan-ly-tin-tuc*') ? 'active' : ''  }}">
-                    <i class="fa fa-users fa-fw"></i> Quản lý tin tức
+                    <i class="fa fa-newspaper-o fa-fw"></i> Quản lý tin tức
+                </a>
+            </li>
+            @endpermission
+            @permission('users.manage')
+            <li class="{{ Request::is('quan-ly-hoi-dap*') ? 'active open' : ''  }}">
+                <a href="{{ route('qaadmin.list') }}" class="{{ Request::is('quan-ly-hoi-dap*') ? 'active' : ''  }}">
+                    <i class="fa fa-question fa-fw"></i> Quản lý hỏi đáp
+                </a>
+            </li>
+            @endpermission
+            @permission('leaderHSG.users')
+            <li class="{{ Request::is('ban-lanh-dao-hsg*') ? 'active open' : ''  }}">
+                <a href="{{ route('leadergroup') }}" class="{{ Request::is('ban-lanh-dao-hsg*') ? 'active' : ''  }}">
+                    <i class="fa fa-cogs fa-fw"></i> Ban lãnh đạo HSG
                 </a>
             </li>
             @endpermission

@@ -44,4 +44,8 @@ class NewsController extends Controller
 
         return view('news.detail-news', compact('news'));
     }
+    public function leaderHSG()
+    {
+        return view('manage-news.leader-hsg');
+    }
 }

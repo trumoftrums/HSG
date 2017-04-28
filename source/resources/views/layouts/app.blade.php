@@ -59,21 +59,21 @@
                             <li>
                                 <a href="{{ route('profile') }}">
                                     <i class="fa fa-user"></i>
-                                    @lang('app.my_profile')
+                                    Trang cá nhân
                                 </a>
                             </li>
                             @if (config('session.driver') == 'database')
                                 <li>
                                     <a href="{{ route('profile.sessions') }}">
                                         <i class="fa fa-list"></i>
-                                        @lang('app.active_sessions')
+                                        Phiên làm việc
                                     </a>
                                 </li>
                             @endif
                             <li>
                                 <a href="{{ route('auth.logout') }}">
                                     <i class="fa fa-sign-out"></i>
-                                    @lang('app.logout')
+                                    Đăng xuất
                                 </a>
                             </li>
                         </ul>

@@ -8,13 +8,6 @@
     <div class="col-lg-12">
         <h1 class="page-header">
             {{ $user->present()->nameOrEmail }}
-            <small>@lang('app.edit_profile_details')</small>
-            <div class="pull-right">
-                <ol class="breadcrumb">
-                    <li><a href="javascript:;">@lang('app.home')</a></li>
-                    <li class="active">@lang('app.my_profile')</li>
-                </ol>
-            </div>
         </h1>
     </div>
 </div>
@@ -26,19 +19,19 @@
     <li role="presentation" class="active">
         <a href="#details" aria-controls="details" role="tab" data-toggle="tab">
             <i class="glyphicon glyphicon-th"></i>
-            @lang('app.details')
+            Chi tiết
         </a>
     </li>
     <li role="presentation">
         <a href="#social-networks" aria-controls="social-networks" role="tab" data-toggle="tab">
             <i class="fa fa-youtube"></i>
-            @lang('app.social_networks')
+            Mạng xã hội
         </a>
     </li>
     <li role="presentation">
         <a href="#auth" aria-controls="auth" role="tab" data-toggle="tab">
             <i class="fa fa-lock"></i>
-            @lang('app.authentication')
+            Xác thực
         </a>
     </li>
 </ul>

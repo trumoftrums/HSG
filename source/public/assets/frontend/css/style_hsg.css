@@ -248,7 +248,7 @@
 }
 .content-right .second-bottom .item-thong-diep .left{
     float: left;
-    width: 40%;
+    width: 35%;
     background: #737373;
     color: #fff;
     position: absolute;
@@ -270,8 +270,8 @@
 }
 .content-right .second-bottom .item-thong-diep .right{
     float: left;
-    width: 60%;
-    margin-left: 40%;
+    width: 58%;
+    margin-left: 37%;
 }
 .content-right .second-bottom .item-thong-diep .right .cover-p-thong-diep{
     float: left;
@@ -287,17 +287,17 @@
     left: 5px;
 }
 .content-right .second-bottom .item-thong-diep .right .cover-p-thong-diep .phay-right{
-    float: right;
-    position: absolute;
-    bottom: 5px;
-    right: 3px;
+    float: left;
     width: 13px;
+    margin-left: -10px;
 }
 .content-right .second-bottom .item-thong-diep .right .cover-p-thong-diep p{
     color: #056839;
-    margin: 0px 24px;
+    margin: 0px 25px;
     text-align: left;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
 }
 .content-right .second-bottom .item-thong-diep .right .p-content-thong-diep{
     background: #f8f3db;
@@ -305,8 +305,8 @@
     padding: 10px 10px 10px 23%;
     line-height: 22px;
     text-align: justify;
-    margin-left: -20%;
-    font-size: 13px;
+    margin-left: -23%;
+    font-size: 14px;
 }
 .content-right .title-header{
     float: left;
@@ -494,28 +494,40 @@
     padding: 0px;
     margin: 0px;
 }
+.content-right .kien-thuc-tai-chinh-detail ul.ul-tuyendung{
+    width: 50%;
+    float: left;
+}
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li{
     float: left;
     /*width: 100%;*/
     margin: 2px 0px;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li.li-question{
-    width:100%;
+    width: 100%;
+    background: #056839;
+    align-items: center;
+    display: flex;
+}
+.content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li.li-question img{
+    float: left;
+    width: 60px;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li .b-pos{
     color: #056839;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li .p-question{
     margin: 0px;
-    background: url(../images/icon-arrow-right.png) no-repeat 98% 50%;
+    background: url(../images/icon-arrow-right.png) no-repeat 98% 50% #fff;
     float: left;
     width: 100%;
     border: 1px solid #056839;
     cursor: pointer;
-}
-.content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li .p-question img{
-    margin-right: 10px;
-    width: 50px;
+    padding-right: 50px;
+    align-items: center;
+    display: flex;
+    min-height: 40px;
+    padding-left: 5px;
 }
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li .div-answer{
     display: none;
@@ -788,7 +800,7 @@
     background: url(../images/bg-title-news.png) no-repeat 100% 100%;
     color: #fff;
     font-size: 14px;
-    padding: 6px 25px 5px 10px;
+    padding: 6px 25px 4px 10px;
     float: left;
     margin: 0px;
     text-transform: uppercase;

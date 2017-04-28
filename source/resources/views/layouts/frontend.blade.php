@@ -49,10 +49,10 @@
                     $(this).next('li').children('div').toggle('fast');
                     if (!$(this).children('p').hasClass('act')) {
                         $(this).children('p').addClass('act');
-                        $(this).children('p').css("background", "url({{ url('assets/frontend/images/icon-arrow-down.png')}}) no-repeat 98% 50%")
+                        $(this).children('p').css("background", "url({{ url('assets/frontend/images/icon-arrow-down.png')}}) no-repeat 98% 50% #fff")
                     } else {
                         $(this).children('p').removeClass('act');
-                        $(this).children('p').css("background", "url({{ url('assets/frontend/images/icon-arrow-right.png')}}) no-repeat 98% 50%")
+                        $(this).children('p').css("background", "url({{ url('assets/frontend/images/icon-arrow-right.png')}}) no-repeat 98% 50% #fff")
                     }
 
                     return false;
