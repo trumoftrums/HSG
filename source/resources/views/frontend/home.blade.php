@@ -166,7 +166,7 @@
                 “Sáng tạo và Đổi mới”<br>
                 “Lợi nhuận và hiệu quả”<br>
                 “Chuyên nghiệp và tiêu chuẩn hoá”<br>
-                Là những giá trị cốt lỗi làm nền tảng góp phần đưa HSG trở thành một tập đoàn kinh tế mạnh đa quốc gia.
+                Là những giá trị cốt lỗi làm nền tảng góp phần đưa HSG trở thành một tập đoàn đa quốc gia.
 
             </p>
         </div>

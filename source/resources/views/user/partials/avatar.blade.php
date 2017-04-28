@@ -1,5 +1,5 @@
 <div class="panel panel-default">
-    <div class="panel-heading">@lang('app.avatar')</div>
+    <div class="panel-heading">Hình đại diện</div>
     <div class="panel-body avatar-wrapper">
         <div class="spinner">
             <div class="spinner-dot"></div>
@@ -11,7 +11,7 @@
             <img class="avatar avatar-preview img-circle" src="{{ $edit ? $user->present()->avatar : url('assets/img/profile.png') }}">
             <div id="change-picture" class="btn btn-default btn-block" data-toggle="modal" data-target="#choose-modal">
                 <i class="fa fa-camera"></i>
-                @lang('app.change_photo')
+                Thay đổi
             </div>
             <div class="row avatar-controls">
                 <div class="col-md-6">

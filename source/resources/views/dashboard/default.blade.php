@@ -109,7 +109,7 @@
                     <div class="icon">
                         <i class="fa fa-sign-out"></i>
                     </div>
-                    <p class="lead">Thoát</p>
+                    <p class="lead">Đăng xuất</p>
                 </div>
             </div>
         </a>
