@@ -14,14 +14,10 @@
             <div class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <a target="_blank" href="#">
-                            <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
-                        </a>
+                        <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
                     </div>
                     <div class="item">
-                        <a target="_blank" href="#">
-                            <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
-                        </a>
+                        <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
                     </div>
                 </div>
             </div>
@@ -32,7 +28,7 @@
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/giai-phap-dau-tu.png')}}"/>
                 <div class="cover-title">
-                    <a href="giai-phap-dau-tu.html"><img class="img-title-01" src="{{ url('assets/frontend/images/title-service-01.png')}}"/></a>
+                    <a href="{{ route('frontend.giaiphapdautu') }}"><img class="img-title-01" src="{{ url('assets/frontend/images/title-service-01.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
@@ -61,7 +57,7 @@
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/nha-dau-tu.png')}}"/>
                 <div class="cover-title">
-                    <a href="quan-he-nha-dau-tu-bao-cao-tai-chinh.html"><img class="img-title-02" src="{{ url('assets/frontend/images/title-service-02.png')}}"/></a>
+                    <a href="{{ route('frontend.baocaotaichinh') }}"><img class="img-title-02" src="{{ url('assets/frontend/images/title-service-02.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
@@ -82,7 +78,7 @@
                             <input type="checkbox" checked/><span>Báo cáo tài chính</span>
                         </li>
                     </ul>
-                    <a class="view-more" href="quan-he-nha-dau-tu-bao-cao-tai-chinh.html">Tìm hiểu thêm</a>
+                    <a class="view-more" href="{{ route('frontend.baocaotaichinh') }}">Tìm hiểu thêm</a>
                 </div>
             </div>
         </div>
@@ -90,25 +86,25 @@
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/kien-thuc-tai-chinh.png')}}"/>
                 <div class="cover-title">
-                    <a href="kien-thuc-tai-chinh-dau-tu.html"><img class="img-title-03" src="{{ url('assets/frontend/images/title-service-03.png')}}"/></a>
+                    <a href="{{ route('frontend.dautu') }}"><img class="img-title-03" src="{{ url('assets/frontend/images/title-service-03.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
                     <h4><img src="{{ url('assets/frontend/images/icon-mo-khoa-kien-thuc.png')}}"/>CÙNG HSG MỞ KHÓA KIẾN THỨC QLTC</h4>
                     <p class="p-service">Chúng ta thảo luận rất nhiều về kinh tế nhưng đôi khi lại bỏ qua những điều cơ bản. Những gì <b>HOÀNG SANG GROUP</b> chia sẻ hy vọng sẽ giúp bạn cấu trúc lại kiến thức kinh tế của mình.</p>
-                    <a class="view-more" href="kien-thuc-tai-chinh-dau-tu.html">Tìm hiểu thêm</a>
+                    <a class="view-more" href="{{ route('frontend.dautu') }}">Tìm hiểu thêm</a>
                 </div>
             </div>
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/tuyen-dung.png')}}"/>
                 <div class="cover-title">
-                    <a href="tuyen-dung.html"><img class="img-title-04" src="{{ url('assets/frontend/images/title-service-04.png')}}"/></a>
+                    <a href="{ route('frontend.tuyendung') }}"><img class="img-title-04" src="{{ url('assets/frontend/images/title-service-04.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
                     <h4><img src="{{ url('assets/frontend/images/icon-khoi-nghiep-dam-me.png')}}"/>CÙNG HSG KHỞI NGHIỆP ĐAM MÊ</h4>
                     <p class="p-service">Hiện tại HOÀNG SANG GROUP đang tìm kiếm những ứng viên có niềm đam mê với lĩnh vực tài chính. Chúng tôi sẽ rất hạnh phúc khi có được sự hợp tác của các bạn.</p>
-                    <a class="view-more" href="tuyen-dung.html">Tìm hiểu thêm</a>
+                    <a class="view-more" href="{ route('frontend.tuyendung') }}">Tìm hiểu thêm</a>
                 </div>
             </div>
         </div>

@@ -41,7 +41,7 @@
                         <img class="avatar-list-news" src="{{ url($item->thumb)}}"/>
                         <div class="item-list-right">
                             <a href="{{ route('frontend.kienthuctaichinh.detail', [$item->id, str_slug($item->title, '-')]) }}" class="a-title-item-right">{{$item->title}}</a>
-                            <span>Đăng bởi Trung Tran - {{date_format(date_create($item->created_at),"d/m/Y")}}</span>
+                            <span>Ngày đăng: {{date_format(date_create($item->created_at),"d/m/Y")}}</span>
                         </div>
                     </div>
                 @endforeach

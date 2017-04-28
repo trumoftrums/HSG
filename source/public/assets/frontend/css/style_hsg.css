@@ -494,6 +494,10 @@
     padding: 0px;
     margin: 0px;
 }
+.content-right .kien-thuc-tai-chinh-detail ul.ul-tuyendung{
+    width: 50%;
+    float: left;
+}
 .content-right .kien-thuc-tai-chinh-detail .kien-thuc-tai-chinh ul li{
     float: left;
     /*width: 100%;*/
