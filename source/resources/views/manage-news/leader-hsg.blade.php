@@ -15,7 +15,15 @@
 </div>
     <div class="row">
         <div class="kien-thuc-tai-chinh">
-            <p>Đang cập nhật thông tin...</p>
+            <div class="leader-left">
+                <img src="{{ url('assets/frontend/images/leader1.png')}}"/>
+            </div>
+            <div class="leader-right">
+                <h3 class="h3-first">Hotline Ban Lãnh Đạo Cấp Cao HSG</h3>
+                <img src="{{ url('assets/frontend/images/leader2.png')}}"/>
+                <h3>Hotline Ban Quản Lý Bộ Phận HSG</h3>
+                <img src="{{ url('assets/frontend/images/leader3.png')}}"/>
+            </div>
         </div>
     </div>
 @stop
