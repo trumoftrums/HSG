@@ -12,17 +12,21 @@
         HSG luôn công khai và báo cáo về tình hình tài sản, vốn chủ sở hữ và công nợ cũng như tình hình tài chính, kết quả kinh doanh, tình hình lưu chuyển tiền tệ và khà năng sinh lời hàng kỳ hàng quý của Chúng tôi. Điều này sẽ giúp cho Khách hàng đánh giá, phân tích và dự đoán tình hình tài chính, kết quà hoạt động của Chúng tôi.
     </p>
     <div class="doi-tac cong-bo-thong-tin">
+        @foreach($listBranch as $item)
         <div class="item-congbothongtin item01">
-            <img class="thumb-congbothongtin" src="{{ url('assets/frontend/images/tai-chinh-01.png')}}"/>
+            <img class="thumb-congbothongtin" src="{{ url($item->thumbBranch)}}"/>
             <div class="cover-list-item-congbo">
+                @foreach($item->listProject as $citem)
                 <div class="item-congbothongtin-download">
                     <img src="{{ url('assets/frontend/images/icon-file-tai-chinh.png')}}"/>
                     <div class="cover-congbothongtin-right">
-                        <a href="http://local.private.hoangsanggroup.com/ban-lanh-dao-hsg">Bao cao tai chinh ban nien duoc kiem toan 2016</a>
-                        <span>15/08/2016</span>
+                        <a href="http://local.private.hoangsanggroup.com/ban-lanh-dao-hsg">{{$citem->nameProject}}</a>
+                        <span>{{date_format(date_create($citem->created_at),"d/m/Y")}}</span>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
+        @endforeach
     </div>
 @stop

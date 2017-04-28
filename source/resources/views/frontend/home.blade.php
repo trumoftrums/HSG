@@ -17,7 +17,13 @@
                         <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
                     </div>
                     <div class="item">
-                        <img src="{{ url('assets/frontend/images/slides/img1.png') }}"/>
+                        <img src="{{ url('assets/frontend/images/slides/img2.png') }}"/>
+                    </div>
+                    <div class="item">
+                        <img src="{{ url('assets/frontend/images/slides/img3.png') }}"/>
+                    </div>
+                    <div class="item">
+                        <img src="{{ url('assets/frontend/images/slides/img4.png') }}"/>
                     </div>
                 </div>
             </div>
@@ -114,74 +120,74 @@
     <img class="img-slogan" src="{{ url('assets/frontend/images/bg-title.png')}}"/>
     <div class="item-thong-diep">
         <div class="left">
-            <img src="{{ url('assets/frontend/images/img-ceo.png')}}">
-            <p>Ô.LÊ HOÀNG THÁI SANG</p>
-            <span>(CEO HoangSangGroup)</span>
+            <img src="{{ url('assets/frontend/images/td01.jpg')}}">
         </div>
         <div class="right">
             <div class="cover-p-thong-diep">
                 <img class="phay-left" src="{{ url('assets/frontend/images/phay-left.png')}}"/>
-                <p>ĐẢM BẢO LỢI NHUẬN CHO KHÁCH HÀNG LÀ ƯU TIÊN HÀNG ĐẦU CỦA HSG</p>
+                <p>TẦM NHÌN CỦA HSG</p>
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
             <p class="p-content-thong-diep">
-                Với sự liên kết với Ngân hàng Eximbank và Công ty bảo hiểm Prudential đảm bảo. Chúng tôi cam đoan Khách hàng sẽ luôn được đảm bảo lợi nhuận mà không cần lo lắng vốn đầu tư sẽ hao hụt.
-                Mục tiêu của Hoàng Sang Group sẽ trở thành công ty đầu tư tài chính UY TÍN - CHẤT LƯƠNG hàng đầu VN.
+                Hội tụ niềm đam mê và nuôi dưỡng khát vọng, tài năng để tìm kiếm sự đột phá nhằm nâng cao lợi ích, sự trường tồn cho khách hàng..
+                <br>
+                Chính vì vậy, khách hàng sẽ tưởng thưởng chúng ta bằng doanh số, lợi nhuận dẫn đầu và sự tăng trưởng bền vững
             </p>
         </div>
     </div>
     <div class="item-thong-diep">
         <div class="left">
-            <img src="{{ url('assets/frontend/images/img-ceo.png')}}">
-            <p>Ô.LÊ HOÀNG THÁI SANG</p>
-            <span>(CEO HoangSangGroup)</span>
+            <img src="{{ url('assets/frontend/images/td02.jpg')}}">
         </div>
         <div class="right">
             <div class="cover-p-thong-diep">
                 <img class="phay-left" src="{{ url('assets/frontend/images/phay-left.png')}}"/>
-                <p>ĐẢM BẢO LỢI NHUẬN CHO KHÁCH HÀNG LÀ ƯU TIÊN HÀNG ĐẦU CỦA HSG</p>
+                <p>SỨ MỆNH CỦA HSG</p>
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
             <p class="p-content-thong-diep">
-                Với sự liên kết với Ngân hàng Eximbank và Công ty bảo hiểm Prudential đảm bảo. Chúng tôi cam đoan Khách hàng sẽ luôn được đảm bảo lợi nhuận mà không cần lo lắng vốn đầu tư sẽ hao hụt.
-                Mục tiêu của Hoàng Sang Group sẽ trở thành công ty đầu tư tài chính UY TÍN - CHẤT LƯƠNG hàng đầu VN.
+                HSG là một hệ thống tích hợp và đồng bộ gồm các công ty hoạt động trong các lĩnh vực bất động sản, thương mại điện tử, sản xuất kinh doanh và tài chính nhằm tạo dựng một cuộc sống tốt đẹp hơn cho mọi người đồng thời không ngừng gia tăng giá trị cho cổ đông.
             </p>
         </div>
     </div>
     <div class="item-thong-diep">
         <div class="left">
-            <img src="{{ url('assets/frontend/images/img-ceo.png')}}">
-            <p>Ô.LÊ HOÀNG THÁI SANG</p>
-            <span>(CEO HoangSangGroup)</span>
+            <img src="{{ url('assets/frontend/images/td03.jpg')}}">
         </div>
         <div class="right">
             <div class="cover-p-thong-diep">
                 <img class="phay-left" src="{{ url('assets/frontend/images/phay-left.png')}}"/>
-                <p>ĐẢM BẢO LỢI NHUẬN CHO KHÁCH HÀNG LÀ ƯU TIÊN HÀNG ĐẦU CỦA HSG</p>
+                <p>GIÁ TRỊ CỐT LÕI</p>
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
             <p class="p-content-thong-diep">
-                Với sự liên kết với Ngân hàng Eximbank và Công ty bảo hiểm Prudential đảm bảo. Chúng tôi cam đoan Khách hàng sẽ luôn được đảm bảo lợi nhuận mà không cần lo lắng vốn đầu tư sẽ hao hụt.
-                Mục tiêu của Hoàng Sang Group sẽ trở thành công ty đầu tư tài chính UY TÍN - CHẤT LƯƠNG hàng đầu VN.
+                “Đoàn kết và Hợp tác”<br>
+                “Tận tâm và Uy tín”<br>
+                “Sáng tạo và Đổi mới”<br>
+                “Lợi nhuận và hiệu quả”<br>
+                “Chuyên nghiệp và tiêu chuẩn hoá”<br>
+                Là những giá trị cốt lỗi làm nền tảng góp phần đưa HSG trở thành một tập đoàn kinh tế mạnh đa quốc gia.
+
             </p>
         </div>
     </div>
     <div class="item-thong-diep">
         <div class="left">
-            <img src="{{ url('assets/frontend/images/img-ceo.png')}}">
-            <p>Ô.LÊ HOÀNG THÁI SANG</p>
-            <span>(CEO HoangSangGroup)</span>
+            <img src="{{ url('assets/frontend/images/td04.jpg')}}">
         </div>
         <div class="right">
             <div class="cover-p-thong-diep">
                 <img class="phay-left" src="{{ url('assets/frontend/images/phay-left.png')}}"/>
-                <p>ĐẢM BẢO LỢI NHUẬN CHO KHÁCH HÀNG LÀ ƯU TIÊN HÀNG ĐẦU CỦA HSG</p>
+                <p>ĐỊNH HƯỚNG CHIẾN LƯỢC</p>
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
-            <div class="p-content-thong-diep">
-                Với sự liên kết với Ngân hàng Eximbank và Công ty bảo hiểm Prudential đảm bảo. Chúng tôi cam đoan Khách hàng sẽ luôn được đảm bảo lợi nhuận mà không cần lo lắng vốn đầu tư sẽ hao hụt.
-                Mục tiêu của Hoàng Sang Group sẽ trở thành công ty đầu tư tài chính UY TÍN - CHẤT LƯƠNG hàng đầu VN.
-            </div>
+            <p class="p-content-thong-diep">
+                Trở thành Tập đoàn đa ngành, lớn mạnh ổn định bền vững<br>
+                “Lấy đầu tư để tăng tốc phát triển ”<br>
+                “Lấy nhân tố con người làm hạt nhân“<br>
+                “Lấy công nghệ thông tin là công cụ quan trọng”<br>
+                “Lấy lợi ích của khách hàng là cốt lõi”<br>
+            </p>
         </div>
     </div>
 </div>

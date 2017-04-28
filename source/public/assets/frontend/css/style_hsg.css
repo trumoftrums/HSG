@@ -248,7 +248,7 @@
 }
 .content-right .second-bottom .item-thong-diep .left{
     float: left;
-    width: 40%;
+    width: 35%;
     background: #737373;
     color: #fff;
     position: absolute;
@@ -270,7 +270,7 @@
 }
 .content-right .second-bottom .item-thong-diep .right{
     float: left;
-    width: 60%;
+    width: 58%;
     margin-left: 40%;
 }
 .content-right .second-bottom .item-thong-diep .right .cover-p-thong-diep{
@@ -287,17 +287,17 @@
     left: 5px;
 }
 .content-right .second-bottom .item-thong-diep .right .cover-p-thong-diep .phay-right{
-    float: right;
-    position: absolute;
-    bottom: 5px;
-    right: 3px;
+    float: left;
     width: 13px;
+    margin-left: -10px;
 }
 .content-right .second-bottom .item-thong-diep .right .cover-p-thong-diep p{
     color: #056839;
-    margin: 0px 24px;
+    margin: 0px 25px;
     text-align: left;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
 }
 .content-right .second-bottom .item-thong-diep .right .p-content-thong-diep{
     background: #f8f3db;
@@ -306,7 +306,7 @@
     line-height: 22px;
     text-align: justify;
     margin-left: -20%;
-    font-size: 13px;
+    font-size: 14px;
 }
 .content-right .title-header{
     float: left;

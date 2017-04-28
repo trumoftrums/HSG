@@ -3,8 +3,10 @@
 namespace Vanguard\Http\Controllers;
 
 use Intervention\Image\Gd\Commands\InvertCommand;
+use Vanguard\Branch;
 use Vanguard\Invest;
 use Vanguard\News;
+use Vanguard\Project;
 use Vanguard\QA;
 use Vanguard\Repositories\Activity\ActivityRepository;
 use Vanguard\Repositories\User\UserRepository;
@@ -72,7 +74,14 @@ class FrontEndController extends Controller
     }
     public function baocaotaichinh()
     {
-        return view('frontend.bao-cao-tai-chinh', array());
+        $listBranch = Branch::where('status', Branch::STATUS_ACTIVED)->get();
+        foreach ($listBranch as &$item){
+            $item->listProject = Project::where('idBranch', $item->id)
+                ->where('status', Project::STATUS_ACTIVED)
+                ->get();
+        }
+
+        return view('frontend.bao-cao-tai-chinh', compact('listBranch'));
     }
     public function hoidap()
     {
