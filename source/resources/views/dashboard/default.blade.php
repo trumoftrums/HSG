@@ -122,135 +122,139 @@
         <div class="panel panel-default">
             <div class="panel-heading">Biểu đồ</div>
             <div class="panel-body">
-                <!-- TradingView Widget BEGIN -->
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
-                    {
-                        "showChart": true,
-                        "locale": "en",
-                        "width": "100%",
-                        "height": "700",
-                        "plotLineColorGrowing": "rgba(60, 188, 152, 1)",
-                        "plotLineColorFalling": "rgba(255, 74, 104, 1)",
-                        "gridLineColor": "rgba(233, 233, 234, 1)",
-                        "scaleFontColor": "rgba(218, 221, 224, 1)",
-                        "belowLineFillColorGrowing": "rgba(60, 188, 152, 0.05)",
-                        "belowLineFillColorFalling": "rgba(255, 74, 104, 0.05)",
-                        "symbolActiveColor": "rgba(242, 250, 254, 1)",
-                        "tabs": [
-                        {
-                            "title": "Equities",
-                            "symbols": [
+                <div class="cover-chart-user">
+                    <div class="in-cover-div">
+                        <!-- TradingView Widget BEGIN -->
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
+                            {
+                                "showChart": true,
+                                "locale": "en",
+                                "width": "100%",
+                                "height": "700",
+                                "plotLineColorGrowing": "rgba(60, 188, 152, 1)",
+                                "plotLineColorFalling": "rgba(255, 74, 104, 1)",
+                                "gridLineColor": "rgba(233, 233, 234, 1)",
+                                "scaleFontColor": "rgba(218, 221, 224, 1)",
+                                "belowLineFillColorGrowing": "rgba(60, 188, 152, 0.05)",
+                                "belowLineFillColorFalling": "rgba(255, 74, 104, 0.05)",
+                                "symbolActiveColor": "rgba(242, 250, 254, 1)",
+                                "tabs": [
                                 {
-                                    "s": "INDEX:SPX",
-                                    "d": "The Standard&Poor's Index"
+                                    "title": "Equities",
+                                    "symbols": [
+                                        {
+                                            "s": "INDEX:SPX",
+                                            "d": "The Standard&Poor's Index"
+                                        },
+                                        {
+                                            "s": "INDEX:IUXX",
+                                            "d": "NQ100"
+                                        },
+                                        {
+                                            "s": "INDEX:DOWI",
+                                            "d": "Dow30"
+                                        },
+                                        {
+                                            "s": "INDEX:NKY",
+                                            "d": "Nikkei 225 Index"
+                                        },
+                                        {
+                                            "s": "NASDAQ:AAPL",
+                                            "d": "APPLE INC"
+                                        },
+                                        {
+                                            "s": "NASDAQ:GOOG",
+                                            "d": "Google"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "s": "INDEX:IUXX",
-                                    "d": "NQ100"
+                                    "title": "Commodities",
+                                    "symbols": [
+                                        {
+                                            "s": "CME_MINI:ES1!",
+                                            "d": "Emini"
+                                        },
+                                        {
+                                            "s": "CME:E61!",
+                                            "d": "Euro"
+                                        },
+                                        {
+                                            "s": "COMEX:GC1!",
+                                            "d": "Gold"
+                                        },
+                                        {
+                                            "s": "NYMEX:CL1!",
+                                            "d": "Light Crude Oil Futures"
+                                        },
+                                        {
+                                            "s": "NYMEX:NG1!",
+                                            "d": "Natural Gas Futures"
+                                        },
+                                        {
+                                            "s": "CBOT:ZC1!",
+                                            "d": "Corn Futures"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "s": "INDEX:DOWI",
-                                    "d": "Dow30"
+                                    "title": "Bonds",
+                                    "symbols": [
+                                        {
+                                            "s": "CME:GE1!",
+                                            "d": "Eurodollar"
+                                        },
+                                        {
+                                            "s": "CBOT:ZB1!",
+                                            "d": "T-Bond"
+                                        },
+                                        {
+                                            "s": "CBOT:UD1!",
+                                            "d": "Ultra T-Bond"
+                                        },
+                                        {
+                                            "s": "EUREX:GG1!",
+                                            "d": "Euro Bund"
+                                        },
+                                        {
+                                            "s": "EUREX:II1!",
+                                            "d": "Euro BTP"
+                                        },
+                                        {
+                                            "s": "EUREX:HR1!",
+                                            "d": "Euro BOBL"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "s": "INDEX:NKY",
-                                    "d": "Nikkei 225 Index"
-                                },
-                                {
-                                    "s": "NASDAQ:AAPL",
-                                    "d": "APPLE INC"
-                                },
-                                {
-                                    "s": "NASDAQ:GOOG",
-                                    "d": "Google"
+                                    "title": "Forex",
+                                    "symbols": [
+                                        {
+                                            "s": "FX:EURUSD"
+                                        },
+                                        {
+                                            "s": "FX:GBPUSD"
+                                        },
+                                        {
+                                            "s": "FX:USDJPY"
+                                        },
+                                        {
+                                            "s": "FX:USDCHF"
+                                        },
+                                        {
+                                            "s": "FX:AUDUSD"
+                                        },
+                                        {
+                                            "s": "FX:USDCAD"
+                                        }
+                                    ]
                                 }
                             ]
-                        },
-                        {
-                            "title": "Commodities",
-                            "symbols": [
-                                {
-                                    "s": "CME_MINI:ES1!",
-                                    "d": "Emini"
-                                },
-                                {
-                                    "s": "CME:E61!",
-                                    "d": "Euro"
-                                },
-                                {
-                                    "s": "COMEX:GC1!",
-                                    "d": "Gold"
-                                },
-                                {
-                                    "s": "NYMEX:CL1!",
-                                    "d": "Light Crude Oil Futures"
-                                },
-                                {
-                                    "s": "NYMEX:NG1!",
-                                    "d": "Natural Gas Futures"
-                                },
-                                {
-                                    "s": "CBOT:ZC1!",
-                                    "d": "Corn Futures"
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Bonds",
-                            "symbols": [
-                                {
-                                    "s": "CME:GE1!",
-                                    "d": "Eurodollar"
-                                },
-                                {
-                                    "s": "CBOT:ZB1!",
-                                    "d": "T-Bond"
-                                },
-                                {
-                                    "s": "CBOT:UD1!",
-                                    "d": "Ultra T-Bond"
-                                },
-                                {
-                                    "s": "EUREX:GG1!",
-                                    "d": "Euro Bund"
-                                },
-                                {
-                                    "s": "EUREX:II1!",
-                                    "d": "Euro BTP"
-                                },
-                                {
-                                    "s": "EUREX:HR1!",
-                                    "d": "Euro BOBL"
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Forex",
-                            "symbols": [
-                                {
-                                    "s": "FX:EURUSD"
-                                },
-                                {
-                                    "s": "FX:GBPUSD"
-                                },
-                                {
-                                    "s": "FX:USDJPY"
-                                },
-                                {
-                                    "s": "FX:USDCHF"
-                                },
-                                {
-                                    "s": "FX:AUDUSD"
-                                },
-                                {
-                                    "s": "FX:USDCAD"
-                                }
-                            ]
-                        }
-                    ]
-                    }
-                </script>
-                <!-- TradingView Widget END -->
+                            }
+                        </script>
+                        <!-- TradingView Widget END -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>

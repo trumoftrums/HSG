@@ -834,7 +834,7 @@ a.panel-link:hover {
 
 .dashboard-panel .icon {
     text-align: center;
-    font-size: 36px;
+    font-size: 22px;
 }
 
 .dashboard-panel .lead {
@@ -1628,10 +1628,19 @@ a.panel-link:hover {
 .panel-body .fa{
     color: #06743f;
 }
+.cover-chart-user{
+    height: 650px;
+    overflow: hidden;
+}
+.cover-chart-user .in-cover-div{
+    float: left;
+    width: 100%;
+    margin-top: -25px;
+}
 .p-title-dash{
     color: #06743f;
     padding: 0px;
-    font-size: 36px;
+    font-size: 22px;
     font-weight: bold;
     margin: 0px;
 }
