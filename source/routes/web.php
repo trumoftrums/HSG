@@ -4,7 +4,7 @@
  * Authentication
  */
 
-Route::group(array('domain' => 'hoangsanggroup.com'), function()
+Route::group(array('domain' => 'local.hoangsanggroup.com'), function()
 {
     Route::get('/', [
         'as' => 'frontend.home',

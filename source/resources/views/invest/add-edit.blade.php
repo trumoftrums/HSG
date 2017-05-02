@@ -100,17 +100,17 @@
             </div>
             <div class="cover-line">
                 <div class="ele-div-2">
-                    <span class="sp-line">Lãi suất</span>
+                    <span class="sp-line">Lợi nhuận</span>
                     <input name="interest" readonly class="inp-text"
                            value="<?php if (isset($dataInvest)) echo $dataInvest['interest'] . "%"; ?>"/>
                 </div>
                 <div class="ele-div-2">
-                    <span class="sp-line">Lãi suất biên động</span>
+                    <span class="sp-line">Lợi nhuận biên động</span>
                     <input name="further" readonly class="inp-text"
                            value="<?php if (isset($dataInvest)) echo $dataInvest['further'] . "%"; ?>"/>
                 </div>
                 <div class="ele-div-2">
-                    <span class="sp-line">Áp dụng lãi kép:</span>
+                    <span class="sp-line">Áp dụng lợi nhuận kép:</span>
                     <label class="rad-lk radio-inline"><input disabled type="radio" value="1"
                                                               name="isCompInterest" <?php if (isset($dataInvest) && $dataInvest['isCompInterest'] == 1) echo "checked"; ?>>Có</label>
                     <label class="rad-lk radio-inline"><input disabled
@@ -132,7 +132,7 @@
                        id="compInterestPercent"/>
             </div>
             <div class="cover-line">
-                <span class="sp-line">HÌNH THỨC NHẬN LÃI:</span>
+                <span class="sp-line">HÌNH THỨC NHẬN LỢI NHUẬN:</span>
                 <label class="radio-inline"><input type="radio" value="Cuối kỳ"
                                                    <?php if (!isset($dataInvest) || (isset($dataInvest) && $dataInvest['interestMethod'] == 'Cuối kỳ')) echo "checked"; ?> name="interestMethod">Cuối
                     kỳ</label>
@@ -152,9 +152,9 @@
                         var contentHTML = '<table cellpadding="5" cellspacing="5" style="width: 100%" ><thead><th></th>';
                         var bodyHTML = [];
                         bodyHTML[0] = "<tr><td><b>Tổng đầu tư</b></td>";
-                        bodyHTML[1] = "<tr><td><b>Tiền lãi</b></td>";
-                        bodyHTML[2] = "<tr><td><b>Tiền lãi tái đầu tư</b></td>";
-                        bodyHTML[3] = "<tr><td><b>Tiền lãi được trả</b></td>";
+                        bodyHTML[1] = "<tr><td><b>Lợi nhuận</b></td>";
+                        bodyHTML[2] = "<tr><td><b>Lợi nhuận tái đầu tư</b></td>";
+                        bodyHTML[3] = "<tr><td><b>Lợi nhuận được trả</b></td>";
 
                         for (var i = 0; i < data.length; i++) {
                             contentHTML += '<th>Tháng thứ ' + (i + 1) + '</th>';
@@ -185,14 +185,14 @@
             <h4 class="h4-title">BẢNG TỒNG KẾT</h4>
             <div class="cover-line no-mar-bottom">
                 <label class="lb-line" id="tk_estStartDate">Ngày đầu tư:</label>
-                <label class="lb-line" id="tk_nextPayment">Ngày nhận lãi: </label>
+                <label class="lb-line" id="tk_nextPayment">Ngày nhận lợi nhuận: </label>
                 <label class="lb-line" id="tk_estEndDate">Ngày đáo hạn: </label>
                 <label class="lb-line" id="tk_isCompInterest">Tái đầu tư: Không</label>
             </div>
             <div class="cover-line">
                 <label class="lb-2">Số tiền đầu tư:<b id="tk_money"></b></label>
                 <label class="lb-2" id="tk_interest"></label>
-                <label class="lb-2">Tổng tiền thực lãnh (Tiền gốc + Lãi suất + Lãi biến động): <b
+                <label class="lb-2">Tổng tiền thực lãnh (Tiền gốc + Lợi nhuận + Lợi nhuận biến động): <b
                             id="tk_finalMoney"></b></label>
             </div>
             {{--<div class="cover-line">--}}

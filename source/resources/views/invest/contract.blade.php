@@ -102,8 +102,8 @@ if(!empty($datas)){
         <p class="item-in-contract-div">NGÀY BẮT ĐẦU: <span><?php if(!empty($v->actStartDate)) echo $v->actStartDate; else echo $v->estStartDate;?></span></p>
         <p class="item-in-contract-div">NGÀY KẾT THÚC: <span><?php if(!empty($v->actEndDate)) echo $v->actEndDate; else echo $v->estEndDate;?></span></p>
         <p class="item-in-contract-div">SỐ TIỀN ĐẦU TƯ: <span><?php echo number_format($v->money,0,".",","); ?> VND</span></p>
-        <p class="item-in-contract-div">LÃI SUẤT: <span><?php echo $v->interest ?>%</span></p>
-        <p class="item-in-contract-div">LÃI BIẾN ĐỘNG: <span><?php echo $v->further ?>%</span></p>
+        <p class="item-in-contract-div">LỢI NHUẬN: <span><?php echo $v->interest ?>%</span></p>
+        <p class="item-in-contract-div">LỢI NHUẬN BIẾN ĐỘNG: <span><?php echo $v->further ?>%</span></p>
     </div>
     <div class="cover-line-contract">
         <h4 class="h4-title-chart">BIỂU ĐỒ THỐNG KÊ LỢI NHUẬN</h4>
@@ -120,10 +120,10 @@ if(!empty($datas)){
                     $contentHTML = '<table cellpadding="5" cellspacing="5" style="width: 100%" ><thead><th></th>';
                     $bodyHTML = array();
                     $bodyHTML[0] = "<tr><td><b>Tổng đầu tư</b></td>";
-                    $bodyHTML[1] = "<tr><td><b>Tiền lãi</b></td>";
-                    $bodyHTML[2] = "<tr><td><b>Tiền lãi tái đầu tư</b></td>";
-                    $bodyHTML[3] = "<tr><td><b>Tiền lãi được trả</b></td>";
-                    $bodyHTML[4] = "<tr><td><b>Đã thanh toán lãi</b></td>";
+                    $bodyHTML[1] = "<tr><td><b>Lợi nhuận</b></td>";
+                    $bodyHTML[2] = "<tr><td><b>Lợi nhuận tái đầu tư</b></td>";
+                    $bodyHTML[3] = "<tr><td><b>Lợi nhuận được trả</b></td>";
+                    $bodyHTML[4] = "<tr><td><b>Lợi nhuận đã thanh toán</b></td>";
                     foreach ($v->ketQuaChiTiet as $th){
                         $k++;
                         echo 'labelsArr.push("'.date("Y-m-d",strtotime($ngaybatDau. " + $k month")).'");';
