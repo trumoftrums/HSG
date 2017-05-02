@@ -20,7 +20,7 @@
                 <div class="item-congbothongtin-download">
                     <img src="{{ url('assets/frontend/images/icon-file-tai-chinh.png')}}"/>
                     <div class="cover-congbothongtin-right">
-                        <a href="http://local.private.hoangsanggroup.com/ban-lanh-dao-hsg">{{$citem->nameProject}}</a>
+                        <a href="{{route("docsview.detail-du-an",$citem->id)}}">{{$citem->nameProject}}</a>
                         <span>{{date_format(date_create($citem->created_at),"d/m/Y")}}</span>
                     </div>
                 </div>

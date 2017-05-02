@@ -99,11 +99,11 @@
                 <td>{{ $doc->nameFile}}</td>
                 <td>{{ $doc->created_at}}</td>
                 <td>
-                    @if($doc->tradeStatus == 'AC')
+                    @if($doc->status == 'AC')
                         <button type="button" class="btn btn-success btnOwn">Actived</button>
-                    @elseif($doc->tradeStatus == 'IA')
+                    @elseif($doc->status == 'IA')
                         <button type="button" class="btn btn-warning btnOwn">InActived</button>
-                    @elseif($doc->tradeStatus == 'DE')
+                    @elseif($doc->status == 'DE')
                         <button type="button" class="btn btn-danger btnOwn">Deleted</button>
 
                     @endif
@@ -116,6 +116,7 @@
                              data-toggle="tooltip" data-placement="top">
                         <i class="glyphicon glyphicon-download"></i>
                     </a>
+                        @if($doc->status != 'DE')
                     <a href="{{ route('docs.tai-lieu.edit', $doc->id) }}" class="btn btn-success btn-circle edit" title="Sửa"
                        data-toggle="tooltip" data-placement="top" data-method="GET">
                         <i class="glyphicon glyphicon-edit"></i>
@@ -130,6 +131,7 @@
                        data-confirm-delete="Xác nhận">
                         <i class="glyphicon glyphicon-trash"></i>
                     </a>
+                        @endif
                     <?php }?>
 
                 </td>
@@ -144,7 +146,14 @@
         </table>
     </div>
     <script type="application/javascript">
+        $( document ).ready(function() {
+            getProjects(true);
+        });
         $("#idBranch").change(function () {
+            getProjects(false);
+
+        });
+        function getProjects(isFirst) {
             var vl = $("#idBranch").val();
             $.ajax({
                 url: "{{route('docs.get-project')}}",
@@ -168,14 +177,20 @@
                                 text: data.data[i].nameProject
                             }));
                         }
+                        <?php if(isset($crProject) && !empty($crProject)){?>
+                        if(isFirst){
+                            $("#idProject").val("{{$crProject}}");
+                        }
+                        <?php }?>
+
+
                     }
                 },
                 error: function () {
 
                 }
             });
-
-        });
+        }
 
     </script>
 @stop
