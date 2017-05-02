@@ -73,7 +73,7 @@
     <div class="doi-tac cong-bo-thong-tin">
         @foreach($data as $item)
             <div class="item-doc">
-                <img class="thumb-congbothongtin" src="/{{$item['thumbnail']}}"/>
+                <img class="thumb-congbothongtin" src="/<?php if(!empty($item['thumbnail'])) echo $item['thumbnail'];else echo $item['image'];  ?>"/>
                 <div class="cover-item-doc">
                     <span> Tên file: {{$item['nameFile']}}</span> <br>
                     <span> Loại file: {{$item['fileType']}}</span><br>

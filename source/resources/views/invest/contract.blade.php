@@ -24,6 +24,7 @@
         text-align: right;
         border: 1px solid #d1d1d1;
         padding-right: 3px;
+        min-width: 120px;
     }
 
 </style>
