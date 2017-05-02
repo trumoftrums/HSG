@@ -26,7 +26,7 @@
                         <img src="{{ url('assets/frontend/images/ipo-01.png')}}"/>
                     </div>
                     <div class="cover-title-giai-phap">
-                        <h4 class="title-giai-phap">báo cáo hoạt động đầu tư</h4>
+                        <h4 class="title-giai-phap">biểu đồ thị trường</h4>
                     </div>
                     <div class="cover-content-giai-phap" style="overflow-y: hidden;">
                         <div class="cover-chart-market">
