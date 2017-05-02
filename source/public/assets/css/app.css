@@ -1628,6 +1628,15 @@ a.panel-link:hover {
 .panel-body .fa{
     color: #06743f;
 }
+.cover-chart-user{
+    height: 650px;
+    overflow: hidden;
+}
+.cover-chart-user .in-cover-div{
+    float: left;
+    width: 100%;
+    margin-top: -25px;
+}
 .p-title-dash{
     color: #06743f;
     padding: 0px;

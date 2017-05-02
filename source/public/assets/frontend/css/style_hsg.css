@@ -320,6 +320,15 @@
     margin: 0px;
     font-family: serif;
 }
+.content-img{
+    text-align: center;
+    width: 100%;
+    float: left;
+    margin-bottom: 50px;
+}
+.content-img img{
+    width: 90%;
+}
 .content-right .title-header .title-after{
     font-size: 24px;
     float: left;
@@ -613,6 +622,88 @@
     float: left;
     width: 100%;
     margin-bottom: 10px;
+}
+.tab-cnsx .cover-title-giai-phap{
+    border-bottom: 1px solid #159dc3 !important;
+}
+.tab-cnsx .cover-title-giai-phap .title-giai-phap{
+    background: url(../images/bg-blue-title.png) no-repeat 100% 100% !important;
+}
+.tab-tmdt .cover-title-giai-phap{
+    border-bottom: 1px solid #2a6f21 !important;
+}
+.tab-tmdt .cover-title-giai-phap .title-giai-phap{
+    background: url(../images/bg-title-news.png) no-repeat 100% 100% !important;
+}
+.item-branch{
+    float: left;
+    width: 100%;
+    background: #e2e2e2;
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+.item-branch img{
+    float: left;
+    width: 120px !important;
+    height: 60px;
+}
+.item-branch p{
+    float: left;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.cover-img-ipo{
+    width: 100%;
+    float: left;
+    text-align: center;
+}
+.cover-img-ipo img{
+    width:55% !important;
+}
+.img-certificate{
+    float: left;
+    border: 6px solid #657f61;
+    width: 70% !important;
+    margin-bottom: 20px;
+    margin-left: 12%;
+    border-bottom: 11px solid #657f61;
+    border-top: 11px solid #657f61;
+    border-radius: 6px;
+}
+.cover-chart-market{
+    float: left;
+    width: 99%;
+    margin-top: -25px;
+    margin-bottom: -23px;
+}
+.cover-img-vno{
+    float: left;
+    width: 100%;
+    margin: 0px;
+    border: 1px solid #056839;
+    align-items: center;
+}
+.cover-img-vno img{
+    width: 22% !important;
+    float: left;
+}
+.cover-img-vno span{
+    float: left;
+    padding: 10px 10px 0px 10px;
+    align-items: center;
+    width: 78%;
+    line-height: 21px;
+    text-align: justify;
+    font-size: 13px;
+}
+.img-item-cnsx{
+    width: 47% !important;
+    margin-left: 2%;
+    margin-bottom: 3%;
 }
 .content-right .giai-phap .ul-muctieu{
     list-style: none;
