@@ -834,7 +834,7 @@ a.panel-link:hover {
 
 .dashboard-panel .icon {
     text-align: center;
-    font-size: 36px;
+    font-size: 22px;
 }
 
 .dashboard-panel .lead {
@@ -1631,7 +1631,7 @@ a.panel-link:hover {
 .p-title-dash{
     color: #06743f;
     padding: 0px;
-    font-size: 36px;
+    font-size: 22px;
     font-weight: bold;
     margin: 0px;
 }
