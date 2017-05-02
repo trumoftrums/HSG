@@ -691,8 +691,13 @@ Route::get('docs/tai-lieu/{idDoc}/edit', [
     'as' => 'docs.tai-lieu.edit',
     'uses' => 'DocsController@editDoc'
 ]);
+Route::post('docs/tai-lieu/{idDoc}/edit', [
+    'as' => 'docs.tai-lieu.edit',
+    'uses' => 'DocsController@submitEditDoc'
+]);
 
-Route::get('docs/del-tai-lieu/{idDoc}', [
+
+Route::delete('docs/del-tai-lieu/{idDoc}', [
     'as' => 'docs.tai-lieu.delete',
     'uses' => 'DocsController@delDoc'
 ]);
@@ -716,4 +721,13 @@ Route::get('docs/list-du-an/', [
 Route::get('docs/list-chi-nhanh/', [
     'as' => 'docs.chi-nhanh.list',
     'uses' => 'DocsController@listChiNhanh'
+]);
+
+Route::get('docsview/list/', [
+    'as' => 'docsview.list',
+    'uses' => 'DocsviewController@listDocs'
+]);
+Route::get('docsview/detail-du-an/{idProject}/', [
+    'as' => 'docsview.detail-du-an',
+    'uses' => 'DocsviewController@detailProject'
 ]);

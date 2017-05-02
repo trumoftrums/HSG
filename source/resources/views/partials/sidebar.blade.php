@@ -143,6 +143,15 @@
                 </ul>
             </li>
             @endpermission
+            @permission('docs.view')
+            <li class="{{ Request::is('docsview*') ? 'active open' : ''  }}">
+                <a href="{{ route('docsview.list') }}" class="{{ Request::is('docsview*') ? 'active' : ''  }}">
+                    <i class="fa fa-dashboard fa-fw"></i> Tài liệu công ty
+                    <span class="fa arrow"></span>
+                </a>
+
+            </li>
+            @endpermission
             @permission('docs.manage')
             <li class="{{ Request::is('docs*') ? 'active open' : ''  }}">
                 <a href="#">
@@ -152,7 +161,7 @@
                 <ul class="nav nav-second-level collapse">
                     <li>
                         <a href="{{ route('docs.tai-lieu.list') }}" class="{{ Request::is('docs*') ? 'active' : ''  }}">
-                            Quản lý tài liệu
+                            Tài liệu công ty
                         </a>
                     </li>
                     {{--<li>--}}
