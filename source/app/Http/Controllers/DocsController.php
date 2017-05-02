@@ -90,7 +90,10 @@ class DocsController extends Controller
 
         );
         if($crStatus=='all') $crStatus = "";
-        $result['data'] = Document::getList($crStatus);
+        if($crProject=='all') $crProject = "";
+        if($crBranch=='all') $crBranch = "";
+
+        $result['data'] = Document::getList($crStatus,$crProject,$crBranch);
         return view('docs.list-tai-lieu',$result);
     }
     public function getProject(){
