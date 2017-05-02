@@ -89,7 +89,7 @@ class DocsviewController extends Controller
         }else{
             $mess ="Dự án không hợp lệ!";
         }
-        return redirect()->route('docs.tai-lieu.list')
+        return redirect()->route('docsview.list')
             ->withErrors($mess);
 
     }
