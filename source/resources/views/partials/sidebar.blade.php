@@ -147,7 +147,6 @@
             <li class="{{ Request::is('docsview*') ? 'active open' : ''  }}">
                 <a href="{{ route('docsview.list') }}" class="{{ Request::is('docsview*') ? 'active' : ''  }}">
                     <i class="fa fa-dashboard fa-fw"></i> Tài liệu công ty
-                    <span class="fa arrow"></span>
                 </a>
 
             </li>
