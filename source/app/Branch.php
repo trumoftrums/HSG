@@ -12,4 +12,8 @@ class Branch extends Model
     const  STATUS_DELETED = "DE";
     public $timestamps = true;
 
+    public static function getList(){
+        $dt = Branch::where("status",Branch::STATUS_ACTIVED)->get();
+        return $dt;
+    }
 }
