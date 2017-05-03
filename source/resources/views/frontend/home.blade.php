@@ -104,13 +104,13 @@
             <div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/tuyen-dung.png')}}"/>
                 <div class="cover-title">
-                    <a href="{ route('frontend.tuyendung') }}"><img class="img-title-04" src="{{ url('assets/frontend/images/title-service-04.png')}}"/></a>
+                    <a href="{{ route('frontend.tuyendung') }}"><img class="img-title-04" src="{{ url('assets/frontend/images/title-service-04.png')}}"/></a>
                     <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
                 </div>
                 <div class="cover-content-item">
                     <h4><img src="{{ url('assets/frontend/images/icon-khoi-nghiep-dam-me.png')}}"/>CÙNG HSG KHỞI NGHIỆP ĐAM MÊ</h4>
                     <p class="p-service">Hiện tại HOÀNG SANG GROUP đang tìm kiếm những ứng viên có niềm đam mê với lĩnh vực tài chính. Chúng tôi sẽ rất hạnh phúc khi có được sự hợp tác của các bạn.</p>
-                    <a class="view-more" href="{ route('frontend.tuyendung') }}">Tìm hiểu thêm</a>
+                    <a class="view-more" href="{{ route('frontend.tuyendung') }}">Tìm hiểu thêm</a>
                 </div>
             </div>
         </div>
