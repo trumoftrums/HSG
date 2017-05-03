@@ -24,7 +24,7 @@
         text-align: right;
         border: 1px solid #d1d1d1;
         padding-right: 3px;
-        min-width: 120px;
+        min-width: 170px;
     }
 
 </style>
@@ -126,6 +126,8 @@ if(!empty($datas)){
                     $bodyHTML[3] = "<tr><td><b>Lợi nhuận được trả</b></td>";
                     $bodyHTML[4] = "<tr><td><b>Lợi nhuận đã thanh toán</b></td>";
                     foreach ($v->ketQuaChiTiet as $th){
+//                        var_dump($th);
+//                        var_dump($v->trade);exit();
                         $k++;
                         echo 'labelsArr.push("'.date("Y-m-d",strtotime($ngaybatDau. " + $k month")).'");';
                         echo 'dataArr.push('.round($th['tienlai']/1000000,2).');';
@@ -134,8 +136,23 @@ if(!empty($datas)){
                         $bodyHTML[1] .= '<td>' . number_format($th['tienlai'],0,".",",") . '</td>';
                         $bodyHTML[2] .= '<td>' . number_format($th['gop'],0,".",",") . '</td>';
                         $bodyHTML[3] .= '<td>' . number_format($th['conlai'],0,".",",") . '</td>';
+                        $isok = false;
 
-                        $bodyHTML[4] .= '<td><img src="'.url('assets/img/button_ok.png').'" height="20" width="20" alt="ok" title="Đã thanh toán" /></td>';
+                        if(!empty($v->trade)){
+                            foreach ($v->trade as $trade){
+                                if($trade['status'] == \Vanguard\InvestTrade::STATUS_ACTIVED && $trade['investSeq'] == $k){
+                                    $isok =true;
+                                    break;
+                                }
+                            }
+                        }
+                        if($isok){
+                            $bodyHTML[4] .= '<td><img src="'.url('assets/img/button_ok.png').'" height="20" width="20" alt="ok" title="Đã thanh toán" /></td>';
+                        }else{
+                            $bodyHTML[4] .= '<td></td>';
+                        }
+
+
                     }
                     $contentHTML .= '</thead>';
                     $contentHTML .= '<tbody>';
