@@ -11,7 +11,7 @@ return [
     'menu_invest_child_3' => 'Hoàn vốn đầu tư',
     'create_new_invest' => "Create New Invest",
 
-
+    'app_name_email' =>'Hoang Sang Group',
 
 
     //end add later
@@ -78,7 +78,7 @@ return [
     'dont_have_an_account' => 'Don\'t have an account?',
 
     'email' => 'Email',
-    'your_email' => 'Your E-Mail',
+    'your_email' => 'Địa chỉ email',
     'username' => 'Username',
     'confirm_password' => 'Confirm Password',
     'i_accept' => 'I accept',
@@ -92,12 +92,12 @@ return [
         Since this is your first time to log in with Twitter account, please provide your email
         below so we can create an account for you.',
 
-    'reset_password' => 'Reset Password',
-    'reset_your_password' => 'Reset Your Password',
-    'new_password' => 'New Password',
-    'confirm_new_password' => 'Confirm New Password',
-    'update_password' => 'Update Password',
-    'forgot_your_password' => 'Forgot Your Password?',
+    'reset_password' => 'Đặt lại mật khẩu',
+    'reset_your_password' => 'Đặt lại mật khẩu',
+    'new_password' => 'Mật khẩu mới',
+    'confirm_new_password' => 'Xác nhận mật khẩu mới',
+    'update_password' => 'Lưu mật khẩu',
+    'forgot_your_password' => 'Bạn quên mật khẩu?',
 
     // 2FA
     'two_factor_authentication' => 'Two-Factor Authentication',
@@ -276,7 +276,7 @@ return [
     'account_created_login' => 'You account is created successfully! You can log in now.',
     'email_confirmed_can_login' => 'Email confirmed. You can log in now.',
     'wrong_confirmation_token' => 'Wrong confirmation token.',
-    'password_reset_email_sent' => 'Password reset email sent. Check your inbox (and spam) folder.',
+    'password_reset_email_sent' => 'Email đặt lại mật khẩu đã được gởi. Vui lòng kiểm tra hộp thử đến ( và spam ).',
     'only_users_with_account_can_login' => 'Only users who already created an account can log in.',
     'you_have_to_provide_email' => 'You have to provide your email address.',
 
@@ -324,10 +324,10 @@ return [
     'website' => 'website',
     'to_view_details_visit_link_below' => 'To view user details just visit the link below:',
     'many_thanks' => 'Many Thanks',
-    'request_for_password_reset_made' => 'You are receiving this email because we received a password reset request for your account.',
-    'if_you_did_not_requested' => 'If you did not request a password reset, no further action is required.',
+    'request_for_password_reset_made' => 'Bạn nhận được email này vì chúng tôi đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn.',
+    'if_you_did_not_requested' => 'Nếu bạn không yêu cầu đặt lại mật khẩu, bạn không cần thực hiện thêm hành động nào nữa.',
     'click_on_link_below' => 'Please click on this link below in order to reset your password:',
-    'if_you_cant_click' => 'If you’re having trouble clicking the ":button" button, copy and paste the URL below into your web browser:',
+    'if_you_cant_click' => 'Nếu bạn gặp sự cố khi nhấp vào nút "Đặt lại mật khẩu", hãy sao chép và dán URL dưới đây vào trình duyệt web của bạn',
     'thank_you_for_registering' => 'Thank you for registering on :app website.',
     'confirm_email_on_link_below' => 'Please confirm your email by clicking on the link below:',
     'confirm_email' => 'Confirm Email',

@@ -42,7 +42,7 @@ class ResetPassword extends Notification
      */
     public function toMail()
     {
-        $subject = sprintf("[%s] %s", settings('app_name'), trans('app.reset_password'));
+        $subject = sprintf("[%s] %s",  trans('app.app_name_email'), trans('app.reset_password'));
 
         return (new MailMessage)
             ->subject($subject)
