@@ -16,25 +16,64 @@
             <div class="cover-title-item-about">
                 <h3 class="title-item-about">TỒNG QUAN VỀ HSG</h3>
             </div>
-            <p>- Công ty TNHH Đầu Tư & Công Nghệ HOÀNG SANG là công ty quản lý quỹ trong nước được thành lập để quản lý quỹ từ nhà đầu tư trong nước. Là công ty quản lý quỹ có tư cách pháp nhân độc lập, do Ủy ban Chứng khoán Nhà nước cấp phép thành lập và hoạt động.</p>
-            <p>- HGS cam kết phấn đấu trở thành một trong những công ty quản lý quỹ trong nước hàng đầu được khách hàng tin cậy. Chúng tôi nỗ lực không ngừng nhằm có thể mang lại mức lợi nhuận ổn định tương ứng với độ rủi ro, đạt được cao hơn bình quân thị trường cho tất cả các sản phẩm đầu tư, mang lại sự hài lòng và giúp khách hàng đạt được các mục tiêu tài chính của họ.</p>
-            <p>- HGS được sự hậu thuẫn mạnh mẽ từ Ngân hàng cổ phần EximBank và Công ty BH Prudentail. Vì vậy HGS luôn đảm bảo nguồn vốn đầu tư của khách hàng không bao giờ mất đi và luôn tăng trưởng theo thời gian khách hàng đầu tư.</p>
+            <p>- Được thành lập vào năm 2014 là Công ty TNHH một thành viên tư vấn luật
+
+                và được cấp phép giấy chứng nhận đăng ký kinh doanh số 3702286676 ngày
+
+                15/07/2014 bởi Sở kế hoạch và đầu tư TP HCM cho đến đăng ký thay đổi lần
+
+                thứ nhất theo luật doanh nghiệp vào năm 2016 thành công ty TNHH đầu tư
+
+                và công nghệ Hoàng Sang.</p>
+            <p>- Với quy mô vốn điều lệ ban đầu là 12.000.000.000 cùng 20 cán bộ công
+
+                nhân viên, đến nay tổng vốn điều lệ đã đạt 29.000.000.000 và tổng số lượng
+
+                cán bộ công nhân viên lên tới 543 người.</p>
+            <p>- Với phương châm hiện nay, HoangSang Group luôn đổi mới, sáng tạo, và áp
+
+                dụng công nghệ hiện đại cùng với chiến lược mở rộng thị trường để phát
+
+                triển trở thành một tập đoàn đa ngành từ BĐS đến các lĩnh vực tài chính,
+
+                thương mại điện tử, nông nghiệp- chăn nuôi, các dự án quỹ đầu tư khởi
+
+                nghiệp hay thị trường IPO là nhưng lĩnh vực mà công ty định hướng là mũi
+
+                nhọn, tạo vị thế trên thị trường không chỉ trong nước mà còn vươn ra thị
+
+                trường khu vực Đông Nam Á.</p>
         </div>
         <div class="item-about item-right">
             <div class="cover-title-item-about">
                 <h3 class="title-item-about">NHỮNG ƯU ĐIỂM NỔI BẬT CỦA HSG</h3>
             </div>
-            <p>1. Công ty quản lý quỹ nội địa tiên phong trên thị trường – là công ty đầu tiên đưa ra các sản phẩm quỹ và dịch vụ mới</p>
+            <p>1. Trên cương vị là CEO, Ông Lê Hoàng Thái Sang, người sáng lập công
+
+                ty đã luôn tiên phong trong việc chủ động đưa ra những sách lược và
+
+                khảng định năng lực trên thị trường kinh doanh trong và ngoài nước</p>
             <p>2. Cam kết mang đến cho khách hàng trong nước và quốc tế những giải pháp và dịch vụ đẳng cấp quốc tế</p>
             <p>3. Nhờ truyền thống kinh doanh và cơ cấu tổ chức tinh gọn hiệu quả nên chúng tôi có thể rất linh hoạt và đáp ứng một cách nhanh chóng trước những nhu cầu của khách hàng và điều kiện thị trường không ngừng thay đổi</p>
             <p>4. Tiêu chuẩn và phong cách làm việc chất lượng quốc tế kết hợp với sự am hiểu sâu sắc thị trường và mối quan hệ kinh doanh đa dạng trong nước</p>
-            <p>5. Kinh nghiệm, năng lực và mối quan hệ kinh doanh được củng cố nhờ phát huy lợi thế là đối tác của Ngân hàng cổ phần EximBank và Công ty bảo hiểm Prudential.</p>
+            <p>5. Kinh nghiệm, năng lực và mối quan hệ kinh doanh được củng cố nhờ phát huy lợi thế là đối tác của Ngân hàng cổ phần EximBank và Công ty thảo dược HERBS.</p>
         </div>
     </div>
     <div class="about-up">
         <div class="item-about">
             <div class="cover-title-item-about">
                 <h3 class="title-item-about">ĐỐI TÁC CỦA HSG</h3>
+            </div>
+            <div class="cover-logo-dt">
+                <div class="logo-dt">
+                    <img src="{{ url('assets/frontend/images/logo-sacombank.png')}}"/>
+                </div>
+                <div class="logo-dt">
+                    <img src="{{ url('assets/frontend/images/logo-eximbank.png')}}"/>
+                </div>
+                <div class="logo-dt">
+                    <img src="{{ url('assets/frontend/images/logo-herbs.png')}}"/>
+                </div>
             </div>
         </div>
         <div class="item-about item-right">
@@ -43,8 +82,8 @@
             </div>
             <ul>
                 <li><img src="{{ url('assets/frontend/images/icon-about-address.png')}}"/><span>02, Phạm Văn Đồng, P. Linh Đông, Q. Thủ Đức, Tp.HCM</span></li>
-                <li><img src="{{ url('assets/frontend/images/icon-about-phone.png')}}"/><span>0970 7777 929</span></li>
-                <li><img src="{{ url('assets/frontend/images/icon-about-email.png')}}"/><span>customerservice@hoangsanggroup.vn</span></li>
+                <li><img src="{{ url('assets/frontend/images/icon-about-phone.png')}}"/><span>0868888829</span></li>
+                <li><img src="{{ url('assets/frontend/images/icon-about-email.png')}}"/><span>cskh@hoangsanggroup.com</span></li>
             </ul>
         </div>
     </div>

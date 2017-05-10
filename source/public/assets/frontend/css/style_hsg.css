@@ -18,6 +18,14 @@
     margin-bottom: 35px;
     width:60%;
 }
+.slide-right{
+    width: 98%;
+    float: left;
+    border: 1px solid #cdcdcd;
+    border-top: none;
+    margin-left: 2%;
+    background: url(../images/bg-caro.png);
+}
 .side-bar .menu-bar{
     background: #056839;
     padding-top: 15px;
@@ -207,12 +215,27 @@
 }
 .content-right .first-top .two .up{
     float: left;
+    width:100%;
     display: flex;
     margin-bottom: 2%;
+}
+.cover-logo-dt{
+    float: left;
+    width: 100%;
+    margin: 20px 0px;
+}
+.logo-dt{
+    float: left;
+    width: 33.3%;
+}
+.logo-dt img{
+    width: 100%;
+    padding: 0px 17px;
 }
 .content-right .first-top .two .bottom{
     float: left;
     display: flex;
+    width: 100%;
 }
 .content-right .first-top .two .item-service .cover-content-item h4{
     color: #707070;

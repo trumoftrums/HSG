@@ -8,7 +8,7 @@
     {!! HTML::script('assets/frontend/js/jquery.min.js') !!}
     {!! HTML::script('assets/frontend/js/bootstrap.min.js') !!}
     {!! HTML::style('assets/frontend/css/bootstrap.min.css') !!}
-    {!! HTML::style('assets/frontend/css/style_hsg.css') !!}
+    {!! HTML::style('assets/frontend/css/style_hsg.css?version=1.0') !!}
     {!! HTML::style('assets/frontend/css/media_screen.css') !!}
     <script>
         window.intercomSettings = {
