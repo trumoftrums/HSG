@@ -332,9 +332,23 @@
                         <h4 class="title-giai-phap">ngành nghề hoạt động</h4>
                     </div>
                     <div class="cover-content-giai-phap">
-                        <p>- Ngành công nghiệp sản xuất cửa nhôm</p>
+                        <p>- “Cửa nhôm” không còn là cụm từ xa lạ trong các thiết kế hiện đại thời thượng, phần lớn các công trình xây dựng hiện nay cũng đều có sự góp mặt của vật liệu nhôm kính. Nhờ  đặc tính bền vững cao đựợc gia công tinh tế cửa nhôm đang dần trở thành lựa chọn tin dùng hàng đầu trong các công trình xây dựng văn phòng, cao ốc, nhà ở hiện nay.</p>
+                        <p>- Sự góp phần của thương hiệu cửa nhôm Toàn Cầu phần nào lý giải tại sao sản phẩm này được ưa chuộng trên thị trường hiện nay như vậy. Những ưu điểm dưới đây cũng khẳng định đẳng cấp vượt trội mà viec làm cửa nhôm đem lại trong xây dựng ngày nay:</p>
+                        <p>+ Cửa nhôm được sản xuất trên dây chuyền hiện đại bằng hợp kim nhôm cao cấp được gia công tỉ mỉ, tinh tế tạo ra các sản phẩm tuyệt vời có độ bền cao, hạn chế tối đa độ cong vênh hay va đập.</p>
+                        <p>+ Cửa nhôm được sản xuất trên dây chuyền hiện đại bằng hợp kim nhôm cao cấp được gia công tỉ mỉ, tinh tế tạo ra các sản phẩm tuyệt vời có độ bền cao, hạn chế tối đa độ cong vênh hay va đập.</p>
+                        <p>+ Thiết kế mẫu mã đa dạng, màu sắc phong phú đáp ứng được yêu cầu của mọi công trình.
+                            Lắp đặt cửa nhôm có khả năng cách âm, cách nhiệt tốt giúp nâng cao hiệu quả chất lượng cuộc sống đặc biệt là trong thành phố lớn tấp nập ồn ào có thể làm ảnh hưởng đến hiệu quả công việc cũng như chất lượng cuộc sống, chính vì vậy việc sử dụng cửa nhôm cao cấp là lựa chọn hoàn hảo của các gia chủ hiện nay.</p>
+                        <p>+ Cửa nhôm kính độ bền lớn có khả năng chống ôxi hóa, không bị mối mọt, không bị gỉ sét hay hao mòn theo thời gian, chống chọi tốt với điều kiện môi truờng thời tiết khí hậu bên ngoài. Điều này giúp người dùng tiết kiệm tối đa được chi phí sửa chữa bảo dưỡng.</p>
+                        <p>+ Thiết kế an toàn với bề mặt đựợc sơn tĩnh điện cao cấp theo công nghệ mới có khả năng chống trầy xước, tia cực tím. Có tính thẩm mỹ cao với nhiều màu sắc và phong cách khác nhau giúp tạo điểm nhấn về trang trí.</p>
+                        <p>+ Cửa nhôm dễ dàng thuận tiện trong việc vận chuyển, lắp đặt nhờ vào đặc tính kết cấu siêu nhẹ, làm giảm tải trọng của công trình đặc biệt là những công trình lớn.</p>
+                        <p>+ Dễ dàng vệ sinh lau chùi, không mất nhiều thời gian công sức, bền đẹp với thời gian.
+                            Trong quá trình thi công cửa nhôm kính có khả năng kết hợp với nhiều loại kính hoa văn, màu sắc khác nhau cùng bộ phụ kiện tạo điểm nhấn, sự sang trọng, tăng tính thẩm mỹ cho thiết kế.</p>
+                        <p>+ Với đặc tính không thấm nước cửa nhôm rất thích hợp và đang dần thay thế cho cửa gỗ trong các thiết kế nhà tắm, đảm bảo tính ứng dụng cao mà vẫn tạo đựơc sự hài hòa sang trọng trong kiến trúc.</p>
+                        <p>+ Cửa nhôm cao cấp được sử dụng hầu hết trong các văn phòng công ty, tòa nhà cao tầng, nhà hàng, khách sạn vì có thể dễ dàng tận dụng tối đa nguồn ánh sáng mặt trời giúp tiết kiệm điện năng. Đây được coi là giải pháp kinh tế hoàn hảo.</p>
+                        <p>+ Chi phí giá thành làm cửa nhôm kính cũng không quá đắt đỏ, chỉ ngang bằng thậm chí là tiết kiệm hơn những loại cửa khác nhưng điều quan trọng đó là tính ứng dụng lâu dài mà vẫn đảm bảo thẩm mỹ, đáp ứng đựợc nhu cầu và lựa chọn của người dùng trong điều kiện kinh tế thị trường còn nhiều khó khăn.</p>
+                        <p>+ Trên đây chỉ là những ưu điểm ứng dụng nổi bật của cửa nhôm trong xây dựng, chỉ với ngần ấy tác dụng cũng đã đủ lý giải cho sự lên ngôi của cửa nhôm kính cao cấp trong cuộc sống hiện đại và đặc biệt làm cửa nhôm kính tại hà nội ngày càng phổ biến. Sự ứng dụng phổ biến rộng khắp dần thay thế cho các loại cửa truyền thống đã phần nào chứng minh được niềm tin của người tiêu dùng đối với các tiết kế cửa nhôm – một trong những bộ phận quan trọng quyết định thẩm mỹ của ngôi nhà, công trình, từ lắp đặt đến thi công cửa nhôm kính một cách hoàn hảo.</p>
                     </div>
-                    <div class="cover-title-giai-phap">
+                    {{--<div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">thông tin chung</h4>
                     </div>
                     <div class="cover-content-giai-phap">
@@ -347,7 +361,7 @@
                             <li><p class="text-no-icon">Liên lạc:</p></li>
                             <li><p class="text-no-icon">Địa Chỉ:</p></li>
                         </ul>
-                    </div>
+                    </div>--}}
                     {{--<div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">hướng dẫn đầu tư</h4>
                     </div>
@@ -356,23 +370,25 @@
                     </div>--}}
                 </div>
                 <div class="giai-phap-right">
-                    <div class="cover-title-giai-phap">
+                    {{--<div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">biểu đồ hoạt động</h4>
                     </div>
                     <div class="cover-content-giai-phap">
                         <img src="{{ url('assets/frontend/images/chart01-cnsx.png')}}"/>
-                        {{--<img src="{{ url('assets/frontend/images/chart02-cnsx.png')}}"/>--}}
-                    </div>
+                        --}}{{--<img src="{{ url('assets/frontend/images/chart02-cnsx.png')}}"/>--}}{{--
+                    </div>--}}
                     <div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">hình ảnh hoạt động</h4>
                     </div>
                     <div class="cover-content-giai-phap">
-                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/cnsx01.png')}}"/>
-                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/cnsx02.png')}}"/>
-                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/cnsx01.png')}}"/>
-                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/cnsx02.png')}}"/>
-                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/cnsx01.png')}}"/>
-                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/cnsx02.png')}}"/>
+                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/anhsx02.jpg')}}"/>
+                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/anhsx03.jpg')}}"/>
+                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/anhsx06.jpg')}}"/>
+                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/anhsx01.jpg')}}"/>
+                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/anhsx07.jpg')}}"/>
+                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/anhsx08.jpg')}}"/>
+                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/anhsx09.jpg')}}"/>
+                        <img class="img-item-cnsx" src="{{ url('assets/frontend/images/anhsx04.jpg')}}"/>
                     </div>
                 </div>
             </div>
