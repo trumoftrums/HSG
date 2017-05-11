@@ -14,6 +14,7 @@ class News extends Model
     const TYPE_NOIBO = 0;
     const TYPE_DAUTU = 1;
     const TYPE_TCCN = 2;
+    const TYPE_TD = 3;
     public $timestamps = true;
 
 }

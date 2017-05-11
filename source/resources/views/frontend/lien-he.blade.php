@@ -33,13 +33,34 @@
                 <p class="p-title-list-news">Liên hệ online</p>
             </div>
             <div class="list-news-right">
-
+                <p class="p-contact"><img src="{{ url('assets/frontend/images/icon-skype-contact.png')}}"/> hoangsanggroup</p>
+                <p class="p-contact"><img src="{{ url('assets/frontend/images/icon-email-contact.png')}}"/> cskh@hoangsanggroup.com</p>
+                <p class="p-contact"><img src="{{ url('assets/frontend/images/icon-phone-contact.png')}}"/> 0868888829</p>
             </div>
             <div class="cover-p-title-list-news">
                 <p class="p-title-list-news">Hotline ban lãnh đạo</p>
             </div>
             <div class="list-news-right">
-
+                <ul class="abc">
+                    <li><p class="cha"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Tổng Giám Đốc</p>
+                        <ul>
+                            <li><p class="con"><i class="fa fa-male" aria-hidden="true"></i> Lê Hoàng Thái Sang</p></li>
+                            <li><p class="con"><i class="fa fa-phone-square" aria-hidden="true"></i> 097 7777 929</p></li>
+                        </ul>
+                    </li>
+                    <li><p class="cha"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Phó Tổng Giám Đốc</p>
+                        <ul>
+                            <li><p class="con"><i class="fa fa-male" aria-hidden="true"></i> Nguyễn Đăng Tuấn</p></li>
+                            <li><p class="con"><i class="fa fa-phone-square" aria-hidden="true"></i> 0937 885 175</p></li>
+                        </ul>
+                    </li>
+                    <li><p class="cha"> <i class="fa fa-user-circle-o" aria-hidden="true"></i> Trưởng Ban Cố Vấn</p>
+                        <ul>
+                            <li><p class="con"><i class="fa fa-male" aria-hidden="true"></i> Đỗ Thế Trường</p></li>
+                            <li><p class="con"><i class="fa fa-phone-square" aria-hidden="true"></i> 0909 774 775</p></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

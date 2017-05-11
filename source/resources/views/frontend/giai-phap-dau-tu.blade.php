@@ -163,55 +163,87 @@
                 </div>
                 <div class="giai-phap-right">
                     <div class="cover-title-giai-phap">
-                        <h4 class="title-giai-phap">giấy phép hoạt động</h4>
+                        <h4 class="title-giai-phap">hình ảnh hoạt động</h4>
                     </div>
                     <div class="cover-content-giai-phap">
-                        <img class="img-certificate" src="{{ url('assets/frontend/images/certificate.png')}}"/>
+                        <img class="img-certificate" src="{{ url('assets/frontend/images/certificate1.png')}}"/>
                         <img class="img-certificate" src="{{ url('assets/frontend/images/certificate.png')}}"/>
                     </div>
                 </div>
             </div>
             <div id="dt02" class="tab-pane fade">
-                <p class="p-head-giai-phap"><b>GOLDLAND</b> là Công ty đầu tư bất động sản với vốn đầu tư lên hàng tỷ đồng. <b style="color: #d57d00;">Năm 2016 là năm Công ty mang lại lợi nhuận cao nhất 50.000.000.000</b>. Năm 2017 với nhiếu dự án sắp triển khai và bán ra thị trường hứa hẹn sẽ mang lại nguồn <b style="color: #d57d00;">doanh thu cao hơn năm 2016</b>. <b>GOLDLAND</b> luôn chào đón các đối tác muốn đầu tư vào các dự án của Chúng Tôi. Chúng tôi đảm bảo <b style="color: #d57d00;">lợi nhuận 100%.</b></p>
+                <p class="p-head-giai-phap"><b>GOLDLAND</b> là Công ty đầu tư bất động sản với vốn đầu tư lên hàng tỷ đồng. <b style="color: #d57d00;">Năm 2016 là năm Công ty mang lại lợi nhuận cao nhất 20.000.000.000</b>. Năm 2017 với nhiếu dự án sắp triển khai và bán ra thị trường hứa hẹn sẽ mang lại nguồn <b style="color: #d57d00;">doanh thu cao hơn năm 2016</b>. <b>GOLDLAND</b> luôn chào đón các đối tác muốn đầu tư vào các dự án của Chúng Tôi. Chúng tôi đảm bảo <b style="color: #d57d00;">lợi nhuận 100%.</b></p>
                 <div class="giai-phap-left">
                     <div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">vì sao đầu tư?</h4>
                     </div>
                     <div class="cover-content-giai-phap">
-
+                        <p style="text-align: justify;line-height: 25px;">- Tại Việt Nam, thành phần khách hàng có tiềm lực và nhu cầu về nhà ở vẫn chọn BĐS là nơi để rót vốn. Báo cáo tổng quan về thị trường địa ốc của doanh nghiệp TNHH Jones Lang LaSalle Vietnam (JLL) cho biết , lượng nhà ở mở bán mới ở quý Một /2016 tại Hà Nội và TP.HCM đạt mức cao kỷ lục, sở hữu 18 .000 căn (bao gồm bất động sản , nhà thấp tầng và đất nền).</p>
+                        <p style="text-align: justify;line-height: 25px;">- Chuyên gia Đinh Thế Hiển dự đoán, thị trường căn hộ Bất Động Sản từ đầu 6 tháng nay đến giờ đã thành công khi lôi kéo rất nhiều nguồn vốn trong và ngoài nước vào đây. Một phần lượng tiền đưa lên tích cóp từ hệ thống ngân hàng cũng đã được chuyển sang kênh này. Đặc biệt ở quý Một vừa mới đây , khi một vài kênh đầu tư khác không sinh lợi nhuận thì BĐS vẫn mang lại mức lợi nhuận ròng rất ổn định. Theo ông Hiển, đối với nhiều Nhà đầu tư, tín ngưỡng căn hộ vẫn là tài sản có giá trị nên mặc dù khó khăn nhưng họ vẫn lựa chọn</p>
+                        <p style="text-align: justify;line-height: 25px;">- Đến với Hoàng Sang Group đội ngũ ban lãnh đạo nhiều kinh nghiệm về việc nhận định thị trường bất động sản
+                        sẽ giúp vốn đầu tư được đảm bảo an toàn, dự án có tính khả thi cao, mức rủi ro 0%. Hệ thống quản lý chuyên nghiệp, đa dạng ngành nghề giúp cho lợi nhuận đều và ổn định trong dài hạn,
+                        bên cạnh đó sẽ giúp gia tăng giá trị vốn gốc cho khách hàng.</p>
                     </div>
                     <div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">thông tin chung</h4>
                     </div>
                     <div class="cover-content-giai-phap">
                         <ul class="ul-muctieu">
-                            <li><p class="text-no-icon">Tên Công ty:</p></li>
-                            <li><p class="text-no-icon">Năm thành lập:</p></li>
-                            <li><p class="text-no-icon">Giấy phép:</p></li>
-                            <li><p class="text-no-icon">Vốn đầu tư:</p></li>
-                            <li><p class="text-no-icon">Đối tác:</p></li>
-                            <li><p class="text-no-icon">Liên lạc:</p></li>
-                            <li><p class="text-no-icon">Địa Chỉ:</p></li>
+                            <li><p class="text-no-icon">Tên Công ty: Công ty TNHH Bất Động Sản Goldlands</p></li>
+                            <li><p class="text-no-icon">Giấy phép: 0313857515</p></li>
+                            <li><p class="text-no-icon">Vốn đầu tư: 50 tỷ</p></li>
+                            <li><p class="text-no-icon">Website: www.goldlands.vn</p></li>
+                            <li><p class="text-no-icon">Địa Chỉ:</p>
+                                <ul class="add-bds">
+                                    <li><i class="fa fa-location-arrow" aria-hidden="true"></i> Chi nhánh Thủ Đức:
+                                        <ul>
+                                            <li><i class="fa fa-home" aria-hidden="true"></i> 1148, Phạm Văn Đồng, Linh Đông, Thủ Đức</li>
+                                            <li><i class="fa fa-phone-square" aria-hidden="true"></i> 0967977779</li>
+                                        </ul>
+                                    </li>
+                                    <li><i class="fa fa-location-arrow" aria-hidden="true"></i> Chi nhánh Phú Quốc:
+                                        <ul>
+                                            <li><i class="fa fa-home" aria-hidden="true"></i> 119, Lý Thường Kiệt, Thị Trấn Dương Đông, Phú Quốc, Kiên Giang</li>
+                                            <li><i class="fa fa-phone-square" aria-hidden="true"></i> 0982414353</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
-                    <div class="cover-title-giai-phap">
+                    {{--<div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">mục tiêu nam 2017</h4>
                     </div>
                     <div class="cover-content-giai-phap">
                         <ul class="ul-muctieu">
                             <li><p class="text-icon-pre">Mở 10 dự án đầu tư tung ra thị trường. Đạt doanh thu khoảng 10.000.000.000VND</p></li>
                         </ul>
-                    </div>
+                    </div>--}}
                     <div class="cover-title-giai-phap">
-                        <h4 class="title-giai-phap">hướng dẫn đầu tư</h4>
+                        <h4 class="title-giai-phap">Lĩnh vực hoạt động</h4>
                     </div>
                     <div class="cover-content-giai-phap">
-                        <img src="{{ url('assets/frontend/images/img-giai-phap-dau-tu.png')}}"/>
+                        <div class="cover-lvhd">
+                            <img src="{{ url('assets/frontend/images/lv1.png')}}"/>
+                            <p>Phân lô bán nền</p>
+                        </div>
+                        <div class="cover-lvhd">
+                            <img src="{{ url('assets/frontend/images/lv2.png')}}"/>
+                            <p>Đầu tư xây dựng nhà ở</p>
+                        </div>
+                        <div class="cover-lvhd">
+                            <img src="{{ url('assets/frontend/images/lv3.png')}}"/>
+                            <p>Xây dựng chung cư <br> Phân phối độc quyền</p>
+                        </div>
+                        <div class="cover-lvhd">
+                            <img src="{{ url('assets/frontend/images/lv4.png')}}"/>
+                            <p>Xây dựng khu biệt <br> thự nghỉ dưỡng</p>
+                        </div>
                     </div>
                 </div>
                 <div class="giai-phap-right">
                     <div class="cover-title-giai-phap">
-                        <h4 class="title-giai-phap">biểu đồ hoạt động</h4>
+                        <h4 class="title-giai-phap">hình ảnh hoạt động</h4>
                     </div>
                     <div class="cover-content-giai-phap">
                         <img src="{{ url('assets/frontend/images/chart01.png')}}"/>
@@ -223,20 +255,24 @@
                     <div class="cover-content-giai-phap">
                         <ul class="ul-muctieu">
                             <li>
-                                <a href="#" class="a-muctieu a-muctieu-left">Dự án khu chung cư blabla - 10 tỷ (2/2016)</a>
-                                <a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>
+                                <a href="#" class="a-muctieu a-muctieu-left">Dự án khu chung cư bến đò 36 (06/2016)</a>
+                                {{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}
                             </li>
                             <li>
-                                <a href="#" class="a-muctieu a-muctieu-left">Dự án khu chung cư blabla - 10 tỷ (2/2016)</a>
-                                <a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>
+                                <a href="#" class="a-muctieu a-muctieu-left">Dự án đường số 8, Hiệp Bình Phước</a>
+                                {{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}
                             </li>
                             <li>
-                                <a href="#" class="a-muctieu a-muctieu-left">Dự án khu chung cư blabla - 10 tỷ (2/2016)</a>
-                                <a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>
+                                <a href="#" class="a-muctieu a-muctieu-left">Dự án đường số 52, Hiệp Bình Phước</a>
+                                {{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}
                             </li>
                             <li>
-                                <a href="#" class="a-muctieu a-muctieu-left">Dự án khu chung cư blabla - 10 tỷ (2/2016)</a>
-                                <a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>
+                                <a href="#" class="a-muctieu a-muctieu-left">Dự án đường 11, Trường Thọ, Thủ Đức</a>
+                                {{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}
+                            </li>
+                            <li>
+                                <a href="#" class="a-muctieu a-muctieu-left">Dự án mặt tiền đường 22, Linh Đông, Thủ Đức</a>
+                                {{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}
                             </li>
                         </ul>
                     </div>
@@ -258,12 +294,12 @@
                             </span>
                         </p>
                     </div>
-                    <div class="cover-title-giai-phap">
-                        <h4 class="title-giai-phap">hướng dẫn đầu tư</h4>
-                    </div>
-                    <div class="cover-content-giai-phap">
-                        <img src="{{ url('assets/frontend/images/img-giai-phap-dau-tu.png')}}"/>
-                    </div>
+                    {{--<div class="cover-title-giai-phap">--}}
+                        {{--<h4 class="title-giai-phap">hướng dẫn đầu tư</h4>--}}
+                    {{--</div>--}}
+                    {{--<div class="cover-content-giai-phap">--}}
+                        {{--<img src="{{ url('assets/frontend/images/img-giai-phap-dau-tu.png')}}"/>--}}
+                    {{--</div>--}}
                 </div>
                 <div class="giai-phap-right">
                     <div class="cover-title-giai-phap">
@@ -296,7 +332,7 @@
                         <h4 class="title-giai-phap">ngành nghề hoạt động</h4>
                     </div>
                     <div class="cover-content-giai-phap">
-
+                        <p>- Ngành công nghiệp sản xuất cửa nhôm</p>
                     </div>
                     <div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">thông tin chung</h4>
@@ -312,12 +348,12 @@
                             <li><p class="text-no-icon">Địa Chỉ:</p></li>
                         </ul>
                     </div>
-                    <div class="cover-title-giai-phap">
+                    {{--<div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">hướng dẫn đầu tư</h4>
                     </div>
                     <div class="cover-content-giai-phap">
                         <img src="{{ url('assets/frontend/images/img-giai-phap-dau-tu.png')}}"/>
-                    </div>
+                    </div>--}}
                 </div>
                 <div class="giai-phap-right">
                     <div class="cover-title-giai-phap">

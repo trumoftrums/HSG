@@ -689,8 +689,8 @@
 }
 .img-certificate{
     float: left;
-    border: 6px solid #657f61;
-    width: 70% !important;
+    border: 1px solid #657f61;
+    width: 75% !important;
     margin-bottom: 20px;
     margin-left: 12%;
     border-bottom: 11px solid #657f61;
@@ -728,6 +728,28 @@
     margin-left: 2%;
     margin-bottom: 3%;
 }
+.add-bds{
+    list-style: none;
+}
+.cover-lvhd{
+    float: left;
+    width: 25%;
+    padding: 0px 10px;
+    text-align: center;
+}
+.cover-lvhd img{
+    float: left;
+    border: 1px solid #ccc;
+}
+.cover-lvhd p{
+    color: #056839;
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+}
+.add-bds li ul{
+    list-style: none;
+}
 .content-right .giai-phap .ul-muctieu{
     list-style: none;
     padding: 0px;
@@ -753,7 +775,7 @@
     padding-left: 27px;
 }
 .content-right .giai-phap .ul-muctieu li{
-    padding: 5px 0px;
+    padding: 3px 0px;
     float: left;
     width: 100%;
 }
@@ -763,6 +785,12 @@
     background: url(../images/icon-download.png) no-repeat 0% 100%;
     padding-left: 28px;
     text-decoration: underline;
+}
+.abc{
+    list-style:none;
+}
+.abc li ul{
+    list-style:none;
 }
 .content-right .giai-phap .p-head-giai-phap{
     float: left;
@@ -1041,4 +1069,24 @@
 }
 .header-mobile{
     display: none;
+}
+.p-contact{
+    float: left;
+    width: 100%;
+    padding-left: 10px;
+}
+.p-contact img{
+    width: 22px;
+}
+.list-news-right ul{
+    padding-left: 25px;
+}
+.list-news-right ul li p.cha{
+    font-size: 15px;
+    text-decoration: underline;
+}
+.list-news-right ul li ul li p.con{
+    color: #056839;
+    margin: 5px 0px;
+    font-weight: bold;
 }

@@ -50,7 +50,12 @@ class FrontEndController extends Controller
 
     public function tuyendung()
     {
-        return view('frontend.tuyen-dung', array());
+        $listNewsTuyendung = News::where('status', News::STATUS_ACTIVED)
+            ->where('type', News::TYPE_TD)
+            ->orderBy('created_at', 'desc')
+            ->limit(4)
+            ->get();
+        return view('frontend.tuyen-dung', compact('listNewsTuyendung'));
     }
     public function lienhe()
     {
