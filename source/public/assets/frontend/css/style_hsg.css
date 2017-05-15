@@ -18,6 +18,14 @@
     margin-bottom: 35px;
     width:60%;
 }
+.slide-right{
+    width: 98%;
+    float: left;
+    border: 1px solid #cdcdcd;
+    border-top: none;
+    margin-left: 2%;
+    background: url(../images/bg-caro.png);
+}
 .side-bar .menu-bar{
     background: #056839;
     padding-top: 15px;
@@ -207,12 +215,27 @@
 }
 .content-right .first-top .two .up{
     float: left;
+    width:100%;
     display: flex;
     margin-bottom: 2%;
+}
+.cover-logo-dt{
+    float: left;
+    width: 100%;
+    margin: 20px 0px;
+}
+.logo-dt{
+    float: left;
+    width: 33.3%;
+}
+.logo-dt img{
+    width: 100%;
+    padding: 0px 17px;
 }
 .content-right .first-top .two .bottom{
     float: left;
     display: flex;
+    width: 100%;
 }
 .content-right .first-top .two .item-service .cover-content-item h4{
     color: #707070;
@@ -666,8 +689,8 @@
 }
 .img-certificate{
     float: left;
-    border: 6px solid #657f61;
-    width: 70% !important;
+    border: 1px solid #657f61;
+    width: 75% !important;
     margin-bottom: 20px;
     margin-left: 12%;
     border-bottom: 11px solid #657f61;
@@ -705,6 +728,28 @@
     margin-left: 2%;
     margin-bottom: 3%;
 }
+.add-bds{
+    list-style: none;
+}
+.cover-lvhd{
+    float: left;
+    width: 25%;
+    padding: 0px 10px;
+    text-align: center;
+}
+.cover-lvhd img{
+    float: left;
+    border: 1px solid #ccc;
+}
+.cover-lvhd p{
+    color: #056839;
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+}
+.add-bds li ul{
+    list-style: none;
+}
 .content-right .giai-phap .ul-muctieu{
     list-style: none;
     padding: 0px;
@@ -730,7 +775,7 @@
     padding-left: 27px;
 }
 .content-right .giai-phap .ul-muctieu li{
-    padding: 5px 0px;
+    padding: 3px 0px;
     float: left;
     width: 100%;
 }
@@ -740,6 +785,12 @@
     background: url(../images/icon-download.png) no-repeat 0% 100%;
     padding-left: 28px;
     text-decoration: underline;
+}
+.abc{
+    list-style:none;
+}
+.abc li ul{
+    list-style:none;
 }
 .content-right .giai-phap .p-head-giai-phap{
     float: left;
@@ -756,7 +807,7 @@
     background: url(../images/bg-title-quanhe.png) no-repeat 100% 100%;
     color: #fff;
     font-size: 14px;
-    padding: 6px 25px 5px 10px;
+    padding: 6px 25px 4px 10px;
     float: left;
     margin: 0px;
     text-transform: uppercase;
@@ -1018,4 +1069,107 @@
 }
 .header-mobile{
     display: none;
+}
+.p-contact{
+    float: left;
+    width: 100%;
+    padding-left: 10px;
+}
+.p-contact img{
+    width: 22px;
+}
+.list-news-right ul{
+    padding-left: 25px;
+}
+.list-news-right ul li p.cha{
+    font-size: 15px;
+    text-decoration: underline;
+}
+.list-news-right ul li ul li p.con{
+    color: #056839;
+    margin: 5px 0px;
+    font-weight: bold;
+}
+.img-bds{
+    float: left;
+    border: 1px solid #657f61;
+    width: 75% !important;
+    margin-bottom: 10px;
+    margin-left: 12%;
+    border-bottom: 4px solid #657f61;
+    border-top: 4px solid #657f61;
+    border-radius: 6px;
+}
+.nhan-su .item-ns{
+    float: left;
+    width: 100%;
+    margin-bottom: 3%;
+}
+.nhan-su .item-ns .ava-ns{
+    float: left;
+    margin-right: 0px;
+    width: 35%;
+}
+.nhan-su .item-ns .cover-abc{
+    float: left;
+    width: 65%;
+    text-align: center;
+    padding-top: 1.5vw;
+    cursor: pointer;
+}
+.nhan-su .item-ns .cv:hover, .cv-act{
+    background: #056839 !important;
+    color: #fff;
+}
+.nhan-su .item-ns .cover-abc .name-ns{
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+}
+.nhan-su .item-ns .cover-abc .chuc-vu{
+    float: left;
+    width: 100%;
+    padding: 0px 5px;
+    font-size:13px;
+}
+.nhan-su .item-ns .cover-abc .bt-down{
+    width: 10px;
+}
+.nhan-su .item-ns .cover-abc .ak{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    padding-bottom: 5px;
+}
+.nhan-su .item-ns .cv{
+    background: #f2f2f2;
+    width:100%;
+    float: left;
+}
+.nhan-su .item-ns .cover-abc .ak .click-more{
+    float: left;
+    width: 100%;
+    font-size: 13px;
+}
+.nhan-su .nd-ns{
+    float: left;
+    width: 100%;
+    display: none;
+    padding: 15px;
+    background: #f2f2f2;
+    border-top: 1px solid #056839;
+    font-size: 13px;
+    text-align: justify;
+}
+.nhan-su .nd-ns p.cvns{
+    font-weight:bold;
+    font-size:15px;
+}
+.cv-group{
+    float: left;
+    width: 32.33%;
+    margin-right: 1%;
 }

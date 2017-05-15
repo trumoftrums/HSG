@@ -58,10 +58,18 @@
         </div>
         <div class="list-news-related-right">
             <div class="cover-p-title-list-news">
-                <p class="p-title-list-news">Mục liên quan</p>
+                <p class="p-title-list-news">Tin tức tuyển dụng</p>
             </div>
             <div class="list-news-right">
-
+                @foreach($listNewsTuyendung as $item)
+                    <div class="item-list-news">
+                        <img class="avatar-list-news" src="{{ url($item->thumb)}}"/>
+                        <div class="item-list-right">
+                            <a href="{{ route('frontend.kienthuctaichinh.detail', [$item->id, str_slug($item->title, '-')]) }}" class="a-title-item-right">{{$item->title}}</a>
+                            <span>Ngày đăng: {{date_format(date_create($item->created_at),"d/m/Y")}}</span>
+                        </div>
+                    </div>
+                @endforeach
             </div>
             <div class="cover-p-title-list-news">
                 <p class="p-title-list-news">Liên hệ tuyển dụng</p>
@@ -69,9 +77,9 @@
             <div class="list-news-right">
                 <ul class="info-td">
                     <li><p class="p-td-title">Ứng viên quan tâm gửi hồ sơ về:</p></li>
-                    <li><p><span>Email:</span> customerservice@vietnamoto.net</p></li>
-                    <li><p><span>Phone:</span> 089 815 4544 - Phòng nhân sự</p></li>
-                    <li><p><span>Cell phone:</span> 0969 022 307 – Mr.Trung</p></li>
+                    <li><p><span>Email:</span> tuyendung@hoangsanggroup.com</p></li>
+                    <li><p><span>Phone:</span> 0868888829 - Phòng nhân sự</p></li>
+                    <li><p><span>Cell phone:</span> 0988 311 884 – Mr.Trà</p></li>
                     <li><p><span>Address:</span> 02 Phạm Văn Đồng, Phường Linh Đông, Quận Thủ Đức, Thành phố Hồ Chí Minh</p></li>
                 </ul>
             </div>

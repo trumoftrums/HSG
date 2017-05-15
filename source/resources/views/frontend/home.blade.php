@@ -6,7 +6,7 @@
 <div class="first-top">
     <div class="one">
         <div class="why-invest">
-            <img class="img-header" src="{{ url('assets/frontend/images/bg-header.png') }}"/>
+            <img class="img-header" src="{{ url('assets/frontend/images/bg-header.jpg') }}"/>
             <img class="icon-why-invest" src="{{ url('assets/frontend/images/icon-vi-sao-dau-tu.png') }}"/>
             <p class="date-author">08/03/2017 | Được viết bởi: ông Lê Hoàng Thái Sang(CEO)</p>
         </div>
@@ -32,6 +32,62 @@
     <div class="two">
         <div class="up">
             <div class="item-service">
+                <img class="img-service" src="{{ url('assets/frontend/images/giai-phap-dau-tu.png')}}"/>
+                <div class="cover-title">
+                    <a href="{{ route('frontend.giaiphapdautu') }}"><img class="img-title-01" src="{{ url('assets/frontend/images/title-service-01.png')}}"/></a>
+                    <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
+                </div>
+                <div class="cover-content-item">
+                    <div class="icon-item">
+                        <img src="{{ url('assets/frontend/images/icon-bds.png')}}"/>
+                        <p>Bất Động Sản</p>
+                    </div>
+                    <div class="icon-item">
+                        <img src="{{ url('assets/frontend/images/icon-ipo.png')}}"/>
+                        <p>Thị Trường IPO</p>
+                    </div>
+                    <div class="icon-item">
+                        <img src="{{ url('assets/frontend/images/icon-tmdt.png')}}"/>
+                        <p>Thương Mại Điện Tử</p>
+                    </div>
+                    <div class="icon-item" style="margin-left: 17%;">
+                        <img src="{{ url('assets/frontend/images/icon-chan-nuoi.png')}}"/>
+                        <p>Công Nghiệp SX</p>
+                    </div>
+                    <div class="icon-item">
+                        <img src="{{ url('assets/frontend/images/icon-dau-tu-khoi-nghiep.png')}}"/>
+                        <p>Quỹ Đầu Tư Khởi Nghiệp</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item-service">
+                <img class="img-service" src="{{ url('assets/frontend/images/nha-dau-tu.png')}}"/>
+                <div class="cover-title">
+                    <a href="{{ route('frontend.baocaotaichinh') }}"><img class="img-title-02" src="{{ url('assets/frontend/images/title-service-02.png')}}"/></a>
+                    <p class="date-author right-p">Được viết bởi: ông Lê Hoàng Thái Sang (CEO)</p>
+                </div>
+                <div class="cover-content-item">
+                    <ul>
+                        <li>
+                            <input type="checkbox" checked/><span>Công bố thông tin</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked/><span>Lịch hoạt động của quỹ</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked/><span>Hỏi và đáp</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked/><span>Hỗ trợ tư vấn tài chính</span>
+                        </li>
+                        <li>
+                            <input type="checkbox" checked/><span>Báo cáo tài chính</span>
+                        </li>
+                    </ul>
+                    <a class="view-more" href="{{ route('frontend.baocaotaichinh') }}">Tìm hiểu thêm</a>
+                </div>
+            </div>
+            {{--<div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/giai-phap-dau-tu.png')}}"/>
                 <div class="cover-title">
                     <a href="{{ route('frontend.giaiphapdautu') }}"><img class="img-title-01" src="{{ url('assets/frontend/images/title-service-01.png')}}"/></a>
@@ -86,10 +142,24 @@
                     </ul>
                     <a class="view-more" href="{{ route('frontend.baocaotaichinh') }}">Tìm hiểu thêm</a>
                 </div>
-            </div>
+            </div>--}}
         </div>
         <div class="bottom">
-            <div class="item-service">
+            <div class="carousel slide slide-right" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="{{ url('assets/frontend/images/slide-right/slide03.jpg') }}"/>
+                    </div>
+                    <div class="item">
+                        <img src="{{ url('assets/frontend/images/slide-right/slide02.jpg') }}"/>
+                    </div>
+                    <div class="item">
+                        <img src="{{ url('assets/frontend/images/slide-right/slide01.jpg') }}"/>
+                    </div>
+                </div>
+            </div>
+
+            {{--<div class="item-service">
                 <img class="img-service" src="{{ url('assets/frontend/images/kien-thuc-tai-chinh.png')}}"/>
                 <div class="cover-title">
                     <a href="{{ route('frontend.dautu') }}"><img class="img-title-03" src="{{ url('assets/frontend/images/title-service-03.png')}}"/></a>
@@ -112,7 +182,7 @@
                     <p class="p-service">Hiện tại HOÀNG SANG GROUP đang tìm kiếm những ứng viên có niềm đam mê với lĩnh vực tài chính. Chúng tôi sẽ rất hạnh phúc khi có được sự hợp tác của các bạn.</p>
                     <a class="view-more" href="{{ route('frontend.tuyendung') }}">Tìm hiểu thêm</a>
                 </div>
-            </div>
+            </div>--}}
         </div>
     </div>
 </div>
