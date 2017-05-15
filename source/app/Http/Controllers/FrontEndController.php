@@ -25,7 +25,7 @@ class FrontEndController extends Controller
      */
     private $activities;
 
-    const perpage = 12;
+    const perpage = 9;
     /**
      * DashboardController constructor.
      * @param UserRepository $users
