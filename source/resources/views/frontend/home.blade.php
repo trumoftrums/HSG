@@ -6,7 +6,7 @@
 <div class="first-top">
     <div class="one">
         <div class="why-invest">
-            <img class="img-header" src="{{ url('assets/frontend/images/bg-header.png') }}"/>
+            <img class="img-header" src="{{ url('assets/frontend/images/bg-header.jpg') }}"/>
             <img class="icon-why-invest" src="{{ url('assets/frontend/images/icon-vi-sao-dau-tu.png') }}"/>
             <p class="date-author">08/03/2017 | Được viết bởi: ông Lê Hoàng Thái Sang(CEO)</p>
         </div>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="icon-item" style="margin-left: 17%;">
                         <img src="{{ url('assets/frontend/images/icon-chan-nuoi.png')}}"/>
-                        <p>Chăn Nuôi</p>
+                        <p>Công Nghiệp SX</p>
                     </div>
                     <div class="icon-item">
                         <img src="{{ url('assets/frontend/images/icon-dau-tu-khoi-nghiep.png')}}"/>

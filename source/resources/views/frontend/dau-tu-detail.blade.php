@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="title-header">
-        <p class="title-root">KIẾN THỨC TÀI CHÍNH</p>
+        <p class="title-root">TIN TỨC</p>
         <span class="span-date-update">Được cập nhật mới nhất: 15/03/2017</span>
     </div>
     <div class="kien-thuc-tai-chinh-detail">

@@ -246,22 +246,22 @@
                         <h4 class="title-giai-phap">hình ảnh hoạt động</h4>
                     </div>
                     <div class="cover-content-giai-phap">
-                        <img src="{{ url('assets/frontend/images/chart01.png')}}"/>
-                        <img src="{{ url('assets/frontend/images/chart02.png')}}"/>
+                        <img class="img-bds" src="{{ url('assets/frontend/images/bds01.png')}}"/>
+                        <img class="img-bds" src="{{ url('assets/frontend/images/bds03.png')}}"/>
                     </div>
                     <div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">báo cáo dự án năm 2016</h4>
                     </div>
                     <div class="cover-content-giai-phap">
                         <ul class="ul-muctieu">
-                            <li>
+                            {{--<li>
                                 <a href="#" class="a-muctieu a-muctieu-left">Dự án khu chung cư bến đò 36 (06/2016)</a>
-                                {{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}
+                                --}}{{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}{{--
                             </li>
                             <li>
                                 <a href="#" class="a-muctieu a-muctieu-left">Dự án đường số 8, Hiệp Bình Phước</a>
-                                {{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}
-                            </li>
+                                --}}{{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}{{--
+                            </li>--}}
                             <li>
                                 <a href="#" class="a-muctieu a-muctieu-left">Dự án đường số 52, Hiệp Bình Phước</a>
                                 {{--<a href="#" class="a-muctieu a-muctieu-right">Tải tài liệu</a>--}}

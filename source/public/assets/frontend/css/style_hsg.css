@@ -807,7 +807,7 @@
     background: url(../images/bg-title-quanhe.png) no-repeat 100% 100%;
     color: #fff;
     font-size: 14px;
-    padding: 6px 25px 5px 10px;
+    padding: 6px 25px 4px 10px;
     float: left;
     margin: 0px;
     text-transform: uppercase;
@@ -1089,4 +1089,87 @@
     color: #056839;
     margin: 5px 0px;
     font-weight: bold;
+}
+.img-bds{
+    float: left;
+    border: 1px solid #657f61;
+    width: 75% !important;
+    margin-bottom: 10px;
+    margin-left: 12%;
+    border-bottom: 4px solid #657f61;
+    border-top: 4px solid #657f61;
+    border-radius: 6px;
+}
+.nhan-su .item-ns{
+    float: left;
+    width: 100%;
+    margin-bottom: 3%;
+}
+.nhan-su .item-ns .ava-ns{
+    float: left;
+    margin-right: 0px;
+    width: 35%;
+}
+.nhan-su .item-ns .cover-abc{
+    float: left;
+    width: 65%;
+    text-align: center;
+    padding-top: 1.5vw;
+    cursor: pointer;
+}
+.nhan-su .item-ns .cv:hover, .cv-act{
+    background: #056839 !important;
+    color: #fff;
+}
+.nhan-su .item-ns .cover-abc .name-ns{
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+}
+.nhan-su .item-ns .cover-abc .chuc-vu{
+    float: left;
+    width: 100%;
+    padding: 0px 5px;
+    font-size:13px;
+}
+.nhan-su .item-ns .cover-abc .bt-down{
+    width: 10px;
+}
+.nhan-su .item-ns .cover-abc .ak{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    padding-bottom: 5px;
+}
+.nhan-su .item-ns .cv{
+    background: #f2f2f2;
+    width:100%;
+    float: left;
+}
+.nhan-su .item-ns .cover-abc .ak .click-more{
+    float: left;
+    width: 100%;
+    font-size: 13px;
+}
+.nhan-su .nd-ns{
+    float: left;
+    width: 100%;
+    display: none;
+    padding: 15px;
+    background: #f2f2f2;
+    border-top: 1px solid #056839;
+    font-size: 13px;
+    text-align: justify;
+}
+.nhan-su .nd-ns p.cvns{
+    font-weight:bold;
+    font-size:15px;
+}
+.cv-group{
+    float: left;
+    width: 32.33%;
+    margin-right: 1%;
 }

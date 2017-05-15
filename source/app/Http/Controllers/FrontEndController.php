@@ -100,7 +100,7 @@ class FrontEndController extends Controller
     }
     public function dautu()
     {
-        $title = "ĐẦU TƯ";
+        $title = "TIN DOANH NGHIỆP";
         $listNews = News::where('status', News::STATUS_ACTIVED)
             ->where('type', News::TYPE_DAUTU)
             ->orderBy('created_at', 'desc')
@@ -112,7 +112,7 @@ class FrontEndController extends Controller
     }
     public function quanlytaichinhcanhan()
     {
-        $title = "TÀI CHÍNH CÁ NHÂN";
+        $title = "TIN THỊ TRƯỜNG";
         $listNews = News::where('status', News::STATUS_ACTIVED)
             ->where('type', News::TYPE_TCCN)
             ->orderBy('created_at', 'desc')

@@ -4,8 +4,8 @@
 
 @section('content')
     <div class="title-header">
-        <p class="title-root">KIẾN THỨC TÀI CHÍNH</p>
-        <p class="title-after">{{$title}}</p>
+        <p class="title-root">{{$title}}</p>
+        {{--<p class="title-after">{{$title}}</p>--}}
         <span class="span-date-update">Được cập nhật mới nhất: 15/03/2017</span>
     </div>
     <p class="p-about-header">
