@@ -72,7 +72,7 @@
                             <input type="checkbox" checked/><span>Công bố thông tin</span>
                         </li>
                         <li>
-                            <input type="checkbox" checked/><span>Lịch hoạt động của quỹ</span>
+                            <input type="checkbox" checked/><span>Lịch hoạt động của HSG</span>
                         </li>
                         <li>
                             <input type="checkbox" checked/><span>Hỏi và đáp</span>
@@ -81,7 +81,7 @@
                             <input type="checkbox" checked/><span>Hỗ trợ tư vấn tài chính</span>
                         </li>
                         <li>
-                            <input type="checkbox" checked/><span>Báo cáo tài chính</span>
+                            <input type="checkbox" checked/><span>Báo cáo dự án</span>
                         </li>
                     </ul>
                     <a class="view-more" href="{{ route('frontend.baocaotaichinh') }}">Tìm hiểu thêm</a>
@@ -231,11 +231,10 @@
                 <img class="phay-right" src="{{ url('assets/frontend/images/phay-right.png')}}"/>
             </div>
             <p class="p-content-thong-diep">
-                “Đoàn kết và Hợp tác”<br>
                 “Tận tâm và Uy tín”<br>
                 “Sáng tạo và Đổi mới”<br>
                 “Lợi nhuận và hiệu quả”<br>
-                “Chuyên nghiệp và tiêu chuẩn hoá”<br>
+                “Chuyên nghiệp, hợp tác và tiêu chuẩn hoá”<br>
                 Là những giá trị cốt lỗi làm nền tảng góp phần đưa HSG trở thành một tập đoàn đa quốc gia.
 
             </p>

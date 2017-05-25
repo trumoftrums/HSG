@@ -22,8 +22,10 @@
                     <div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">hệ thống hoạt động</h4>
                     </div>
-                    <div class="cover-content-giai-phap cover-img-ipo">
-                        <img src="{{ url('assets/frontend/images/ipo-01.png')}}"/>
+                    <div class="cover-content-giai-phap">
+                        <p>- Theo CTCK Maritime (MSI), tính đến cuối tháng 4/2016, thị trường chứng khoán đã có 692 mã cổ phiếu, chứng chỉ quỹ niêm yết trên hai sàn HOSE và HNX, 291 mã đăng ký giao dịch trên sàn UPCoM, 1,457 mã cổ phiếu OTC và gần 600 loại trái phiếu niêm yết. Tuy nhiên, số lượng cổ phiếu niêm yết và giao dịch vẫn còn quá ít so với tổng số lượng các doanh nghiệp và CTCP đang hoạt động trong nước do ảnh hưởng của suy thoái kinh tế thế giới khiến nền kinh tế trong nước gặp khó khăn, các doanh nghiệp chỉ ưu tiên duy trì sản xuất kinh doanh và chưa có kế hoạch huy động vốn để mở rộng hoạt động, tiêu chuẩn niêm yết nâng cao khiến một số công ty không đáp ứng được các chỉ tiêu nên không thể lên niêm yết trên sàn giao dịch chứng khoán.</p>
+                        <p>- Có thể thấy tiềm năng tăng trưởng của TTCK Việt Nam còn rất lớn khi: (1) nguồn cung cho TTCK còn rất nhiều do lượng doanh nghiệp chưa cổ phần hóa (CPH) và niêm yết còn rất lớn, (2) lượng các tài khoản mở mới tại các CTCK ngày càng tăng cho thấy đầu tư chứng khoán đang là một xu hướng đầu tư mới của các nhà đầu tư (NĐT) bên cạnh các lựa chọn đầu tư truyền thống (đầu tư vàng, bất động sản…) và (3) lượng lớn dòng tiền từ các quỹ đầu tư, tổ chức và cá nhân ở nước ngoài tiếp tục đổ về thị trường Việt Nam cho thấy nguồn cầu cũng đang tăng khá mạnh.</p>
+                        <p>- Tận dụng cơ hội tình hình thị trường, Hoàng Sang Group đưa ra các giải pháp đầu tư mang lại mức sinh lợi nhuận phù hợp và thanh khoản cao và đáp ứng với các tiêu chí các nhà đầu tư mong đợi từ Hoàng Sang Group.</p>
                     </div>
                     <div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">biểu đồ thị trường</h4>
@@ -165,9 +167,9 @@
                     <div class="cover-title-giai-phap">
                         <h4 class="title-giai-phap">hình ảnh hoạt động</h4>
                     </div>
-                    <div class="cover-content-giai-phap">
-                        <img class="img-certificate" src="{{ url('assets/frontend/images/certificate1.png')}}"/>
-                        <img class="img-certificate" src="{{ url('assets/frontend/images/certificate.png')}}"/>
+                    <div class="cover-content-giai-phap cover-90k">
+                        <img class="img-certificate" src="{{ url('assets/frontend/images/ipo-01.png')}}"/>
+                        <img class="img-certificate" src="{{ url('assets/frontend/images/ipo-02.png')}}"/>
                     </div>
                 </div>
             </div>
@@ -344,7 +346,6 @@
                         <p>+ Dễ dàng vệ sinh lau chùi, không mất nhiều thời gian công sức, bền đẹp với thời gian.
                             Trong quá trình thi công cửa nhôm kính có khả năng kết hợp với nhiều loại kính hoa văn, màu sắc khác nhau cùng bộ phụ kiện tạo điểm nhấn, sự sang trọng, tăng tính thẩm mỹ cho thiết kế.</p>
                         <p>+ Với đặc tính không thấm nước cửa nhôm rất thích hợp và đang dần thay thế cho cửa gỗ trong các thiết kế nhà tắm, đảm bảo tính ứng dụng cao mà vẫn tạo đựơc sự hài hòa sang trọng trong kiến trúc.</p>
-                        <p>+ Cửa nhôm cao cấp được sử dụng hầu hết trong các văn phòng công ty, tòa nhà cao tầng, nhà hàng, khách sạn vì có thể dễ dàng tận dụng tối đa nguồn ánh sáng mặt trời giúp tiết kiệm điện năng. Đây được coi là giải pháp kinh tế hoàn hảo.</p>
                         <p>+ Chi phí giá thành làm cửa nhôm kính cũng không quá đắt đỏ, chỉ ngang bằng thậm chí là tiết kiệm hơn những loại cửa khác nhưng điều quan trọng đó là tính ứng dụng lâu dài mà vẫn đảm bảo thẩm mỹ, đáp ứng đựợc nhu cầu và lựa chọn của người dùng trong điều kiện kinh tế thị trường còn nhiều khó khăn.</p>
                         <p>+ Trên đây chỉ là những ưu điểm ứng dụng nổi bật của cửa nhôm trong xây dựng, chỉ với ngần ấy tác dụng cũng đã đủ lý giải cho sự lên ngôi của cửa nhôm kính cao cấp trong cuộc sống hiện đại và đặc biệt làm cửa nhôm kính tại hà nội ngày càng phổ biến. Sự ứng dụng phổ biến rộng khắp dần thay thế cho các loại cửa truyền thống đã phần nào chứng minh được niềm tin của người tiêu dùng đối với các tiết kế cửa nhôm – một trong những bộ phận quan trọng quyết định thẩm mỹ của ngôi nhà, công trình, từ lắp đặt đến thi công cửa nhôm kính một cách hoàn hảo.</p>
                     </div>

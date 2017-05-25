@@ -193,6 +193,28 @@
                         bằng Cử nhân về Ngân hàng của Đại học Kinh tế Quốc dân Hà Nội.</p>
                 </div>
             </div>
+            <div class="item-ns">
+                <div class="cv">
+                    <img class="ava-ns" src="{{ url('assets/frontend/images/avatar-ns.png')}}"/>
+                    <div class="cover-abc">
+                        <p class="name-ns">Lê Hoàng Ngọc Hoài</p>
+                        <span class="chuc-vu">(Trưởng Ban Kiểm Soát)</span>
+                        <div class="ak">
+                            <span class="click-more">Click để xem thông tin chi tiết</span>
+                            <img class="bt-down" src="{{ url('assets/frontend/images/icon-bb.png')}}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="nd-ns">
+                    <p class="cvns">Bà Oanh hiện là Chủ tịch HĐQT công ty.</p>
+                    <p>Bà Oanh hiện giữ chức Phó Tổng Giám đốc của Vietcombank. Trước đó, bà là Trưởng phòng Phòng Chính
+                        sách Tín dụng của Vietcombank. Bà Oanh bắt đầu sự nghiệp từ năm 1997 tại Phòng Dự Án của
+                        Vietcombank.</p>
+                    <p>Bà Oanh có bằng Cao học về Quản lý Ngân hàng của Học viện Tài chính, Thụy Sỹ và bằng Thạc sỹ Tài
+                        chính của Đại học New South Wales, Úc, bằng Cử nhân về Ngoại ngữ của Đại học Ngoại ngữ Hà Nội và
+                        bằng Cử nhân về Ngân hàng của Đại học Kinh tế Quốc dân Hà Nội.</p>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript">

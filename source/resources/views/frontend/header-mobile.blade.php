@@ -15,18 +15,18 @@
                             <li class="child"><a href="{{ route('frontend.doitac') }}">Đối tác của chúng tôi</a></li>
                         </ul>
                     </li>
-                    <li class="parent"><a href="{{ route('frontend.giaiphapdautu') }}">Giải pháp đầu tư</a></li>
-                    <li class="parent has-child"><a href="#">Kiến thức tài chính</a></li>
+                    <li class="parent"><a href="{{ route('frontend.giaiphapdautu') }}">Giải pháp kinh doanh</a></li>
+                    <li class="parent has-child"><a href="#">Tin tức</a></li>
                     <li>
                         <ul>
-                            <li class="child"><a href="{{ route('frontend.dautu') }}">Đầu tư</a></li>
-                            <li class="child"><a href="{{ route('frontend.quanlytaichinhcanhan') }}">Quản lý tài chính cá nhân</a></li>
+                            <li class="child"><a href="{{ route('frontend.dautu') }}">Tin doanh nghiệp</a></li>
+                            <li class="child"><a href="{{ route('frontend.quanlytaichinhcanhan') }}">Tin thị trường</a></li>
                         </ul>
                     </li>
                     <li class="parent has-child"><a href="#">Quan hệ nhà đầu tư</a></li>
                     <li>
                         <ul>
-                            <li class="child"><a href="{{ route('frontend.baocaotaichinh') }}">Báo cáo tài chính</a></li>
+                            <li class="child"><a href="{{ route('frontend.baocaotaichinh') }}">Báo cáo dự án</a></li>
                             <li class="child"><a href="{{ route('frontend.hoidap') }}">Hỏi đáp</a></li>
                         </ul>
                     </li>

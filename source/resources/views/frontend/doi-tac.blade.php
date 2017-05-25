@@ -26,7 +26,14 @@
     </div>
     <div class="doi-tac">
         <div class="cover-title-dau-tu">
-            <h3 class="title-item-dau-tu">ĐỐI TÁC ĐẦU TƯ</h3>
+            <h3 class="title-item-dau-tu">ĐỐI TÁC KINH DOANH</h3>
+        </div>
+        <div class="branch-kinh-doanh">
+            <img src="{{ url('assets/frontend/images/logo-herbs.png')}}"/>
+            <img src="{{ url('assets/frontend/images/logo-eximbank.png')}}"/>
+            <img src="{{ url('assets/frontend/images/logo-matbao.png')}}"/>
+            <img src="{{ url('assets/frontend/images/logo-prudential.png')}}"/>
+            <img src="{{ url('assets/frontend/images/logo-nhatnam.png')}}"/>
         </div>
     </div>
 @stop

@@ -6,7 +6,7 @@
 
 <div class="form-wrap col-md-5 auth-form" id="login">
     <div style="text-align: center; margin-bottom: 25px;">
-        <img src="{{ url('assets/img/logo.png') }}" alt="{{ settings('app_name') }}">
+        <a href="http://hoangsanggroup.com"><img src="{{ url('assets/img/logo.png') }}" alt="{{ settings('app_name') }}"></a>
     </div>
 
     {{-- This will simply include partials/messages.blade.php view here --}}

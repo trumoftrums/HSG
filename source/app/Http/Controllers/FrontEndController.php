@@ -25,7 +25,7 @@ class FrontEndController extends Controller
      */
     private $activities;
 
-    const perpage = 10;
+    const perpage = 9;
     /**
      * DashboardController constructor.
      * @param UserRepository $users
@@ -53,7 +53,7 @@ class FrontEndController extends Controller
         $listNewsTuyendung = News::where('status', News::STATUS_ACTIVED)
             ->where('type', News::TYPE_TD)
             ->orderBy('created_at', 'desc')
-            ->limit(4)
+            ->limit(3)
             ->get();
         return view('frontend.tuyen-dung', compact('listNewsTuyendung'));
     }
