@@ -596,17 +596,18 @@
 .content-right .cong-bo-thong-tin .item-congbothongtin .item-congbothongtin-download{
     float: left;
     width: 50%;
-    margin: 5px 0px;
+    margin: 20px 0px;
 }
 .content-right .cong-bo-thong-tin .item-congbothongtin .item-congbothongtin-download img{
     float: left;
-    width: 35px;
+    width: 50px;
     margin-right: 5px;
 }
 .content-right .cong-bo-thong-tin .item-congbothongtin .item-congbothongtin-download a{
     float: left;
     width: 100%;
     color: #2d2d2d;
+    font-size: 15px;
 }
 .content-right .cong-bo-thong-tin .item-congbothongtin .cover-list-item-congbo{
     float: left;
